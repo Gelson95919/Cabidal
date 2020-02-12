@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_list_historico_reembolso_report">
+            <field name="name">paperformat.Historico Reembolso.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="historico_reembolso_report"
+                model="historico.reembolso"
+                string="Listagem de Historico Reembolso"
+                name="gestao_relatorio.listagem_historico_reembolso_view"
+                file="gestao_relatorio.historico_reembolso_form"
+                paperformat="paperformat_list_historico_reembolso_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="listagem_historico_reembolso_view">
+            <t t-call="web.html_container">
+
+                <t t-call="web.external_layout">
+                    <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <strong>
+                            <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                        </strong>
+                    </div>
+                    <div style="border:1px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                        <strong>
+                            <p>
+                                <h3>
+                                    LISTAGEM HISTÓRICO DE REEMBOLSO
+                                </h3>
+                            </p>
+                        </strong>
+                    </div>
+                    <div style="border:0px">
+                        <t t-foreach="dados_emprest" t-as="dc">
+                            <div style="border:0px solid black; padding: 2px;  width:100%;  height: 30px; margin-top: 30px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div style="border:1px solid black; text-center; margin-left: -2px; padding: 1px; margin-top: -2px; width:11%; height: 30px;">
+                                    <p>
+                                        Emprestimo
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: -2px; width:9%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['valor_total']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Capital
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-right"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['amotizacao']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Juros
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-right"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['juros']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Nº Meses
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-right"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['numero_prestacoes']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Comição
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-right"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:12%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['valor']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black; padding: 2px;  width:100%;  height: 30px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black; margin-left: -2px; padding: 1px; margin-top: -2px; width:11%; height: 30px;">
+                                    <p>
+                                        Nº Cliente
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: -2px; width:9%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['codigo_cliente']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:10%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Cliente
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-left"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:40%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['name_prop']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:141px; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Data Desembolso
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-right"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:15%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['date_start']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black; padding: 2px;  width:100%;  height: 30px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black; margin-left: -2px; padding: 1px; margin-top: -2px; width:11%; height: 30px;">
+                                    <p>
+                                        Agente
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-left"
+                                     style="border:1px solid black;  padding: -2px; width:40%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            <span t-esc="dc['name_agente']"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:12%; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        Financiador
+                                    </p>
+                                </div>
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black; margin-left: -1px; padding: -2px; width:325px; height: 30px; margin-top: -2px;">
+                                    <p>
+                                        <strong>
+                                            Solmi
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div style="border:1px solid black; ; border-right:0px; ; border-left:0px; width:100%; margin-left: -1px; height: 25px; margin-top:20px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                        <div class="text-left"
+                             style="border-right:0px  solid black; padding: 2px; color:red; margin-top: -1px; margin-left: 1px;  width:100px;">
+                            <p>Nº</p>
+                        </div>
+                        <div class="text-left"
+                             style="border:0px solid black; padding: 2px; color:red; margin-top: -1px; margin-left: -1px; width:100px;">
+                            <p>Data</p>
+                        </div>
+                        <div class="text-center"
+                             style="border:0px solid black; padding: 2px; color:red; margin-top: -1px; margin-left: 50px; width:100px;">
+                            <p>Prestação</p>
+                        </div>
+                        <div class="text-center"
+                             style="border:0px solid black; padding: 2px; color:red; margin-top: -1px; margin-left: 50px; width:100px;">
+                            <p>Juro</p>
+                        </div>
+                        <div class="text-center"
+                             style="border:0px solid black; padding: 2px; color:red; margin-top: -1px; margin-left: 60px; width:100px;">
+                            <p>Amortização</p>
+                        </div>
+                        <div class="text-center"
+                             style="border:0px solid black; padding: 2px; color:red; margin-top: -1px; margin-left: 60px; width:100px;">
+                            <p>Divida</p>
+                        </div>
+                    </div>
+                    <div style="border:0px">
+                        <table style="width: 100%">
+                            <tbody>
+                                <t t-foreach="docs" t-as="ht">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="ht['numer_prest']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="ht['data_documento']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="ht['prestacao']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="ht['juro_jerado']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="ht['amortizacao']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="ht['divida']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

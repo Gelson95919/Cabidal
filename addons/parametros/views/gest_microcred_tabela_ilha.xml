@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ilha_form" model="ir.ui.view">
+            <field name="name">Ilha</field>
+            <field name="model">ilha</field>
+            <field name="arch" type="xml">
+                <form string="Ilha">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="codigo"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="pais"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ilha_tree" model="ir.ui.view">
+            <field name="name">Ilha</field>
+            <field name="model">ilha</field>
+            <field name="arch" type="xml">
+                <tree string="Ilha">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_ilha_codigo" model="ir.sequence">
+            <field name="name">Ilha</field>
+            <field name="code">ilha</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="ilha_act_window" model="ir.actions.act_window">
+            <field name="name">Ilha</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ilha</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Ilha.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ilha) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="ilha_menu" name="Ilha" parent="fastgest_gest_microcred_tabelas" action="ilha_act_window"
+                  sequence="80"/>
+    </data>
+</odoo>

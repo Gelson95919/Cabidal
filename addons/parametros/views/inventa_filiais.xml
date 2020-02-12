@@ -1,0 +1,41 @@
+<odoo>
+   <data>
+    <record id="form_all_fil" model="ir.ui.view">
+        <field name="name">Todus filiais </field>
+        <field name="model">filiais.filiais</field>
+        <field name="arch" type="xml">
+           <form string="Filiais">
+              <sheet>
+                <div>
+                   <label for="title" string="Descrição"/>
+                   <field name="name" style="width:940px"/>
+                </div>
+              </sheet>
+           </form>
+        </field>
+    </record>
+    <record id="form_all_iva_tree_view" model="ir.ui.view">
+        <field name="name">filiais.tree.view </field>
+        <field name="model">filiais.filiais</field>
+        <field name="arch" type="xml">
+          <tree >
+             <field name="name"/>
+
+          </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="parametros.action_window_fil">
+      <field name="name"> Filiais </field>
+      <field name="res_model">filiais.filiais</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Filial.
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Filial) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name="Filiais" id="parametros.menu_filia" parent="fastgest_imveta"  action="parametros.action_window_fil"/>
+   </data>
+</odoo>

@@ -1,0 +1,41 @@
+
+<odoo>
+  <data>
+
+
+        <record model="ir.ui.view" id="session__view">
+            <field name="name">selecao.pai</field>
+            <field name="model">selecao.pai</field>
+            <field name="arch" type="xml">
+               <form>
+                  <sheet>
+                    <group>
+                      <group>
+                          <field name="name"/>
+                          <field name="morada"/>
+                      </group>
+                      <group>
+                        <field name="apelido"/>
+                        <field name="telefone"/>
+                      </group>
+                    </group>
+                  </sheet>
+               </form>
+            </field>
+       </record>
+
+
+
+       <record model="ir.actions.act_window" id="selecao_pai">
+            <field name="name">selecao Pae</field>
+            <field name="res_model">selecao.pai</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+
+
+       <menuitem id="selecaofil_pai_id" name="selecao Pai" parent="gestao_compras.menu_concit_comp"
+              action="selecao_pai"/>
+
+  </data>
+</odoo>

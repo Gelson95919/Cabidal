@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="funcionario_form" model="ir.ui.view">
+           <field name="name">Funcionário</field>
+           <field name="model">funcionario.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Funcionário">
+                   <sheet>
+                       <group>
+                           <div>
+                             <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                           </div>
+                       </group>
+                       <div class="oe_title">
+                        <h1>
+                          <field name="name" default_focus="1" placeholder="Nome" style="width:560"/>
+                        </h1>
+                     </div>
+                     <div>
+                         <notebook>
+                             <page string="Dados">
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Morada" style="width:90px"/>
+                                     <field name="morada" style="width:700px"/>
+                                     <label for="title" style="width:260px" string="" />
+                                     <label for="title" string="Localidade" style="width:90px"/>
+                                     <field name="localidade" style="width:700px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Código Postal"/>
+                                     <field name="codigo_posta" style="width:260px"/>
+                                     <label for="title" style="width:105px" string="" />
+                                     <label for="title" string="Número" style="width:70px"/>
+                                     <field name="numero" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Telefone" style="width:85px"/>
+                                     <field name="telefone" style="width:260px"/>
+                                     <label for="title" style="width:105px" string=""/>
+                                     <label for="title" string="Telemóvel" style="width:70px"/>
+                                     <field name="telemovel" style="width:260px"/>
+                                 </div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Filiação________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Pai" style="width:105px"/>
+                                     <field name="pai" style="width:700px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Mãe" style="width:105px"/>
+                                     <field name="mae" style="width:700px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Data Nascimento"/>
+                                     <field name="data_nascimento" style="width:260px"/>
+                                     <label for="title" style="width:100px" string=""/>
+                                     <label for="title" string="Sexo" style="width:85px"/>
+                                     <field name="sexo" style="width:260px" widget="radio" options="{'horizontal':true}"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Estado Civil" style="width:105px"/>
+                                     <field name="estado_civil" style="width:260px"/>
+                                     <label for="title" style="width:100px" string=""/>
+                                     <label for="title" string="Concelho" style="width:70px"/>
+                                     <field name="concelho" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Nacionalidade" style="width:105px"/>
+                                     <field name="nacionalidade" style="width:260px"/>
+                                 </div>
+                             </page>
+                             <page string="Dados Fiscais">
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Bilhete de Identidade______________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Número" style="width:80px"/>
+                                     <field name="numero_dados_fiscais" style="width:260px"/>
+                                     <label for="title" style="width:160px" string=""/>
+                                     <label for="title" string="Data" style="width:100px"/>
+                                     <field name="data" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="L.Emissão" style="width:80px"/>
+                                     <field name="l_emissao" style="width:260px"/>
+                                 </div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Dados Fiscais____________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Repartição Finanças" style="width:130px"/>
+                                     <field name="reprticao_financas" style="width:260px"/>
+                                     <label for="title" style="width:105px" string=""/>
+                                     <label for="title" string="IUR" style="width:100px"/>
+                                     <field name="tabela_iur" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="NIF" style="width:130px"/>
+                                     <field name="nif" style="width:260px"/>
+                                     <label for="title" style="width:105px" string=""/>
+                                     <label for="title" string="NIF Conjugue" style="width:100px"/>
+                                     <field name="nif_conjugue" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Conjugue" style="width:135px"/>
+                                     <field name="conjugue" style="width:730px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Entidade Patronal" style="width:135px"/>
+                                     <field name="entidade_patronal" style="width:730px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Filhos" style="color:Blue; font-weight: bold;"/>
+                                     <field name="filhos_ids">
+                                         <tree editable="bottomn" string="Tree">
+                                            <field name="name" style="width:412px"/>
+                                             <field name="data_nascimento"/>
+                                            <field name="numero_bilhete_identidade"/>
+                                         </tree>
+                                     </field>
+                                 </div>
+                             </page>
+                             <page string="Arquivos">
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Ingresso_________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Situações" style="width:100px"/>
+                                     <field name="situacoes" style="width:780px"/>
+                                     <label for="title" string="" style="width:5px"/>
+                                     <label for="title" string="Disponibilidade" />
+                                     <field name="disponibilidade" style="width:100px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Tipo Documento"/>
+                                     <field name="tipo_docum" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Número"/>
+                                     <field name="numero_arquivo" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Data Inicio" style="width:100px"/>
+                                     <field name="data_inicio" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Data Fim"/>
+                                     <field name="data_fim" style="width:260px"/>
+                                 </div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Demissão_________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Data" style="width:100px"/>
+                                     <field name="data_emisao" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Motivo"/>
+                                     <field name="motivo" style="width:260px"/>
+                                 </div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Historia____________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <field name="historial_ids">
+                                         <tree editable="bottomn" string="hist">
+                                            <field name="data"/>
+                                            <field name="name" style="width:412px"/>
+                                            <field name="documento"/>
+                                            <field name="notas"/>
+                                         </tree>
+                                     </field>
+                                 </div>
+                             </page>
+                             <page string="Pessoal">
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Quadro Pessoal__________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                  <div>
+                                     <label for="title" string="Profissão" style="width:100px"/>
+                                     <field name="proficao_id" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Categoria Proficional"/>
+                                     <field name="catigoria_proficional_id" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Habilitações literária" style="width:100px"/>
+                                     <field name="habilitacoes_literaria_id" style="width:260px"/>
+                                 </div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div><label for="title" string="Instruções_________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Seguros" style="width:100px"/>
+                                     <field name="seguros_id" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Segurança Social"/>
+                                     <field name="segu_social_id" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Numero Segurado" style="width:105px"/>
+                                     <field name="numero_seguro" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Sindicato" style="width:100px"/>
+                                     <field name="sindicato_id" style="width:260px"/>
+                                 </div>
+                             </page>
+                             <page string="Salário">
+                                <div><label for="title" string="" style="width:20px"/> </div>
+                                <div><label for="title" string="Processamento__________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                <div><label for="title" string="" style="width:20px"/> </div>
+                                <div>
+                                     <label for="title" string="Instromento" style="width:105px"/>
+                                     <field name="intrumento_id" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Modo Process" style="width:100px"/>
+                                     <field name="modo_process" style="width:260px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Horas Semanas" style="width:105px"/>
+                                    <field name="horas_semanas" style="width:260px"/>
+                                </div>
+                                <div><label for="title" string="" style="width:20px"/> </div>
+                                <div><label for="title" string="Remunerações_____________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                <div><label for="title" string="" style="width:20px"/></div>
+                                <div>
+                                   <field name="remuneracoes_salari_ids">
+                                       <tree editable="bottomn" string="remun">
+                                          <field name="remuneracoes_id"/>
+                                          <field name="descre_remuner" style="width:412px"/>
+                                          <field name="valor"/>
+                                       </tree>
+                                   </field>
+                                </div>
+                                <div><label for="title" string="" style="width:20px"/> </div>
+                                <div><label for="title" string="Descontos________________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                                <div><label for="title" string="" style="width:20px"/></div>
+                                <div>
+                                   <field name="descont_salari_ids">
+                                       <tree editable="bottomn" string="descont">
+                                          <field name="descont_id"/>
+                                          <field name="descre_descont" style="width:412px"/>
+                                          <field name="valor"/>
+                                          <field name="terceiro"/>
+                                       </tree>
+                                   </field>
+                                </div>
+                                <header>
+                                  <button name="(remuner_descont_presta_fom)d" type="object" string="Prest." />
+                                </header>
+                             </page>
+                             <page string="Pagamento">
+                                 <div><label for="title" string="" style="width:20px"/> </div>
+                                 <div>
+                                     <label for="title" string="Modo Pagamento" style="width:125px"/>
+                                     <field name="modo_pagamento" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Conta Empresa" style="width:105px"/>
+                                     <field name="meio_monetario_id" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Conta Trabalhador" style="width:125px"/>
+                                     <field name="conta_trabalhador" style="width:260px"/>
+                                     <label for="title" string="" style="width:200px"/>
+                                     <label for="title" string="Banco" style="width:105px"/>
+                                     <field name="banco_id" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Departamento/Area" style="width:125px"/>
+                                     <field name="departamento_id" style="width:260px"/>
+                                 </div>
+                                 <div>
+                                     <label for="title" string="Notas" style="width:105px"/>
+                                 </div>
+                                 <div>
+                                     <field name="notas"/>
+                                 </div>
+                             </page>
+                         </notebook>
+                     </div>
+                     <header>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                     </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="funcionario_tree" model="ir.ui.view">
+           <field name="name">Funcionário</field>
+           <field name="model">funcionario.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Funcionário">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="funcionario_act_window" model="ir.actions.act_window">
+           <field name="name">Funcionário</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">funcionario.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Funcionário.
+                </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Funcionário ) para projetos internos, pessoais ou de clientes.
+                </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="funcionario_menu" name="Funcionário" groups = "grupo_seguranca.group_user" parent="menu_remuneracoes" action="funcionario_act_window" sequence="80"/>
+    </data>
+</odoo>

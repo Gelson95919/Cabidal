@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_list_mov_int">
+            <field name="name">Listagem Movimento Interno</field>
+            <field name="model">listagem.movimento.interno</field>
+            <field name="arch" type="xml">
+                <form string="Listagem Movimento Interno">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight" icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem de Movimento Interno"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="De" style="width:25px"/>
+                            <field name="date_start"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Ate" style="width:25px"/>
+                            <field name="date_end"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_lista_mov_int">
+            <field name="name">Listagem Movimento Interno</field>
+            <field name="res_model">listagem.movimento.interno</field>
+            <field name="view_id" ref="form_all_list_mov_int"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Listagem .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de listagem) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Listagem de Movimento Interno"  id="menu_lista_list_mov_int" parent="gestao_tesouraria.menu_2"
+                  action="action_window_lista_mov_int"/>
+    </data>
+</odoo>

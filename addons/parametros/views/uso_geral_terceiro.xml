@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="form_all_terce" model="ir.ui.view">
+            <field name="name">Terceiros</field>
+            <field name="model">terceiro.terceiro</field>
+            <field name="arch" type="xml">
+                <form string="Terceiros">
+
+                    <sheet>
+                        <group>
+                            <div>
+                                <field name="image" widget="image" class="oe_avatar"
+                                       options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                            </div>
+                        </group>
+                        <div class="oe_title">
+
+                            <h1>
+                                <field name="codigo" readonly="1"  style="width:50px"/>
+                                <label for="street" string=" "  style="width:30px"/>
+                                <field name="name" default_focus="1" placeholder="Nome" style="width:500px"/>
+                            </h1>
+                            <field name="tipo" invisible="1"/>
+                        </div>
+
+                        <notebook name="studio_notebook_S8ebf">
+                            <page name="studio_page_9esJy" string="Dados">
+                                <group name="studio_group_F8TTh">
+                                    <group name="studio_group_F8TTh_left">
+
+                                        <label for="street" string="Endereço"/>
+                                        <div class="o_address_format">
+                                            <field name="street" placeholder="Rua..." class="o_address_street"/>
+                                            <field name="street2" placeholder="Rua 2..." class="o_address_street"/>
+                                            <field name="city" placeholder="Cidade" class="o_address_city"/>
+                                            <field name="state_id" class="o_address_state" placeholder="Estado"
+                                                   options="{&quot;no_open&quot;: True}"/>
+                                            <field name="zip" placeholder="Codigo" class="o_address_zip"/>
+                                            <field name="country_id" placeholder="Pais" class="o_address_country"
+                                                   options="{&quot;no_open&quot;: True}"/>
+                                        </div>
+                                        <field name="Slogan" placeholder="Soluções Globais de Negócios"/>
+                                        <field name="website" widget="url" placeholder="e.g. www.Cabosys.cv"/>
+
+
+                                    </group>
+                                    <group name="studio_group_F8TTh_right">
+                                        <field name="telefone_pessoa"/><!-- widget="phone"-->
+                                        <field name="fixo_pessoa"/><!-- widget="phone"-->
+                                        <field name="email" widget="email"/>
+
+
+                                        <field name="nif_pessoa"/>
+                                        <field name="nib"/>
+                                    </group>
+                                    <field name="report_footer" placeholder="e.g. Suas contas bancárias, uma por linha"/>
+                                </group>
+                            </page>
+
+
+                            <page name="studio_page_OE3jS" string="Comercial" attrs="{'invisible': [('tipo','!=', 'terceiro')]}">
+                                <div>
+                                    <label for="title" string="" style="width:120px"/>
+                                </div>
+                                <!--<field name="description" style="width:750px"/>-->
+                                <div name="studio_group_OE3jS_left">
+                                    <field name="clientes"/>
+                                    <label for="title" string="Clientes"/>
+                                    <label for="title" string="" style="width:250px"/>
+                                    <label for="title" string="Condição Pagamento" style="width:160px"/>
+                                    <field name="condicao_pagamento" style="width:260px"/>
+                                </div>
+                                <div>
+                                    <field name="fornecedores"/>
+                                    <label for="title" string="Fornecidores"/>
+                                    <label for="title" string="" style="width:220px"/>
+                                    <label for="title" string="Moeda" style="width:160px"/>
+                                    <field name="moeda_id" style="width:260px"/>
+                                </div>
+                                <div>
+                                    <field name="trabalhadores"/>
+                                    <label for="title" string="Trabalhadores"/>
+                                </div>
+                                <div>
+                                    <field name="socios"/>
+                                    <label for="title" string="Socios"/>
+                                </div>
+                                <div>
+                                    <field name="entidades_estatais"/>
+                                    <label for="title" string="Entidades Estatais"/>
+                                </div>
+                            </page>
+                            <page name="studio_page_SFFPF" string="Fiscal" attrs="{'invisible': [('tipo','!=', 'terceiro')]}">
+                                <group name="studio_group_SFFPF">
+                                    <group name="studio_group_SFFPF_left">
+                                        <div class="oe_inline">
+                                            <field name="fiscal_lins">
+                                                <tree editable="bottom" string="Taxes">
+                                                    <field name="tipo"/>
+                                                    <field name="conta"/>
+                                                    <field name="diario"/>
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </group>
+                                    <group name="studio_group_SFFPF_right"/>
+                                </group>
+                            </page>
+                            <page name="studio_page_SGFPF" string="Filiais/Delegações" attrs="{'invisible': [('tipo','!=', 'terceiro')]}">
+                                <div>
+                                    <label for="title" string="" style="width:120px"/>
+                                </div>
+                                <div>
+                                    <field name="controlo_subc"/>
+                                    <label for="title" string="Activar Controlo Subcidiario"/>
+                                </div>
+                                <div name="studio_group_SFFPF_left">
+                                    <div class="oe_inline">
+                                        <field name="filiais" style="width:450px">
+                                            <tree editable="bottom" string="Taxes">
+                                                <field name="cod"/>
+                                                <field name="name1"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="first_terc_item" model="terceiro.terceiro">
+            <field name="receb_pess">False</field>
+            <field name="name">Cabosys</field>
+            <field name="codigo">000</field>
+            <field name="nif_pessoa">999999999</field>
+            <field name="fixo_pessoa">9591972</field>
+            <field name="controlo">false</field>
+            <field name="telefone_pessoa">9591972</field>
+        </record>
+        <record id="form_all_terce_tree_view" model="ir.ui.view">
+            <field name="name">Todus.Terceiros.tree.view</field>
+            <field name="model">terceiro.terceiro</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="telefone_pessoa"/>
+                    <field name="fixo_pessoa"/>
+                    <field name="email"/>
+                    <field name="country_id"/>
+                    <field name="nif_pessoa"/>
+                    <field name="nib"/>
+                    <field name="street2"/>
+                    <field name="city"/>
+                    <field name="mud_id"/>
+                    <field name="id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_all_terce_search_view" model="ir.ui.view">
+            <field name="name">Todus.Terceiros.search.view</field>
+            <field name="model">terceiro.terceiro</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="codigo"/>
+                    <field name="id"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_terc_kanban">
+            <field name="name">Terceiros</field>
+            <field name="model">terceiro.terceiro</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="image"/>
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="phone"/>
+                    <field name="fax"/>
+                    <field name="email"/>
+                    <field name="street2"/>
+                    <field name="city"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('terceiro.terceiro', 'image', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                        <small t-if="record.phone">[<field name="telefone_pessoa"/>]
+                                        </small>
+                                    </strong>
+                                    <div>
+                                        <strong>
+                                            <!--<t t-esc="record.phone"/>-->
+                                        </strong>
+                                    </div>
+                                    <div name="tags"/>
+                                    <ul>
+                                         <li>ID:
+                                            <field name="id"></field>
+                                        </li>
+                                        <li>Email:
+                                            <field name="email"></field>
+                                        </li>
+                                        <li>Pais:
+                                            <field name="country_id"></field>
+                                        </li>
+                                    </ul>
+                                    <div name="tags"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="terc_codigo" model="ir.sequence">
+            <field name="name">Terceiro</field>
+            <field name="code">terceiro.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_terc">
+            <field name="name">Terceiro</field>
+            <field name="res_model">terceiro.terceiro</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('controlo','=',False)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Terceiro.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Terceiros) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Terceiros" id="parametros.menu_terc" parent="parametros.menu_Uso_Geral"
+                  action="parametros.action_window_terc"/>
+    </data>
+</odoo>
+
+

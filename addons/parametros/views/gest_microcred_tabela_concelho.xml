@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="concelho_form" model="ir.ui.view">
+            <field name="name">Concelho</field>
+            <field name="model">concelho.concelho</field>
+            <field name="arch" type="xml">
+                <form string="Concelho">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="codigo"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="ilha"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="concelho_tree" model="ir.ui.view">
+            <field name="name">Concelho</field>
+            <field name="model">concelho.concelho</field>
+            <field name="arch" type="xml">
+                <tree string="Concelho">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <!--<record id="concelho1" model="concelho.concelho">
+            <field name="codigo">11</field>
+            <field name="ilha">1</field>
+            <field name="name">Ribeira Grande</field>
+        </record>
+        <record id="concelho2" model="concelho.concelho">
+            <field name="codigo">12</field>
+            <field name="ilha">1</field>
+            <field name="name">Paul</field>
+        </record>
+        <record id="concelho3" model="concelho.concelho">
+            <field name="codigo">13</field>
+            <field name="ilha">1</field>
+            <field name="name">Porto Novo</field>
+        </record>
+        <record id="concelho4" model="concelho.concelho">
+            <field name="codigo">21</field>
+            <field name="ilha">2</field>
+            <field name="name">S.Vicente</field>
+        </record>
+        <record id="concelho5" model="concelho.concelho">
+            <field name="codigo">31</field>
+            <field name="ilha">3</field>
+            <field name="name">Ribeira Brava</field>
+        </record>
+        <record id="concelho6" model="concelho.concelho">
+            <field name="codigo">32</field>
+            <field name="ilha">3</field>
+            <field name="name">Tarrafal de S.Nicolau</field>
+        </record>
+        <record id="concelho7" model="concelho.concelho">
+            <field name="codigo">41</field>
+            <field name="ilha">4</field>
+            <field name="name">Sal</field>
+        </record>
+        <record id="concelho8" model="concelho.concelho">
+            <field name="codigo">51</field>
+            <field name="ilha">5</field>
+            <field name="name">Boavista</field>
+        </record>
+        <record id="concelho9" model="concelho.concelho">
+            <field name="codigo">61</field>
+            <field name="ilha">6</field>
+            <field name="name">Maio</field>
+        </record>
+        <record id="concelho10" model="concelho.concelho">
+            <field name="codigo">71</field>
+            <field name="ilha">7</field>
+            <field name="name">Tarafal</field>
+        </record>
+        <record id="concelho11" model="concelho.concelho">
+            <field name="codigo">72</field>
+            <field name="ilha">7</field>
+            <field name="name">Santa Cataria</field>
+        </record>
+        <record id="concelho12" model="concelho.concelho">
+            <field name="codigo">73</field>
+            <field name="ilha">7</field>
+            <field name="name">Santa Cruz</field>
+        </record>
+        <record id="concelho13" model="concelho.concelho">
+            <field name="codigo">74</field>
+            <field name="ilha">7</field>
+            <field name="name">Praia</field>
+        </record>
+        <record id="concelho14" model="concelho.concelho">
+            <field name="codigo">75</field>
+            <field name="ilha">7</field>
+            <field name="name">S.Domingos</field>
+        </record>
+        <record id="concelho15" model="concelho.concelho">
+            <field name="codigo">76</field>
+            <field name="ilha">7</field>
+            <field name="name">Calheta de S.Miguel</field>
+        </record>
+        <record id="concelho16" model="concelho.concelho">
+            <field name="codigo">77</field>
+            <field name="ilha">7</field>
+            <field name="name">S.Salvador do Mundo</field>
+        </record>
+        <record id="concelho17" model="concelho.concelho">
+            <field name="codigo">78</field>
+            <field name="ilha">7</field>
+            <field name="name">S.Lourenço dos Órgãos</field>
+        </record>
+        <record id="concelho18" model="concelho.concelho">
+            <field name="codigo">79</field>
+            <field name="ilha">7</field>
+            <field name="name">Ribeiro Grande de Santiago</field>
+        </record>
+        <record id="concelho19" model="concelho.concelho">
+            <field name="codigo">81</field>
+            <field name="ilha">8</field>
+            <field name="name">Mosteiros</field>
+        </record>
+        <record id="concelho20" model="concelho.concelho">
+            <field name="codigo">82</field>
+            <field name="ilha">8</field>
+            <field name="name">S.Filipe</field>
+        </record>
+        <record id="concelho21" model="concelho.concelho">
+            <field name="codigo">83</field>
+            <field name="ilha">8</field>
+            <field name="name">Santa Catarina do Fogo</field>
+        </record>
+        <record id="concelho22" model="concelho.concelho">
+            <field name="codigo">91</field>
+            <field name="ilha">9</field>
+            <field name="name">Brava</field>
+        </record>
+        <record id="sequ_concelho_codigo" model="ir.sequence">
+            <field name="name">Concelho</field>
+            <field name="code">concelho.concelho</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>-->
+        <record id="concelho_act_window" model="ir.actions.act_window">
+            <field name="name">Concelho</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">concelho.concelho</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Concelho.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Concelho) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="concelho_menu" name="Concelho" parent="fastgest_gest_microcred_tabelas"
+                  action="concelho_act_window" sequence="80"/>
+    </data>
+</odoo>

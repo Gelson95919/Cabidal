@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="remuner_descont_presta_fom" model="ir.ui.view">
+           <field name="name">Desconto Por Prestações</field>
+           <field name="model">remuner.desconto.prestacoes</field>
+           <field name="arch" type="xml">
+               <form string="Desconto Por Prestações">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Número" style="width:105px"/>
+                           <field name="numero" style="width:100px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Tipo" style="width:105px"/>
+                           <field name="tipo" style="width:260px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Data Inicio" style="width:105px"/>
+                           <field name="data_inicio" style="width:260px"/>
+                       </div>
+                       <div>
+                          <label for="title" string="Número Prestação" style="width:105px"/>
+                          <field name="numero_prestacao" style="width:260px"/>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Montante" style="width:105px"/>
+                          <field name="montante" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="A Descontar" style="width:105px"/>
+                          <field name="a_descontar" style="width:260px"/>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Valor Descontado" style="width:105px"/>
+                          <field name="valor_descontado" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Desconto Associado" style="width:105px"/>
+                          <field name="descont_assoc_id" style="width:400px"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="remuner_descont_presta_tree" model="ir.ui.view">
+           <field name="name">Desconto Por Prestações</field>
+           <field name="model">remuner.desconto.prestacoes</field>
+           <field name="arch" type="xml">
+               <tree string="Desconto Por Prestações">
+                   <field name="numero"/>
+                   <field name="montante"/>
+                   <field name="tipo"/>
+                   <field name="data_inicio"/>
+                   <field name="a_descontar"/>
+                   <field name="valor_descontado"/>
+                   <field name="descont_assoc_id"/>
+               </tree>
+           </field>
+       </record>
+       <record id="remuner_descont_presta_act_window" model="ir.actions.act_window">
+           <field name="name">Desconto Por Prestações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">remuner.desconto.prestacoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="remuner_descont_presta_menu" name="Desconto Por Prestações" parent="fastgest_remuneracoe_dados_processo" action="remuner_descont_presta_act_window" sequence="80"/>
+    </data>
+</odoo>

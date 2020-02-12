@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="habitacoes_form" model="ir.ui.view">
+           <field name="name">Habitações</field>
+           <field name="model">habitacoes.habitacoes</field>
+           <field name="arch" type="xml">
+               <form string="Habitações">
+                   <sheet>
+                     <group>
+                         <group>
+                           <field name="name"/>
+                       </group>
+                       <group>
+                           <field name="numero"/>
+                       </group>
+                     </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="habitacoes_tree" model="ir.ui.view">
+           <field name="name">Habitações</field>
+           <field name="model">habitacoes.habitacoes</field>
+           <field name="arch" type="xml">
+               <tree string="Habitações">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="habitacoes_act_window" model="ir.actions.act_window">
+           <field name="name">Habitações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">habitacoes.habitacoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+              Criar um novo Habitações.
+             </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Habitações) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="habitacoes_menu" name="Habitações" parent="fastgest_hotel" action="habitacoes_act_window" sequence="80"/>
+    </data>
+</odoo>

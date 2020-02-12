@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="modulo_teste_form" model="ir.ui.view">
+            <field name="name">se service</field>
+            <field name="model">se.service</field>
+            <field name="arch" type="xml">
+                <form string="Modulo Teste">
+                    <sheet>
+                        <header>
+                            <button name="create_apple" string="Create Apple" type="object" class="btn-primary"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="service_name"/>
+                                <field name="service_description"/>
+                            </group>
+                            <group>
+                                <field name="service_remarks"/>
+                                <field name="service_methodology"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="modulo_teste_tree" model="ir.ui.view">
+            <field name="name">se service</field>
+            <field name="model">se.service</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="service_name"/>
+                    <field name="service_description"/>
+                    <field name="service_remarks"/>
+                    <field name="service_methodology"/>
+                </tree>
+            </field>
+        </record>
+        <record id="modulo_teste_act_window" model="ir.actions.act_window">
+            <field name="name">se service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">se.service</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="modulo_teste_menu" name="Modulo Teste" parent="gestao_tesouraria.menu_1"
+                  action="modulo_teste_act_window" sequence=""/>
+
+    </data>
+</odoo>

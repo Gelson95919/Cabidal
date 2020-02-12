@@ -1,0 +1,48 @@
+<odoo>
+   <data>
+       <record id="form_all_tipprop" model="ir.ui.view">
+           <field name="name">Tipo Propiedade </field>
+           <field name="model">tipopropiedade.tipopropiedade</field>
+           <field name="arch" type="xml">
+                 <form string="Filiais">
+                    <sheet>
+                        <div>
+                          <label for="title" string="Descrição"/>
+                          <field name="name" style="width:500px"/>
+                        </div>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div>
+                           <field name="permite_public_em_armanze"/>
+                           <label for="title" string="Permite Duoplicar em Armazem" style="width:300px"/>
+                           <field name="propiedade_com_tabela_associada"/>
+                           <label for="title" string="Propiedade com Tabela Associada"/>
+                        </div>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div class="oe_inline">
+                            <field name="associa" style="width:550px">
+                                <tree editable="bottom" string="Taxes">
+                                    <field name="cod"/>
+                                    <field name="desc" />
+                                </tree>
+                             </field>
+                        </div>
+                    </sheet>
+                 </form>
+           </field>
+       </record>
+       <record model="ir.actions.act_window" id="parametros.action_window_tipo_prop">
+         <field name="name"> Tipo Propiedade </field>
+         <field name="res_model">tipopropiedade.tipopropiedade</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Tipo Propiedade.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Propiedade) para projetos internos, pessoais ou de clientes.
+             </p>
+         </field>
+       </record>
+                         <!--Abre Terceiro>-->
+       <menuitem name="Tipo Propiedade" id="parametros.menu_tipo_prop" parent="fastgest_imveta" action="parametros.action_window_tipo_prop"/>
+   </data>
+</odoo>

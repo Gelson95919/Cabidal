@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="actualizar_razoa_form_view" model="ir.ui.view">
+           <field name="name">Actualizar.razao.form</field>
+           <field name="model">actualizar.razao</field>
+           <field name="arch" type="xml">
+               <form string="Actualização do Razão">
+                   <sheet>
+                       <div><label for="title" string="ACTUALIZAÇÃO DO RAZÃO"/></div>
+                       <label for="title" style="width:450px" string=""/>
+                       <div>
+                         <label for="title" string="Periodo"/>
+                         <field name="periodo" style="width:260px"/>
+                         <label for="title" style="width:450px" string=""/>
+                         <label for="title" string="Diário"/>
+                         <field name="diario" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div><label for="title" string="Opção"/></div>
+                       <div>
+                          <label for="title" string="Mes"/>
+                          <label for="title" style="width:63px" string=""/>
+                          <field name="mes" style="width:100px"/>
+                           <field name="ano" style="width:100px" invisible="1"/>
+                       </div>
+                       <div>
+                           <field name="tipo"  widget = 'radio' nolabel ='1'/>
+                           <field name="tip_dia" nolabel ='1' attrs="{'invisible': [('tipo', '!=', 'dia')]}" style="width:100px"/>
+                           <field name="tipo_doc" nolabel ='1' attrs="{'invisible': [('tipo', '!=', 'documento')]}" style="width:100px"/><!---->
+                       </div>
+                       <header>
+                           <button name="aceitar" icon="fa-check-square" type="object" string="Aceitar"  class="btn-primary"/>
+                           <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="actualizar_razoa_tree_view" model="ir.ui.view">
+           <field name="name">Actualizar do razao.tree</field>
+           <field name="model">actualizar.razao</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                  <field name="periodo"/>
+               </tree>
+           </field>
+       </record>
+       <record id="act_window_actualizar_razao" model="ir.actions.act_window">
+           <field name="name">Actualizar Razão</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">actualizar.razao</field>
+           <field name="view_id" ref="actualizar_razoa_form_view"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>-
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="menu_actualizar_razao" name="Actualizar Razão" parent="contabilidade.menu_1" action="act_window_actualizar_razao" sequence="80"/>
+
+
+        <!--REPOSICAO DE MOVIMENTO-->
+       <record id="repos_movimento_form_view" model="ir.ui.view">
+           <field name="name">Reposição Movimento</field>
+           <field name="model">reposcao.movimento</field>
+           <field name="arch" type="xml">
+               <form string="Reposição Movimento">
+                   <sheet>
+                       <div><label for="title" string="REPOSIÇÃO MOVIMENTO"/></div>
+                       <label for="title" style="width:450px" string=""/>
+                       <div>
+                         <label for="title" string="Periodo"/>
+                         <field name="periodo" style="width:260px"/>
+                         <label for="title" style="width:450px" string=""/>
+                         <label for="title" string="Diário"/>
+                         <field name="diario" style="width:260px"/>
+                         <field name="ano" style="width:260px" invisible="1"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div><label for="title" string="Opção"/></div>
+                       <div>
+                          <label for="title" string="Mes"/>
+                          <label for="title" style="width:63px" string=""/>
+                          <field name="mes" style="width:100px"/>
+                       </div>
+                       <div>
+                           <field name="tipo" widget = 'radio' nolabel ='1'/>
+                           <field name="tip_dia" nolabel ='1' attrs="{'invisible': [('tipo', '!=', 'dia')]}" style="width:100px"/>
+                           <field name="tipo_doc" nolabel ='1' attrs="{'invisible': [('tipo', '!=', 'documento')]}" style="width:100px"/><!---->
+                       </div>
+                       <header>
+                           <button name="aceitar" icon="fa-check-square" type="object" string="Aceitar"  class="btn-primary"/>
+                           <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="action_repose_movimento" model="ir.actions.act_window">
+               <field name="name">Reposição Movimento</field>
+               <field name="res_model">reposcao.movimento</field>
+               <field name="view_type">form</field>
+               <field name="view_id" ref="repos_movimento_form_view"/>
+               <field name="target">inline</field>
+               <field name="view_mode">form</field>
+               <field eval="False" name="view_id"/>
+               <!--<field name="search_view_id" ref="view_account_invoice_filter"/>-->
+               <field name="help" type="html">
+                 <p class="oe_view_nocontent_create">
+                 </p><p>
+                 </p>
+               </field>
+        </record>
+        <menuitem id="menu_repo_mov" name="Reposição Movimento"  action="action_repose_movimento"  parent="contabilidade.menu_1" sequence="1"/>
+    </data>
+</odoo>

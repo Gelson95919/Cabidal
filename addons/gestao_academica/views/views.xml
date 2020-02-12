@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Gestão Acadêmica" web_icon="gestao_academica,static/description/icon.png"
+                  id="gestao_academica.menu_root"/>
+
+        <menuitem name="Movimentos Academicos" id="movimento_academico_menu" parent="gestao_academica.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_academica_menu_param" parent="gestao_academica.menu_root"/>
+    </data>
+</odoo>

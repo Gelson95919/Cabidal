@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <record id="form_all_fil" model="ir.ui.view">
+            <field name="name">Unidade Medida</field>
+            <field name="model">unimedida.unimedida</field>
+            <field name="arch" type="xml">
+                <form string="Filiais">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" style="width:250px"/>
+                            </group>
+                            <group>
+                                <field name="codigo" style="width:250px"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="uni_tree" model="ir.ui.view">
+            <field name="name">Unidade Medida</field>
+            <field name="model">unimedida.unimedida</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="codigo"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cod_sequ" model="ir.sequence">
+            <field name="name">Unidade Medida</field>
+            <field name="code">unidade.medida</field>
+            <field name="prefix"></field>
+            <field name="padding">3</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+        <record id="un_med1" model="unimedida.unimedida">
+            <field name="name">TONELADA (TN)</field>
+        </record>
+        <record id="un_med2" model="unimedida.unimedida">
+            <field name="name">DIA</field>
+        </record>
+        <record id="un_med3" model="unimedida.unimedida">
+            <field name="name">HORA (HR)</field>
+        </record>
+        <record id="un_med4" model="unimedida.unimedida">
+            <field name="name">UNIDADE</field>
+        </record>
+        <record id="un_med5" model="unimedida.unimedida">
+            <field name="name">KILO GRAMA (KG)</field>
+        </record>
+        <record id="un_med6" model="unimedida.unimedida">
+            <field name="name">LITRO (LT)</field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_uni_med">
+            <field name="name">Unidade Medida</field>
+            <field name="res_model">unimedida.unimedida</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','inventario_uni_medida')]</field>
+            <field name="context">{'default_type': 'inventario_uni_medida', 'type': 'inventario_uni_medida'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Unidade Medida.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Unidade Medida) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Unidade Medida" id="parametros.menu_uni_med" parent="fastgest_imveta"
+                  action="parametros.action_window_uni_med"/>
+    </data>
+</odoo>

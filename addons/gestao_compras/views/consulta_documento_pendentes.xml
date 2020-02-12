@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="docdesp_procur_view" model="ir.ui.view">
+		<field name="name">Documentos</field>
+		<field name="model">reg.docum</field>
+		<field name="arch" type="xml">
+			<search string="Fatura Information">
+                <field name="fornec_tercd"></field>
+				<field name="tipo_docum"/>
+				<field name="total"/>
+				<group expand="0" string="Group By">
+					<filter name="group_fornec_tercd" string="Documentos Pendentes" domain="[('pago', '=', False), ('desting_doc_desp', '=', True)]" context="{'group_by':'fornec_tercd'}"
+						help="Group Fatura fatura Wise"/>
+					<filter name="groupby_year" context="{'group_by': 'data_documento:year'}" string="Year"
+						help="Group Students by Year" />
+					<filter name="groupby_month" context="{'group_by': 'data_documento:month'}" string="Month"/>
+				</group>
+			</search>
+		</field>
+	  </record>
+      <record model="ir.actions.act_window" id="doc_action_window">
+            <field name="name">Documentos</field>
+            <field name="context">{'search_default_group_fornec_tercd': 1}</field>
+            <field name="res_model">reg.docum</field>
+            <field name="domain">[('pago', '=', False), ('desting_doc_desp', '=', True)]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                   Criar um novo Despesas.
+               </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Despesa ) para projetos internos, pessoais ou de clientes.
+               </p>
+            </field>
+      </record>
+       <!-- actions -->
+      <menuitem name=" Consulta Documentos Pendentes " id="menu_despe_docum_pendent" parent="gestao_compras.menu_concit_comp" action="doc_action_window"/>
+    </data>
+</odoo>

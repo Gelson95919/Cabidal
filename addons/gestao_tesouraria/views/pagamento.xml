@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pagamento_form" model="ir.ui.view">
+            <field name="name">Pagamento</field>
+            <field name="model">tesouraria.pagamento</field>
+            <field name="arch" type="xml">
+                <form string="Pagamento">
+                    <!--<header>
+                        <button name="compor_op" string=" ADD ID TERC" type="object" class="btn-primary"/>
+                    </header>-->
+                    <sheet>
+                        <div>
+                            <label for="title" string="Pagamento Nº" style="width:100px"/>
+                            <label for="title" string="" style="width:600px"/>
+                            <label for="title" string="Data" style="width:30px"
+                                   attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                            <!--<field name="date" style="width:100px" default_focus="0"
+                                   attrs="{'invisible': [('dados_antigo','=', True)], 'readonly': [('origem','=', True)]}"/>-->
+                            <field name="dfecpag" style="width:100px" default_focus="0"
+                                   attrs="{'invisible': [('dados_antigo','=',False)]}"/>
+                        </div>
+                        <div name="codigo" class="oe_title" attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <h1>
+                                <field name="n_pagam" attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"
+                                       style="width:150px"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <label for="title" string='Tipo Pagamento' style="color:Blue; font-weight: bold;"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <group attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                                <div>
+                                    <field name="origem" invisible="1"/>
+                                    <field name="tipo_pagamento_receb" widget="radio" attrs="{'readonly': [('origem','=', True)]}"/>
+                                </div>
+                            </group>
+                            <group attrs="{'invisible': [('tipo_pagamento_receb','=', '1')]}">
+                                <field name="date" style="width:100px" default_focus="0"
+                                   attrs="{'invisible': [('dados_antigo','=', True)], 'readonly': [('origem','=', True)]}"/>
+                                <field name="n_cheque"
+                                       attrs="{'invisible': [('tipo_pagamento_receb','=', '3')], 'readonly': [('origem','=', True)]}"/>
+                                <field name="nossa_conta_compras"
+                                       attrs="{'invisible': [('type_docum','!=', 'pagamento')], 'required':[('tipo_pagamento_receb','not in',['pending','1'])], 'readonly': [('origem','=', True)]}"/>
+                                <field name="data"  attrs="{'readonly': [('origem','=', True)]}"/>
+                                <field name="saldo"
+                                       invisible="1"/><!--attrs="{'invisible':[('type_docum','!=', 'pagamento')]}"-->
+                            </group>
+                        </group>
+                        <div>
+                            <label for="title" string="Documento" style="width:90px"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')]}"/>
+                            <field name="documentot" style="width:360px" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')], 'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div>
+                            <field name="dados_antigo" widget="handle" invisible="1"/>
+                            <label for="title" string="Beneficiário" style="width:90px"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <field name="terceiro_id_doc_conta_corente" style="width:400px"
+                                   options="{'no_create': True}"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')], 'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:50px"/>
+
+                        </div>
+                        <div>
+                            <label for="title" string=" "/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <label for="title" string="Documento Conta Corrente"
+                                   attrs="{'invisible': [('documentot','=', '2')]}"/>
+                        </div>
+
+                        <div attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <label for="title" string="Docunmento da Tesouraria"
+                                   attrs="{'invisible': [('documentot','=', '1')]}"/>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('dados_antigo','=', False)]}">
+                            <field name="reg_docum_ids" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '2')], 'readonly': [('origem','=', True)]}">
+                                <tree editable="bottom" string="Documento Conta Corrente Paga" delete="false"
+                                      create="false">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="cod_documento" readonly="1"/>
+                                    <field name="total" readonly="1" sum="Total"/>
+                                    <field name="saldo_pagamento" readonly="1" sum="Saldo Total"/>
+                                    <field name="DFECDOC" readonly="1" attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                                    <!--<field name="data_documento" readonly="1" attrs="{'invisible': [('dados_antigo','=', True)]}"/>-->
+                                    <field name="docPag"/>
+                                    <field name="valorPago" sum="Valor Apagar" readonly="1" force_save="1"/>
+                                    <field name="valorreceb" invisible="1"/>
+                                    <field name="movimen_docum" invisible="1"/>
+                                    <field name="numeros_docum" invisible="1"/>
+                                    <field name="nome_terc" invisible="1"/>
+                                    <field name="valorAsc" invisible="1"/>
+                                    <field name="ldocaut" invisible="1"/>
+                                    <field name="ordem_pago" invisible="1"/>
+                                    <field name="visualizar_no_tesorer" invisible="1"/>
+                                    <field name="tipo_docum" invisible="1"/>
+                                    <field name="sem_cta_cte" invisible="1"/>
+                                    <field name="control_op" invisible="1"/>
+                                    <field name="saldo_ord" invisible="1"/>
+                                    <field name="valor_ordpag" invisible="1"/>
+                                    <field name="pago" invisible="1"/>
+                                    <field name="documentos" invisible="1"/>
+                                    <field name="data_realise" invisible="1"/>
+                                    <field name="desting_doc_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="desting_doc_op" invisible="1"/>
+                                    <field name="debito" readonly="1" invisible="1"/>
+                                    <field name="credito" readonly="1" invisible="1"/>
+                                    <field name="encontro" readonly="1" invisible="1"/>
+                                    <field name="saldar" invisible="1"/>
+                                    <field name="encont_docum_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="valor_encontro" invisible="1"/>
+                                    <field name="dados_antigo" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('type_docum','!=', 'pagamento')], 'readonly': [('origem','=', True)]}">
+                            <field name="documentoTesoraria_ids" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '1')]}">
+                                <tree editable="bottomn" string="Documento">
+                                    <field name="conceit_compra_id" style="width:135px"/>
+                                    <field name="desc_conce_compra" style="width:155px"/>
+                                    <field name="cod_dp"/>
+                                    <field name="valor"/>
+                                    <field name="iva" style="width:115px"/>
+                                    <field name="terceiro" style="width:135px"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('dados_antigo','=', True)]}">
+                            <field name="det_reg_docum_ids_contab" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '2')], 'readonly': [('origem','=', True)]}">
+                                <tree editable="bottom" string="Documento Conta Corrente Paga" delete="false"
+                                      create="false">
+                                    <field name="cod_documento" style="width:135px"/>
+                                    <field name="total" style="width:155px"/>
+                                    <field name="data_documento"/>
+                                    <field name="saldo_pagamento"/>
+                                    <field name="docPag" style="width:115px"/>
+                                    <field name="valorPago" style="width:135px"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <field name="detalhes" style="width:1070px" attrs="{'invisible': [('documentot','!=', '1')], 'readonly': [('origem','=', True)]}"/>
+                            <field name="det_obs_doc_tesora" style="width:1070px" attrs="{'invisible': [('documentot','!=', '2')], 'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div>
+                            <field name="type_docum" style="width:155px" invisible="1"/>
+                        </div>
+
+                        <div>
+                            <field name="contabilizado" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Diario"/>
+                            <field name="diario" style="width:155px" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Numero"/>
+                            <field name="numero" style="width:155px"  attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <button name="ver_contabilidade" string="()" type="object" class="btn-primary" attrs="{'invisible': [('origem','=', True)]}"/>
+
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pagamento_tree" model="ir.ui.view">
+            <field name="name">Pagamento</field>
+            <field name="model">tesouraria.pagamento</field>
+            <field name="arch" type="xml">
+                <tree string="Pagamento">
+                    <!--<field name="CMOVINT2"/>
+                    <field name="CMOVINT"/>
+                    <field name="id"/>-->
+                    <field name="CNUMFEC"/>
+                    <field name="cheque" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="cod_terceiro" invisible="context.get ('type_docum') != 'pagamento'"/>
+                    <field name="CNOMTER" invisible="context.get ('type_docum')!= 'pagamento'"/>
+                    <!--<field name="nome_terceiro" invisible="context.get ('type_docum')!= 'pagamento'"/>-->
+                    <field name="montante_pago" invisible="context.get ('type_docum')!= 'pagamento'"/>
+                    <field name="valor_total_pag"/>
+                    <field name="date"/>
+                    <field name="detalhes"/>
+                    <field name="conta"/>
+                    <field name="utilizador_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_all_paga_search_view" model="ir.ui.view">
+            <field name="name">Pagamentos.search.view</field>
+            <field name="model">tesouraria.pagamento</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!--<field name="CMOVINT2"/>
+                    <field name="CMOVINT"/>
+                    <field name="CNOMTER"/>
+                    <field name="CCODTER"/>-->
+                    <field name="nome_terceiro"/>
+                </search>
+            </field>
+        </record>
+        <record id="pagame_act_window2" model="ir.actions.act_window">
+            <field name="name">Pagamentos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tesouraria.pagamento</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_docum','=','pagamento')]</field>
+            <field name="context">{'default_type_docum': 'pagamento', 'type_docum': 'pagamento'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Pagamento.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Pagamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="sequ_pagamento_num" model="ir.sequence">
+            <field name="name">Pagamento</field>
+            <field name="code">tesopagame.num</field>
+            <field name="prefix"></field>
+            <field name="np">True</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pagamento_menu" name="Pagamentos" parent="gestao_tesouraria.menu_1"
+                  action="pagame_act_window2" sequence="80"/>
+
+        <record id="det_teso_pag_form" model="ir.ui.view">
+            <field name="name">Det paga</field>
+            <field name="model">documento.tesoraria.pagamento</field>
+            <field name="arch" type="xml">
+                <form string="Det paga">
+                    <header>
+                        <button name="mod_det" string=" ADD ID REL Doc Pag" type="object" class="btn-primary"/>
+                        <button name="mod_det_lig_terc" string=" ADD ID REL Terc" type="object"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="conceit_compra_id"/>
+                            <field name="desc_conce_compra"/>
+                            <field name="cod_dp"/>
+                            <field name="valor"/>
+                            <field name="iva"/>
+                            <field name="terceiro"/>
+                            <field name="CDOCINT"/>
+                            <field name="CCODART"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="det_teso_pag_tree" model="ir.ui.view">
+            <field name="name">Det paga</field>
+            <field name="model">documento.tesoraria.pagamento</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="pagamento_id"/>
+                    <field name="conceit_compra_id"/>
+                    <field name="desc_conce_compra"/>
+                    <field name="cod_dp"/>
+                    <field name="valor"/>
+                    <field name="iva"/>
+                    <field name="terceiro"/>
+                    <field name="CDOCINT"/>
+                    <field name="CCODART"/>
+                </tree>
+            </field>
+        </record>
+        <record id="det_tes_pag_act" model="ir.actions.act_window">
+            <field name="name">Det paga</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">documento.tesoraria.pagamento</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action
+        <menuitem id="menu_det_pag" name="DETAL DOC TESSO PAG" parent="gestao_tesouraria.menu_1"
+                  action="det_tes_pag_act"
+                  sequence=""/>-->
+
+
+    </data>
+</odoo>

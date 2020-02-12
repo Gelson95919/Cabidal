@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="autorizacao_saida_form" model="ir.ui.view">
+           <field name="name">Autorização de Saida</field>
+           <field name="model">autorizacao.saida</field>
+           <field name="arch" type="xml">
+               <form string="Autorização de Saida">
+                   <sheet>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:450px"/>
+                          <label for="title" string="DERECÇÃO-GERAL DAS ALFÂNDIGAS" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                        <label for="title" string="" style="width:500px"/>
+                        <label for="title" string="ALFÂNDEGA DE PRAIA" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                        <label for="title" string="" style="width:490px"/>
+                        <label for="title" string="AUTORIZAÇÃO DE SAIDA" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº de ordem"/>
+                          <field name="num_ordem" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Data" style="width:70px"/>
+                          <field name="data" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="mercadoria consiguidas a"/>
+                          <field name="merca" style="width:500px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="em"/>
+                          <field name="em" style="width:640px"/>
+                      </div>
+                       <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="P.L e/ou Despachos" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="pl_1" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="pl_2" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="pl_3" style="width:260px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Contentores" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="1."/>
+                          <field name="contetor_1" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="6." style="width:25px"/>
+                          <field name="contetor_6" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="2."/>
+                          <field name="contetor_2" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="7." style="width:25px"/>
+                          <field name="contetor_7" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="3."/>
+                          <field name="contetor_3" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="8." style="width:25px"/>
+                          <field name="contetor_8" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="4."/>
+                          <field name="contetor_4" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="9." style="width:25px"/>
+                          <field name="contetor_9" style="width:260px"/>
+                      </div>
+                       <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="5."/>
+                          <field name="contetor_5" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="10." style="width:25px"/>
+                          <field name="contetor_10" style="width:260px"/>
+                      </div>
+                       <div>
+                          <label for="title" string="" style="width:720px"/>
+                          <label for="title" string="Data" style="width:45px"/>
+                          <field name="data" style="width:100px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:450px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="autorizacao_saida_act_window" model="ir.actions.act_window">
+           <field name="name">Autorização de Saida</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">autorizacao.saida</field>
+           <field name="view_id" ref="autorizacao_saida_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="autorizacao_saida_menu" name="Autorização de Saida" parent="impressos_menu" action="autorizacao_saida_act_window" sequence="80"/>
+
+    </data>
+</odoo>

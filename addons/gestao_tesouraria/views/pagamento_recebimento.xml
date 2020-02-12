@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pagamento_recebimento_form" model="ir.ui.view">
+            <field name="name">Pagamento/Recebimento/Movimento</field>
+            <field name="model">pagamento.recebimento</field>
+            <field name="arch" type="xml">
+                <form string="Pagamento/Recebimento">
+                    <!--<header attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                        <button name="confirmar" string="Confirma Movimento" type="object" icon="fa-check-square-o"
+                                class="btn btn-info"/>
+                    </header>-->
+                    <sheet>
+                        <div>
+                            <label for="title" string="Pagamento Nº" style="width:920px"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <label for="title" string="Recibo Nº" style="width:920px"
+                                   attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <label for="title" string="Movime Nº" style="width:100px"
+                                   attrs="{'invisible': [('type_docum','!=', 'movimento')]}"/>
+                            <label for="title" string="Data" style="width:30px"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')]}"/>
+                            <field name="date" style="width:100px" default_focus="0"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')]}"/>
+                        </div>
+                        <div name="codigo" class="oe_title" attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <h1>
+                                <field name="n_pagam" attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"
+                                       style="width:150px"/>
+                                <field name="n_recibo" style="width:100px"
+                                       attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            </h1>
+                        </div>
+                        <group attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <label for="title" string='Tipo Recebimento' style="color:Blue; font-weight: bold;"
+                                   attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <label for="title" string='Tipo Pagamento' style="color:Blue; font-weight: bold;"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <group attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                                <div>
+                                    <field name="tipo_pagamento_receb" widget="radio"/>
+                                </div>
+                            </group>
+                            <group attrs="{'invisible': [('tipo_pagamento_receb','=', '1')]}">
+                                <field name="n_cheque"
+                                       attrs="{'invisible': [('tipo_pagamento_receb','=', '3')]}"/>
+                                <field name="nossa_conta" attrs="{'invisible': [('type_docum','=', 'pagamento')]}"/>
+                                <field name="nossa_conta_compras"
+                                       attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                                <field name="data"/>
+                                <field name="saldo"
+                                       invisible="1"/><!--attrs="{'invisible':[('type_docum','!=', 'pagamento')]}"-->
+                                <field name="banco"
+                                       attrs="{'invisible': [('type_docum','=', 'pagamento')], 'readonly': [('tipo_pagamento_receb','=', '3')]}"/>
+                                <field name="conta_caicha" attrs="{'invisible':[('type_docum','=','pagamento')]}"/>
+                                <field name="refe"
+                                       attrs="{'invisible': [('type_docum','!=', 'recebimento')], 'readonly': [('tipo_pagamento_receb','!=', '3')]}"/>
+                            </group>
+                        </group>
+
+                        <div>
+                            <label for="title" string="Beneficiário" style="width:90px"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <label for="title" string="Cliente" style="width:90px"
+                                   attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <field name="terceiro_id_doc_conta_corente" style="width:400px"
+                                   options="{'no_create': True}"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <field name="terceiro_id_doc_conta_corente_receb" style="width:400px"
+                                   options="{'no_create': True}"
+                                   attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Documento" style="width:150px"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')]}"/>
+                            <field name="documentot" style="width:360px"
+                                   attrs="{'invisible': [('type_docum','=', 'movimento')]}"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" "/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <label for="title" string="Documento Conta Corrente"
+                                   attrs="{'invisible': [('documentot','=', '2')]}"/>
+                        </div>
+
+                        <div attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <label for="title" string="Docunmento da Tesouraria"
+                                   attrs="{'invisible': [('documentot','=', '1')]}"/>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <field name="reg_docum_desp_ids" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '2')]}">
+                                <tree editable="bottom" string="Documento Conta Corrente Paga" delete="false"
+                                      create="false">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="cod_documento" readonly="1"/>
+                                    <field name="total" readonly="1"/>
+                                    <field name="saldo" readonly="1"/>
+                                    <field name="data_documento" readonly="1"/>
+                                    <field name="docPag"/>
+                                    <field name="valorPago" sum="Valor Apagar"/>
+                                    <field name="valorreceb" invisible="1"/>
+                                    <field name="movimen_docum" invisible="1"/>
+                                    <field name="numeros_docum" invisible="1"/>
+                                    <field name="nome_terc" invisible="1"/>
+                                    <field name="valorAsc" invisible="1"/>
+                                    <field name="ldocaut" invisible="1"/>
+                                    <field name="ordem_pago" invisible="1"/>
+                                    <field name="visualizar_no_tesorer" invisible="1"/>
+                                    <field name="tipo_docum" invisible="1"/>
+                                    <field name="sem_cta_cte" invisible="1"/>
+                                    <field name="control_op" invisible="1"/>
+                                    <field name="saldo_ord" invisible="1"/>
+                                    <field name="valor_ordpag" invisible="1"/>
+                                    <field name="pago" invisible="1"/>
+                                    <field name="documentos" invisible="1"/>
+                                    <field name="data_realise" invisible="1"/>
+                                    <field name="desting_doc_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="desting_doc_op" invisible="1"/>
+                                    <field name="debito" readonly="1" invisible="1"/>
+                                    <field name="credito" readonly="1" invisible="1"/>
+                                    <field name="encontro" readonly="1" invisible="1"/>
+                                    <field name="saldar" invisible="1"/>
+                                    <field name="encont_docum_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="valor_encontro" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <field name="documentoTesoraria_ids" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '1')]}">
+                                <tree editable="bottomn" string="Documento">
+                                    <field name="conceit_compra_id" style="width:135px"/>
+                                    <field name="desc_conce_compra" style="width:155px"/>
+                                    <field name="cod_dp"/>
+                                    <field name="valor"/>
+                                    <field name="iva" style="width:115px"/>
+                                    <field name="terceiro" style="width:135px"/>
+                                </tree>
+                            </field>
+                        </div>
+
+                        <div>
+                            <field name="type_docum" style="width:155px" invisible="1"/>
+                        </div>
+
+                        <!--RECEBIMENTO-->
+                        <div attrs="{'invisible': [('type_docum','!=', 'recebimento')]}">
+                            <label for="title" string="Documento Conta Corrente"
+                                   attrs="{'invisible': [('documentot','=', '2')]}"
+                                   readonly='True'/>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('type_docum','!=', 'recebimento')]}">
+                            <field name="reg_docum_ids_receb" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '2')]}">
+                                <tree editable="bottom" string="Documento Conta Corrente Receb" delete="false"
+                                      create="false">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="cod_documento" readonly="1"/>
+                                    <field name="total" readonly="1"/>
+                                    <field name="saldo" readonly="1"/>
+                                    <field name="data_documento" readonly="1"/>
+                                    <field name="cobrado"/>
+                                    <field name="docPag" invisible="1"/>
+                                    <field name="valorreceb" sum="Valor Receber"/>
+                                    <field name="valorPago" invisible="1"/>
+                                    <field name="movimen_docum" invisible="1"/>
+                                    <field name="numeros_docum" invisible="1"/>
+
+                                    <field name="nome_terc" invisible="1"/>
+                                    <field name="valorAsc" invisible="1"/>
+                                    <field name="ldocaut" invisible="1"/>
+                                    <field name="ordem_pago" invisible="1"/>
+                                    <field name="visualizar_no_tesorer" invisible="1"/>
+                                    <field name="tipo_docum" invisible="1"/>
+                                    <field name="sem_cta_cte" invisible="1"/>
+                                    <field name="control_op" invisible="1"/>
+                                    <field name="saldo_ord" invisible="1"/>
+                                    <field name="valor_ordpag" invisible="1"/>
+                                    <field name="pago" invisible="1"/>
+                                    <field name="documentos" invisible="1"/>
+                                    <field name="data_realise" invisible="1"/>
+                                    <field name="desting_doc_vend" invisible="1"/>
+                                    <field name="debito" readonly="1" invisible="1"/>
+                                    <field name="credito" readonly="1" invisible="1"/>
+                                    <field name="encontro" readonly="1" invisible="1"/>
+                                    <field name="saldar" invisible="1"/>
+                                    <field name="encont_docum_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="valor_encontro" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="oe_inline" attrs="{'invisible': [('type_docum','!=', 'recebimento')]}">
+                            <field name="doc_teso" style="width:1070px"
+                                   attrs="{'invisible': [('documentot','=', '1')]}">
+                                <tree editable="bottomn" string="Taxess">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="artigo_id" style="width:135px"/>
+                                    <field name="preco_unit" style="width:155px" sum="Preco Unitario"/>
+                                    <field name="quant"/>
+                                    <field name="iva_id" style="width:115px"/>
+                                    <field name="desconto" style="width:135px" sum="Desconto"/>
+                                    <field name="sub_total" style="width:135px" sum="Sub-Total"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div>
+                            <!--<label for="title" string="Moeda para imprimir Recibo" attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <field name="moeda_impremir_recibo" nolabel="1" style="width:180px" attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>
+                            <label for="title" string=" " style="width:830px" attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <label for="title" string="Valor Pago" style="width:120px"
+                                   attrs="{'invisible': [('type_docum','!=', 'pagamento')]}"/>
+                            <label for="title" string="Valor Recebido" style="width:120px"
+                                   attrs="{'invisible': [('type_docum','!=', 'recebimento')]}"/>-->
+                            <field name="valor_total_pag" style="width:135px" invisible="1"/>
+                            <field name="vervalor_total_receb" style="width:135px" invisible="1"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <field name="detalhes" style="width:1070px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'pagamento')]}">
+                            <label for="title"
+                                   string="_____________________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <!--Movimento-->
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Movimento"/>
+                            <field name="movimento" style="width:820px"
+                                   attrs="{'required':[('type_docum','in',['pending','movimento'])]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Data" style="width:70px"/>
+                            <!--<field name="date_release" style="width:100px"/>-->
+                            <field name="dfecmovint" style="width:100px"/>
+                            <label for="title" string="" style="width:365px"/>
+                            <label for="title" string="Centro Custo"/>
+                            <field name="centro_custo" style="width:260px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+
+                            <field name="tipo_movimento" invisible="1"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Descrição" style="width:70px"/>
+                            <field name="detalhes" style="width:820px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Origem" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','!=', '1')]}"/>
+                            <label for="title" string="Conta" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=','1')]}"/>
+                            <field name="nossa_conta_transfe" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Saldo" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="saldo_transf" style="width:260px; color:blue"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Montante" style="width:70px"/>
+                            <field name="montante_mov" style="width:260px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Cheque" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="cheque" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="ESC" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="esc" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <field name="contabilizado"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="Diário"/>
+                            <field name="diario" style="width:180px"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Número" style="width:70px"/>
+                            <field name="numero" style="width:200px"/>
+                            <label for="title" string="" style="width:25px"/>
+                            <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string=" " style="width:200px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Destino" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','!=', '1')]}"/>
+                            <label for="title" string="Conta" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '1')]}"/>
+                            <field name="conta_destino" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="ESC" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                            <field name="escd" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <field name="contabilizadod"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="Diário"/>
+                            <field name="diariod" style="width:180px"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Número" style="width:70px"/>
+                            <field name="numerod" style="width:200px"/>
+                            <label for="title" string="" style="width:25px"/>
+                            <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <field name="contabilizado"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Diario"/>
+                            <field name="diario" style="width:155px"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Numero"/>
+                            <field name="numero" style="width:155px"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pagamento_recebimento_tree" model="ir.ui.view">
+            <field name="name">Pagamento/Recebimento/Movimento</field>
+            <field name="model">pagamento.recebimento</field>
+            <field name="arch" type="xml">
+                <tree string="Pagamento/Recebimento/Movimento">
+                    <field name="cheque" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="cod_cliente" invisible="context.get ('type_docum') != 'recebimento'"/>
+                    <field name="id" invisible="context.get ('type_docum') != 'pagamento'"/>
+                    <field name="cod_terceiro" invisible="context.get ('type_docum') != 'pagamento'"/>
+                    <field name="nome_cliente" invisible="context.get ('type_docum') != 'recebimento'"/>
+                    <field name="nome_terceiro" invisible="context.get ('type_docum')!= 'pagamento'"/>
+                    <field name="montante_receb" invisible="context.get ('type_docum')!= 'recebimento'"/>
+                    <field name="montante_pago" invisible="context.get ('type_docum')!= 'pagamento'"/>
+                    <field name="nossa_conta_transfe" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="conta_destino" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="montante_mov" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="anulado" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="date"/>
+                    <field name="detalhes"/>
+                </tree>
+            </field>
+        </record>
+        <record id="pagamento_recebimento_act_window" model="ir.actions.act_window">
+            <field name="name">Pagamentos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pagamento.recebimento</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_docum','=','pagamento')]</field>
+            <field name="context">{'default_type_docum': 'pagamento', 'type_docum': 'pagamento'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Pagamento.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Pagamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="_sequreceb_fact_sequ" model="ir.sequence">
+            <field name="name">Pagamento/Recebimento/Movimento</field>
+            <field name="code">tesouraria.pag.receb.codigo</field>
+            <field name="prefix"></field>
+            <field name="nr">True</field>
+            <field name="padding">5</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+
+        <record id="sequ_num_mov" model="ir.sequence">
+            <field name="name">Numero Movimento</field>
+            <field name="code">num.movimento</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action
+        <menuitem id="pagamento_recebimento_menu" name="REG CAJ PAG" parent="gestao_tesouraria.menu_1"
+                  action="pagamento_recebimento_act_window" sequence="80"/>-->
+
+
+        <!--RECEBIMENTO-->
+        <record id="recebimento_act_window" model="ir.actions.act_window">
+            <field name="name">Recebimentos</field>
+            <field name="res_model">pagamento.recebimento</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_docum','=','recebimento')]</field>
+            <field name="context">{'default_type_docum': 'recebimento', 'type_docum': 'recebimento'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova Recebimento
+                </p>
+            </field>
+        </record>
+        <record id="form_all_paga_receb_search_view" model="ir.ui.view">
+            <field name="name">Recebimento.Paga.search.view</field>
+            <field name="model">pagamento.recebimento</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="id"/>
+                    <field name="detalhes"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_recebimento_tree1_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="pagamento_recebimento_tree"/>
+            <field name="act_window_id" ref="recebimento_act_window"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id"/>
+                    <field name="n_recibo"/>
+                    <field name="date_release"/>
+                    <field name="numero"/>
+                    <field name="nossa_conta"/>
+                    <field name="refe"/>
+                    <field name="banco"/>
+                    <field name="conta_caicha"/>
+                    <field name="data"/>
+                    <field name="documentotipo"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_receb_form_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pagamento_recebimento_form"/>
+            <field name="act_window_id" ref="recebimento_act_window"/>
+        </record>
+
+        <!--<menuitem action="recebimento_act_window" id="menu_action_recebimento" name="REG CAJ RECEB" parent="gestao_tesouraria.menu_1"
+                  sequence="80"/>-->
+
+        <!--Movimento-->
+        <record id="movimento_act_window" model="ir.actions.act_window">
+            <field name="name">Movimentos Internos</field>
+            <field name="res_model">pagamento.recebimento</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_docum','=','movimento'), ('mov_sai','=',True)]</field>
+            <field name="context">{'default_type_docum': 'movimento', 'type_docum': 'movimento'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova Movimentos
+                </p>
+            </field>
+        </record>
+        <record id="action_movimento_tree1_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="pagamento_recebimento_tree"/>
+            <field name="act_window_id" ref="movimento_act_window"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="n_recibo"/>
+                    <field name="movimento"/>
+                    <field name="tipo_movimento"/>
+                    <field name="centro_custo"/>
+                    <field name="montante"/>
+                    <field name="descricao"/>
+                    <field name="conta_origem"/>
+                    <field name="conta_destino"/>
+                    <field name="escd"/>
+                    <field name="utilizador_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_movimento_form_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pagamento_recebimento_form"/>
+            <field name="act_window_id" ref="movimento_act_window"/>
+        </record>
+
+        <!--<menuitem action="movimento_act_window" name="REG CAJ MOV INT" id="menu_action_movimento"
+                  parent="gestao_tesouraria.menu_1"
+                  sequence="80"/>-->
+
+
+    </data>
+</odoo>

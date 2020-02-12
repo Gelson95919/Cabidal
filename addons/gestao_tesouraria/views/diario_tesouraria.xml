@@ -1,0 +1,146 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_diarioTeso">
+            <field name="name">Diarios de Tesouraria</field>
+            <field name="model">folha.tesouraria</field>
+            <field name="arch" type="xml">
+                <form string="Diario Tesouraria" create="false">
+                    <header>
+                        <button name="fechar" string="Conferir Fechar" type="object" class="btn-primary"
+                                attrs="{'invisible': [('fechado','=', '1')]}"/>
+                        <button name="onchange_folha" string="Pendentes" type="object" class="btn-primary"/>
+                        <button name="action_quotation_send" string="Reconciliação" type="object" class="btn-primary"/>
+                        <button name="action_quotation_send" string="Imprimtr" type="object" class="btn-primary"
+                                readonly="0"/>
+
+                        <!--<button name="mod_det" string=" ADD ID REL " type="object" class="btn-primary"/>-->
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Folha"/>
+                            <label for="title" string="" style="color:White;width:1px"/>
+                            <field name="ccodmed" style="color:blue; width:14px" readonly="1"   attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                            <field name="codigo" style="color:blue; width:14px" readonly="1"   attrs="{'invisible': [('dados_antigo','=', True)]}"/>
+                            <label for="title" string="-" style="color:blue; width:3px"/>
+                            <field name="folha" style="color:blue; font-weight: bold; width:260px" readonly="1"/>
+                            <label for="title" string="" style="color:White;width:170px"/>
+                            <label for="title" string="Fechado" readonly="1"/>
+                            <field name="fechado" style="color:blue; font-weight: bold; width:100px" readonly="1"/>
+                            <field name="dados_antigo" style="color:blue; font-weight: bold; width:100px" invisible="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Movimento"/>
+                            <field name="movimento" style="color:blue; font-weight: bold; width:260px" readonly="1"
+                                   attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                            <field name="cnummov" style="color:blue; font-weight: bold; width:260px" readonly="1" attrs="{'invisible': [('dados_antigo','=', True)]}"/>
+                            <label for="title" string="" style="color:White;width:160px"/>
+                            <label for="title" string="Data" style="width:50px"/>
+                            <field name="dfeccie" style="color:blue; font-weight: bold; width:100px" readonly="1"/>
+                            <field name="data" style="color:blue; font-weight: bold; width:260px" readonly="1"/>
+
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:160px"/>
+                        </div>
+                        <div class="oe_inline">
+                            <field name="pagamento_recebimento_ids" style="width:1070px" force_save="1">
+                                <tree editable="bottom" string="Centro Movimento" delete="false" force_save="1"
+                                      create="false">
+                                    <field name="codigo"/>
+                                    <field name="date" readonly="1"/>
+                                    <field name="detalhes" readonly="1"/>
+                                    <field name="vervalor_total_receb" readonly="1"/>
+                                    <field name="valor_total_pag" readonly="1"/>
+                                    <field name="select"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <!--<div class="oe_inline">
+                            <field name="pagamento_recebimento_ids" style="width:1070px" force_save="1">
+                                <tree editable="bottom" string="Centro Movimento" delete="false" force_save="1"
+                                      create="false" edit='false' readonly="1">
+                                    <field name="ordem"/>
+                                    <field name="data" readonly="1"/>
+                                    <field name="detalhes" readonly="1"/>
+                                    <field name="entrada" readonly="1"/>
+                                    <field name="saida" readonly="1"/>
+                                    <field name="selec"/>
+                                </tree>
+                            </field>
+                        </div>-->
+                        <div>
+                            <label for="title" string="" style="color:White;width:370px"/>
+                            <label for="title" string="Totais Parciais" style="width:350px"/>
+                            <field name="tot_parc_entrada" nolabel="1"
+                                   style="color:blue; font-weight: bold; width:155px"/>
+                            <label for="title" string=""/>
+                            <field name="tot_parc_saida" nolabel="1" style="color:red; font-weight: bold; width:155px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:370px"/>
+                            <label for="title" string="Saldo Anterior" style="width:350px"/>
+                            <field name="saldo_ant" style="width:155px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:370px"/>
+                            <label for="title" string="Saldo Seguinte" style="width:510px"/>
+                            <field name="sald_sigu" style="width:155px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:370px"/>
+                            <label for="title" string="Total Control" style="width:350px"/>
+                            <field name="total_control_entrada" nolabel="1" style="width:155px"/>
+                            <label for="title" string=""/>
+                            <field name="total_control_saida" nolabel="1" style="width:155px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="treediarioteso" model="ir.ui.view">
+            <field name="name">Diarios de Tesouraria</field>
+            <field name="model">folha.tesouraria</field>
+            <field name="arch" type="xml">
+                <tree string=""><!-- create="false" edit="false"-->
+                    <field name="id"/>
+                    <field name="ccodmed"/>
+                    <field name="movimento"/>
+                    <field name="cnummov"/>
+                    <field name="tot_parc_entrada"/>
+                    <field name="tot_parc_saida"/>
+                    <field name="saldo_ant"/>
+                    <field name="fechado"/>
+                    <field name="sald_sigu"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="movimento_sequ" model="ir.sequence">
+            <field name="name">Movimento</field>
+            <field name="code">folha.tesouraria.mov</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="teso_diaraction_window">
+            <field name="name">Diarios de Tesouraria</field>
+            <field name="res_model">folha.tesouraria</field>
+            <!--<field name="view_id" ref="form_all_diarioTeso"/>
+            <field name="target">inline</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Realizar um novo Diarios de Tesouraria.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Diarios de Tesouraria)
+                    para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!--<menuitem name="Diario Tesouraria" id="menu_diar_list" parent="gestao_tesouraria.menu_1"
+                  action="action_window_diarioteso"/>-->
+    </data>
+</odoo>

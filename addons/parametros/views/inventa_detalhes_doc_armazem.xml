@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="detalhe_documento_armanzem_form" model="ir.ui.view">
+          <field name="name">Detalhes Documento Armanzem</field>
+          <field name="model">detalhes.documento.armanzem</field>
+          <field name="arch" type="xml">
+              <form string="Detalhes Documento Armanzem">
+                  <sheet>
+                    <group string="Artigos">
+                        <group>
+                          <!--<field name="name"/>-->
+                          <field name="artigo_id"/>
+                          <field name="preco_custo_meio"/>
+                        </group>
+                        <group>
+
+                          <field name="unidade_medida_arm"/>
+                          <!--<field name="condigo"/>         Campos ocultos para verrificar
+                          <field name="unidade_medida_arm"/>-->
+                        </group>
+                    </group>
+                    <group string="Detalhes"></group>
+                    <div>
+                      <label for="tilte" string="Preço Cunto"/>
+                      <label for="title" string="__" style="color:White;"/>
+                      <field name="preco_custo" nolabel="1" style="width:150px"/>
+                      <label for="tilte" string="Quantidade"/>
+                      <label for="title" string="__" style="color:White;"/>
+                      <field name="quantidade" nolabel="1" style="width:150px"/>
+                      <label for="tilte" string="Sub Total"/>
+                      <label for="title" string="__" style="color:White;"/>
+                      <field name="sub_total" nolabel="1" style="width:150px"/>
+                    </div>
+                    <div>
+                      <label for="tilte" string="Ubicação"/>
+                      <label for="title" string="____" style="color:White;"/>
+                      <field name="ubicacoes" nolabel="1" style="width:190px"/>
+                    </div>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+      <record id="act_window_detalhe_documento_armanzem" model="ir.actions.act_window">
+          <field name="name">Detalhes Documento Armanzem</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">detalhes.documento.armanzem</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              <!-- Add Text Here -->
+            </p><p>
+              <!-- More details about what a user can do with this object will be OK -->
+            </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="detalhes_documento_armanzem_menu" name="Detalhes Documento Armanzem" parent="fastgest_imveta" action="act_window_detalhe_documento_armanzem" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_ordem_pag_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="rep_ord_pag"
+                model="tesouraria.ordem.pagamento"
+                string="Ordem de Pagamento"
+                name="gestao_tesouraria.rep_ord_pag_view"
+                file="gestao_tesouraria.ordem_pagamento_form_view"
+                paperformat="paperformat_ordem_pag_report"
+                report_type="qweb-pdf"
+                menu="True"/>
+
+        <template id="rep_ord_pag_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h3>ORDEM DE PAGAMENTO</h3>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <div style="border:0px solid black;  text-right; margin-top: 1px; resize: horizontal;width:3%; padding: 2px; height: 40px; ">
+                                <strong>
+                                    <h4>
+                                        <p>Nº</p>
+                                    </h4>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; margin-top: 1px; resize: horizontal;width:15%; padding: 5px;  height: 40px;">
+                                <strong>
+                                    <h4>
+                                        <span t-esc="o.numero"/>
+                                    </h4>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black; text-center; margin-left: 622px; height: 36px; margin-top:2px;  width:30%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <div style="border:0px solid black;  text-right; margin-top: 1px; resize: horizontal;width:35%; padding: 2px; height: 40px; ">
+                                <strong>
+                                    <h4>
+                                        <p>Nº Cheque</p>
+                                    </h4>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; margin-top: 1px; resize: horizontal;width:15%; padding: 5px;  height: 40px;">
+                                <strong>
+                                    <h4>x</h4>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black; text-center; margin-left: -1px; height: 300px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        </div>
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <div style="border:0px solid black;  text-left; margin-top: 1px; resize: horizontal;width:200px; padding: 2px; height: 40px; ">
+                                <strong>
+                                    <h4>
+                                        <p>Cheque emitido para:</p>
+                                    </h4>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; margin-top: 1px; resize: horizontal;width:50%; padding: 5px;  height: 40px;">
+                                <strong>
+                                    <h4>
+                                        <span t-esc="o.fornecidor"/>
+                                    </h4>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <div style="border:0px solid black; text-left; margin-top: 1px; resize: horizontal;width:100%; padding: 5px;  height: 40px;">
+                                <strong>
+                                    <h4>
+                                        <span t-esc="o.detalhes_ordem"/>
+                                    </h4>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black; border-right:0px; ; border-left:0px; width:100%; margin-left: -1px; height: 25px; margin-top:-2px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; margin-left: 5px; width:150px;">
+                                <p>Documento</p>
+                            </div>
+                            <div class="text-right"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; margin-left: 550px; width:100px;">
+                                <p>Montante</p>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black;  width:100%; height: 250px">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <t t-foreach="o.detalhes_ids" t-as="dt">
+                                        <tr>
+                                            <td style="border:1px solid black;">
+                                                <span t-if="o.op_solic == True">
+                                                    <span t-esc="dt.descrecao"/>
+                                                </span>
+                                                <span t-if="o.op_solic == False">
+                                                    <span t-esc="dt.descrecao_desp"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-center" style="border:1px solid black;">
+                                                <span t-esc="dt.valor"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="border:0px solid black; text-right; margin-left: -1px; height: 43px; margin-top:5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border:0px solid black;  text-left; margin-top: 1px; margin-left: 680px; resize: horizontal; width:60px; padding: 2px; height: 40px; ">
+                                <strong>
+                                    <h4>
+                                        <p>Total:</p>
+                                    </h4>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-right; margin-top: 1px; resize: horizontal;width:16%; padding: 5px;  height: 40px;">
+                                <strong>
+                                    <h4>
+                                        <span t-esc="o.montante"/>
+                                    </h4>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; margin-left: -1px; height: 43px; margin-top: 5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; height: 36px; width:300px;">
+                                <p>Elaborado por</p>
+                            </div>
+
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; height: 36px; width:300px;">
+                                <p>Comfirido por</p>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; margin-left: 5px; height: 36px; width:300px;">
+                                <p>Recebido por</p>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; margin-left: -1px; height: 43px; margin-top: 5px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width:300px;">
+                                <p>x--------------------------------------------</p>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width:300px;">
+                                <p>x--------------------------------------------</p>
+                            </div>
+
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; margin-left: 5px; width:300px;">
+                                <p>x--------------------------------------------</p>
+                            </div>
+                        </div>
+
+                        <div style="border:0px solid black; margin-left: -1px; height: 43px; margin-top: 20px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                               <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width:150px;">
+                                <p>-------/--------/-------</p>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width:150px;">
+                                 <p>-------/--------/-------</p>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; margin-left: 5px; width:150px;">
+                                 <p>-------/--------/-------</p>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

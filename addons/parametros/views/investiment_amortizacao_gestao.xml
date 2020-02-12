@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="amortizacao_gestao_form" model="ir.ui.view">
+           <field name="name">Amortização Gestão</field>
+           <field name="model">amortizacao.gestao</field>
+           <field name="arch" type="xml">
+               <form string="Amortização Gestão">
+                   <sheet>
+                     <group>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                       <group>
+                           <field name="taxa"/>
+                       </group>
+                     </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="amortizacao_gestao_tree" model="ir.ui.view">
+           <field name="name">Amortização Gestão</field>
+           <field name="model">amortizacao.gestao</field>
+           <field name="arch" type="xml">
+               <tree string="Amortização Gestão">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="amortizacao_gestao_act_window" model="ir.actions.act_window">
+           <field name="name">Amortização Gestão</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">amortizacao.gestao</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Amortização Gestão.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Amortização Gestão) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="amortizacao_gestao_menu" name="Amortização Gestão" parent="fastgest_invetimento" action="amortizacao_gestao_act_window" sequence="80"/>
+    </data>
+</odoo>

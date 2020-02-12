@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cta_form" model="ir.ui.view">
+            <field name="name">CTA CTE</field>
+            <field name="model">cta.cte.assos</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="assoc_op" string=" ADD ID REL Reg OP" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="receb_id"/>
+                            <field name="reg_doc_id"/>
+                            <field name="cdocint"/>
+                            <field name="cmovint"/>
+                            <field name="nvalcre"/>
+                        </group>
+                        <group>
+                            <field name="nvalpag"/>
+                            <field name="dfecpag"/>
+                            <field name="lpaganu"/>
+                            <field name="ccodter"/>
+                            <field name="cdescr"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cta_tree" model="ir.ui.view">
+            <field name="name">CTA CTE</field>
+            <field name="model">cta.cte.assos</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="receb_id"/>
+                    <field name="reg_doc_id"/>
+                    <field name="cdocint"/>
+                    <field name="cmovint"/>
+                    <field name="nvalcre"/>
+                    <field name="nvalpag"/>
+                    <field name="dfecpag"/>
+                    <field name="lpaganu"/>
+                    <field name="ccodter"/>
+                    <field name="cdescr"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cta_act_windows" model="ir.actions.act_window">
+            <field name="name">CTA CTE</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cta.cte.assos</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="cta_cte_menu" name="CTA CTE ASSOC " parent="menu_outros" action="cta_act_windows"
+                  sequence="1000"/>
+
+
+        <record id="formul_cta_cte" model="ir.ui.view">
+            <field name="name">REGISTRO CTA CTE</field>
+            <field name="model">cta.cte</field>
+            <field name="arch" type="xml">
+                <form string="CTA CTE" create="false" edit="false">
+                    <header>
+                        <button name="addassoc_op" string=" MUDA CDOINT POR OPDO" type="object" class="btn-primary"/>
+                        <button name="assoc_op" string=" ADD ID REL" type="object" class="btn-primary"/>
+                        <button name="compor_op" string=" ADD ID TERC" type="object" class="btn-primary"/>
+                        <button name="add_relaca_reg_caj_reg_doc" string=" ADD VAl TAb REL" type="object"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="nome_terc"/>
+                                <field name="CDOCINT"/>
+                                <field name="CMOVINT"/>
+                                <field name="NVALCRE"/>
+
+                                <!--<field name="documentos"/>
+                                <field name="data_realise"/>
+                                <field name="tipo_docum"/>
+                                <field name="numeros_docum"/>
+                                <field name="cod_documento"/>
+                                <field name="nome_terc"/>
+                                <field name="visualizar_no_tesorer"/>
+                                <field name="valorAsc"/>
+                                <field name="total"/>
+                                <field name="valorPago"/>
+                                <field name="ldocaut"/>
+                                <field name="docPag"/>
+                                <field name="pago"/>-->
+                            </group>
+                            <group>
+                                <field name="NVALPAG"/>
+                                <field name="CCODTER"/>
+                                <field name="CDESCRI"/>
+                                <!--<field name="saldo"/>
+                                <field name="saldo_ord"/>
+                                <field name="fornec_tercd"/>
+                                <field name="ordem_pago"/>
+                                <field name="sem_cta_cte"/>
+                                <field name="control_op"/>
+                                <field name="displlay_type"/>
+                                <field name="state"/>
+                                <field name="control_estad_docum"/>
+                                <field name="valor_ordpag"/>-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tree_view_cta_cte" model="ir.ui.view">
+            <field name="name">REGISTRO CTA CTE</field>
+            <field name="model">cta.cte</field>
+            <field name="arch" type="xml">
+                <tree string="Cta Cte">
+                    <button name="confirm" icon="fa-file-text-o" string="Documentos " class="btn btn-warning"/>
+                    <field name="id"/>
+                    <field name="mud_id"/>
+                    <!---<field name="documentos"/>
+                    <field name="data_realise"/>
+                    <field name="tipo_docum"/>
+                    <field name="numeros_docum"/>
+                    <field name="cod_documento"/>
+                    <field name="data_documento"/>
+                    <field name="nome_terc"/>
+                    <field name="visualizar_no_tesorer"/>
+                    <field name="valorAsc"/>
+                    <field name="total"/>
+                    <field name="valorPago"/>
+                    <field name="desting_doc_desp"/>
+                    <field name="desting_doc_vend"/>
+                    <field name="desting_doc_op"/>
+                    <field name="cobrado"/>
+                    <field name="pago"/>
+                    <field name="saldo"/>
+                    <field name="saldo_ord"/> Saldo no view OP
+                    <field name="fornec_tercd"/>
+                    <field name="ordem_pago"/>
+                    <field name="sem_cta_cte"/>
+                    <field name="control_op"/>
+                    <field name="displlay_type"/>
+                    <field name="state"/>
+                    <field name="control_estad_docum"/>
+                    <field name="debito"/>
+                    <field name="credito"/>
+                    <field name="encontro"/>
+                    <field name="saldar"/>-->
+                    <field name="id_reg_doc_rec"/>
+                    <field name="id_reg_doc"/>
+                    <field name="nome_terc"/>
+                    <field name="OPACDO"/>
+                    <field name="CDOCINT"/>
+                    <field name="CMOVINT"/>
+                    <field name="NVALCRE"/>
+                    <field name="NVALPAG"/>
+                    <field name="CCODTER"/>
+                    <field name="CDESCRI"/>
+
+                    <field name="JUROS"/>
+                    <field name="AMORTIZACAO"/>
+                    <field name="PRESTACAO"/>
+                    <field name="id_cred_post"/>
+                    <field name="NUMEROCRED"/>
+                    <field name="ESTADO"/>
+                    <field name="PAGOTOTAL"/>
+                    <field name="DIVIDA"/>
+                    <field name="CNOMTER"/>
+                    <field name="CIDEDOC"/>
+                    <field name="DFECVEN"/>
+
+                    <field name="NUMEROCRED"/>
+                    <field name="CNOMTER"/>
+                    <field name="MOBS"/>
+                    <field name="id_cred_post"/>
+
+
+                </tree>
+
+            </field>
+        </record>
+        <!--<record id="search_view_cta_cte_group" model="ir.ui.view">
+            <field name="name">REGISTRO CTA CTE</field>
+            <field name="model">cta.cte</field>
+            <field name="arch" type="xml">
+                <search string="Documentos Information">
+                    <field name="documentos"/>
+                    <field name="tipo_docum"/>
+                    <field name="cod_documento"/>
+                    <field name="data_realise"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_documentos" string="Documentos" domain="[('ldocaut', '=', True)]" context="{'group_by':'documentos'}"
+                                help="Group Documentos Wise"/>
+                    </group>
+                </search>
+            </field>
+        </record>-->
+        <record id="form_all_cta_search_view" model="ir.ui.view">
+            <field name="name">CTA CTE</field>
+            <field name="model">cta.cte</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="CCODTER"/>
+                    <field name="CMOVINT"/>
+                    <field name="CDOCINT"/>
+                </search>
+            </field>
+        </record>
+        <record id="sequ_cta_cte" model="ir.sequence">
+            <field name="name">Registro cta cte</field>
+            <field name="code">codigo.codigo</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequ_cta_cte_fat_cliente" model="ir.sequence">
+            <field name="name">Fatura Cliente</field>
+            <field name="code">codigo.fatur.cliente</field>
+            <field name="prefix">FC-%(range_year)s/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="act_windows_cta_cte" model="ir.actions.act_window">
+            <field name="name">REGISTRO CTA CTE</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="context">{'search_default_group_documentos': 1}</field>
+            <field name="res_model">cta.cte</field>
+            <!--<field name="view_id" ref="formul_reg_docum"/>
+            <field name="target">inline</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="auto_refresh" eval="2"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action
+        <menuitem id="sub_cta_cte" name="REGISTRO CTA CTE" parent="menu_outros" action="act_windows_cta_cte"
+                  sequence="80"/>-->
+    </data>
+</odoo>

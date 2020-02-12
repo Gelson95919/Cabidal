@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="dados_processamento_form" model="ir.ui.view">
+           <field name="name">Dados Processamento</field>
+           <field name="model">dados.processamento</field>
+           <field name="arch" type="xml">
+               <form string="Dados Processamento">
+                   <sheet>
+                       <div><label for="title" string="DADOS DE PROCESSAMENTO" style="font-weight: bold;color:blue;"/></div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <field name="tipo_dados" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/></div>
+                       <div>
+                           <label for="title" string="Remunerações" style="width:150px" attrs="{'invisible': [('tipo_dados', '!=', 'remuneracoes')]}"/>
+                           <label for="title" string="Horas Extras" style="width:150px" attrs="{'invisible': [('tipo_dados', '!=', 'hora_extra')]}"/>
+                           <label for="title" string="Descontos" style="width:150px" attrs="{'invisible': [('tipo_dados', '!=', 'descontos')]}"/>
+                           <label for="title" string="Faltas" style="width:150px" attrs="{'invisible': [('tipo_dados', '!=', 'faltas')]}"/>
+                           <label for="title" style="width:500px" string=""/>
+                           <label for="title" string="Periodo" style="width:150px;font-weight: bold;"/>
+                       </div>
+                       <div>
+                           <field name="remuneracoes" style="width:500px" widget="many2many_tags" options="{'no_create': True}" attrs="{'invisible': [('tipo_dados', '!=', 'remuneracoes')]}"/>
+                           <field name="horas_extras" style="width:500px" widget="many2many_tags" options="{'no_create': True}" attrs="{'invisible': [('tipo_dados', '!=', 'hora_extra')]}"/>
+                           <field name="descontos" style="width:500px" widget="many2many_tags" options="{'no_create': True}" attrs="{'invisible': [('tipo_dados', '!=', 'descontos')]}"/>
+                           <field name="faltas" style="width:500px" widget="many2many_tags" options="{'no_create': True}" attrs="{'invisible': [('tipo_dados', '!=', 'faltas')]}"/>
+                           <label for="title" style="width:160px" string=""/>
+                           <label for="title" string="De"/>
+                           <field name="de" style="width:100px"/>
+                           <label for="title" style="width:10px" string=""/>
+                           <label for="title" string="Ate"/>
+                           <field name="ate" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" style="width:660px" string=""/>
+                           <field name="corte_pagina"/>
+                           <label for="title" string="Corte Pagina" style="width:150px"/>
+                       </div>
+                       <div>
+                           <label for="title" style="width:660px" string=""/>
+                           <field name="detalhe_por_funcionario"/>
+                           <label for="title" string="Detalhe por Funcionário"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/></div>
+                       <header>
+                           <button name="imprimir" type="object" string="Imprimir" icon="fa-print" style="font-size:20px;color:blue;"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="dados_processamento_act_window" model="ir.actions.act_window">
+           <field name="name">Dados Processamento</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">dados.processamento</field>
+           <field name="view_id" ref="dados_processamento_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="dados_processamento_menu" name="Dados de Processamento" parent="menu_mapas_internos" action="dados_processamento_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+         <!-- Conceito Movimento Interno -->
+       <!--========= Form Conceito Movimento Interno ========-->
+       <record id="form_all_lista_docum_in" model="ir.ui.view">
+          <field name="name">Listagem Documentos Despesas </field>
+          <field name="model">listadocun.listadocun</field>
+          <field name="arch" type="xml">
+                <form string="Listagem Documentos Despesas" create = "false" edit="false" import ='false' save='false' Reject='false'>
+                    <sheet>
+                        <div>
+                           <field name="listagem" widget="radio" class="oe_edit_only"/>
+                           <label for="title" string="" style="width:260px"/>
+                           <field name="so_cm_imposto" attrs="{'readonly': [('listagem','!=', 'Listagem Total')]}"/>
+                            <label for="title" string="So com imposto" style="width:160px"/>
+                           <field name="so_gastos_prop"/>
+                           <label for="title" string="So gasto prop (não CE)"/>
+                        </div>
+                        <label for="title" content="width=device-width, initial-scale=1.0" string="_________________________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                           <field name="por_beneficiario" />
+                           <label for="title" string="Por Beneficiário"/>
+                        </div>
+                        <div>
+                           <label for="title" string="Beneficiário" attrs="{'readonly': [('por_beneficiario', '=', False)]}"/>
+                           <field name="benificiario" style="width:520px" attrs="{'readonly': [('por_beneficiario', '=', False)]}" options = "{'no_create': True}" />
+                        </div>
+                        <div>
+                           <field name="uma_folha_por_benificiario" attrs="{'readonly': [('por_beneficiario', '=', False)]}"/>
+                           <label for="title" string="Uma Folha por Beneficiário" style="width:360px"/>
+                           <field name="ditalhes_pagamento" attrs="{'readonly': [('por_beneficiario', '=', False)]}"/>
+                           <label for="title" string="Detalhes de Pagamento"/>
+
+                        </div>
+                        <label for="title" string="______________________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                           <label for="title" string="Data"/>
+                           <label for="title" string="" style="width:550px"/>
+                           <label for="title" string="De"/>
+                           <label for="title" string="" style="width:260px"/>
+                           <label for="title" string="Ate"/>
+
+                        </div>
+                        <div>
+                           <field name="data" widget="radio" class="oe_edit_only" nolabe="1"/>
+                           <label for="title" string=""  style="color:White; width:400px"/>
+                           <field name="de"/>
+                           <label for="title" string=""  style="color:White; width:200px"/>
+                           <field name="ate"/>
+                        </div>
+                        <label for="title" string="_________________________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                            <field name="confirencia_contabilidade"  attrs="{'readonly': [('listagem','!=', 'Listagem Total')]}"/>
+                            <label for="title" string="conferência contabilidade"/>
+                        </div>
+                        <header>
+                          <button name="selecionar" string="Selecionar" icon="fa-undo" type="object" class="btn-primary"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                          <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                        </header>
+                    </sheet>
+                </form>
+          </field>
+       </record>
+       <!-- ações abrindo visualizações em modelos -->
+       <record model="ir.actions.act_window" id="action_window_listagems">
+         <field name="name">Listagem Documentos Despesas </field>
+         <field name="res_model">listadocun.listadocun</field>
+         <field name="target">inline</field>
+         <field name="view_id" ref="form_all_lista_docum_in"/>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Criar um novo Listagem de Documentos de compras / Conta a Pagar.
+            </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Listagem de Documentos de compras / Conta a Pagar) para projetos internos, pessoais ou de clientes.
+            </p>
+         </field>
+       </record>
+       <menuitem name="Listagem Documentos Despesas" id="menu_lista_docum" parent="gestao_compras.menu_concit_comp" action="action_window_listagems"/>
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="gerrar_conta_corente_form" model="ir.ui.view">
+           <field name="name">Gerar Conta Corente</field>
+           <field name="model">gerar.conta.corente</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <label for="title" string="CONSULTA CONTA CORRENTE" style="font-weight: bold; color:blue"/>
+                      <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Ano" style ="width:35px"/>
+                           <field name="ano" style ="width:200px"/>
+                           <label for="title" string="" style ="width:100px"/>
+                           <label for="title" string="Mês" style ="width:55px"/>
+                           <field name="mes" style ="width:100px"/>
+                           <label for="title" string="" style ="width:150px"/>
+                           <field name="membros_ativos"/>
+                           <label for="title" string="Selecionar apenas os membors ativos" />
+
+                       </div>
+                       <div>
+                           <label for="title" string="Data Contabiliozação"/>
+                           <field name="data_contabilizacao" style ="width:100px"/>
+                           <label for="title" string="" style ="width:100px"/>
+                           <label for="title" string="Conceito"/>
+                           <field name="conceuto" style ="width:100px"/>
+                           <label for="title" string="" style ="width:150px"/>
+                           <field name="selecionar_tuto"/>
+                           <label for="title" string="Selecionar Tudo"/>
+                           <label for="title" string="" style ="width:180px"/>
+                           <button name="selecionar" string="Selecionar" type="object" icon="fa-refresh" class="btn-primary"/>
+                       </div>
+                       <div class="oe_inline">
+                          <field name="socios_ids" style="width:1070px" nolabel = '1' widget="section_and_note_one2many" mode = "tree, kanban">
+                            <tree editable="bottom" string=""  delete="false" create="false" default_order = "write_date asc" eval="[(1,id,[ref('fatuclient_fatuclient')])]">
+                               <field name="sequence" widget="handle"/>
+                               <field name="name" force_save="1"/>
+                               <field name="numero_socio" force_save="1"/>
+                               <field name="tipo"/>
+                               <field name="activo"/>
+                            </tree>
+                          </field>
+                       </div>
+                       <header>
+                          <button name="gerar" string="Gerar" type="object" icon="fa-gears" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="gerrar_conta_corente_act_window" model="ir.actions.act_window">
+           <field name="name">Gerar Documento a Cobrar</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">gerar.conta.corente</field>
+           <field name="view_id" ref="gerrar_conta_corente_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="gerrar_conta_corente_menu" name="Gerar Conta Corente" parent="movimento_socio_menu" action="gerrar_conta_corente_act_window" sequence="80"/>
+    </data>
+</odoo>

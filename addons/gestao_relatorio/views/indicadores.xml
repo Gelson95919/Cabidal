@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="indicadores_form" model="ir.ui.view">
+            <field name="name">Indicadores</field>
+            <field name="model">indicadores</field>
+            <field name="arch" type="xml">
+                <form string="Ficha de Credito">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Ano" style="width:150px"/>
+                            <field name="ano" style="width:100px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Dias de atraso" style="width:150px"/>
+                            <field name="dia_atraso" style="width:100px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Nª Funcionario" style="width:150px"/>
+                            <field name="num_funcionario" style="width:100px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Nª Agentes" style="width:150px"/>
+                            <field name="num_agentes" style="width:100px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="indicadores_act_window" model="ir.actions.act_window">
+            <field name="name">Indicadores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">indicadores</field>
+            <field name="view_id" ref="indicadores_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="indicadores_menu" name="Indicadores" parent="gestao_relatorio.menu_rep"
+                  action="indicadores_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="ingrsso_bl_form_views" model="ir.ui.view">
+           <field name="name">Ingresso BL</field>
+           <field name="model">maritima.ingresso.bl</field>
+           <field name="arch" type="xml">
+               <form string="Ingresso BL">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Navio" style="width:80px"/>
+                           <field name="navio_id" style="width:300px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Data Entrada"/>
+                           <field name="data_entrada" style="width:160px"/>
+                           <label for="title" string="" style="width:360px"/>
+                           <label for="title" string="Conhecimento de Embarque"/>
+                           <field name="conhec_embarque" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Contra Marca"/>
+                           <field name="contra_marca" style="width:160px"/>
+                           <label for="title" string="" style="width:360px"/>
+                           <label for="title" string="Referência Manifesto" style="width:175px"/>
+                           <field name="referencia_manifesto" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <notebook>
+                               <page string="Dados">
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Est.Aduaneira"/>
+                                       <!--<field name="est_aduaneira"/>-->
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Porto Origem" style="width:90px"/>
+                                       <field name="porto_ori_id" style="width:100px"/>
+                                       <field name="desc_porto_orig" style="width:200px"/>
+                                       <label for="title" string="" style="width:350px"/>
+                                       <label for="title" string="Nome"  style="width:60px"/>
+                                       <field name="terceiro_id" style="width:260px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Porto Destino" style="width:90px"/>
+                                       <field name="porto_dest_id" style="width:100px"/>
+                                       <field name="desc_porto_dest" style="width:200px"/>
+                                       <label for="title" string="" style="width:350px"/>
+                                       <label for="title" string="Endereco"/>
+                                       <field name="endereco" style="width:260px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Tipo TT" style="width:90px"/>
+                                       <field name="tipo_tt" style="width:260px"/>
+                                       <label for="title" string="" style="width:380px"/>
+                                       <label for="title" string="Fluxo TT" style="width:60px"/>
+                                       <field name="fluxo_tt" style="width:260px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Cod.Ref.Carga"/>
+                                       <field name="cod_ref_carga" style="width:260px"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div><label for="title" string="Contentor"/></div>
+                                   <div>
+                                       <field name="contentor_ids" style="width:1070px">
+                                           <tree string="Contentores" editable="bottom" >
+                                               <field name="numero_sequencia"/>
+                                               <field name="referencia"/>
+                                               <field name="tipo"/>
+                                           </tree>
+                                       </field>
+                                   </div>
+                               </page>
+                               <page string="Lista de Pequenas Encomendas">
+                                   <div><label for="title" string=""/> </div>
+                                   <button name="conta_corente" string="Cta.Cte" type="object" icon="fa-newspaper-o" class="btn-primary"/>
+                                   <label for="title" string="" style="width:10px"/>
+                                   <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                                   <label for="title" string="" style="width:10px"/>
+                                   <button name="duplicar" string="Duplicar" type="object" icon="fa-hand-peace-o" class="btn-primary"/>
+                                   <label for="title" string="" style="width:10px"/>
+                                   <button name="imprimir_franquia" string="Imprimir Franquia" type="object" icon="fa-print" class="btn-primary"/>
+                                   <label for="title" string="" style="width:10px"/>
+                                   <button name="fechar" string="Fechar" type="object" icon="fa-lock" class="btn-primary"/>
+                                   <div><label for="title" string="" style="width:10px"/></div>
+                                   <div name = "pertences">
+                                       <field name="pertences_ids" style="width:1070px">
+                                           <tree string="pertences" editable="bottom" >
+                                               <field name="numero_trans" sum="Numero"/>
+                                               <field name="name"/>
+                                               <field name="descr_carga"/>
+                                               <field name="volumes" sum="Volume"/>
+                                               <field name="peso" sum="Volume"/>
+                                               <field name="cubicagem" sum="Medida"/>
+                                               <field name="valor_frete" sum="Valor Frete"/>
+                                           </tree>
+                                       </field>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="" style="width:600px"/>
+                                       <label for="title" string="Despesas no Origem"/>
+                                       <field name="despesas_origem" style="width:150px"/>
+                                   </div>
+                               </page>
+                               <page string="Despesas no Destino">
+                                  <div><label for="title" string=""/> </div>
+                                  <field name="despesas_destino_ids" style="width:1070px">
+                                     <tree string="pertences" editable="bottom" >
+                                         <field name="name"/>
+                                         <field name="tom_m3"/>
+                                         <field name="valor_documento" sum="Valor Documento"/>
+                                     </tree>
+                                  </field>
+                               </page>
+                               <page string="Parâmetros">
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Taxa Agência" style="width:108px"/>
+                                       <field name="taxa_agencia" style="width:260px"/>
+                                       <label for="title" string="" style="width:300px"/>
+                                       <label for="title" string="Iva Descarga" style="width:100px"/>
+                                       <field name="taxa_descarga" style="width:260px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Taxa Transitário"  style="width:108px"/>
+                                       <field name="taxa_transitario" style="width:260px"/>
+                                       <label for="title" string="" style="width:300px"/>
+                                       <label for="title" string="Iva Pertences"  style="width:100px"/>
+                                       <field name="iva_pertences" style="width:260px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Criterio x Defeito" style="width:108px"/>
+                                       <field name="criterio_defeirto" style="width:260px"/>
+                                   </div>
+                                   <div><label for="title" string="___________________________________________________________________________________________________________________________________________________________"/></div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Comissão"/>
+                                       <field name="comissao" style="width:260px"/>
+                                       <label for="title" string="" style="width:300px"/>
+                                       <field name="tipo_valo" style="width:260px" widget="radio"/>
+                                   </div>
+                                   <div><label for="title" string="___________________________________________________________________________________________________________________________________________________________"/></div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Base Arredondadmento"/>
+                                       <field name="base_arendond" style="width:190px"/>
+                                       <label for="title" string="" style="width:300px"/>
+                                       <field name="aredondamento" widget="radio"/>
+                                   </div>
+                               </page>
+                           </notebook>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="ingrsso_bl_tree_views" model="ir.ui.view">
+           <field name="name">Ingresso BL</field>
+           <field name="model">maritima.ingresso.bl</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="navio_id"/>
+                   <!--<field name="est_aduaneira"/>-->
+                   <field name="data_entrada"/>
+                   <field name="conhec_embarque"/>
+                   <field name="contra_marca"/>
+                   <field name="referencia_manifesto"/>
+               </tree>
+           </field>
+       </record>
+       <record id="maritima_ingrsso_bl_act_window" model="ir.actions.act_window">
+           <field name="name">Ingresso BL</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">maritima.ingresso.bl</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Adicionar um novo Ingresso de BL.
+             </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ingresso de BL ) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="ingrco_bl_menu" name="Ingresso BL" parent="pequenas_encomenda_menu" action="maritima_ingrsso_bl_act_window" sequence="80"/>
+        <record id="tipo_tt" model="ir.ui.view">
+            <field name="name">Tipo TT</field>
+            <field name="model">tipott</field>
+            <field name="arch" type="xml">
+                <form string="Tipo TT">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tipo_tt_act_window" model="ir.actions.act_window">
+            <field name="name">Tipo TT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tipott</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="tipo_tt_act_menu" name="Tipo TT" parent="parametros.fastgest_age_maritima" action="tipo_tt_act_window" sequence=""/>
+        <record id="fluxo_tt_from" model="ir.ui.view">
+            <field name="name">Fluxo TT</field>
+            <field name="model">fluxott</field>
+            <field name="arch" type="xml">
+                <form string="Fluxo TT">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="fluxo_tt_act_window" model="ir.actions.act_window">
+            <field name="name">Fluxo TT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fluxott</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="fluxo_tt_act_menu" name="Fluxo TT" parent="parametros.fastgest_age_maritima" action="fluxo_tt_act_window" sequence=""/>
+        <record id="contentor_form" model="ir.ui.view">
+            <field name="name">Contentor</field>
+            <field name="model">contentor</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                            <label for="title" string="Titulo Transporte"/>
+                            <field name="titulo_transporte" style="width:460px"/>
+                        </div>
+                        <div><label for="title" string="Contentor" style = "color:blue; format:bold"/></div>
+                        <div>
+                            <label for="title" string="Numero Sequencia"/>
+                            <field name="numero_sequencia" style="width:260px"/>
+                            <label for="title" string="" style="width:200px"/>
+                            <label for="title" string="Referência"/>
+                            <field name="referencia" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Tipo"  style="width:120px"/>
+                            <field name="tipo" style="width:260px"/>
+                            <label for="title" string="" style="width:200px"/>
+                            <label for="title" string="Indicador"/>
+                            <field name="indicador" style="width:260px"/>
+                        </div>
+                        <div>
+
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="contentor_act_window" model="ir.actions.act_window">
+            <field name="name">Contentor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">contentor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="contentor_menu" name="Contentor" parent="parametros.fastgest_age_maritima" action="contentor_act_window" sequence=""/>
+        <record id="pertence_form" model="ir.ui.view">
+            <field name="name">Pertences</field>
+            <field name="model">pertences</field>
+            <field name="arch" type="xml">
+                <form string="Pertences">
+                    <sheet>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                            <label for="title" string="Referência Pertences"/>
+                            <field name="ref_pertences" style="width:100px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <label for="title" string="Nº Pertences"/>
+                            <field name="numero_trans" style="width:100px"/>
+                        </div>
+                        <div><label for="title" style = "color:blue; format:bold" string="Destinatário______________________________________________________________________________________________________________________"/> </div>
+                        <div>
+                            <label for="title" string="Nome"/>
+                            <field name="name" style="width:260px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <label for="title" string="NIF"/>
+                            <field name="nif" style="width:260px"/>
+                        </div>
+                        <div><label for="title" string="Endereço"/></div>
+                        <div>
+                            <field name="endereco"/>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <div><label for="title" style = "color:blue; format:bold" string="Notificar a____________________________________________________________________________________________________________________"/> </div>
+                        <div>
+                            <label for="title" string="Nome"/>
+                            <field name="nome" style="width:260px"/>
+                        </div>
+                        <div><label for="title" string="Endereço"/></div>
+                        <div>
+                            <field name="endereco_notif"/>
+                        </div>
+                        <div>
+                            <field name="contentor_ids" style="width:1000px">
+                                <tree string="Contentores" editable="bottom" >
+                                    <field name="numero_sequencia"/>
+                                    <field name="referencia"/>
+                                    <field name="tipo"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <div><label for="title" style = "color:blue; format:bold" string="Cargas_________________________________________________________________________________________________________________________"/> </div>
+                        <div>
+                            <label for="title" string="Embalagem"/>
+                            <field name="embalagem" style="width:260px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <label for="title" string="Volumes"/>
+                            <field name="volumes" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Peso(Kg)"/>
+                            <field name="peso" style="width:260px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <label for="title" string="Cubicagem(M3)"/>
+                            <field name="cubicagem" style="width:210px"/>
+                        </div>
+                        <div><label for="title" string="Marca"/></div>
+                        <div>
+                            <field name="marca"/>
+                        </div>
+                        <div><label for="title" string="Descrição"/></div>
+                        <div>
+                            <field name="descr_carga"/>
+                        </div>
+                        <div><label for="title" style = "color:blue; format:bold" string="Informação Adicional_____________________________________________________________________________________________________________"/> </div>
+                        <div>
+                            <field name="informacao"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Valor Frete"/>
+                            <field name="valor_frete" style="width:260px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <label for="title" string="Moeda"/>
+                            <field name="moeda_id" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pertence_act_window" model="ir.actions.act_window">
+            <field name="name">Pertences</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pertences</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="pertences_menu" name="Pertences" parent="parametros.fastgest_age_maritima" action="pertence_act_window" sequence=""/>
+    </data>
+</odoo>

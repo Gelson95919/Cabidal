@@ -1,0 +1,30 @@
+
+<odoo>
+  <data>
+
+
+       <record model="ir.ui.view" id="session_gantt_view">
+            <field name="name">session.gantt</field>
+            <field name="model">openacademy.gamare</field>
+            <field name="arch" type="xml">
+                <gantt string="Session Gantt"
+                       date_start="start_date" date_delay="hours"
+                       default_group_by='instructor_id'>
+                    <!-- <field name="name"/> this is not required after Odoo 10.0 -->
+                </gantt>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="session_list_action1">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.gamare</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,gantt</field>
+        </record>
+
+       <menuitem id="session_menus" name="Gantt" parent="gestao_compras.menu_concit_comp"
+              action="session_list_action1"/>
+
+  </data>
+</odoo>

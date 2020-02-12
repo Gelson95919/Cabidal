@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="selagem_mercadoria_form" model="ir.ui.view">
+           <field name="name">Selagem de Mercadoria</field>
+           <field name="model">selagem.mercadoria</field>
+           <field name="arch" type="xml">
+               <form string="Selagem de Mercadoria">
+                   <sheet>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                           <label for="title" string="" style="width:450px"/>
+                           <label for="title" string="ALFÂNDEGA DE PRAIA" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="" style="width:250px"/>
+                           <field name="campo_1" style="width:460px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="(a)"/>
+                           <field name="campo_2" style="width:470px"/>
+                           <label for="title" string="Requisição Nº"/>
+                           <field name="campo_3" style="width:100px"/>
+                           <label for="title" string="/"/>
+                           <field name="campo_4" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="para selagem das mercadorias abaixo designadas, constantes do bilhete de despacho número de ordem"/>
+                           <field name="campo_5" style="width:140px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="e de receita"/>
+                           <field name="campo_6" style="width:100px"/>
+                           <label for="title" string="de "/>
+                           <field name="campo_7" style="width:100px"/>
+                           <label for="title" string=", requisitam-se"/>
+                           <field name="campo_8" style="width:100px"/>
+                           <label for="title" string="estampilhas na importância de "/>
+                           <field name="campo_9" style="width:105px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:100px"/></div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                            <field name="mercadoria_ids" style="width:800px">
+                                <tree editable="button" string="Mercadoria">
+                                    <field name="quantidades"/>
+                                    <field name="qualidades"/>
+                                    <field name="designacao_mercadoria"/>
+                                    <field name="marca"/>
+                                    <field name="preco_instanmpilha_por_unidade"/>
+                                    <field name="importancia"/>
+                                </tree>
+                            </field>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="Alfândiga de Praia"/>
+                           <field name="alfandiga_praia"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="OBS"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:100px"/>
+                           <field name="obs" style="width:800px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:100px"/></div>
+                       <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:550px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="selagem_mercadoria_act_window" model="ir.actions.act_window">
+           <field name="name">Selagem de Mercadoria</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">selagem.mercadoria</field>
+           <field name="view_id" ref="selagem_mercadoria_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="selagem_mercadoria_menu" name="Selagem Mercadoria" parent="impressos_menu" action="selagem_mercadoria_act_window" sequence="80"/>
+    </data>
+</odoo>

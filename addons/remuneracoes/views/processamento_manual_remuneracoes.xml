@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="processamento_manual_remuneracoes_form" model="ir.ui.view">
+           <field name="name">Processamento Manual Remunerações</field>
+           <field name="model">processamento.manual.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Processamento Manual Remunerações">
+                   <sheet>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Funcionário"/>
+                           <field name="funcionario_di" style="width:160px"/>
+                           <label for="title" style="width:80px" string=""/>
+                           <label for="title" string="Ano"/>
+                           <field name="ano" style="width:160px"/>
+                           <!--<label for="title" string="Mês"/>
+                           <field name="mes" style="width:160px"/>-->
+                           <label for="title" style="width:50px" string="" />
+                           <button name="selecionar" type="object" string="Selecionar" icon="fa-refresh" style="font-size:20px;color:blue;"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <notebook>
+                           <page string="Remunerações/Desconto">
+                               <div>
+                                   <label for="title" string="Remunerações Fixas______________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/>
+                                   <field name="remuneracoes_salario_ids">
+                                       <tree editable="bottomn" string="Tree">
+                                          <field name="id" />
+                                          <field name="descre_remuner"/>
+                                          <field name="valor" />
+                                       </tree>
+                                   </field>
+                               </div>
+                               <div><label for="title" string="" style="width:20px"/> </div>
+                               <div>
+                                   <label for="title" string="Descontos Fixos________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/>
+                                   <field name="descontos_salario_ids">
+                                       <tree editable="bottomn" string="Tree">
+                                          <field name="id"/>
+                                          <field name="descre_descont"/>
+                                          <field name="valor"/>
+                                       </tree>
+                                   </field>
+                               </div>
+                           </page>
+                           <page string="Alterações Mensais">
+                                <div>
+                                   <field name="alteracoes_list_ids">
+                                       <tree editable="bottomn" string="Tree">
+                                          <field name="tipo" />
+                                          <field name="mes"/>
+                                          <field name="montante" />
+                                       </tree>
+                                   </field>
+                               </div>
+                           </page>
+                       </notebook>
+                       <header>
+                         <button name="anterior" type="object" class="btn-primary" string="Anterior" icon="fa-angle-double-left" style="font-size:20px;color:blue;"/>
+                         <button name="proximo" type="object" class="btn-primary" string="Próximo" icon="fa-angle-double-right" style="font-size:20px;color:blue;"/>
+                         <button name="processar" type="object" class="btn-primary" string="Processar" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                         <button name="anular" type="object" class="btn-primary" string="Anular"  icon="fa-times-circle-o" style="font-size:20px;color:blue;"/>
+                         <button name="gerarOp" type="object" class="btn-primary" string="Gerar OP" icon="fa-gears fa-1x" style="font-size:20px;color:blue;"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="processamento_manual_remuneracoes_tree" model="ir.ui.view">
+           <field name="name">Processamento Manual Remunerações</field>
+           <field name="model">processamento.manual.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Processamento Menual Remunerações">
+                   <field name="funcionario_di"/>
+               </tree>
+           </field>
+       </record>
+       <record id="processamento_manual_remuneracoes_act_window" model="ir.actions.act_window">
+           <field name="name">Processamento Manual Remunerações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">processamento.manual.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+             </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="processamento_manual_remuneracoes_menu" name="Processamento Manual" parent="menu_remuneracoes" action="processamento_manual_remuneracoes_act_window" sequence="80"/>
+       <record id="alterac_mensa_process_manual_form" model="ir.ui.view">
+           <field name="name">Outro Alterações Mensais</field>
+           <field name="model">alteracoes.mensais.process.manual</field>
+           <field name="arch" type="xml">
+               <form string="Alterações Mensais Processamento Manual">
+                   <sheet>
+                       <div><label for="title" string="" style="width:20px"/></div>
+                       <div>
+                           <label for="title" string="Tipo" style="width:85px"/>
+                           <field name="tipo" style="width:260px"/>
+                           <label for="title" style="width:85px" string=""/>
+                           <label for="title" string="Falta" style="width:85px" attrs="{'invisible': [('tipo', '!=', 'falta')]}"/>
+                           <field name="falta_id" style="width:260px" attrs="{'invisible': [('tipo', '!=', 'falta')]}"/>
+                           <label for="title" string="Hora" style="width:85px" attrs="{'invisible': [('tipo', '!=', 'horas')]}"/>
+                           <field name="hora_id" style="width:260px" attrs="{'invisible': [('tipo', '!=', 'horas')]}"/>
+                           <label for="title" string="Remunerações" style="width:85px"  attrs="{'invisible': [('tipo', '!=', 'remuneracoes')]}"/>
+                           <field name="remuneracao_id" style="width:260px" attrs="{'invisible': [('tipo', '!=', 'remuneracoes')]}"/>
+                           <label for="title" string="Desconto" style="width:85px" attrs="{'invisible': [('tipo', '!=', 'descontos')]}"/>
+                           <field name="desconto_id" style="width:260px" attrs="{'invisible': [('tipo', '!=', 'descontos')]}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Qt./Montante" style="width:85px"/>
+                           <field name="montante" style="width:260px"/>
+                           <label for="title" style="width:85px" string=""/>
+                           <label for="title" string="Mês" style="width:85px"/>
+                           <field name="mes" style="width:260px"/>
+                       </div>
+
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="alteracoes_mensais_process_manual_tree" model="ir.ui.view">
+           <field name="name">Outro Alterações Mensais</field>
+           <field name="model">alteracoes.mensais.process.manual</field>
+           <field name="arch" type="xml">
+               <tree string="Alterações Mensais Processamento Manual">
+                   <field name="tipo"/>
+               </tree>
+           </field>
+       </record>
+       <record id="alteracoes_mensais_process_manual_act_window" model="ir.actions.act_window">
+           <field name="name">Outro Alterações Mensais</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alteracoes.mensais.process.manual</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="alteracoes_mensais_menu_proces_manual" name="Outro Alterações Mensais" parent="menu_remuneracoes" action="alteracoes_mensais_process_manual_act_window" sequence="80"/>
+    </data>
+</odoo>

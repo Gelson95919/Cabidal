@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="rubrica_conta_escala_form" model="ir.ui.view">
+           <field name="name">Rubrica Contas Escala</field>
+           <field name="model">agenc.rubrica.conta.escala</field>
+           <field name="arch" type="xml">
+               <form string="Rubricas Conta Escala">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <field name="name" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Tipo"/>
+                           <field name="tipo" widget="radio"/>
+                           <label for="title" string="_____________________________________________"  style="color:White;"/>
+                           <label for="title" string="Valor Absoluto"/>
+                           <field name="valor_abusoluto"/>
+                       </div>
+                       <div>
+                           <label for="title" string="____________________________________________________________"  style="color:White;"/>
+                           <field name="receitas"  attrs="{'readonly': [('tipo','!=', '3')]}" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_____________________________"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Idioma"/>
+                           <field name="rub_idioma" style="width:100px"/>
+                           <field name="desc_idioma" style="width:550px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="rubrica_conta_escala_tree" model="ir.ui.view">
+           <field name="name">Rubricas Conta Escala</field>
+           <field name="model">agenc.rubrica.conta.escala</field>
+           <field name="arch" type="xml">
+               <tree string="Rubrica Conta Escala">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="rubrica_conta_act_window" model="ir.actions.act_window">
+           <field name="name">Rubricas Conta Escala</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">agenc.rubrica.conta.escala</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Rubricas Conta Escala.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Rubricas Conta Escala) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+        <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="rubrica_conta_menu" name="" parent="fastgest_age_maritima" action="rubrica_conta_act_window" sequence="80"/>
+    </data>
+</odoo>

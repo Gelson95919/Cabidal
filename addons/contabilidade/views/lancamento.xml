@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teste_form" model="ir.ui.view">
+            <field name="name">Lançamento</field>
+            <field name="model">lancamento_diario.lancamento_diario</field>
+            <field name="arch" type="xml">
+                <form string="Lançamento">
+                    <sheet>
+                        <div>
+                            <field name="dados_antigo" style="width:150px" invisible="1"/>
+                            <label for="title" string="Diario" style="width:100px"/>
+                            <field name="diario" style="width:75px" attrs="{'readonly': [('ver_contab','=', True)]}"/>
+                            <field name="tipo_movimento" style="width:75px" invisible="1"/>
+                            <field name="name_diario" style="font-weight: bold; color:blue; width:300px" readonly="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Data" style="width:100px"/>
+                            <field name="data" style="width:150px"  attrs="{'invisible': [('dados_antigo','=', True)], 'readonly': [('ver_contab','=', True)]}"/>
+                            <field name="dfecpag" style="width:150px"  attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Ordem" style="width:100px"/>
+                            <field name="ordem" style="width:150px" attrs="{'readonly': [('ver_contab','=', True)]}"/>
+                            <label for="title" style="width:60px" string=""/>
+                            <label for="title" string="Valor"/>
+                            <field name="valor" style="width:150px" attrs="{'readonly': [('ver_contab','=', True)]}"/>
+                            <label for="title" style="width:60px" string=""/>
+                            <label for="title" string="Valor"/>
+                            <field name="valor1" style="width:150px" attrs="{'readonly': [('ver_contab','=', True)]}"/>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div>
+                            <label for="title" string="OBS"/>
+                        </div>
+                        <div>
+                            <field name="obs" style="width:1095px" attrs="{'readonly': [('ver_contab','=', True)]}"/>
+                        </div>
+                        <div>
+                            <field name="lancamento_id" style="width:1095px">
+                                <tree editable="bottomn" string="Lancamento">
+                                    <field name="codigo_conta"/>
+                                    <field name="deb_cred" sum="Debito"/>
+                                    <field name="descritivo"/>
+                                    <field name="centro_custo"/>
+                                    <field name="codigo_entidade"/>
+                                    <field name="fluxo_caixa"/>
+                                    <field name="valor_credito" sum="Credito"/>
+                                    <field name="codigo_iva"/>
+                                    <field name="valor_moeda_estra"/>
+                                    <!--<field name="moeda_estra"/>-->
+                                </tree>
+                            </field>
+                        </div>
+                        <div>
+                            <field name="linha_auto"/>
+                            <label for="title" string="Linha Automatico"/>
+                        </div>
+                        <header>
+                            <button name="eliminar" type="object" string="Eliminar" icon="fa-remove"
+                                    class="btn-primary"/>
+                            <button name="duplicar" type="object" icon="fa-hand-peace-o" string="Duplicar"
+                                    class="btn-primary"/>
+                            <button name="iva" type="object" string="IVA" icon="fa-tag" class="btn-primary"/>
+                            <button name="imprimir" type="object" string="Imprimir" icon="fa-print"
+                                    class="btn-primary"/>
+                            <button name="origem" type="object" string="Origem" icon="fa-binoculars"
+                                    class="btn-primary" attrs="{'invisible': [('ver_contab','=', True)]}"/>
+                            <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o"
+                                    class="btn-primary"/>
+                        </header>
+                        <div>
+                            <label for="title" string="Conta"/>
+                            <field name="nome_conta" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                            <label for="title" style="width:500px" string=""/>
+                            <label for="title" string="Tipo Doc"/>
+                            <field name="tipo_doc_d" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Centro Cust"/>
+                            <field name="cen_cust_d" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                            <label for="title" style="width:469px" string=""/>
+                            <label for="title" string="Moeda"/>
+                            <field name="moeda_d" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Entidade"/>
+                            <field name="entidade_d" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                            <label for="title" style="width:474px" string=""/>
+                            <label for="title" string="Codigo"/>
+                            <field name="codigo_d" style="color:blue; font-weight: bold;width:350px" readonly="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Fluxo"/>
+                            <field name="fluxo_d" style="color:blue; font-weight: bold; width:350px" readonly="1"/>
+                        </div>
+                        <div>
+                            <field name="ver_contab" style="width:50px" invisible="1"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="teste_tree" model="ir.ui.view">
+            <field name="name">Lançamento</field>
+            <field name="model">lancamento_diario.lancamento_diario</field>
+            <field name="arch" type="xml">
+                <tree string="Lancamento">
+                    <field name="anomov"/>
+                    <field name="diario"/>
+                    <field name="codigo"/>
+                    <field name="data"/>
+                    <field name="valor"/>
+                    <field name="obs"/>
+                     <field name="atualizado"/>
+                </tree>
+            </field>
+        </record>
+        <record id="lancamento_codigo" model="ir.sequence">
+            <field name="name">Lançamento</field>
+            <field name="code">lancamento.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="teste_act_window" model="ir.actions.act_window">
+            <field name="name">Lançamento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lancamento_diario.lancamento_diario</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('atualizado','=',False)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Lançamento.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Lançamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="teste_menu" name="Actualização de Diário" parent="contabilidade.menu_1" action="teste_act_window"
+                  sequence="80"/>
+    </data>
+</odoo>

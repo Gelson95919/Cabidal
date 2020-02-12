@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="processo_amortizacao_form" model="ir.ui.view">
+           <field name="name">Processo amortização</field>
+           <field name="model">processo.amortizacao</field>
+           <field name="arch" type="xml">
+               <form string="Processo amortização">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:100px"/>
+                       </div>
+                       <div>
+                           <field name="acumular_meses"/>
+                           <label for="title" string="Acumular meses anteriores"/>
+                       </div>
+                       <div>
+                           <field name="selecionar_tudos"/>
+                           <label for="title" string="Selecionar todus"/>
+                           <label for="title" style="width:500px" string=""/>
+                           <button name="selecionar" string="Selecionar" type="object" class="oe_highlight"/>
+                       </div>
+                       <div>
+                          <field name="amortizados_ids" style="width:730px">
+                              <tree editable="button" string="Amortização">
+                                  <field name="cod"/>
+                                  <field name="nome"/>
+                                  <field name="valor"/>
+                                  <field name="selec"/>
+                              </tree>
+                          </field>
+                       </div>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data_amort" style="width:100px"/>
+                           <label for="title" style="width:50px" string=""/>
+                           <field name="contabilizado"/>
+                           <label for="title" string="Contabilizado"/>
+                           <label for="title" style="width:50px" string=""/>
+                           <label for="title" string="Diario"/>
+                           <field name="diario" style="width:100px"/>
+                           <label for="title" style="width:50px" string=""/>
+                           <label for="title" string="Numero"/>
+                           <field name="numero" style="width:100px"/>
+                       </div>
+                       <header>
+                           <button name="processar" string="Processar" type="object" class="oe_highlight"/>
+                           <button name="c" string="C" type="object" class="oe_highlight"/>
+                           <button name="()" string="()" type="object" class="oe_highlight"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="processo_amortizacao_tree" model="ir.ui.view">
+           <field name="name">Processo amortização</field>
+           <field name="model">processo.amortizacao</field>
+           <field name="arch" type="xml">
+               <tree string="Processo amortização">
+                   <field name="data"/>
+                   <field name="acumular_meses"/>
+                   <field name="selecionar_tudos"/>
+                   <field name="data_amort"/>
+                   <field name="contabilizado"/>
+                   <field name="diario"/>
+                   <field name="numero"/>
+               </tree>
+           </field>
+       </record>
+       <record id="processo_amortizacao_act_window" model="ir.actions.act_window">
+           <field name="name">Processo amortização</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">processo.amortizacao</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+              Criar um novo Processo amortização.
+             </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Processo amortização ) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="processo_amortizacao_menu" name="Amortização" parent="investimento.menu_mov" action="processo_amortizacao_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <!--Este e Valido-->
+         <record id="microcre_profissoes_act_window" model="ir.actions.act_window">
+           <field name="name">Profissões</field>
+           <field name="res_model">profissoes.profissoes</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">tree,form</field>
+           <field eval="False" name="view_id"/>
+           <field name="domain">[('type','=','mircocred_professoes')]</field>
+           <field name="context">{'default_type': 'mircocred_professoes', 'type': 'mircocred_professoes'}</field>
+           <field eval="False" name="view_id"/>
+           <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                 Criar um novo Profissões.
+               </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Profissões)
+                 para projetos internos, pessoais ou de clientes.
+               </p>
+           </field>
+        </record>
+        <record id="tree_profissoes_uni_medida_tree" model="ir.actions.act_window.view">
+           <field eval="1" name="sequence"/>
+           <field name="view_mode">tree</field>
+           <field name="view_id" ref="parametros.form_prof_tree_view"/>
+           <field name="act_window_id" ref="microcre_profissoes_act_window"/>
+        </record>
+        <record id="microcre_profissoes_view2" model="ir.actions.act_window.view">
+           <field eval="2" name="sequence"/>
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="parametros.form_all_prof"/>
+           <field name="act_window_id" ref="microcre_profissoes_act_window"/>
+        </record>
+        <menuitem action="microcre_profissoes_act_window" name="Profições"  id="professoes_menu" parent="fastgest_gest_microcred_tabelas" sequence="1"/>
+    </data>
+</odoo>

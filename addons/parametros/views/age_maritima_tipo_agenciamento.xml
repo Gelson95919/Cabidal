@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="tipo_agenciamento_form" model="ir.ui.view">
+           <field name="name">Tipo Agenciamento</field>
+           <field name="model">tipo.agenciamento</field>
+           <field name="arch" type="xml">
+               <form string="Classe Navio">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="tipo_agenciamento_tree" model="ir.ui.view">
+           <field name="name">Tipo Agenciamento</field>
+           <field name="model">tipo.agenciamento</field>
+           <field name="arch" type="xml">
+               <tree string="Tipo Agenciamento">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="tipo_agenciamento_act_window" model="ir.actions.act_window">
+           <field name="name">Tipo Agenciamento</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">tipo.agenciamento</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Tipo Agenciamento.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Agenciamento) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="tipo_agenciamento_menu" name="Tipo Agenciamento" parent="fastgest_age_maritima" action="tipo_agenciamento_act_window" sequence="80"/>
+    </data>
+</odoo>

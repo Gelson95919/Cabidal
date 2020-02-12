@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="portos_form" model="ir.ui.view">
+           <field name="name">Portos - Escalas</field>
+           <field name="model">portos.escalas</field>
+           <field name="arch" type="xml">
+               <form string="Portos - Escalas">
+                   <sheet>
+                     <group>
+                       <group>
+                           <field name="porto_nacional"/>
+                           <field name="name"/>
+                           <field name="pais"/>
+                           <field name="indicaativo"/>
+                       </group>
+                       <group>
+                           <field name="telefone"/>
+                           <field name="fax"/>
+                           <field name="email" whidget="email"/>
+                       </group>
+                     </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="portos_tree" model="ir.ui.view">
+           <field name="name">Portos - Escalas</field>
+           <field name="model">portos.escalas</field>
+           <field name="arch" type="xml">
+               <tree string="Portos - Escalas">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="portos_act_window" model="ir.actions.act_window">
+           <field name="name">Portos - Escalas</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">portos.escalas</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Portos - Escalas.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Portos - Escalas) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="portos_menu" name="Portos" parent="fastgest_age_maritima" action="portos_act_window" sequence="80"/>
+    </data>
+</odoo>

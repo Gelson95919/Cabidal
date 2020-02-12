@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="gest_grupo.list">
+      <field name="name">gest_grupo list</field>
+      <field name="model">gest_grupo.gest_grupo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="gest_grupo.action_window">
+      <field name="name">gest_grupo window</field>
+      <field name="res_model">gest_grupo.gest_grupo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="gest_grupo.action_server">
+      <field name="name">gest_grupo server</field>
+      <field name="model_id" ref="model_gest_grupo_gest_grupo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="gest_grupo" id="gest_grupo.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="gest_grupo.menu_1" parent="gest_grupo.menu_root"/>
+    <menuitem name="Menu 2" id="gest_grupo.menu_2" parent="gest_grupo.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="gest_grupo.menu_1_list" parent="gest_grupo.menu_1"
+              action="gest_grupo.action_window"/>
+    <menuitem name="Server to list" id="gest_grupo" parent="gest_grupo.menu_2"
+              action="gest_grupo.action_server"/>
+    -->
+  </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="remuneracoes.menu_root" name="Remunerações" web_icon="remuneracoes,static/description/icon.png" />
+        <menuitem name="Movimentos Remunerações" id="menu_remuneracoes" parent="remuneracoes.menu_root"/>
+        <menuitem name="Mapas Oficiais" id="menu_mapas_oficiais" parent="remuneracoes.menu_root"/>
+        <menuitem name="Mapas Interno" id="menu_mapas_internos" parent="remuneracoes.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_remuner_menu_param" parent="remuneracoes.menu_root"/>
+    </data>
+</odoo>

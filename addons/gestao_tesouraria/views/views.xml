@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="Gestão Tesouraria" web_icon="gestao_tesouraria,static/description/icon.png"
+                  id="gestao_tesouraria.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Tesouraria" id="gestao_tesouraria.menu_1" parent="gestao_tesouraria.menu_root"/>
+        <menuitem name="Listagem Documentos" id="gestao_tesouraria.menu_2" parent="gestao_tesouraria.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_tesoura_menu_param" parent="gestao_tesouraria.menu_root"/>
+
+
+    </data>
+</odoo>

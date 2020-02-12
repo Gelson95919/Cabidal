@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="posicao_stok_form" model="ir.ui.view">
+            <field name="name">Posição de Stock</field>
+            <field name="model">posicao.stock</field>
+            <field name="arch" type="xml">
+                <form string="Posição de Stock">
+                    <sheet>
+                        <div><label for="title" string="POSIÇÃO DE STOCK"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                        <div>
+                           <label for="title" string="Armazém" style="width:74px"/>
+                           <field name="armazem" nolabel="1" style="width:260px"/>
+                           <label for="title" string="" style="color:White; width:260px"/>
+                           <label for="title" string ="Somente Desponiveis (Qt.> 0)"/>
+                           <field name="somente_desponivel" nolabel="1" style="width:120px"/>
+                        </div>
+                        <div>
+                          <label for="title" string ="Familia" style="width:74px"/>
+                          <field name="familia" nolabel="1" style="width:260px"/>
+                          <label for="title" string="" style="color:White; width:260px"/>
+                          <label for="title" string ="Qt.Abaixo do minimo" style="width:181px;"/>
+                          <field name="qt_abaixo_minimo" nolabel="1" style="width:120px"/>
+                        </div>
+                        <div>
+                           <label for="title" string ="Sub Familia"/>
+                           <field name="sub_familia" nolabel="1" style="width:260px"/>
+                           <label for="title" string="" style="color:White; width:260px"/>
+                           <label for="title" string ="Ate Data"/>
+                           <label for="title" string="" style="color:White; width:20px"/>
+                           <field name="data" nolabel="1" style="width:120px"/>
+                        </div>
+                        <div><label for="title" string="" style="color:White; width:20px"/></div>
+                        <div>
+                          <field name="tipo" widget="radio" style="width:120px" options="{'horizontal': true}"/>
+                        </div>
+                        <div><label for="title" string="" style="color:White;width:20px"/></div>
+                        <div>
+                           <button name="selecionar" string="Selecionar" icon="fa-check-square-o" type="object" class="btn-primary"/>
+                           <label for="title" string="" style="color:White; width:20px"/>
+                           <button name="processa" string="Processa" icon="fa-gears" type="object" class="btn-primary"/>
+                           <label for="title" string="" style="color:White; width:20px"/>
+                           <button name="imprimir" string="Imprimir" icon="fa-print" type="object" class="btn-primary"/>
+                        </div>
+                        <div><label for="title" string="" style="color:White;width:20px"/></div>
+                        <field name="posicastock" nolabel = '1' widget="sectio_and_note_one2many">
+                           <tree editable="bottomn" string="Anexo">
+                             <!--<field name="artigo_id"/>-->
+                             <field name="name"/>
+                             <field name="preco_custo"/>
+                             <!--<field name="stock"/> Este e o campo que mostr a quantidade do produto no Stock-->
+                             <field name="armazem"/>
+                           </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="posicao_stok_act_window" model="ir.actions.act_window">
+            <field name="name">Posição de Stock</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">posicao.stock</field>
+            <field name="view_id" ref="posicao_stok_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="posicao_stok_menu" name="Posição de Stock" parent="inventarios.menu_relatori" action="posicao_stok_act_window" sequence="80"/>
+    </data>
+</odoo>

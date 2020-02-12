@@ -1,0 +1,437 @@
+<odoo>
+    <data>
+        <record id="form_all_plan_teso" model="ir.ui.view">
+            <field name="name">Plano Tesouraria</field>
+            <field name="model">planteso.planteso</field>
+            <field name="arch" type="xml">
+                <form string="Plano Tesouraria ">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="cod_plan_teso" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="nome"/>
+                                <field name="estruturas_Contas"/>
+                                <field name="tama_estru" force_save="1" invisible="1"/>
+                                <field name="sub_filho" force_save="1" invisible="1"/>
+                                <field name="conta" force_save="1" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="tipo_movimento"/>
+                                <field name="grupo"/>
+                                <field name="estrutura" force_save="1" invisible="1"/>
+                                <field name="eliment_estr" force_save="1" invisible="1"/>
+                                <field name="esnumerico" force_save="1" invisible="1"/>
+                                <field name="exist_mae" force_save="1" invisible="1"/>
+                                <field name="pronto" force_save="1" invisible="1"/>
+                                <field name="filho_de" force_save="1" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="plano_teso_tree" model="ir.ui.view">
+            <field name="name">Plano Tesouraria</field>
+            <field name="model">planteso.planteso</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="cod_plan_teso"/>
+                    <field name="nome"/>
+                </tree>
+            </field>
+        </record>
+        <!--<record id="planteso1" model="planteso.planteso">
+            <field name="estruturas_Contas">1</field>
+            <field name="nome">FLUXOS DE CAIXA DAS ACTIVIDADES OPERACIONAIS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+            <field name="tipo_movimento">1</field>
+
+
+        </record>
+        <record id="planteso2" model="planteso.planteso">
+            <field name="codigo">11</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">FLUXO GERADO PELAS OPERAÇOES</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso3" model="planteso.planteso">
+            <field name="codigo">1101</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">RECEBIMENTOS DE CLIENTES</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso4" model="planteso.planteso">
+            <field name="codigo">1102</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">PAGAMENTOS A FORNECEDORES</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso5" model="planteso.planteso">
+            <field name="codigo">1103</field>
+            <field name="tipo_movimento">2</field>
+            <field name="name">PAGAMENTOS AO PESSOAL</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso6" model="planteso.planteso">
+            <field name="codigo">12</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">OUTROS PAGAMENTOS/RECEBIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso7" model="planteso.planteso">
+            <field name="codigo">1201</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">PAGAMENTO/RECEBIMENTO DO IMPOSTO SOBRE RENDIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso8" model="planteso.planteso">
+            <field name="codigo">120101</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">PAGAMENTO DO IMPOSTO SOBRE RENDIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso9" model="planteso.planteso">
+            <field name="codigo">120102</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">REEMBOLSO DO IMPOSTO SOBRE RENDIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso10" model="planteso.planteso">
+            <field name="codigo">1203</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">OUTROS RECEBIMENTOS/PAGAMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso11" model="planteso.planteso">
+            <field name="codigo">120301</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">OUTROS RECEBIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso12" model="planteso.planteso">
+            <field name="codigo">120302</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">OUTROS PAGAMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso13" model="planteso.planteso">
+            <field name="codigo">2</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">FLUXOS DE CAIXA DAS ACTIVIDADES DE INVESTIMENTO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso14" model="planteso.planteso">
+            <field name="codigo">21</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">PAGAMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso15" model="planteso.planteso">
+            <field name="codigo">2101</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">ACTIVOS FIXOS TANGIVEIS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso16" model="planteso.planteso">
+            <field name="codigo">2102</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">ACTIVOS FIXOS INTANGIVEIS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso17" model="planteso.planteso">
+            <field name="codigo">2103</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">INVESTIMENTOS FINANCEIROS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso18" model="planteso.planteso">
+            <field name="codigo">2104</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">OUTROS ACTIVOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso19" model="planteso.planteso">
+            <field name="codigo">22</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">RECEBIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso20" model="planteso.planteso">
+            <field name="codigo">2201</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">ACTIVOS FIXOS TANGIVEIS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso21" model="planteso.planteso">
+            <field name="codigo">2202</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">ACTIVOS FIXOS INTANGIVEIS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso22" model="planteso.planteso">
+            <field name="codigo">2203</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">INVESTIMENTOS FINANCEIROS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso23" model="planteso.planteso">
+            <field name="codigo">2204</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">OUTROS ACTIVOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso24" model="planteso.planteso">
+            <field name="codigo">2205</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">SUBSIDIOS AO INVESTIMENTO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso25" model="planteso.planteso">
+            <field name="codigo">2206</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">DIVIDENDOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso26" model="planteso.planteso">
+            <field name="codigo">2206</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">DIVIDENDOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso27" model="planteso.planteso">
+            <field name="codigo">3</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">FLUXOS DE CAIXA DAS ACTIVIDADES DE FINANCIAMENTO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso28" model="planteso.planteso">
+            <field name="codigo">31</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">RECEBIMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso29" model="planteso.planteso">
+            <field name="codigo">3101</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">FINANCIAMENTOS  OBTIDOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso30" model="planteso.planteso">
+            <field name="codigo">3102</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">REALIZAÇOES CAPITAL E OUT INSTRUMENTOS CAP PROPRIO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso31" model="planteso.planteso">
+            <field name="codigo">3103</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">COBERTURA DE PREJUIZOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso32" model="planteso.planteso">
+            <field name="codigo">3104</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">DOAÇOES</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso33" model="planteso.planteso">
+            <field name="codigo">3105</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">OUTRAS OPERAÇOES DE FINANCIAMENTO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso34" model="planteso.planteso">
+            <field name="codigo">32</field>
+            <field name="tipo_movimento">1</field>
+            <field name="nome">PAGAMENTOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso35" model="planteso.planteso">
+            <field name="codigo">3201</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">FINANCIAMENTOS OBTIDOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso36" model="planteso.planteso">
+            <field name="codigo">3202</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">JUROS E GASTOS SIMILARES</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso37" model="planteso.planteso">
+            <field name="codigo">3203</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">DIVIDENDOS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso38" model="planteso.planteso">
+            <field name="codigo">3204</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">REDUÇOES CAPITAL E OUTROS INSTRUMENTOS CAP PROPRIO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso39" model="planteso.planteso">
+            <field name="codigo">3205</field>
+            <field name="tipo_movimento">2</field>
+            <field name="nome">OUTRAS OPERAÇOES DE FINANCIAMENTO</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso40" model="planteso.planteso">
+            <field name="codigo">0</field>
+            <field name="tipo_movimento">3</field>
+            <field name="nome">TRANSFERENCIAS</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso41" model="planteso.planteso">
+            <field name="codigo">9</field>
+            <field name="tipo_movimento">3</field>
+            <field name="nome">SALDO INICIAL</field>
+            <field name="estroctura">X.X.XX.XX.XX</field>
+        </record>
+        <record id="planteso42" model="planteso.planteso">
+            <field name="codigo">8</field>
+            <field name="tipo_movimento">3</field>
+            <field name="nome">DIFERENCAS DE CAMBIO</field>
+            <field name="estroctura">X.X.XX.XX.</field>
+        </record>-->
+        <record model="ir.actions.act_window" id="action_window_planteso">
+            <field name="name">Plano Tesouraria.</field>
+            <field name="res_model">planteso.planteso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Plano Tesouraria.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Plano Tesouraria) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Plano Tesouraria" id="parametros.menu_plan_teso" parent="fastgest_tesoura"
+                  action="action_window_planteso"/>
+
+
+        <!--ALTERAR ORCAMENTO DE TESOURARIA-->
+
+        <record id="alteracao_orcamento_tesouraria_form" model="ir.ui.view">
+            <field name="name">Alteração Orçamento Tesouraria</field>
+            <field name="model">alteracao.orcamento.tesouraria</field>
+            <field name="arch" type="xml">
+                <form string="Alteração Orçamento Tesouraria">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Ano"/>
+                            <label for="title" string="_____" style="color:white"/>
+                            <field name="ano" style="width:100px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Código"/>
+                            <label for="title" string="__" style="color:white"/>
+                            <field name="codigo_plan_cont_id" style="width:160px"/>
+                            <label for="title" style="color:white"
+                                   string="__________________________________________________________"/>
+                            <label for="title" string="Valor Anual"/>
+                            <field name="valor_anual" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Mes Inicial"/>
+                            <field name="mes_inicial" style="width:160px"/>
+                            <label for="title" style="color:white"
+                                   string="_________________________________________________________"/>
+                            <label for="title" string="Tipo"/>
+                            <label for="title" string="______" style="color:white"/>
+                            <field name="tipo" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white" string="_"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:blue"
+                                   string="Valores____________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white" string="_"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Janeiro"/>
+                            <label for="title" string="_" style="color:white"/>
+                            <field name="janeiro" style="width:160px"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <label for="title" string="Maio"/>
+                            <label for="title" string="__" style="color:white"/>
+                            <field name="maio" style="width:160px"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <label for="title" string="Setembro"/>
+                            <field name="setembro" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Fevereiro"/>
+                            <field name="fevereiro" style="width:160px"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <label for="title" string="Junho"/>
+                            <label for="title" string="_" style="color:white"/>
+                            <field name="junho" style="width:160px"/>
+                            <label for="title" string="________" style="color:white"/>
+                            <label for="title" string="Outubro"/>
+                            <label for="title" string="_" style="color:white"/>
+                            <field name="outubro" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Março"/>
+                            <label for="title" string="__" style="color:white"/>
+                            <field name="marco" style="width:160px"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <label for="title" string="Julho"/>
+                            <label for="title" string="__" style="color:white"/>
+                            <field name="julho" style="width:160px"/>
+                            <label for="title" string="________" style="color:white"/>
+                            <label for="title" string="Novembro"/>
+                            <field name="novembro" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Abril"/>
+                            <label for="title" string="___" style="color:white"/>
+                            <field name="abril" style="width:160px"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <label for="title" string="Agosto"/>
+                            <label for="title" string="_" style="color:white"/>
+                            <field name="agosto" style="width:160px"/>
+                            <label for="title" string="________" style="color:white"/>
+                            <label for="title" string="Dezembro"/>
+                            <field name="dezembro" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:blue"
+                                   string="Motivo___________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <field name="motivo"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="alteracao_orcamento_tesouraria_act_window" model="ir.actions.act_window">
+            <field name="name">Alteração Orçamento Tesouraria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alteracao.orcamento.tesouraria</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="alteracao_orcamento_tesouraria_menu" name="Alteração Orçamento Tesouraria"
+                  parent="fastgest_tesoura" action="alteracao_orcamento_tesouraria_act_window" sequence="80"/>
+
+    </data>
+</odoo>

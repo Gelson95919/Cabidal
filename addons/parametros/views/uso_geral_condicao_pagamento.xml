@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_pagam">
+          <field name="name">fastgest Pagamento</field>
+          <field name="model">pagamento.pagamento</field>
+          <field name="arch" type="xml">
+              <form string="Modo Pagamento">
+                 <sheet>
+                      <div><label for="title" string="" style="width:6px"/></div>
+                       <div>
+                         <label for="title" string="Descrição"/>
+                         <field name="name" style="width:500px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:6px"/></div>
+                       <div>
+                           <field name="leva_control"/>
+                           <label for="title" string="Leva Control"/>
+                           <label for="title" string=""  style="color:White;width:290px"/>
+                           <label for="title" string="Dias Vencidas"/>
+                           <field name="dias_venc" attrs="{'readonly': [('leva_control', '=', False)]}" style="width:70px"/>
+                       </div>
+                       <div>
+                           <field name="por_prestacoes"/>
+                           <label for="title" string="Por Prestações"/>
+                       </div>
+                 </sheet>
+              </form>
+          </field>
+        </record>
+        <record id="form_all_condpag_tree_view" model="ir.ui.view">
+           <field name="name">pagamento.tree.view </field>
+           <field name="model">pagamento.pagamento</field>
+           <field name="arch" type="xml">
+               <tree >
+                   <field name="name"/>
+                   <field name="leva_control"/>
+                   <field name="por_prestacoes"/>
+                   <field name="dias_venc"/>
+               </tree>
+           </field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_pagam">
+          <field name="name">Condições de Pagamento </field>
+          <field name="res_model">pagamento.pagamento</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Condições de Pagamento.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Condições de Pagamento) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name="Condições de Pagamento" id="parametros.menu_pagam_list" parent="fastgest_tesoura" action="parametros.action_window_pagam"/>
+    </data>
+</odoo>

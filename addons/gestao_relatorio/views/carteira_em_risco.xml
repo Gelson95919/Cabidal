@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <record id="carteira_em_risco_form" model="ir.ui.view">
+            <field name="name">Carteira em Risco</field>
+            <field name="model">carteira.em.risco</field>
+            <field name="arch" type="xml">
+                <form string="Carteira em Risco">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem de Carteira em Risco"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="De" style="width:25px"/>
+                            <field name="date_start"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Ate" style="width:25px"/>
+                            <field name="date_end"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" "/>
+                        </div>
+                        <div>
+                             <field name="agrup_agente"/>
+                            <label for="title" string="Agrupar por Agente"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Agente"/>
+                            <field name="agente" style="width:250px" attrs="{'readonly': [('agrup_agente','!=',True)], 'required':[('agrup_agente','=',True)]}"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="carter_em_risco_act_wind" model="ir.actions.act_window">
+            <field name="name">Carteira em Risco</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carteira.em.risco</field>
+            <field name="view_id" ref="carteira_em_risco_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="carter_em_risco_menu" name="Carteira em Risco" parent="gestao_relatorio.menu_rep"
+                  action="carter_em_risco_act_wind" sequence="80"/>
+    </data>
+</odoo>

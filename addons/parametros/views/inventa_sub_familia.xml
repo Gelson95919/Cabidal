@@ -1,0 +1,42 @@
+<odoo>
+   <data>
+    <record id="form_all_sub_famil" model="ir.ui.view">
+       <field name="name">Sub Familha </field>
+       <field name="model">subfamilha.subfamilha</field>
+       <field name="arch" type="xml">
+          <form string="Sub Familia">
+             <sheet>
+               <div><label for="title" string="" style="width:6px"/></div>
+               <div>
+                 <label for="title" string="Descrição"/>
+                 <field name="name" style="width:470px"/>
+               </div>
+               <group>
+                 <group>
+                    <field name="familia"/>
+                    <field name="unidade_mov"/>
+                 </group>
+                 <group>
+                    <field name="iva"/>
+                    <field name="sug_nome_artugo"/>
+                 </group>
+               </group>
+             </sheet>
+          </form>
+       </field>
+    </record>
+    <record model="ir.actions.act_window" id="parametros.action_window_sub_famil">
+      <field name="name"> Sub Familia </field>
+      <field name="res_model">subfamilha.subfamilha</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Sub Familia.
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Sub Familia) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name="Sub Familia" id="parametros.menu_sub_famil" parent="fastgest_imveta" action="parametros.action_window_sub_famil"/>
+   </data>
+</odoo>

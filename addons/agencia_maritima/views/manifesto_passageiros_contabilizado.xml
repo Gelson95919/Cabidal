@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="manifesto_passageiro_form" model="ir.ui.view">
+           <field name="name">Manifesto de Passageiro-Contabilidade</field>
+           <field name="model">manifesto.passageiro.contabilizado</field>
+           <field name="arch" type="xml">
+               <form string="Manifesto de Passageiro-Contabilidade">
+                   <sheet>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Navio" style="width:50px"/>
+                           <field name="navio_id" style="width:360px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Viagem"/>
+                           <field name="viagem_id" style="width:360px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Origem"/>
+                           <field name="porto_id_o" style="width:360px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Destino"/>
+                           <field name="porto_id_d" style="width:360px"/>
+                       </div>
+                       <div>
+                           <field name="incluir_data_recebimento"/>
+                           <label for="title" string="Incluir Data Recebimento"/>
+                       </div>
+                   </sheet>
+                   <header>
+                        <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                        <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="manifesto_passageiro_contabilizado_act_window" model="ir.actions.act_window">
+           <field name="name">Manifesto de Passageiro-Contabilizado</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">manifesto.passageiro.contabilizado</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="manifesto_passageiro_contabilizodo_menu" name="Manifesto Contabilidade" parent="passagem_maritima_menu" action="manifesto_passageiro_contabilizado_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_list_indicadores_financeiros_report">
+            <field name="name">paperformat.Previsao Reembolso.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="indicadores_financeiro_report"
+                model="indicadores"
+                string="Indicadores Financeiros"
+                name="gestao_relatorio.listagem_indicadores_view"
+                file="gestao_relatorio.indicadores_form"
+                paperformat="paperformat_list_indicadores_financeiros_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="listagem_indicadores_view">
+            <t t-call="web.html_container">
+
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        INDICADORES FINANCEIROS
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <p>
+                                <strong>ao 31 de Dezembro de
+                                    <t t-esc="ano"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:1px solid black; font-weight: bold; background-color:#C0C0C0; text-center; margin-left: -1px; height: 36px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        QUALIDADE DA CARTEIRA
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Carteira em risco(<t t-esc="dia_atraso"/> dias)</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de cobertura de risco</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de previsões para credito</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de carteira castigada (creditos incrobraveis)</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black; font-weight: bold; background-color:#C0C0C0; text-center; margin-left: -1px; height: 36px; margin-top:40px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        EFICACIA E PRODUTIVIDADE
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicadores de encargos de exploração</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de custo por cliente</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de produtividade do pessoal</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Indicador de produtividade de agentes de credito</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div style="border:1px solid black; font-weight: bold; background-color:#C0C0C0; text-center; margin-left: -1px; height: 36px; margin-top:45px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        GESTÃO FINANCEIRA
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Dividas sobre fundos própios</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Carteiras activas</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Encargos de financiamento</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Custo de recursos</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black; font-weight: bold; background-color:#C0C0C0; text-center; margin-left: -1px; height: 36px; margin-top:40px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        INDICADORES DE RENTABILIDADE E PERENIDADE
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Rentabilidade do activo</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Rentabilidade de fundo propio</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Autosuficiencia operacional</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 1px; width:100%; margin-left: -1px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-top:0px; width:50%; height:100px; padding: 30px; margin-top: -1px;">
+                                <strong>
+                                    <p>Rendimento da careira</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px  solid black; border-left:0px; border-top:0px; padding: 30px; width:50%; height: 100px; margin-top: -1px;">
+                                <strong>
+                                    <p>0,00</p>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+            </t>
+        </template>
+    </data>
+</odoo>

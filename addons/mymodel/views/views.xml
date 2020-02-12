@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <menuitem name="Estudo Odoo" web_icon="mymodel,static/description/cv.png" id="mymodel.menu_root"/>
+
+       <menuitem name="Meu Estudo" id="mymodel_menu" parent="mymodel.menu_root"/>
+
+    </data>
+</odoo>

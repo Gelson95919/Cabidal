@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="tipo_consumo_form" model="ir.ui.view">
+           <field name="name">Tipo de Consumo</field>
+           <field name="model">tipo.consumo</field>
+           <field name="arch" type="xml">
+               <form string="Tipo de Consumo">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="___"  style="color:White;"/>
+                           <field name="name" style="width:750px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Montante"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="montante" style="width:260px"/>
+                           <label for="title" string=""  style="color:White; width:300px"/>
+                           <label for="title" string="Iva Percente"/>
+                           <field name="iva_percent" style="width:200px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Codigo/Factura"/>
+                           <field name="cod_factura" style="width:200px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+      <record id="tipo_consumo_tree" model="ir.ui.view">
+          <field name="name">Tipo Consumo</field>
+          <field name="model">tipo.consumo</field>
+          <field name="arch" type="xml">
+              <tree string="Tipo Consumo">
+                  <field name="name"/>
+              </tree>
+          </field>
+      </record>
+      <record id="tipo_consumo_act_window" model="ir.actions.act_window">
+          <field name="name">Tipo Consumo</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">tipo.consumo</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Tipo Consumo.
+            </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Consumo) para projetos internos, pessoais ou de clientes.
+            </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="tipo_consumo_menu" name="Tipo Consumo" parent="fastgest_hotel" action="tipo_consumo_act_window" sequence="80"/>
+
+    </data>
+</odoo>

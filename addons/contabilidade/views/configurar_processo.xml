@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="configura_processo_form" model="ir.ui.view">
+           <field name="name">Configurar processo.form</field>
+           <field name="model">configurar.processo</field>
+           <field name="arch" type="xml">
+               <form string="Configuração de Processos">
+                   <sheet>
+                       <group>
+                           <div>
+                              <!--<field name="processo" nolabel="1" style="width:100px"/>-->
+                              <label for="title" string="Descrição"/>
+                              <field name="desc" nolabel="1" style="width:990px"/>
+                           </div>
+                       </group>
+                       <group>
+                           <div>
+                               <label for="title" string="Tipo"/>
+                               <field name="tipo" style="width:100px"/>
+                           </div>
+                       </group>
+                       <label for="title" string="_______________________________________________________________________________________________________________________________________________________"/>
+                       <group>
+                         <group>
+                            <div>
+                              <field name="tree1" style="width:500px" nolabel="1">
+                                 <tree editable="bottomn" string="Tree">
+                                    <field name="fase" style="width:110px"/>
+                                    <field name="descricao"/>
+                                 </tree>
+                              </field>
+                            </div>
+
+                         </group>
+                         <group>
+                            <div>
+                               <label for="title" string="Fase" style="width:60px"/>
+                              <field name="fase" style="width:110px"/>
+                            </div>
+                            <div><label for="title" style="width:150px" string=""/></div>
+                            <div>
+                              <label for="title" string="Descrição"/>
+                              <field name="descricao" style="width:200px"/>
+                            </div>
+                         </group>
+                       </group>
+                       <group col="2">
+                           <group string="Opção">
+                               <div>
+                                  <label for="title" string="Mes Inicio"/>
+                                  <label for="title" style="color:white" string="__"/>
+                                  <field name="mes_inicio" nolabel="1" style="width:110px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Mes Contrapartida"/>
+                                   <field name="mes_contrapartida" nolabel="1" style="width:100px"/>
+                               </div>
+                               <div>
+                                  <label for="title" string="Mes Final"/>
+                                  <label for="title" style="color:white" string="__"/>
+                                  <field name="mes_fim" nolabel="1" style="width:110px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Dia Contrapartida"/>
+                                   <field name="dia_contrapartida" nolabel="1" style="width:106px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Agrupar Por"/>
+                                   <field name="agrupar_por" nolabel="1" style="width:116px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Unico"/>
+                                   <label for="title" style="color:white" string="_________"/>
+                                   <field name="unico" nolabel="1" style="width:110px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Mesmo Ano"/>
+                                   <field name="mesmo_ano"/>
+                               </div>
+
+                           </group>
+                           <group string="Movimento">
+                               <field name="tipo_movi" widget="radio" nolabel="1" options="{'horizontal': true}"/>
+                               <field name="descri" style="width:110px"/>
+                               <field name="diario" style="width:110px"/>
+                               <field name="no_ordem" style="width:110px"/>
+                           </group>
+                       </group>
+                       <field name="tree_contrapartida" style="width:1120px">
+                          <tree editable="bottomn" string="Tree">
+                             <field name="conta_saldo"/>
+                             <field name="descricao_conta"/>
+                             <field name="contrapartida"/>
+                             <field name="descricao_contra"/>
+                          </tree>
+                       </field>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="configura_processo_tree" model="ir.ui.view">
+           <field name="name">Configurar processo.tree</field>
+           <field name="model">configurar.processo</field>
+           <field name="arch" type="xml">
+               <tree string="Configuração de Processos">
+                   <field name="desc"/>
+                   <field name="processo"/>
+               </tree>
+           </field>
+       </record>
+       <record id="act_window_configura_processo" model="ir.actions.act_window">
+           <field name="name">Configuração de Processos</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">configurar.processo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+              Criar um novo Configuração de Processos.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Configuração de Processos) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="menu_configura_processo" name="Configurar Processo" parent="contabilidade.menu_1" action="act_window_configura_processo" sequence="80"/>
+    </data>
+</odoo>

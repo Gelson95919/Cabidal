@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="garsonet_form" model="ir.ui.view">
+           <field name="name">Garçonete</field>
+           <field name="model">garconete.garconete</field>
+           <field name="arch" type="xml">
+               <form string="Garçonete">
+                   <sheet>
+                       <group>
+                         <div>
+                           <label for="title" string="______________________________________________________________________________________________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Activo"/>
+                           <field name="activo" style="width:20px"/>
+                         </div>
+                       </group>
+                       <div>
+
+                       </div>
+                       <div>
+                           <label for="title" string="Utilizador"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="name" style="width:940px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nome"/>
+                           <label for="title" string="_______"  style="color:White;"/>
+                           <field name="nome" style="width:940px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="PIN"/>
+                           <label for="title" string="_________"  style="color:White;"/>
+                           <field name="pin" style="width:50px"/>
+                       </div>
+
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="garconet_tree" model="ir.ui.view">
+           <field name="name">Garçonete</field>
+           <field name="model">garconete.garconete</field>
+           <field name="arch" type="xml">
+               <tree string="Garçonete">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="garconete_act_window" model="ir.actions.act_window">
+           <field name="name">Garçonete</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">garconete.garconete</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Realizar um novo Garçonete.
+              </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Garçonete) para projetos internos, pessoais ou de clientes.
+              </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="garconete_menu" name="Garçonete" parent="fastgest_restaurante" action="garconete_act_window" sequence="80"/>
+    </data>
+</odoo>

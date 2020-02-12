@@ -1,0 +1,264 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ordem_pagamento_form_view">
+            <field name="name">Ordem Pagamento</field>
+            <field name="model">tesouraria.ordem.pagamento</field>
+            <field name="arch" type="xml">
+                <form string="Ordem Pagamento">
+                    <header>
+                        <!--<button name="passar" string="Ord" type="object" class="btn-primary"/>
+                        <button name="gerar_ord_pg" string="Aprovar" type="object" icon="fa-check-square-o" class="btn-primary"  attrs="{'invisible': [('sem_cta_cte', '=', True)]}"/>
+                        <button name="create_fatur_op" string="Aprovar" type="object" icon="fa-check-square-o" class="btn-primary"  attrs="{'invisible': [('sem_cta_cte', '=', False)]}"/>-->
+                        <button name="abrir" string="Abrir" type="object"
+                                attrs="{'invisible': [('control_estad_docum','!=', 'fechado')]}" icon="fa-unlock"
+                                class="btn-primary"/>
+                        <button name="fechar" string="Fechar" type="object"
+                                attrs="{'invisible': [('control_estad_docum','=', 'fechado')]}" icon="fa-lock"
+                                class="btn-primary"/>
+                        <button name="conta_corente" string="Cta.Cte."
+                                attrs="{'invisible': [('control_estad_docum','!=', 'aberto')]}" type="object"
+                                icon="fa-newspaper-o" class="btn-primary"/>
+                        <button name="anular" string="Anular" type="object" icon="fa-remove" class="btn-primary"/>
+                        <button name="action_quotation_send" string="Imprimir" type="object" icon="fa-print"
+                                class="btn-primary"/>
+                        <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                        <field name="control_estad_docum" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div>
+
+                            <label for="title" string="Numero"/>
+                            <label for="title" style="color:white; width:25px" string=""/>
+                            <field name="numerof" style="width:100px" invisible="1"/>
+                            <field name="numero" style="width:100px"/>
+                            <label for="title" style="color:white; width:300px" string=""/>
+                            <field name="sem_cta_cte"/>
+                            <label for="title" string="Sem Conta Corrente"/>
+                            <label for="title" style="color:white; width:230px" string=""/>
+                            <label for="title" string="Data"/>
+                            <field name="date_release" style="width:100px"/>
+                            <field name="op_solic" style="width:100px" invisible="1"/>
+                        </div>
+                        <div>
+                            <field name="valor_docum_esc" style="width:100px" invisible="1"/>
+                            <field name="tipo_docum" style="width:100px" invisible="1"/>
+                            <label for="title" style="color:white; width:135px" string=""/>
+                        </div>
+                        <div>
+                            <field name="fornecidor" invisible="1"/>
+                            <label for="title" string="Nome"/>
+                            <field name="fornecedor_id" style="width:800px"/>
+                            <label for="title" style="color:white; width:30px" string=""/>
+                            <field name="abrev" style="width:150px"/>
+                        </div>
+                        <!--<div attrs="{'invisible': [('sem_cta_cte', '=', False)]}">
+                            <label for="title" string="Documento"/>
+                            <field name="tipo_docum" style="width:800px"/>
+                        </div>-->
+                        <div>
+                            <label for="title" style="color:white; width:135px" string=""/>
+                        </div>
+                        <div>
+                            <field name="detalhes_ordem" style="width:1070px"/>
+                        </div>
+                        <div class="oe_inline">
+                            <field name="reg_docum_ids" style="width:1070px"
+                                   attrs="{'invisible': [('sem_cta_cte', '=', True)]}">
+                                <tree editable="bottom" string="Documento Conta Corente" delete="false" create="false">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="cod_documento" readonly="1"/>
+                                    <field name="total" readonly="1"/>
+                                    <field name="saldo_pagamento" readonly="1"/>
+                                    <field name="saldo_ord" readonly="1" invisible="1"/>
+                                    <field name="data_documento" readonly="1"/>
+                                    <field name="docPag" invisible="1"/>
+                                    <field name="ordem_pago"/>
+                                    <field name="valorPago" invisible="1"/>
+                                    <field name="valor_ordpag" sum="Total"/>
+                                    <field name="movimen_docum" invisible="1"/>
+                                    <field name="numeros_docum" invisible="1"/>
+                                    <field name="nome_terc" invisible="1"/>
+                                    <field name="valorAsc" invisible="1"/>
+                                    <field name="ldocaut" invisible="1"/>
+                                    <field name="visualizar_no_tesorer" invisible="1"/>
+                                    <field name="tipo_docum" invisible="1"/>
+                                    <field name="pago" invisible="1"/>
+                                    <field name="documentos" invisible="1"/>
+                                    <field name="data_realise" invisible="1"/>
+                                    <field name="debito" readonly="1" invisible="1"/>
+                                    <field name="credito" readonly="1" invisible="1"/>
+                                    <field name="encontro" readonly="1" invisible="1"/>
+                                    <field name="saldar" invisible="1"/>
+                                    <field name="encont_docum_desp" invisible="1"/>
+                                    <field name="encont_docum_client" invisible="1"/>
+                                    <field name="valor_encontro" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <!--De os Outros-->
+                        <div class="oe_inline" attrs="{'invisible': [('op_solic', '=', True)]}">
+                            <field name="sem_ctacte_ids" style="width:1070px"
+                                   attrs="{'invisible': [('sem_cta_cte', '=', False)]}">
+                                <tree editable="bottomn" string="Sem Conta Corente">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="leva_terce" invisible="1"/>
+                                    <field name="codigo_id" style="width:135px"/>
+                                    <field name="descrecao_desp" style="width:135px"/>
+                                    <field name="codigo_dep" style="width:155px"/>
+                                    <field name="valor" sum="Total"/>
+                                    <field name="iva_id" style="width:115px"/>
+                                    <field name="codigo_cliente" style="width:135px"
+                                           attrs="{'invisible' :[('leva_terce', '!=', True)]}"/>
+                                    <field name="valor_auxiliar" style="width:135px"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <!--De Solmi-->
+                        <div class="oe_inline" attrs="{'invisible': [('op_solic', '=', False)]}">
+                            <field name="detalhes_ids" style="width:1070px">
+                                <tree editable="bottomn" string="Sem Conta Corente">
+                                    <field name="sequence" widget="handle" readonly="1"/>
+                                    <field name="codigo_id" style="width:135px"/>
+                                    <field name="descrecao" style="width:135px"/>
+                                    <field name="codigo_dep" style="width:155px"/>
+                                    <field name="valor" sum="Total"/>
+                                    <field name="iva_id" style="width:115px"/>
+                                    <field name="codigo_cliente" style="width:135px"/>
+                                    <field name="valor_auxiliar" style="width:135px"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white; width:900px" string=""/>
+                            <!--<label for="title" string="Total"/>-->
+                            <field name="montante" style="width:150" invisible="1"/>
+                        </div>
+                        <group name="sen_conta_corent">
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ordem_pagamento_tree_view" model="ir.ui.view">
+            <field name="name">Ordem Pagamento</field>
+            <field name="model">tesouraria.ordem.pagamento</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="id"/>
+                    <field name="fornecidor"/>
+                    <field name="numerof"/>
+                    <field name="sem_cta_cte"/>
+                    <field name="date_release"/>
+                    <field name="abrev"/>
+                    <field name="detalhes_ordem"/>
+                    <field name="montante"/>
+                    <field name="renegociado"/>
+                    <field name="utilizador_id"/>
+                    <field name="CDOCINT"/>
+                    <field name="CCODTER"/>
+                    <field name="CIDEDOC"/>
+                    <field name="mud_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_op_search_view" model="ir.ui.view">
+            <field name="name">Ordem de Pagamento</field>
+            <field name="model">tesouraria.ordem.pagamento</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="fornecidor"/>
+                    <field name="CDOCINT"/>
+                    <field name="id"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="ordpagamento_act_window">
+            <field name="name">Ordem de Pagamento</field>
+            <field name="res_model">tesouraria.ordem.pagamento</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Ordem de Pagamento.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ordem Pagamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <record id="sequ_ord_pag" model="ir.sequence">
+            <field name="name">Ordem de Pagamento</field>
+            <field name="code">tesouraria.ordem.pagamento</field>
+            <field name="prefix">OP-%(range_year)s-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequ_ord_pag2" model="ir.sequence">
+            <field name="name">Ordem de Pagamento</field>
+            <field name="code">tesouraria.ordem.pagamento2</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <menuitem name=" Ordem de Pagamento " id="menu_ordpagamento_m" parent="gestao_tesouraria.menu_1"
+                  action="ordpagamento_act_window"/>
+
+        <record id="det_form" model="ir.ui.view">
+            <field name="name">Detalhes Documento</field>
+            <field name="model">detalhes.documento.op</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                       <button name="compor_op" string="ADD ID" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="teso_ordem_pagamento_id"/>
+                            <field name="codigo_id"/>
+                            <field name="descrecao"/>
+                            <field name="valor"/>
+                            <field name="iva_id"/>
+                            <field name="codigo_cliente"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="det_tree" model="ir.ui.view">
+            <field name="name">Detalhes Documento</field>
+            <field name="model">detalhes.documento.op</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="teso_ordem_pagamento_id"/>
+                    <field name="codigo_id"/>
+                    <field name="descrecao"/>
+                    <field name="valor"/>
+                    <field name="iva_id"/>
+                    <field name="codigo_cliente"/>
+                    <field name="mud_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="det_doc_act_wind" model="ir.actions.act_window">
+            <field name="name">Detalhes Documento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">detalhes.documento.op</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <!--<menuitem id="det_menu" name="DETALHES DOC OP" parent="gestao_tesouraria.menu_1" action="det_doc_act_wind"
+                  sequence="80"/>-->
+
+    </data>
+</odoo>

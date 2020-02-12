@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="movimento_int_form" model="ir.ui.view">
+            <field name="name">Movimento Interno</field>
+            <field name="model">tesouraria.movimento.interno</field>
+            <field name="arch" type="xml">
+                <form string="Movimento Interno">
+                    <!--<header attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                         <button name="confirmar" string="Confirma Movimento" type="object" icon="fa-check-square-o"
+                                class="btn btn-info"/>
+                        <button name="compor_op" string=" ADD EXEC" type="object" class="btn-primary"/>
+                    </header>-->
+                    <sheet>
+
+                        <div>
+                            <label for="title" string="Movime Nº" style="width:100px"
+                                   attrs="{'invisible': [('type_docum','!=', 'movimento')]}"/>
+                        </div>
+
+                        <div>
+                            <label for="title" string=" "/>
+                            <field name="origem" invisible="1"/>
+                        </div>
+
+                        <!--Movimento-->
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Movimento"/>
+                            <field name="movimento" style="width:820px" attrs="{'readonly': [('origem','=', True)]}"/><!--attrs="{'required':[('type_docum','in',['pending','movimento'])]}"-->
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Data" style="width:70px"/>
+                            <field name="date_release" style="width:100px" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <field name="dfecmovint" style="width:100px" readonly = '1'/>
+                            <label for="title" string="" style="width:265px"/>
+                            <label for="title" string="Centro Custo"/>
+                            <field name="centro_custo" style="width:260px" attrs="{'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <field name="type_docum" invisible="1"/>
+                            <field name="tipo_movimento" invisible="1"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Descrição" style="width:70px"/>
+                            <field name="detalhes" style="width:820px" attrs="{'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Origem" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','!=', '1')]}"/>
+                            <label for="title" string="Conta" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=','1')]}"/>
+                            <field name="nossa_conta_transfe" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')], 'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Saldo" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="saldo_transf" style="width:260px; color:blue"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')], 'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Montante" style="width:70px"/>
+                            <field name="montante_mov" style="width:260px" attrs="{'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Cheque" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="cheque" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')], 'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="ESC" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                            <field name="esc" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '2')], 'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <field name="contabilizado" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="Diário"/>
+                            <field name="diario" style="width:180px" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Número" style="width:70px"/>
+                            <field name="numero" style="width:200px" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:25px"/>
+                            <button name="ver_contabilidadeorg" string="()" type="object" class="btn-primary" attrs="{'invisible': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string=" " style="width:200px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <label for="title" string="Destino" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','!=', '1')]}"/>
+                            <label for="title" string="Conta" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '1')]}"/>
+                            <field name="conta_destino" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')], 'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="ESC" style="width:70px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                            <field name="escd" style="width:260px"
+                                   attrs="{'invisible': [('tipo_movimento','=', '3')], 'readonly': [('origem','=', True)]}"/>
+                        </div>
+                        <div attrs="{'invisible': [('type_docum','!=', 'movimento')]}">
+                            <field name="contabilizadod"  attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="Diário"/>
+                            <field name="diariod" style="width:180px"  attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:230px"/>
+                            <label for="title" string="Número" style="width:70px"/>
+                            <field name="numerod" style="width:200px" attrs="{'readonly': [('origem','=', True)]}"/>
+                            <label for="title" string="" style="width:25px"/>
+                            <button name="ver_contabilidadedest" string="()" type="object" class="btn-primary" attrs="{'invisible': [('origem','=', True)]}"/>
+                        </div>
+                        <!--<div attrs="{'invisible': [('type_docum','=', 'movimento')]}">
+                            <field name="contabilizado"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Diario"/>
+                            <field name="diario" style="width:155px"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <label for="title" string="Numero"/>
+                            <field name="numero" style="width:155px"/>
+                            <label for="title" string="" style="width:50px"/>
+                            <button name="ver_contabilidadeorg" string="()" type="object" class="btn-primary"/>
+                        </div>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="movimento_interno_tree" model="ir.ui.view">
+            <field name="name">Movimento Interno</field>
+            <field name="model">tesouraria.movimento.interno</field>
+            <field name="arch" type="xml">
+                <tree string="Movimento">
+                    <field name="date_release" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="n_movimento" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="cheque" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="nossa_conta_transfe" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="conta_destino" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="montante_mov" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="anulado" invisible="context.get ('type_docum')!= 'movimento'"/>
+                    <field name="detalhes"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="num_mov" model="ir.sequence">
+            <field name="name">Numero Movimento</field>
+            <field name="code">num.movimento</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!--Movimento-->
+        <record id="movim_inter_act_window" model="ir.actions.act_window">
+            <field name="name">Movimentos Internos</field>
+            <field name="res_model">tesouraria.movimento.interno</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <!--<field name="domain">[('type_docum','=','movimento'), ('mov_sai','=',True)]</field>-->
+            <field name="context">{'default_type_docum': 'movimento', 'type_docum': 'movimento'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova Movimentos
+                </p>
+            </field>
+        </record>
+        <menuitem id="movimento_int_menu" name="Movimento Interno" parent="gestao_tesouraria.menu_1"
+                  action="movim_inter_act_window" sequence="80"/>
+
+    </data>
+</odoo>

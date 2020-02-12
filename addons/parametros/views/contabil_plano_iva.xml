@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="form_all_plan_Iva" model="ir.ui.view">
+            <field name="name">Plano IVA</field>
+            <field name="model">planiva.planiva</field>
+            <field name="arch" type="xml">
+                <form string="Plano IVA ">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="cod_plan_iva" style="width:100px"
+                                       attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="nome"/>
+                                <field name="tama_estru" force_save="1" invisible="1"/>
+                                <field name="sub_filho" force_save="1" invisible="1"/>
+                                <field name="conta" force_save="1" invisible="1"/>
+                                <field name="estrutura" force_save="1" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="estruturas_Contas"/>
+                                <field name="grupo"/>
+
+                                <field name="eliment_estr" force_save="1" invisible="1"/>
+                                <field name="esnumerico" force_save="1" invisible="1"/>
+                                <field name="exist_mae" force_save="1" invisible="1"/>
+                                <field name="pronto" force_save="1" invisible="1"/>
+                                <field name="filho_de" force_save="1" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Configuração">
+                                <field name="conta_id" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="deducao" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="taxa_IVA" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                            </group>
+                            <group string="Modelo 106">
+                                <field name="tipo_nao_liquidado" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="linha_destino" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                <field name="tipologia" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="plan_Iva_tree" model="ir.ui.view">
+            <field name="name">Plano IVA</field>
+            <field name="model">planiva.planiva</field>
+            <field name="arch" type="xml">
+                <tree string="Plano IVA">
+                    <field name="cod_plan_iva"/>
+                    <field name="nome"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_contab_plan_Iva">
+            <field name="name">Plano IVA</field>
+            <field name="res_model">planiva.planiva</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="view_id" ref="form_all_planIva"/>-->
+            <!--<field name="view_id" ref="form_all_ent_planIva"/>-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Plano IVA.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Plano IVA) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Plano IVA" id="parametros.menu_contab_plan_Iva" parent="fastgest_contabil"
+                  action="action_window_contab_plan_Iva"/>
+    </data>
+</odoo>

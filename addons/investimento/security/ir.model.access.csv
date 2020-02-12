@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_abate_imobilizado,abate.imobilizado,model_abate_imobilizado,base.group_erp_manager,1,1,1,1
+access_abate_imobilizado,abate.imobilizado,model_abate_imobilizado,base.group_user,1,1,1,1
+access_adquisicao,adquisicao,model_adquisicao,base.group_erp_manager,1,1,1,1
+access_adquisicao,adquisicao,model_adquisicao,base.group_user,1,1,1,1
+access_quotas_amort,quotas.amort,model_quotas_amort,base.group_erp_manager,1,1,1,1
+access_quotas_amort,quotas.amort,model_quotas_amort,base.group_user,1,1,1,1
+access_adquiz_seguro,adquiz.seguro,model_adquiz_seguro,base.group_erp_manager,1,1,1,1
+access_adquiz_seguro,adquiz.seguro,model_adquiz_seguro,base.group_user,1,1,1,1
+access_processo_amortizacao,processo.amortizacao,model_processo_amortizacao,base.group_erp_manager,1,1,1,1
+access_processo_amortizacao,processo.amortizacao,model_processo_amortizacao,base.group_user,1,1,1,1
+access_amortizados,amortizados,model_amortizados,base.group_erp_manager,1,1,1,1
+access_amortizados,amortizados,model_amortizados,base.group_user,1,1,1,1

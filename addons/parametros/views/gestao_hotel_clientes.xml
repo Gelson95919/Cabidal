@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cliente_form" model="ir.ui.view">
+            <field name="name">Clientes</field>
+            <field name="model">clientes.clientes</field>
+            <field name="arch" type="xml">
+                <form string="Clientes">
+                    <sheet>
+                        <div>
+                           <label for="title" string="Nome"/>
+                           <label for="title" string=""  style="color:White;width:20px"/>
+                           <field name="name" style="width:740px"/>
+                       </div>
+                        <div>
+                           <label for="title" string="Endereço"/>
+                           <field name="endereco" style="width:740px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Pais"/>
+                           <label for="title" string=""  style="color:White;width:30px"/>
+                           <field name="pais" style="width:240px"/>
+                           <label for="title" string="" style="color:White; width:190px"/>
+                           <label for="title" string="E-Mail"/>
+                           <label for="title" string=""  style="color:White;width:20px"/>
+                           <field name="e_mail" style="width:240px" whidget="email"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Notas"/>
+                           <label for="title" string=""  style="color:White;width:20px"/>
+                           <field name="notas" style="width:740px"/>
+                       </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cliente_tree" model="ir.ui.view">
+            <field name="name">Clientes</field>
+            <field name="model">clientes.clientes</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cliente_act_window" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">clientes.clientes</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Criar um novo Clientes.
+             </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Clientes) para projetos internos, pessoais ou de clientes.
+             </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="cliente_menu" name="Clientes" parent="fastgest_hotel" action="cliente_act_window" sequence="80"/>
+        <!--<menuitem name="Clientes Factura" id="menu_terc" parent="fastgest_hotel" action="parametros.action_window_terc"/>-->
+    </data>
+</odoo>

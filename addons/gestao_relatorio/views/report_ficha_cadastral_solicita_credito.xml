@@ -1,0 +1,1422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="papelformficha_solicit">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">15</field>
+            <field name="dpi">95</field>
+        </record>
+        <report
+                id="rep_fich_solicitacaor"
+                model="ficha.credito"
+                string="Ficha Solicitação"
+                name="gestao_relatorio.rep_ficha_solicit_view"
+                file="gestao_relatorio.ficha_credito_form"
+                paperformat="papelformficha_solicit"
+                report_type="qweb-pdf"
+                menu="True"/>
+
+        <template id="rep_ficha_solicit_view">
+            <t t-call="web.html_container">
+                <div class="header"
+                     style="height: 40px;  -webkit-box-shadow:3px 3px 10px black ;-moz-box-shadow:3px 3px 5px black ;">
+                    <h2 class="text-center">FICHA CADASTRAL E SOLICITAÇÃO DE CREDITO</h2>
+                </div>
+                <div class="article" style="border-top: -1px solid black; width:100%; height: 1840px; border: 1px solid black; margin: 10px auto;
+                                                                          display: -webkit-box;
+                                                                         -webkit-box-orient: vertical; -webkit-box-pack: right;
+                                                                         -webkit-box-shadow:3px 3px 5px black;
+                                                                         -moz-box-shadow:3px 3px 5px black ;
+                                                                         -webkit-border-radius: 5px;
+                                                                          display: -moz-box; -moz-box-orient: vertical; ">
+                    <div style="border:1px solid black;  width:100%; margin-left: -1px; height: 43px; margin-top:-2px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                         -webkit-border-radius: 5px  5px 0px  0px;
+                                                                         -moz-border-radius: 5px  5px 0px  0px;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px;  width:452px;">
+                            <p>ILHA:</p> <!-- <span t-esc="doc['name']"/>-->
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:452px;">
+                            <p>CIDADE:</p> <!--<span t-esc="doc['name']"/>-->
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>AGENTE:
+                                <t t-esc="name"/>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>DATA:
+                                <t t-esc="data"/>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border:0px solid black;  padding: 8px; width:200px;">
+                            <p>
+                                <strong>HORIGEM DA DEMANDA</strong>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 150px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border:0px solid black; height: 140px; display: -moz-box; -moz-box-orient: vertical; -moz-box-pack: left;  display: -moz-box; -moz-box-orient: vertical;  -moz-box-pack: left; padding: 1px; width:260px; margin: 5px;">
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black; padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+
+                                        <strong>
+                                            <!--<t t-esc="palestra"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Palestra
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="devulg_movel"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Divulgação móvel
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="eventos"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Eventos
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; height: 140px; display: -moz-box; -moz-box-orient: vertical; -moz-box-pack: left;  display: -moz-box; -moz-box-orient: vertical;  -moz-box-pack: left; padding: 1px; width:260px; margin: 5px;">
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="porta_porta"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Porta-a-porta
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="indic_client"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Indicação outro cliente
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="outros"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Outros meios
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; height: 140px; display: -moz-box; -moz-box-orient: vertical; -moz-box-pack: left;  display: -moz-box; -moz-box-orient: vertical;  -moz-box-pack: left; padding: 1px; width:260px; margin: 5px;">
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="radio"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Rádio
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="border:0px solid black;  margin-left: -1px; padding: 1px; width:240px; margin: 5px; height: 40px;  display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <div class="col-xs-5 text-center"
+                                     style="border:1px solid black;  padding: 1px; width:30px; margin: 5px; height: 30px;">
+                                    <p>
+                                        <strong>
+                                            <!--<t t-esc="catazes"/>-->
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div style="border:0px solid black;  padding: 1px; width:190px; margin: 5px; height: 30px;">
+                                    <p>
+                                        Cartazes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border:0px solid black;  padding: 8px; width:400px;">
+                            <p>
+                                <strong>CADASTRO DE PROPORNENTE</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px; width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>NOME:
+                                <strong>
+                                    <!--<t t-esc="name_client"/>-->
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Alcunha:
+                                <strong>
+                                    <t t-esc="alcunha"/>
+                                </strong>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Passaporte ou BI:
+                                <strong>
+                                    <t t-esc="numero_documento"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border-right:1px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 1;">
+                            <p>NIF:
+                                <strong>
+                                    <t t-esc="nif"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 2px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <div style="border:0px solid black;  padding: 1px; width:50px; margin: 5px; height: 20px;">
+                                <p>
+                                    Sexo:
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="masculino"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:20px; margin: 5px; height: 20px;">
+                                <p>
+                                    M
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="feminino"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:20px; margin: 5px; height: 20px;">
+                                <p>
+                                    F
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Local de nascimento:
+                                <strong>
+                                    <t t-esc="local_nascimento"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border-right:1px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Data:
+                                <strong>
+                                    <t t-esc="data_nascimento"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 1;">
+                            <p>Nacionalidade:
+                                <strong>
+                                    <t t-esc="nacionalidade"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Estado Civil:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="est_Solteiro"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Solteiro(a)
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="est_casado"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Casado(a)
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="est_viuvo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Viúvo(a)
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="est_outros"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Outros
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Nome de Cônjugue:
+                                <strong>
+                                    <t t-esc="nome_conjugue"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>BI:</p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Endereço Residêncial:
+                                <strong>
+                                    <t t-esc="endereco_prop"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Tempo Residência:
+                                <strong>
+                                    <t t-esc="tempo"/>
+                                </strong>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Bairro:
+                                <strong>
+                                    <t t-esc="name_bairo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border-right:1px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 1;">
+                            <p>Concelho:
+                                <strong>
+                                    <t t-esc="name_concelho"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Ilha:
+                                <strong>
+                                    <t t-esc="name_ilha"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 0;">
+                            <p>Telefone Fixo:
+                                <strong>
+                                    <t t-esc="telefone_fixo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border-right:1px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Celular:
+                                <strong>
+                                    <t t-esc="telemovel"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 1;">
+                            <p>Vizinho:
+                                <strong>
+                                    <t t-esc="vizinho"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border:0px solid black;  padding: 1px; width:140px; margin: 5px; height: 20px;">
+                            <p>
+                                Residência:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="propia"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Própia
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="alugada"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Alugada
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="financiada"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Financiada
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="de_familiares"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                De familiares
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="outros_resid"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Outros
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:400px; -webkit-box-flex: 1;">
+                            <p>Referência:
+                                <strong>
+                                    <t t-esc="referencia"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px; width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:300px; -webkit-box-flex: 1;">
+                            <p>Número de agregados familiares:
+                                <strong>
+                                    <t t-esc="no_agregado_familhar"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:300px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Números de filhos:
+                                <strong>
+                                    <t t-esc="n_filhos"/>
+                                </strong>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Escolaridade:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="analfabeto"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Analfabeto
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="primaria"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Primária
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="secundaria"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Secundária
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="proficional"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Profissional
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="superior"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Superior
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12 text-center"
+                         style="border:1px solid black; padding: 5px; margin-top: -1px; margin-left: -1px; height: 43px; width:100%;">
+                        <strong>
+                            <p>CADASTRO DE FIADOR</p>
+                        </strong>
+                    </div>
+                    <div style="border:1px solid black; padding: 5px; height: 43px; margin-top: -1px; margin-left: -1px;  width:100%;">
+                        <p>Nome:</p>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px; width: width:855px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px;  width:50%; -webkit-box-flex: 0;">
+                            <p>Lugar Trabalho:</p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:50%; -webkit-box-flex: 0;">
+                            <p>Telefone:</p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px; width: width:855px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px;  width:50%; -webkit-box-flex: 0;">
+                            <p>Morada:</p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:50%; -webkit-box-flex: 0;">
+                            <p>Movel:</p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border:0px solid black;  padding: 8px; width:400px;">
+                            <p>
+                                <strong>SOLICITAÇÃO DE CRÉDITO</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:450px; -webkit-box-flex: 0;">
+                            <p>Valor Solicitado(ECV):
+                                <strong>
+                                    <t t-esc="valor_solicitado"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:450px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Prestação que pode pagar:
+                                <strong>
+                                    <t t-esc="prestacao_pagar"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 0;">
+                            <p>Prazo:
+                                <strong>
+                                    <t t-esc="prazo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 2px; width:700px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: flex; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: flex;">
+                            <div style="border:0px solid black;  padding: 1px; width:170px; margin: 5px; height: 20px;">
+                                <p>
+                                    Periodicidadde:
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black; padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="perio_semanal"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Semanal
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+
+                                </p>
+                            </div>
+                            <div style="border:0px  solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Quinzenal
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="mensal"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Mensal
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                            <p>
+                                Finalidade:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="iniciar_negocio"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Iniciar negócio
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="reforcar"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                            <p>
+                                Reforçar
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="aplicar"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                            <p>
+                                Aplicar
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:250px; margin: 5px; height: 20px;">
+                            <p>
+                                Atividades:
+                                <strong>
+                                    <t t-esc="actividade"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:170px; margin: 5px; height: 20px;">
+                            <p>
+                                Aplicação do crédito:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="fundo_maneio"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Fundo de maneio
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="inventario_fixo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Investimento fixo
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="misto"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Misto
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="outros_aplic"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Outro
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border:0px solid black;  padding: 8px; width:400px;">
+                            <p>
+                                <strong>DADOS DO NEGÓCIO</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Nome:
+                                <strong>
+                                    <t t-esc="nome"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Inicio:
+                                <strong>
+                                    <t t-esc="inicio"/>
+                                </strong>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Endereço do local de trabalho:
+                                <strong>
+                                    <t t-esc="endereco"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Telefone:
+                                <strong>
+                                    <t t-esc="telefone"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Local de trabalho:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="loc_trab_prop"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Propio
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="alugado"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Alugado
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="loc_financiado"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Financiado
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="cedido"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Cedido
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="outros"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Outros
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:90px; margin: 5px; height: 20px;">
+                            <p>
+                                Setor:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="comercio"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Comércio
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="servico"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Serviço
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="producao"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Produção
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="agricultura"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Agricultura
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="pesca"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Pesca
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="piquena_endustria"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Piquena Industria
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="outros_setr"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Outros
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+
+                        <div style="border:0px solid black; padding: 2px; width:700px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                            <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Area:
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black; padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="urbano"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Urbano
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="sub_urbano"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px  solid black;  padding: 1px; width:180px; margin: 5px; height: 20px;">
+                                <p>
+                                    Sub Urbano
+                                </p>
+                            </div>
+                            <div class="col-xs-5 text-center"
+                                 style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                                <p>
+                                    <strong>
+                                        <t t-esc="rural"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                                <p>
+                                    Rural
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:200px; margin: 5px; height: 20px;">
+                            <p>
+                                Estrotura fisica de negócio:
+
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="movel"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Movel
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="na_feria"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Na feira
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="ponto_comercial"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Ponto comerical
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="casa"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                            <p>
+                                Casa
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="ponto_fixo"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:80px; margin: 5px; height: 20px;">
+                            <p>
+                                Ponto Fixo
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: flex; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: flex;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:200px; margin: 5px; height: 20px;">
+                            <p>
+                                Condição do imovel:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="cond_imo_prop"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Própio
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="cond_imo_alug"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Alugado
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="cond_imo_outro"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Outro
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: left; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Tipo de Controles:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="estoque"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Estoque
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="livro_caixa"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:150px; margin: 5px; height: 20px;">
+                            <p>
+                                Livro de Caixa
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="fezer_de_cabeca"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:180px; margin: 5px; height: 20px;">
+                            <p>
+                                Fazer de Cabeça
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="nenhum"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:100px; margin: 5px; height: 20px;">
+                            <p>
+                                Nenhum
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                            <p>Número de pessoa que trabalha no negócio:
+                                <strong>
+                                    <t t-esc="num_pessoa_negoc"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border-right:1px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 1;">
+                            <p>Familiar:
+                                <strong>
+                                    <t t-esc="familiar"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:200px; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Não familiar:
+                                <strong>
+                                    <t t-esc="nao_familiar"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:1px solid black; padding: 8px; margin-top: -1px; margin-left: -1px; width:50%; -webkit-box-flex: 0;">
+                            <p>Número de pessoas que dependem do negócio:
+                                <strong>
+                                    <t t-esc="num_pess_dep_negoc"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black; padding: 8px; width:50%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0;">
+                            <p>Renda familiar(ECV):
+                                <strong>
+                                    <t t-esc="renda_familiar"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:1px solid black; padding: 2px;  width:100%; margin-top: -1px; margin-left: -1px; -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: justify; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <div style="border-right:0px solid black;  padding: 1px; width:260px; margin: 5px; height: 20px;">
+                            <p>
+                                Participou de alguma Capacitação:
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px;">
+                            <p>
+                                <strong>
+                                    <t t-esc="partic_sim"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:40px; margin: 5px; height: 20px;">
+                            <p>
+                                Sim
+                            </p>
+                        </div>
+                        <div class="col-xs-5 text-center"
+                             style="border:1px solid black;  padding: -2px; width:30px; margin: 5px; height: 30px; -webkit-box-flex: 0;">
+                            <p>
+                                <strong>
+                                    <t t-esc="part_nao"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:40px; margin: 5px; height: 20px; -webkit-box-flex: 0;">
+                            <p>
+                                Não
+                            </p>
+                        </div>
+                        <div style="border:0px solid black;  padding: 1px; width:300px; margin: 5px; height: 20px; -webkit-box-flex: 1;">
+                            <p>
+                                Quaḷ:
+                                <strong>
+                                    <t t-esc="qual"/>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="border:0px solid black; margin-left: -1px;  padding: 10px;  margin: 5px; height: 150px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: justify;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: justify;">
+                        <p>
+                            Declaro que os presentes dados e informações são verdadeiros e comprometo-me a
+                            mantê-los
+                            atualizados, estando ciente de que os mesmos, sob asa penas de lei, serão
+                            utilizados,
+                            inclusive,
+                            para efeito de notificações e demais processos legais. Eautorizo ainda, A IMF a
+                            coletar
+                            minhas
+                            informações cadastrais em outros bancos e IMFs
+                        </p>
+                    </div>
+                </div>
+
+
+                <!--<div class="footer">
+                    <div class="row text-center" style="border-top: 1px solid black;">
+                        <div class="col col-3 offset-9 text-right">
+                            <ul class="list-inline mt-2">
+                                <li class="list-inline-item">Page:</li>
+                                <li class="list-inline-item">
+                                    <span class="page"/>
+                                </li>
+                                <li class="list-inline-item">/</li>
+                                <li class="list-inline-item">
+                                    <span class="topage"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>-->
+            </t>
+        </template>
+    </data>
+</odoo>

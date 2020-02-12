@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="diario_auxiliar_view" model="ir.ui.view">
+            <field name="name">diario.auxiliar.form</field>
+            <field name="model">diario.auxiliar</field>
+            <field name="arch" type="xml">
+                <form string="Diario Auxiliar">
+                    <sheet>
+                        <div><label for="title" string="DIARIO AUXILIAR"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                        <group col="3">
+                            <group string="Ano">
+                               <div><field name="ano" nolabe="1" style="width:100px"/></div>
+                            </group>
+                            <group string="Diario">
+                                <div>
+                                    <field name="diario_inter_alter" widget="radio" nolabel='1' options="{'horizontal': true}"/>
+                                </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                   <field name="alternado_an" widget = 'many2many_tags' attrs="{'readonly': [('diario_inter_alter', '!=', 'alternado')]}" nolabel="1" options="{'no_create':True}"/>
+                                   <label for="title" string="De" attrs="{'invisible': [('diario_inter_alter', '!=', 'intervalo')]}"/>
+                                   <field name="diario_de" attrs="{'readonly': [('diario_inter_alter', '!=', 'intervalo')]}" style="width:100px"/>
+                                </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                   <label for="title" string="Ate" attrs="{'invisible': [('diario_inter_alter', '!=', 'intervalo')]}"/>
+                                   <field name="diario_ate" attrs="{'invisible': [('diario_inter_alter', '!=', 'intervalo')]}" style="width:100px"/>
+                                </div>
+                            </group>
+                            <group string="Opção">
+                                <div>
+                                   <field name="op_mes_doc" widget="radio" nolabel='1' options="{'horizontal': true}"/>
+                                </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <field name="opc_intr__alt" widget="radio" nolabel='1' options="{'horizontal': true}"/>
+                                </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <field name="alternado_op" widget = 'many2many_tags' attrs="{'readonly': [('opc_intr__alt', '!=', 'alternado')]}" options="{'no_create':True}"/>
+                                    <label for="title" string="De" attrs="{'invisible': [('opc_intr__alt', '!=', 'intervalo')]}"/>
+                                    <field name="opc_de" attrs="{'invisible': [('opc_intr__alt', '!=', 'intervalo')]}" style="width:100px"/>
+                                </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                   <label for="title" string="Ate" attrs="{'invisible': [('opc_intr__alt', '!=', 'intervalo')]}"/>
+                                   <field name="opc_ate" attrs="{'invisible': [('opc_intr__alt', '!=', 'intervalo')]}" style="width:100px"/>
+                                </div>
+                                <div>
+
+                                </div>
+                            </group>
+                        </group>
+                        <header>
+                           <button name="gerar" icon="fa-cogs" class="btn-primary" type="object" string="Gerar"/>
+                        </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="act_window_diario_auxiliar" model="ir.actions.act_window">
+            <field name="name">Analisis de Diario Auxiliar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">diario.auxiliar</field>
+            <field name="view_id" ref="diario_auxiliar_view"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="id_diario_auxiliar" name="Diario Auxiliar" parent="contabilidade.menu_3" action="act_window_diario_auxiliar" sequence="80"/>
+    </data>
+</odoo>

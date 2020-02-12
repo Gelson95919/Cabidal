@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+        <record id="documento_ingreco_form" model="ir.ui.view">
+            <field name="name">Documento Ingresso</field>
+            <field name="model">remuner.deocumento.ingresso</field>
+            <field name="arch" type="xml">
+                <form string="Documento Ingresso">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="documento_ingreco_tree" model="ir.ui.view">
+            <field name="name">Documento Ingresso</field>
+            <field name="model">remuner.deocumento.ingresso</field>
+            <field name="arch" type="xml">
+                <tree string="Documento Ingreco">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="act_window_documento_ingresso_w" model="ir.actions.act_window">
+            <field name="name">Documento Ingresso</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">remuner.deocumento.ingresso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Criar um novo Documento Ingresso.
+              </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Documento Ingresso ) para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+         <!--This Menu Item must have a parent and an action -->
+        <menuitem id="documento_ingresso_menu" name="Documento Ingresso" parent="fastgest_remuneracoe_outras_tabelas" action="act_window_documento_ingresso_w" sequence="80"/>-->
+        <record id="motiv_demissao_form" model="ir.ui.view">
+            <field name="name">Motivo Demissão</field>
+            <field name="model">remuner.motivo.demissao</field>
+            <field name="arch" type="xml">
+                <form string="Motivo Demissão">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="motiv_demissao_tree" model="ir.ui.view">
+            <field name="name">Motivo Demissão</field>
+            <field name="model">remuner.motivo.demissao</field>
+            <field name="arch" type="xml">
+                <tree string="Motivo Demissão">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="act_window_motiv_demissao_w" model="ir.actions.act_window">
+            <field name="name">Motivo Demissão</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">remuner.motivo.demissao</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+               Criar um novo Motivo Demissão.
+              </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Motivo Demissão ) para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="motiv_demissao_menu" name="Motivo Demissão" parent="fastgest_remuneracoe_outras_tabelas" action="act_window_motiv_demissao_w" sequence="80"/>
+        <!--<menuitem id="bancos_menu" name="Bancos" parent="fastgest_remuneracoe_outras_tabelas" action="action_window_entBanc" sequence="80"/>
+        <menuitem id="moedas_menu" name="Moedas" parent="fastgest_remuneracoe_outras_tabelas" action="action_window_m" sequence="80"/>
+        <menuitem id="contas_bancaria_menu" name="Contas Bancarias" parent="fastgest_remuneracoe_outras_tabelas" action="form_all_monet_tree_view" sequence="80"/>-->
+    </data>
+</odoo>

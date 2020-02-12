@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Contabilidade" web_icon="contabilidade,static/description/icon.png"
+                  id="contabilidade.menu_root"/>
+
+        <menuitem name="Contabilidade" id="contabilidade.menu_1" parent="contabilidade.menu_root"/>
+        <menuitem name="Declarações" id="contabilidade.menu_2" parent="contabilidade.menu_root"/>
+        <menuitem name="Livros Não Selados" id="contabilidade.menu_3" parent="contabilidade.menu_root"/>
+        <menuitem name="Mapas Oficiais" id="contabilidade.menu_4" parent="contabilidade.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_contabilidade_menu_param" parent="contabilidade.menu_root"/>
+
+    </data>
+</odoo>

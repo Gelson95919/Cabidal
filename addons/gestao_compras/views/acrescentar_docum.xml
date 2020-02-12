@@ -1,0 +1,214 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_docum_desp">
+            <field name="name">Adicionar Documentos a Pagar</field>
+            <field name="model">despesa.despesa</field>
+            <field name="arch" type="xml">
+                <form string="Adicionar Documentos a Pagar">
+                    <header>
+
+                        <button name="abrir" string="Abrir" type="object"
+                                icon="fa-unlock"
+                                class="btn btn-info"/>
+                        <button name="fechar" string="Fechar" type="object"
+                                attrs="{'invisible': [('control_estad_docum','=', 'fechado')]}" icon="fa-lock"
+                                class="btn-primary"/>
+                        <button name="conta_corente" string="Cta.Cte."
+                                attrs="{'invisible': [('control_estad_docum','!=', 'aberto')]}" type="object"
+                                icon="fa-newspaper-o" class="btn-primary"/>
+                        <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                        <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                        <field name="control_estad_docum" widget="statusbar"/><!--clickable="1"-->
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Número Documentos" style="font-weight: bold"/>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="n_documento" class="oe_inline" style="width:50px"/>
+                                <field name="desting_doc_desp" invisible="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group><!--domain="[('fat_para','=','comprasDespesas')]"
+                                <field name="fornecidor" invisible="1"/>-->
+                                <field name="tipo_docum_id" domain="[('fat_para','=', 'comprasDespesas')]"/>
+                                <field name="numero_ident"/>
+                                <field name="data_docum"/>
+                                <field name="forma_pagamento"/>
+                                <field name="fornec_tercd" domain="[('fornecedores','=',True)]"/>
+                            </group>
+                            <group>
+                                <field name="total" invisible="1"/>
+                                <field name="valor_docum_esc" invisible="1"/>
+                                <field name="valor_docum_esc"/>
+                                <field name="nro_processo"/>
+                                <field name="venc"/>
+                                <field name="moeda_id"/>
+                                <field name="val_outra_moeda"/>
+
+                            </group>
+                        </group>
+                        <notebook name="studio_notebook_S8ebf">
+                            <page name="studio_page_9esJy" string="Detalhes">
+                                <group name="studio_group_F8TTh">
+                                    <group name="studio_group_F8TTh_right">
+                                        <div class="oe_inline">
+                                            <field name="detal_ids" style="width:1070px">
+                                                <tree editable="bottom" string="Detalhes">
+                                                    <field name="codigo_id"/>
+                                                    <field name="leva_terce" invisible="1"/>
+                                                    <field name="control_IVA" invisible="1"/>
+                                                    <field name="descrecao_desp"/>
+                                                    <field name="codigo_dep"/>
+                                                    <field name="valor"/>
+                                                    <field name="iva_id" attrs="{'invisible' :[('control_IVA', '!=', True)]}"/>
+                                                    <field name="terceiro_id"
+                                                           attrs="{'invisible' :[('leva_terce', '!=', True)]}"/>
+                                                    <field name="valor_auxiliar"/>
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </group>
+                                </group>
+                                <div>
+                                    <label for="titel" string="Percentagem"/>
+                                    <field name="percentagem" style="width:260px"/>
+                                </div>
+                                <div>
+                                    <field name="detalhes" style="width:1050"/>
+                                </div>
+                            </page>
+                            <page name="studio_page_OE3jS" string="Contabilidade">
+                                <div class="">
+                                    <label for="title" string="Data Movimento"/>
+                                    <field name="date_release" style="width:260px"/>
+                                    <label for="title" style="color:white;width:300px" string=""/>
+                                    <field name="contabilizado"/>
+                                    <label for="title" string="Contabilizado"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Diario"/>
+                                    <field name="diario" style="width:260px"/>
+                                    <label for="title" style="color:white;width:360px" string=""/>
+                                    <label for="title" string="Numero"/>
+                                    <field name="numero" style="width:260px"/>
+                                    <label for="title" style="color:white;width:20px" string=""/>
+                                    <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="despesas_search_view" model="ir.ui.view">
+            <field name="name">Despesas</field>
+            <field name="model">despesa.despesa</field>
+            <field name="arch" type="xml">
+                <search string="Fatura Information">
+                    <field name="fornec_tercd"></field>
+                    <field name="tipo_docum_id"/>
+                    <field name="valor_docum_esc"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_fornec_tercd" string="Documentos Pendentes" domain="[('pago','=','False')]"
+                                context="{'group_by':'fornec_tercd'}"
+                                help="Group Students fatura Wise"/>
+                        <filter name="groupby_year" context="{'group_by': 'data_docum:year'}" string="Year"
+                                help="Group Students by Year"/>
+                        <filter name="groupby_month" context="{'group_by': 'data_docum:month'}" string="Month"/>
+                    </group>
+                    <filter name="fil_by_disability" icon="terp-personal" string="Deficiente físico"
+                            domain="[('is_physically_disabled','=','True')]"
+                            help="Mostrar todos os alunos com deficiências físicas"/>
+                    <filter string="Ano atual registrado" name="fil_by_current_year"
+                            domain="[('registration_date','&lt;=',time.strftime('%%Y-12-31')),('registration_date','&gt;=',time.strftime('%%Y-01-01'))]"
+                            help="Filter Students Registered in Current Year"/>
+                </search>
+            </field>
+        </record>
+        <record id="form_all_desp_tree_view" model="ir.ui.view">
+            <field name="name">despesa.tree.view</field>
+            <field name="model">despesa.despesa</field>
+            <field name="arch" type="xml">
+                <tree string="Despesas"><!-- decoration-danger="pago == False" decoration-info="pago ==True-->
+                    <!--<button name="terc" icon="fa-user-o" string="Terceiro " class="btn btn-warning"/>-->
+                    <field name="id"/>
+                    <field name="n_documento"/>
+                    <field name="fornec_tercd"/>
+                    <field name="tipo_docum_id"/>
+                    <field name="numero_ident"/>
+                    <field name="data_docum"/>
+                    <field name="valor_docum_esc"/>
+                    <field name="nro_processo"/>
+                    <field name="moeda_id"/>
+                    <field name="valor_outra_moeda"/>
+                    <field name="percentagem"/>
+                    <field name="detalhes"/>
+                    <field name="utilizador_id"/>
+                    <!--<field name="fornecidor"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="despesas_action_window">
+            <field name="name">Adicionar Documentos a Pagar - Despesas</field>
+            <field name="context">{'search_default_group_fornec_tercd': 1}</field>
+            <field name="res_model">despesa.despesa</field>
+            <field name="domain">[('tipo_docum_id','!=',' ')]</field>
+            <field name="context">{'type':'despesa', 'diario_type': 'sale'}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Despesas.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Despesa ) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+
+        <record id="sequ_docum_despesas" model="ir.sequence">
+            <field name="name">Documentos a Pagar - Despesas</field>
+            <field name="code">despesa.despesa.n_documento</field>
+            <field name="padding">6</field>
+            <field name="prefix">FT-%(range_year)s-</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequ_docum_numero" model="ir.sequence">
+            <field name="name">Despesas numero</field>
+            <field name="code">despesa.despesa.numero</field>
+            <field name="padding">6</field>
+            <field name="prefix"></field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!--<record id="ord_pag_form_inherit" model="ir.ui.view">
+            <field name="name">Fatura Ordem Pagamento</field>
+            <field name="model">tesouraria.ordem.pagamento</field>
+            <field name="inherit_id" ref="gestao_tesouraria.ordem_pagamento_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sen_conta_corent']" position="inside">
+                    <div class="oe_inline">
+                        <field name="detal_ids" style="width:1070px">
+                            <tree editable="bottom" string="Detalhes">
+                                <field name="codigo_id"/>
+                                <field name="descrecao"/>
+                                <field name="codigo_dep"/>
+                                <field name="valor"/>
+                                <field name="iva_id"/>
+                                <field name="terceiro_id"/>
+                                <field name="valor_auxiliar"/>
+                            </tree>
+                        </field>
+                    </div>
+                </xpath>
+            </field>
+        </record>-->
+        <menuitem name=" Manutenção Documentos Despesas" id="menu_docum_desp" parent="gestao_compras.menu_concit_comp"
+                  action="despesas_action_window"/>
+    </data>
+</odoo>

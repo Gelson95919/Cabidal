@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="rubrica_form" model="ir.ui.view">
+           <field name="name">Rubrica</field>
+           <field name="model">rubrica</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Código" style="width:70px"/>
+                           <field name="codigo" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Descrição" style="width:70px"/>
+                           <field name="descricao" style="width:650px"/>
+                       </div>
+                       <notebook>
+                           <page string="Elementos">
+                               <div>
+                                   <field name="rubrica_terceiro"/>
+                                   <label for="title" string="Rubrica Terceiro"/>
+                                   <label for="title" string="" style="width:300px"/>
+                                   <field name="terceiro_id" style="width:300px" attrs="{'invisible': [('rubrica_terceiro', '!=', True)]}"/>
+                               </div>
+                               <div>
+                                   <field name="rubrica_iva"/>
+                                   <label for="title" string="Rubrica IVA"/>
+                                   <label for="title" string="" style="width:330px"/>
+                                   <label for="title" string="Documento"/>
+                                   <field name="documento" style="width:220px"/>
+                               </div>
+                               <div>
+                                   <field name="juntar_em_guia_cobranca"/>
+                                   <label for="title" string="Juntar em Guia Cobrança"/>
+                                   <label for="title" string="" style="width:245px"/>
+                                   <label for="title" string="Código Guia Cobrança"/>
+                                   <field name="codigo_guia_cobranca" style="width:155px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Rubrica Documento Terceiro" style="width:230px" attrs="{'invisible': [('rubrica_terceiro', '!=', True)]}"/>
+                                   <field name="compras_compras_id" style="width:500px"  attrs="{'invisible': [('rubrica_terceiro', '!=', True)]}"/>
+
+                                   <label for="title" string="Rubrica Documento Despachante" style="width:230px"  attrs="{'invisible': [('rubrica_terceiro', '!=', False)]}"/>
+                                   <field name="rubrica_despachante_id" style="width:500px" attrs="{'invisible': [('rubrica_terceiro', '!=', False)]}"/>
+                               </div>
+                           </page>
+                           <page string="Observações">
+                               <field name="observacoes"/>
+                           </page>
+                           <page string="Contabilidade">
+                               <div>
+                                   <label for="title" string="Conta Artigo" style="width:90px"/>
+                                  <field name="plano_conta_id" style="width:300px"/>
+                               </div>
+                               <div>
+                                  <label for="title" string="Centro Custo" style="width:90px"/>
+                                  <field name="organizacao_id" style="width:300px"/>
+                               </div>
+                                <div>
+                                  <label for="title" string="Conta IVA" style="width:90px"/>
+                                  <field name="plan_cont_id" style="width:300px"/>
+                               </div>
+                                <div>
+                                  <label for="title" string="Fluxo Caixa" style="width:90px"/>
+                                  <field name="plano_teso_id" style="width:300px"/>
+                               </div>
+                                <div>
+                                  <label for="title" string="Código IVA" style="width:90px"/>
+                                  <field name="plan_iva_id" style="width:300px"/>
+                               </div>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="rubrica_tree" model="ir.ui.view">
+           <field name="name">Rubrica</field>
+           <field name="model">rubrica</field>
+           <field name="arch" type="xml">
+               <tree string="Rubrica">
+                   <field name="codigo"/>
+                   <field name="descricao"/>
+               </tree>
+           </field>
+       </record>
+       <record id="rubrica_act_window" model="ir.actions.act_window">
+           <field name="name">Rubricas</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">rubrica</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Rubrica
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Rubrica) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="rubrica_menu" name="Rubricas" parent="gestao_despacho_menu" action="rubrica_act_window" sequence="80"/>
+    </data>
+</odoo>

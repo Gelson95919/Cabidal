@@ -1,0 +1,149 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_fundmaneio">
+            <field name="name">Fundo Maneiro</field>
+            <field name="model">fundomaneio.fundomaneio</field>
+            <field name="arch" type="xml">
+                <form string="Fundo Maneio">
+                    <header>
+                        <button name="fechar" string="Fechar" type="object" class="btn-primary" icon="fa-lock"/>
+                        <button name="action_quotation_send" string="Imprimir" type="object" icon="fa-print"
+                                class="btn-primary"/>
+                        <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <label for="title" string="Numero" style="font-weight: bold;"/>
+                        <field name="numero" style="width:135px"/>
+                        <group>
+                            <group>
+                                <!--<field name="name" style="width:250px"/>-->
+                                <field name="monetario_id"
+                                       domain="[('tipo_meio','=','testeFundo')]"/><!-- domain="[('tipo_meio','=','fundo_de_maneio')]"-->
+                                <field name="encaregado" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="data_fechp"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                                <div class="oe_inline">
+                                    <field name="cria_op"/>
+                                    <label for="title" string="Criar Ordem Pagamento"
+                                           style="color:Blue; font-weight: bold;"/>
+                                    <field name="movimento_fundo_maneio_ids" style="width:1070px">
+                                        <tree editable="bottom" string="Movimento Fundo Maneio Tree">
+                                            <field name="cod_comp_id"/>
+                                            <field name="descricao"/>
+                                            <field name="data" style="width:135px"/>
+                                            <field name="montante" sum="Montante"/>
+                                            <field name="iva_id" style="width:135px"/>
+                                            <field name="cod_dep" style="width:135px"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                        </group>
+                        <div>
+                            <label for="title"
+                                   string="____________________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white" string="_"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Fundo"/>
+                            <field name="fundo" style="width:260px"/>
+                            <label for="title" style="color:white; width:50px" string=""/>
+                            <label for="title" string="Gasto"/>
+                            <field name="gasto" style="width:260px"/>
+                            <label for="title" style="color:white; width:50px" string=""/>
+                            <label for="title" string="Em Caixa"/>
+                            <field name="em_caixa" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="____________________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white" string="_"/>
+                        </div>
+                        <div>
+                            <field name="contabilizado"/>
+                            <label for="title" string="Contabilizado"/>
+                            <label for="title" style="width:2px" string=""/>
+                            <label for="title" string="Diario"/>
+                            <field name="diario" style="width:140px"/>
+                            <label for="title" style="width:50px" string=""/>
+                            <label for="title" string="Numero"/>
+                            <field name="numero_contab" style="width:260px" nolabel="1"/>
+                            <label for="title" style="width:70px" string=""/>
+                            <button name="action_quotation_send" string="Contabilizar" type="object"
+                                    class="btn-primary"/>
+                            <label for="title" style="width:2px" string=""/>
+                            <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="movimento_fumd_maneio" model="ir.ui.view">
+            <field name="name">Movimento Fundo Maneiro</field>
+            <field name="model">fundomaneio.fundomaneio</field>
+            <field name="arch" type="xml">
+                <tree string="Movimento Fudo Maneiro">
+                    <field name="id"/>
+                    <field name="numero"/>
+                    <field name="n_documento"/>
+                    <field name="monetario_id"/>
+                    <field name="encaregado"/>
+                    <field name="data_fechp"/>
+                    <field name="cria_op"/>
+                    <field name="fundo"/>
+                    <field name="gasto"/>
+                    <field name="em_caixa"/>
+                    <field name="contabilizado"/>
+                    <field name="diario"/>
+                    <field name="numero_contab"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="window_mov_fund_mae">
+            <field name="name">Movimento Fundo Maneiro</field>
+            <field name="res_model">fundomaneio.fundomaneio</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Movimento Fudo Maneiro .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Movimento Fudo Maneiro
+                    ) para projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+
+        <record id="seq_mov_fund_manei_abre" model="ir.sequence">
+            <field name="name">Movimento Fundo Maneio Num/Abrev</field>
+            <field name="code">mov.fund.mane.abrev</field>
+            <field name="padding">6</field>
+            <field name="prefix">FM-%(range_year)s-</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_fund_mane_numero" model="ir.sequence">
+            <field name="name">Movimento Fundo Maneio Num</field>
+            <field name="code">fund.mane.num</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <menuitem name=" Movimento Fundo Maneiro  " id="menu_funmaneio" parent="gestao_tesouraria.menu_1"
+                  action="window_mov_fund_mae"/>
+    </data>
+</odoo>
