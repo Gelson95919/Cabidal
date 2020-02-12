@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="declarar_iva_mensal_form" model="ir.ui.view">
+           <field name="name">Declarar iva mensal.form</field>
+           <field name="model">declarar.iva</field>
+           <field name="arch" type="xml">
+               <form string="Declarar iva mensal">
+                   <sheet>
+                       <header>
+                          <button name="selecionar" string="Selecionar" type="object" icon="fa-check-square" class="btn-primary"/>
+                          <button name="processar" string="Processar" type="object" icon="fa-gears" class="btn-primary"/>
+                          <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                       </header>
+                       <div>
+                          <label for="title" string="EMPRESSO DE FORMULARIO"/>
+                       </div>
+                       <group col="3">
+                          <group string="Dados">
+                            <div>
+                              <label for="title" string="Ano"/>
+                              <field name="ano" style="width:150px"/>
+                            </div>
+                            <div>
+                                <label for="title" style="width:60px" string=""/>
+                            </div>
+                            <div>
+                              <label for="title" string="Mes"/>
+                              <field name="mes" style="width:150px"/>
+                            </div>
+                            <div>
+                                <label for="title" style="width:60px" string=""/>
+                            </div>
+                            <div>
+                                <label for="title" string="Processar"/>
+                                <field name="processar"/>
+                            </div>
+                          </group>
+                          <group string="Formulário">
+                             <div>
+                                <field name="formulario" widget = 'radio'/>
+                             </div>
+                          </group >
+                          <group string="Acção">
+                            <div>
+                              <field name="accao" widget = 'radio'/>
+                            </div>
+                          </group>
+                       </group>
+
+                       <label for="title" string="___________________________________________________________________________________________________________________________________________________________"/>
+                       <notebook>
+                           <page string="Anexo Cliente">
+                               <field name="dados_fatura_client" nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban'>
+                                   <tree editable="bottomn" string="Anexo">
+                                     <field name="nif"/>
+                                     <field name="terceiro_id"/>
+                                     <field name="moeda_id"/>
+                                     <field name="date"/>
+                                     <field name="total_resumo"/>
+                                  </tree>
+                               </field>
+                           </page>
+                           <page string="Anexo Fornecedores">
+                               <group>
+                                  <field name="dados_fatura_fornecedores" nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban'>
+                                      <tree editable="bottomn" string="Anexo Fornecedores">
+                                        <!--<field name="name"/>-->
+                                        <field name="tipo_docum_id"/>
+                                        <field name="data_docum"/>
+                                        <field name="valor_docum_esc"/>
+                                        <field name="nro_processo"/>
+                                        <field name="venc"/>
+                                        <field name="valor_outra_moeda"/>
+                                        <!--<field name="moeda"/>-->
+                                        <!--<field name="namedes"/>
+                                        <field name="codigo_dep" />
+                                        <field name="valor" />
+                                        <field name="iva" />
+                                        <field name="terceiro" />
+                                        <field name="valor_auxiliar" />-->
+                                      </tree>
+                                  </field>
+                               </group>
+                           </page>
+                           <page string="Declaração">
+                               <button name="atualizar" string="Atualizar" icon="fa-refresh" type="object" class="btn-primary"/>
+                               <label for="title" string="" style="width:5px; font-weight: bold; color:White"/>
+                               <button name="guardar" string="Guardar" type="object" icon="fa-save" class="btn-primary"/>
+                               <group>
+                                   <notebook>
+                                       <page string="Frente">
+                                           <group string="III - Tipo Declaração">
+                                               <div>
+                                                 <field name="tipo_declar" widget="radio" options="{'horizontal': true}" nolabel='1'/>
+                                               </div>
+                                           </group>
+                                           <group col ="2">
+                                             <group string="III - Anexo__________________________________">
+                                                 <div>
+                                                   <field name="clientes"/>
+                                                   <label for="title" string="Clientes"/>
+                                                 </div>
+                                                 <div>
+                                                    <field name="fornecidores"/>
+                                                    <label for="title" string="Fornecedores"/>
+                                                 </div>
+                                                 <div>
+                                                    <field name="regularizacao_clientes"/>
+                                                    <label for="title" string="Regularização clientes"/>
+                                                 </div>
+                                                 <div>
+                                                     <field name="regularizacao_fornecidores"/>
+                                                     <label for="title" string="Regularização Fornecedores"/>
+                                                 </div>
+                                             </group>
+                                             <group string="VIII - Existencias de Operações________________________">
+                                               <div>
+                                                   <field name="nao_real_operac"/>
+                                                   <label for="title" string="Não Realizo Operações"/>
+                                               </div>
+                                                <div><label for="title" string="_____________________________________" style="font-weight: bold; color:White"/></div>
+                                               <div>
+                                                   <field name="realizo_uma_unica_operac"/>
+                                                   <label for="title" string="Realizo uma unica Operações"/>
+                                               </div>
+                                             </group>
+                                           </group>
+                                           <!--1-->
+                                           <group string ="IX - Apuramento do Imposto_____________________________________________________________________________"></group>
+                                           <div>
+                                               <label for="title" string="______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="TIPO DE OPERAÇÕES" style="font-weight: bold;"/>
+                                               <label for="title" string="_______________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="BASE TRIBUTAVEL " style="font-weight: bold;"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="IMPOSTO A FAVOR DO SUJEITO PASSIVO" style="font-weight: bold;"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="IMPOSTO A FAVOR DO ESTADO" style="font-weight: bold;"/>
+                                           </div>
+                                           <div>
+                                               <label for="title" string="Transmissões de bens e prestações em que liquidou imposto"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                           </div>
+                                           <div>
+                                               <label for="title" string="1" style="font-weight: bold;"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Taxa normal"/>
+                                               <label for="title" string="______________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="01" style="color:green;"/>
+                                               <field name="campo1" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="______________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="02" style="color:green;"/>
+                                               <field name="campo2" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="1" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Taxa especial"/>
+                                               <label for="title" string="______________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="03" style="color:green;"/>
+                                               <field name="campo3" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="______________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="04" style="color:green;"/>
+                                               <field name="campo4" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--2-->
+                                           <div>
+                                               <label for="title" string="2 Operações em que liquidam os IVA nos termos do decreto-lei n"/>
+                                               <label for="title" string="______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="05" style="color:green;"/>
+                                               <field name="campo5" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="______________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="06" style="color:green;"/>
+                                               <field name="campo6" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--3-->
+                                           <div>
+                                               <label for="title" string="3 Operações em que IVA foi liquidado pelo contratante"/>
+                                               <label for="title" string="______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="07" style="color:green;"/>
+                                               <field name="campo7" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--4-->
+                                           <div>
+                                               <label for="title" string="Transmissões de bens e prestações de serviços"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                           </div>
+                                           <div>
+                                               <label for="title" string="4" style="font-weight: bold;"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Isentas com direito a dedução"/>
+                                               <label for="title" string="________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="08" style="color:green;"/>
+                                               <field name="campo8" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="__________________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Isentas sem direito a dedução"/>
+                                               <label for="title" string="________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="09" style="color:green;"/>
+                                               <field name="campo9" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="__________________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Não Trebutado"/>
+                                               <label for="title" string="____________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="10" style="color:green;"/>
+                                               <field name="campo10" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--5-->
+                                           <div>
+                                               <label for="title" string="5 Aquisições servicos fornecidos por um prestador que nao tenha sede,"/>
+                                               <label for="title" string="_" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="11" style="color:green;"/>
+                                               <field name="campo11" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="12" style="color:green;"/>
+                                               <field name="campo12" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="13" style="color:green;"/>
+                                               <field name="campo13" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--6-->
+                                           <div>
+                                               <label for="title" string="6 Aquisição dos servicos efetuados nos termos do artigo,"/>
+                                               <label for="title" string="_____________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="14" style="color:green;"/>
+                                               <field name="campo14" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="15" style="color:green;"/>
+                                               <field name="campo15" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="16" style="color:green;"/>
+                                               <field name="campo16" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--7-->
+                                           <div>
+                                               <label for="title" string="Transmissões de bens e prestações de serviços"/> <!--efetuadas au sujeito passivo declarantes"/>-->
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_______" style="font-weight: bold; color:White"/>
+                                           </div>
+                                           <div>
+                                               <label for="title" string="7" style="font-weight: bold;"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Investimento"/>
+                                               <label for="title" string="________________________________" style="font-weight: bold;  color:White"/>
+                                               <label for="title" string="17" style="color:green;"/>
+                                               <field name="campo17" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold;  color:White"/>
+                                               <label for="title" string="18" style="color:green;"/>
+                                               <field name="campo18" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_________________" style="font-weight: bold;  color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold;  color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Inventário"/>
+                                               <label for="title" string="__________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="19" style="color:green;"/>
+                                               <field name="campo19" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="20" style="color:green;"/>
+                                               <field name="campo20" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="______________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Outros bens de costumo"/>
+                                               <label for="title" string="______________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="21" style="color:green;"/>
+                                               <field name="campo21" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="22" style="color:green;"/>
+                                               <field name="campo22" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="___________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="_________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="Serviços"/>
+                                               <label for="title" string="___________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="23" style="color:green;"/>
+                                               <field name="campo23" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="24" style="color:green;"/>
+                                               <field name="campo24" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <!--8-->
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <div>
+                                               <label for="title" string="8 Imposto dedutível nas importações de bens efetuadas pelo SP"/>
+                                               <label for="title" string="________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="25" style="color:green;"/>
+                                               <field name="campo25" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="____" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="26" style="color:green;"/>
+                                               <field name="campo26" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--9-->
+                                           <div>
+                                               <label for="title" string="9 Regularizações mensais ou anuais, exceto comunicadas pela admin fiscal"/>
+                                               <label for="title" string="__________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="27" style="color:green;"/>
+                                               <field name="campo27" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="28" style="color:green;"/>
+                                               <field name="campo28" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--10-->
+                                           <div>
+                                               <label for="title" string="10 Regularizações mensais ou anuais, exceto as comunicadas pela admin fiscal"/>
+                                               <label for="title" string="______________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="29" style="color:green;"/>
+                                               <field name="campo29" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="30" style="color:green;"/>
+                                               <field name="campo30" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--11-->
+                                           <div>
+                                             <label for="title" string="11 PERCENTAGEM INSTIMADA(deducao parcial pro ratra)"/>
+                                             <label for="title" string="____________________________________________________________________________" style="font-weight: bold; color:White"/>
+                                             <label for="title" string="31" style="color:green;"/>
+                                             <field name="campo31" nolabel="1" style="width:140px"/>
+                                           </div>
+                                           <div><label for="title" string="_______" style="font-weight: bold;"/></div>
+                                           <!--12-->
+                                           <div>
+                                               <label for="title" string="12 SOMAS"/>
+                                               <label for="title" string="____________________________________________________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="32" style="color:green;"/>
+                                               <field name="campo32" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="__" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="33" style="color:green;"/>
+                                               <field name="campo33" nolabel="1" style="width:140px"/>
+                                               <label for="title" string="_______________" style="font-weight: bold; color:White"/>
+                                               <label for="title" string="34" style="color:green;"/>
+                                               <field name="campo34" nolabel="1" style="width:140px"/>
+                                           </div>
+
+                                       </page>
+                                       <page  string="Verso">
+                                           <group string="IX - Apuramento do Imposto (cont)">
+                                               <div>
+                                                 <label for="title" string="Se o valor inscrito no campo 34 for superior ao do campo 33 (caso se aplique, multiplicado pelo campo 31), campo 35=34 - 33"/>
+                                                 <label for="title" string="________" style="color:White;"/>
+                                                 <label for="title" string="35" style="color:green;"/>
+                                                 <field name="campo35" style="width:190px"/>
+                                                 <label for="title" string="Se o valor inscrito no campo 33 (caso se aplique, multiplicado pelo campo 31), for suprior ao do campo 35=33 - 34"/>
+                                                 <label for="title" string="_________________" style="color:White;"/>
+                                                 <label for="title" string="36" style="color:green;"/>
+                                                 <field name="campo36" style="width:190px"/>
+                                                 <label for="title" string="Excesso a reportar dos periodos anteriores"/>
+                                                 <label for="title" string="__________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="37" style="color:green;"/>
+                                                 <field name="campo37" style="width:190px"/>
+                                               </div>
+                                           </group>
+                                           <group string="X - Imposto a pagar oa estado">
+                                              <div>
+                                                <label for="title" string="IVA"/>
+                                                <label for="title" string="__________________________________________________________________________________________________________" style="color:White;"/>
+                                                <label for="title" string="38" style="color:green;"/>
+                                                <field name="campo38" style="width:190px"/>
+                                              </div>
+                                           </group>
+                                           <group string="XI - Imposto a recuperar">
+                                              <div>
+                                                <label for="title" string="CRÉDITO DE IMPOSTO" style="font-weight: bold"/>
+                                                <label for="title" string="________________________________________________________________________________________" style="color:White;"/>
+                                                <label for="title" string="39" style="color:green; font-weight: bold"/>
+                                                <field name="campo39" style="width:190px"/>
+                                                <label for="title" string="1.REPORTE PARA O PERIODO SEGUINTE"/>
+                                                <label for="title" string="________________________________________________________________________" style="color:White;"/>
+                                                <label for="title" string="40" style="color:green;"/>
+                                                <field name="campo40" style="width:190px"/>
+                                                <label for="title" string="2.PERIODO DE REEMBOLSO"/>
+                                                <label for="title" string="___________________________________________________________________________________" style="color:White;"/>
+                                                <label for="title" string="41" style="color:green;"/>
+                                                <field name="campo41" style="width:190px"/>
+                                              </div>
+                                           </group>
+                                           <group string="XII - Desenvolvimento de quadro IX">
+                                              <div>
+                                                 <label for="title" string="A - Valores de base  tributável inscritos nos campos 01 e 03" style="font-weight: bold;"/>
+                                                 <label for="title" string="_____________________________________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="_" style="color:White;"/>
+                                                  <label for="title" string="_" style="color:White;"/>
+                                                 <label for="title" string="Adiantamento transmissões de bens  e prestação de serviços tributadas"/>
+                                                 <label for="title" string="___________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="42" style="color:green;"/>
+                                                 <field name="campo42" style="width:190px"/>
+                                                 <label for="title" string="Amostra e ofertas para alem do limite legal"/>
+                                                 <label for="title" string="__________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="43" style="color:green;"/>
+                                                 <field name="campo43" style="width:190px"/>
+                                                 <label for="title" string="Operações sujeitas a tributação da margem"/>
+                                                 <label for="title" string="_________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="44" style="color:green;"/>
+                                                 <field name="campo44" style="width:190px"/>
+                                                 <label for="title" string="Operações efetuadas ao abrigo das alineas (e f) do n 2 do art"/>
+                                                 <label for="title" string="___________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="45" style="color:green;"/>
+                                                 <field name="campo45" style="width:190px"/>
+
+                                                 <label for="title" string="B - Valores de base  tributável inscritos nos campos 08" style="font-weight: bold;"/>
+                                                 <label for="title" string="_________________________________________________________________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="_" style="color:White;"/>
+                                                 <label for="title" string="_" style="color:White;"/>
+                                                 <label for="title" string="Operações  definidas  a exportação"/>
+                                                 <label for="title" string="_________________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="46" style="color:green;"/>
+                                                 <field name="campo46" style="width:190px"/>
+                                                 <label for="title" string="Operações efetuadas no termos do decreto-lei 88/2005 de 26 dezembro"/>
+                                                 <label for="title" string="___________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="47" style="color:green;"/>
+                                                 <field name="campo47" style="width:190px"/>
+                                                 <label for="title" string="____________" style="color:White;"/>
+                                                 <label for="title" string="Bens de Lista Anexa"/>
+                                                 <label for="title" string="____________________________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="48" style="color:green;"/>
+                                                 <field name="campo48" style="width:190px"/>
+
+                                                 <label for="title" string="C - Operações efetuadas no termos do decreto-lei n 16/2004 de 20 de Maio" style="font-weight: bold;"/>
+                                                 <label for="title" string="_________________________________________________________________________________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="_" style="color:White;"/>
+                                                 <label for="title" string="_" style="color:White;"/>
+                                                 <label for="title" string="Fatura de prestação de serviços emitidas (Valor Faturado)"/>
+                                                 <label for="title" string="______________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="49" style="color:green;"/>
+                                                 <field name="campo49" style="width:190px"/>
+                                                 <label for="title" string=" Recibos de prestação de serviços faturado (Valor Recibo)"/>
+                                                 <label for="title" string="______________________________________________________________" style="color:White;"/>
+                                                 <label for="title" string="50" style="color:green;"/>
+                                                 <field name="campo50" style="width:190px"/>
+                                              </div>
+                                           </group>
+                                           <group>
+                                               <group string="XII - Apresentação de Declaração">
+                                                  <field name="data"/>
+                                                  <field name="lugar"/>
+                                               </group>
+                                               <group string="OBSERVAÇÕES">
+                                                   <field name="obs" nolabel="1"/>
+                                               </group>
+                                           </group>
+                                       </page>
+                                   </notebook>
+                               </group>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="declarar_iva_mensal_tree" model="ir.ui.view">
+          <field name="name">Declarar iva mensal</field>
+          <field name="model">declarar.iva</field>
+          <field name="arch" type="xml">
+              <tree string="Declarar iva mensal">
+                  <field name="ano"/>
+                  <field name="mes"/>
+                  <field name="processar"/>
+                  <field name="formulario"/>
+                  <field name="accao"/>
+              </tree>
+          </field>
+       </record>
+       <record id="act_window_declarar_iva" model="ir.actions.act_window">
+          <field name="name">Declaração iva mensal</field>
+          <field name="res_model">declarar.iva</field>
+          <field name="view_id" ref="declarar_iva_mensal_form"/>
+           <field name="target">inline</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Declarar iva.
+            </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Declarar iva) para projetos internos, pessoais ou de clientes.
+            </p>
+          </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="declarar_iva_mensal" name="Declaração IVA Mensal" parent="contabilidade.menu_2" action="act_window_declarar_iva" sequence="80"/>
+    </data>
+</odoo>

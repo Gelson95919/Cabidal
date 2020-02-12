@@ -1,0 +1,55 @@
+
+<odoo>
+    <data>
+       <record id="horas_remuneracoes_form" model="ir.ui.view">
+           <field name="name">Horas Remuneração</field>
+           <field name="model">horas.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Horas Remuneração">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                       <div>
+                           <label for="title" string="Qty.complementar / 1000"/>
+                           <field name="complementar"/>
+                       </div>
+                       <div>
+                         <field name="detalhes">
+                            <tree editable="bottom" string="Detalhes">
+                                <field name="sequencia" widget="handle"/>
+                                <field name="quantidade"/>
+                                <field name="condicao" />
+                                <field name="hora_formula" />
+                            </tree>
+                         </field>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="horas_remuneracoes_tree" model="ir.ui.view">
+           <field name="name">Horas Remuneração</field>
+           <field name="model">horas.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Horas Remuneração">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="horas_remuneracoes_act_window" model="ir.actions.act_window">
+           <field name="name">Horas Remuneração</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">horas.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Horas Remuneração.
+             </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Horas Remuneração ) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <menuitem id="horas_remuneracoes_menu" name="Horas Remuneração" parent="fastgest_despachante_agencia" action="horas_remuneracoes_act_window" sequence="80"/>
+    </data>
+</odoo>

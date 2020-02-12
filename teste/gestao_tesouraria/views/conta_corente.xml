@@ -1,0 +1,136 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_contcore">
+            <field name="name">Conta Corrente</field>
+            <field name="model">contcore.contcore</field>
+            <field name="arch" type="xml">
+                <form string="Conta Corente">
+                    <header>
+                        <button name="cta_cte" string="Selecionar." type="object" icon="fa-gears"/>
+                        <button name="imprimir_get_report" string="Imprimir" type="object" icon="fa-print"
+                                class="btn-primary"/>
+                        <button name="elimi" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Data Inicial" style="width:80px"/>
+                            <field name="data_inicial"/>
+                            <label for="title" style="color:white; width:550px" string=""/>
+                            <field name="detalhes"/>
+                            <label for="title" string="Detalhes"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Data Final" style="width:80px"/>
+                            <field name="data_final"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Terceiro" style="width:80px"/>
+                            <field name="terceiro_id" style="width:800px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div class="oe_inline">
+                            <field name="reg_docum_ids" style="width:1070px">
+                                <tree editable="bottom" string="Documentos" delete="false" create="false">
+                                    <field name="data_documento" readonly="1"/>
+                                    <field name="cod_documento" readonly="1"/>
+                                    <field name="debito" readonly="1"/>
+                                    <field name="credito" readonly="1"/>
+                                    <field name="encontro" invisible="1"/>
+                                    <field name="saldar" readonly="1"/>
+
+                                    <field name="total" readonly="1" invisible="1"/>
+                                    <field name="saldo" readonly="1" invisible="1"/>
+                                    <field name="docPag" invisible="1"/>
+                                    <field name="valorPago" invisible="1"/>
+                                    <field name="movimen_docum" invisible="1"/>
+                                    <field name="numeros_docum" invisible="1"/>
+                                    <field name="nome_terc" invisible="1"/>
+                                    <field name="valorAsc" invisible="1"/>
+                                    <field name="ldocaut" invisible="1"/>
+                                    <field name="ordem_pago" invisible="1"/>
+                                    <field name="visualizar_no_tesorer" invisible="1"/>
+                                    <field name="tipo_docum" invisible="1"/>
+                                    <field name="sem_cta_cte" invisible="1"/>
+                                    <field name="control_op" invisible="1"/>
+                                    <field name="saldo_ord" invisible="1"/>
+                                    <field name="valor_ordpag" invisible="1"/>
+                                    <field name="pago" invisible="1"/>
+                                    <field name="documentos" invisible="1"/>
+                                    <field name="data_realise" invisible="1"/>
+                                    <field name="desting_doc_desp" invisible="1"/>
+                                    <field name="desting_doc_desp" invisible="1"/>
+                                    <field name="desting_doc_op" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:250px"/>
+                            <label for="title" string="Totais Parciais" style="width:400px"/>
+                            <field name="tot_parc_debito" style="color:blue; font-weight: bold; width:100px"
+                                   nolabel="1"/>
+                            <label for="title" string="" style="color:White;width:80px"/>
+                            <field name="tot_parc_credito" style="color:red; font-weight: bold; width:100px"
+                                   nolabel="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="color:White;width:250px"/>
+                            <label for="title" string="Saldo Credor/Devedor" style="width:400px"/>
+                            <field name="devedor" style="width:100px" nolabel="1" force_save="1"
+                                   readonly="1"/>
+                            <label for="title" string="" style="color:White;width:80px"/>
+                            <field name="creador" style="width:100px" nolabel="1" force_save="1"
+                                   readonly="1"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="conta_corre_tree_view" model="ir.ui.view">
+            <field name="name">Conta Corrente</field>
+            <field name="model">contcore.contcore</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="data_inicial"/>
+                    <field name="data_final"/>
+                    <field name="detalhes"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="seq_cont_cor" model="ir.sequence">
+            <field name="name">Conta Corrente</field>
+            <field name="code">conta.corente.numero</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!-- ações abrindo visualizações em modelos -->
+        <record model="ir.actions.act_window" id="action_window_cotcorent">
+            <field name="name">Conta Corrente</field>
+            <field name="res_model">contcore.contcore</field>
+            <field name="view_id" ref="form_all_contcore"/>
+            <field name="target">inline</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Conta Corrente .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Conta Corrente) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- actions -->
+        <menuitem name=" Conta Corrente " id="menu_contcor_list" parent="gestao_tesouraria.menu_1"
+                  action="action_window_cotcorent" sequence="7"/>
+    </data>
+</odoo>

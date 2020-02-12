@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record id="config_form_view" model="ir.ui.view">
+            <field name="name">Configuração</field>
+            <field name="model">parametros.parametros</field>
+            <field name="arch" type="xml">
+                <form string="Configuração">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="modulo"/>
+                                <field name="variavel"/>
+                            </group>
+                            <group>
+                                <field name="tipo"/>
+                                <field name="valor"/>
+                                <!--<field name="len"/>-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="config_tree_view" model="ir.ui.view">
+            <field name="name">Configuração</field>
+            <field name="model">parametros.parametros</field>
+            <field name="arch" type="xml">
+                <tree string="Configuração">
+                    <field name="modulo"/>
+                    <field name="variavel"/>
+                    <field name="valor"/>
+                    <field name="tipo"/>
+                    <!--<field name="len"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="first_terc_item" model="parametros.parametros">
+            <field name="modulo">MicroCredito</field>
+            <field name="variavel">codPrestacao</field>
+            <field name="valor">0000000001</field>
+        </record>
+        <record id="first_terc_item" model="parametros.parametros">
+            <field name="modulo">MicroCredito</field>
+            <field name="variavel">codjuros</field>
+            <field name="valor">0000000002</field>
+        </record>
+        <record id="first_terc_item" model="parametros.parametros">
+            <field name="modulo">MicroCredito</field>
+            <field name="variavel">codDesembolso</field>
+            <field name="valor">00001</field>
+        </record>
+        <record id="first_terc_item" model="parametros.parametros">
+            <field name="modulo">MicroCredito</field>
+            <field name="variavel">codPoupanca</field>
+            <field name="valor">00003</field>
+        </record>
+        <record id="first_terc_item" model="parametros.parametros">
+            <field name="modulo">MicroCredito</field>
+            <field name="variavel">codComicao</field>
+            <field name="valor">00002</field>
+        </record>
+        <record id="config_act_window_view" model="ir.actions.act_window">
+            <field name="name">Configuração</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">parametros.parametros</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="config_menu" name="Configuração" parent="menu_config" action="config_act_window_view"
+                  sequence="80"/>
+    </data>
+</odoo>

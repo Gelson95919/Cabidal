@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="navios_form" model="ir.ui.view">
+           <field name="name">Navios</field>
+           <field name="model">navios.navios</field>
+           <field name="arch" type="xml">
+               <form string="Navios">
+                   <sheet>
+                     <div>
+                         <label for="title" string="Nome"/>
+                         <field name="name" style="width:350px"/>
+                         <label for="title" string="_______________________________"  style="color:White;"/>
+                         <label for="title" string="Navio Nacional"/>
+                         <field name="navio_nacional"/>
+                     </div>
+                     <notebook>
+                         <page string="Dados">
+                             <label for="title" string="______________________________________________________________________________________________"  style="color:White;"/>
+                             <div>
+                                <label for="title" string="Matricula"/>
+                                <label for="title" string="_________"  style="color:White;"/>
+                                <field name="matriculo" style="width:260px"/>
+                                <label for="title" string="_______________________________"  style="color:White;"/>
+                                <label for="title" string="Numero IMO"/>
+                                <label for="title" string="_______"  style="color:White;"/>
+                                <field name="num_imo" style="width:260px"/>
+                                <label for="title" string="___________"  style="color:White;"/>
+                                <label for="title" string="Sinal de chamada"/>
+                                <label for="title" string="__"  style="color:White;"/>
+                                <field name="call_sing" style="width:260px"/>
+                             </div>
+                             <div>
+                                 <label for="title" string="Nacionalidade"/>
+                                 <label for="title" string="_____"  style="color:White;"/>
+                                 <field name="nacionalidade" style="width:260px"/>
+                                 <label for="title" string="_______________________________"  style="color:White;"/>
+                                 <label for="title" string="Classe"/>
+                                 <label for="title" string="___________"  style="color:White;"/>
+                                 <field name="classe" style="width:260px"/>
+                             </div>
+                             <div>
+                                 <label for="title" string="Porto Registro"/>
+                                 <label for="title" string="_____"  style="color:White;"/>
+                                 <field name="porto_registro" style="width:260px"/>
+                                 <label for="title" string="_______________________________"  style="color:White;"/>
+                                 <label for="title" string="Numero Tripulantes"/>
+                                 <field name="numero_tripulante" style="width:260px"/>
+                             </div>
+                             <div>
+                                 <label for="title" string="Local de Construção"/>
+                                 <field name="local_construcao" style="width:260px"/>
+                                 <label for="title" string="_______________________________"  style="color:White;"/>
+                                 <label for="title" string="Ano Construção"/>
+                                 <label for="title" string="___"  style="color:White;"/>
+                                 <field name="ano_construcao" style="width:260px"/>
+                             </div>
+                             <div>
+                                 <label for="title" string="Armador"/>
+                                 <label for="title" string="_________"  style="color:White;"/>
+                                 <field name="armador" style="width:260px"/>
+                                 <label for="title" string="_______________________________"  style="color:White;"/>
+                                 <label for="title" string="Comandante Capitão"/>
+                                 <field name="comandante_capitao" style="width:260px"/>
+                             </div>
+                         </page>
+                         <page string="Dados">
+                            <label for="title" string="______________________________________________________________________________________________"  style="color:White;"/>
+                            <div>
+                               <label for="title" string="Tipo de Carga"/>
+                               <label for="title" string="____________"  style="color:White;"/>
+                               <field name="tipo_carga" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="Combustível"/>
+                               <label for="title" string="_____________"  style="color:White;"/>
+                               <field name="combustivel" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Quantidade Combustível"/>
+                               <field name="quantidade_combustivel" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="Quantidade de Água"/>
+                               <label for="title" string="______"  style="color:White;"/>
+                               <field name="quanti_agua" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Velocidade"/>
+                               <label for="title" string="___________"  style="color:White;"/>
+                               <field name="velocidade" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="GRT (Arqueação Bruta)"/>
+                               <label for="title" string="____"  style="color:White;"/>
+                               <field name="arquecao_bruta" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Numero Porões"/>
+                               <label for="title" string="_______"  style="color:White;"/>
+                               <field name="numero_poroes" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="NRT (Arqueação Líquida)"/>
+                               <label for="title" string="__"  style="color:White;"/>
+                               <field name="arquecao_liquida" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Comprimento"/>
+                               <label for="title" string="_________"  style="color:White;"/>
+                               <field name="Comprimento" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="Calado Máximo"/>
+                               <label for="title" string="__________"  style="color:White;"/>
+                               <field name="calado_maximo" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Largura de Boca"/>
+                               <label for="title" string="_______"  style="color:White;"/>
+                               <field name="largura_boca" style="width:260px"/>
+                            </div>
+                            <div>
+                               <label for="title" string="Potência em Cavalos"/>
+                               <label for="title" string="_____"  style="color:White;"/>
+                               <field name="potencia_cavalo" style="width:260px"/>
+                               <label for="title" string="_______________________________"  style="color:White;"/>
+                               <label for="title" string="Marca de Motor"/>
+                               <label for="title" string="________"  style="color:White;"/>
+                               <field name="marca_motor" style="width:260px"/>
+                            </div>
+                         </page>
+                     </notebook>
+
+                     <div>
+                        <label for="title" string="Conta"/>
+                        <label for="title" string="___________"  style="color:White;"/>
+                        <field name="conta" style="width:260px"/>
+                     </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="navios_tree" model="ir.ui.view">
+           <field name="name">Navios</field>
+           <field name="model">navios.navios</field>
+           <field name="arch" type="xml">
+               <tree string="Navios">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="navios_act_window" model="ir.actions.act_window">
+           <field name="name">Navios</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">navios.navios</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Listagem de Navios.             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Navios) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="navios_menu" name="Navios" parent="fastgest_age_maritima" action="navios_act_window" sequence="80"/>
+    </data>
+</odoo>

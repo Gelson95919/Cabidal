@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Gestão Hotel" web_icon="gestao_hotel,static/description/icon.png" id="gestao_hotel.menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="Movimentos de Hotel" id="gestao_hotel.menu_hotel" parent="gestao_hotel.menu_root"/>
+
+        <menuitem name="Parâmetros" id="gestao_hotel_menu_param" parent="gestao_hotel.menu_root"/>
+    </data>
+</odoo>

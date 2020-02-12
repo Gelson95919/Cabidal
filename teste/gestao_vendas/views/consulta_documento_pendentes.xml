@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="docum_fatuc_view" model="ir.ui.view">
+            <field name="name">Documentos</field>
+            <field name="model">reg.docum</field>
+            <field name="arch" type="xml">
+                <search string="Fatura Information">
+                    <field name="fornec_tercd"/>
+                    <field name="tipo_docum"/>
+                    <field name="total"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_fornec_tercd" string="Documentos Pendentes"
+                                domain="[('cobrado', '=', False),('desting_doc_vend', '=', True)]"
+                                context="{'group_by':'fornec_tercd'}"
+                                help="Group Documentos fatura Wise"/>
+                        <filter name="groupby_year" context="{'group_by': 'data_documento:year'}" string="Year"
+                                help="Group Documentos by Year"/>
+                        <filter name="groupby_month" context="{'group_by': 'data_documento:month'}" string="Month"/>
+                    </group>
+                    <filter name="fil_by_disability" icon="terp-personal" string="Physically Disabled"
+                            domain="[('is_physically_disabled','=','True')]"
+                            help="Show all Physically Disabled Students"/>
+                    <filter string="Registered Current Year" name="fil_by_current_year"
+                            domain="[('registration_date','&lt;=',
+					time.strftime('%%Y-12-31')),('registration_date','&gt;=',time.strftime('%%Y-01-01'))]"
+                            help="Filter Documentos Registered in Current Year"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="consult_fatur_action_wdow">
+            <field name="name">Documentos Pendentes</field>
+            <field name="res_model">reg.docum</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('cobrado', '=', False),('desting_doc_vend', '=', True)]</field>
+            <field name="context">{'search_default_group_fornec_tercd': 1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Não existe faturas pendentes.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Factura ) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- actions -->
+        <menuitem name=" Consulta Documentos Pendentes " id="consul_docum_pendent" parent="gestao_vendas.menu_vendas"
+                  action="consult_fatur_action_wdow"/>
+    </data>
+</odoo>

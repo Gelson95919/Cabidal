@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="schoolem_evaluation_form" model="ir.ui.view">
+            <field name="name">schoolem evaluation</field>
+            <field name="model">schoolem.evaluation</field>
+            <field name="arch" type="xml">
+                <form string="schoolem evaluation">
+                    <sheet>
+                        <group>
+                           <group>
+                               <field name="name"/>
+                               <field name="aca_id"/>
+                               <field name="periode_id"/>
+                               <field name="examen_id"/>
+                          </group>
+                          <group>
+                              <field name="salle_de_classe_id"/>
+                              <field name="cours_id"  context="{'evaluation_id': active_id, 'test': 1}" on_change="on_change_cours_id(examen_id,salle_de_classe_id,cours_id,aca_id)"/>
+                          </group>
+                         <notebook>
+                            <page string="Inserer des notes">
+                                <field nolabel="1" name="note_ids" context="{'evaluation_id': active_id}"/>
+                            </page>
+                         </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="schoolemevaluation_act_w" model="ir.actions.act_window">
+            <field name="name">schoolem evaluation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.evaluation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="schoolem_evaluation_root" name="schoolem evaluation" sequence="80"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="schoolem_evaluation_categ" name="Menu1" parent="schoolem_evaluation_root" sequence="80"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="schoolem_evaluation_ID_categ" name="Eccola" parent="schoolem_evaluation_categ" action="schoolemevaluation_act_w" sequence="80"/>
+
+        <record id="schoolem_note_evaluation_for" model="ir.ui.view">
+            <field name="name">schoolem note evaluation</field>
+            <field name="model">schoolem.note_evaluation</field>
+            <field name="arch" type="xml">
+                <form string="schoolem note evaluation">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+                            <field name="evaluation_id"/>
+                            <field name="etudiant_id"/>
+                         </group>
+                         <group>
+                           <!--<field name="rang"/>-->
+                           <field name="observation"/>
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="schoolem_note_evaluation_for" model="ir.actions.act_window">
+            <field name="name">schoolem note_evaluation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.note_evaluation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_note_evaluation_menu_categ" name="schoolem note evaluation" parent="schoolem_evaluation_categ" action="schoolem_note_evaluation_for" sequence="80"/>
+
+
+       <record id="schoolem_aca_form" model="ir.ui.view">
+            <field name="name">schoolem aca</field>
+            <field name="model">schoolem.aca</field>
+            <field name="arch" type="xml">
+                <form string="schoolem aca">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_aca_for" model="ir.actions.act_window">
+            <field name="name">schoolem aca</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.aca</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_aca_menu_categ" name="schoolem aca" parent="schoolem_evaluation_categ" action="schoolem_aca_for" sequence="80"/>
+
+
+       <record id="schoolem_periode_form" model="ir.ui.view">
+            <field name="name">schoolem periode</field>
+            <field name="model">schoolem.periode</field>
+            <field name="arch" type="xml">
+                <form string="schoolem periode">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_periode_for" model="ir.actions.act_window">
+            <field name="name">schoolem periode</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.periode</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_periode_menu_categ" name="schoolem periode" parent="schoolem_evaluation_categ" action="schoolem_periode_for" sequence="80"/>
+
+
+       <record id="schoolem_examen_form" model="ir.ui.view">
+            <field name="name">schoolem examen</field>
+            <field name="model">schoolem.examen</field>
+            <field name="arch" type="xml">
+                <form string="schoolem examen">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_examen_for" model="ir.actions.act_window">
+            <field name="name">schoolem examen</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.examen</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_examen_menu_categ" name="schoolem examen" parent="schoolem_evaluation_categ" action="schoolem_examen_for" sequence="80"/>
+
+
+       <record id="schoolem_salle_de_classe_form" model="ir.ui.view">
+            <field name="name">schoolem salle de classe</field>
+            <field name="model">schoolem.salle_de_classe</field>
+            <field name="arch" type="xml">
+                <form string="schoolem salle de classe">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_salle_de_classe_for" model="ir.actions.act_window">
+            <field name="name">schoolem salle de classe</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.salle_de_classe</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_salle_de_classe_menu_categ" name="schoolem salle de classe" parent="schoolem_evaluation_categ" action="schoolem_salle_de_classe_for" sequence="80"/>
+
+       <record id="schoolem_cours_form" model="ir.ui.view">
+            <field name="name">schoolem cours</field>
+            <field name="model">schoolem.cours</field>
+            <field name="arch" type="xml">
+                <form string="schoolem cours">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_cours_for" model="ir.actions.act_window">
+            <field name="name">schoolem cours</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.cours</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_cours_menu_categ" name="schoolem cours" parent="schoolem_evaluation_categ" action="schoolem_cours_for" sequence="80"/>
+
+       <record id="schoolem_etudiant_form" model="ir.ui.view">
+            <field name="name">schoolem etudiant</field>
+            <field name="model">schoolem.etudiant</field>
+            <field name="arch" type="xml">
+                <form string="schoolem etudiant">
+                    <sheet>
+                       <group>
+                         <group>
+                            <field name="name"/>
+
+                         </group>
+                         <group>
+
+                         </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+       <record id="schoolem_etudiant_for" model="ir.actions.act_window">
+            <field name="name">schoolem etudiant</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">schoolem.etudiant</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                  Criar
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+       </record>
+        <!-- This Menu Item Must have a parent -->
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="schoolem_etudiant_menu_categ" name="schoolem etudiant" parent="schoolem_evaluation_categ" action="schoolem_etudiant_for" sequence="80"/>
+
+
+    </data>
+</odoo>

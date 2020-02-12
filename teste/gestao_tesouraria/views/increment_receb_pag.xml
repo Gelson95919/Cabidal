@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="encr_num_pag_form" model="ir.ui.view">
+            <field name="name">Encriment cod Pagamento</field>
+            <field name="model">incr.num.pag</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="codigo"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="_sequrece_encr_cod_pag" model="ir.sequence">
+            <field name="name">Sequ Pagamento</field>
+            <field name="code">incr.num.pag</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+
+        <record id="encr_num_receb_form" model="ir.ui.view">
+            <field name="name">Encriment Num Receb</field>
+            <field name="model">incr.num.receb</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="codigo"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="_sequrece_encr_num_recebh" model="ir.sequence">
+            <field name="name">Sequ Receb</field>
+            <field name="code">incr.num.receb</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

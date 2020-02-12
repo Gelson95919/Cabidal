@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="adquisicao_form" model="ir.ui.view">
+           <field name="name">Adquisição</field>
+           <field name="model">adquisicao</field>
+           <field name="arch" type="xml">
+               <form string="Adquisição">
+                   <sheet>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Código" style="width:100px"/>
+                           <field name="codigo" style="width:100px"/>
+                           <label for="title" style="width:300px" string=""/>
+                           <label for="title" string="Código Patrimonial"/>
+                           <field name="codigo_patrimonial" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data Adquisição"/>
+                           <field name="data_adquisicao" style="width:100px"/>
+                           <label for="title" style="width:300px" string=""/>
+                           <label for="title" string="Data Inic. Utilizac"/>
+                           <field name="data_inic_utiliaac" style="width:111px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Designação" style="width:100px"/>
+                           <field name="name" style="width:630px"/>
+                       </div>
+                       <div>
+                           <notebook>
+                               <page string="Amortizaçao">
+                                   <div>
+                                       <label for="title" string="Enquadramento Legal" style="font-weight: bold; color:blue"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Porteria" style="width:100px"/>
+                                       <field name="porteria_id" style="width:630px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Taxa" style="width:100px"/>
+                                       <field name="taxa" style="width:100px"/>
+                                       <label for="title" style="width:300px" string=""/>
+                                       <label for="title" string="Código Sequencial"/>
+                                       <field name="cod_sequencial" style="width:100px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Vida Utel" style="width:100px"/>
+                                       <field name="vida_utel" style="width:100px"/>
+                                   </div>
+                                   <div><label for="title" style="width:10px" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Metudo de Calculo das quatas" style="font-weight: bold; color:blue"/>
+                                   </div>
+                                   <div>
+                                       <field name="met_calculo_quotas" widget="radio" options="{'horizontal':True}"/>
+                                   </div>
+                                   <div><label for="title" style="width:10px" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Adquisição" style="font-weight: bold; color:blue"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Tipo" style="width:50px"/>
+                                       <field name="tipo" style="width:260px"/>
+                                       <label for="title" style="width:200px" string=""/>
+                                       <label for="title" string="Conta"/>
+                                       <field name="conta_id" style="width:170px"/>
+                                   </div>
+                                   <div><label for="title" style="width:10px" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Conta Amortização" style="font-weight: bold; color:blue"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Exercio"/>
+                                       <field name="exercicio_id" style="width:260px"/>
+                                       <label for="title" style="width:200px" string=""/>
+                                       <label for="title" string="Acomulada"/>
+                                       <field name="acumulada_id" style="width:150px"/>
+                                   </div>
+                               </page>
+                               <page string="Informação">
+                                    <div>
+                                       <label for="title" string="Local" style="width:100px"/>
+                                       <field name="depart_id" style="width:630px"/>
+                                    </div>
+                                    <div>
+                                       <label for="title" string="Centro" style="width:100px"/>
+                                       <field name="planconta_id" style="width:630px"/>
+                                    </div>
+                                    <div>
+                                       <label for="title" string="Fornecidor" style="width:100px"/>
+                                       <field name="terceiro_id" style="width:630px"/>
+                                    </div>
+                                    <div>
+                                       <label for="title" string="Nº Elimentos" style="width:100px"/>
+                                       <field name="num_elimentos" style="width:100px"/>
+                                       <label for="title" style="width:170px" string=""/>
+                                       <label for="title" string="Unidade Medida"/>
+                                       <field name="unimed_id" style="width:250px"/>
+                                    </div>
+                                    <div>
+                                        <label for="title" string="OBS"/>
+                                    </div>
+                                   <div>
+                                       <field name="obs" style="width:740px"/>
+                                   </div>
+                               </page>
+                               <page string="Movimentos">
+                                   <div>
+                                       <label for="title" string="Valor Aquisição"/>
+                                       <field name="valor_aquisicao" style="width:100px"/>
+                                       <label for="title" style="width:330px" string=""/>
+                                       <label for="title" string="Valor Residual"/>
+                                       <field name="valor_residual" style="width:100px"/>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Iva Dedutivel" style="width:100px"/>
+                                       <field name="iva_dedutivel" style="width:100px"/>
+                                   </div>
+                                   <div><label for="title" style="width:10px" string=""/> </div>
+                                   <div>
+                                       <label for="title" string="Quotas Amortização" style="font-weight: bold; color:blue"/>
+                                       <label for="title" style="width:550px" string=""/>
+                                       <button name="teste" string="( )" type="object" class="oe_highlight"/>
+                                   </div>
+                                   <div>
+                                      <field name="quotas_ids" style="width:730px">
+                                          <tree editable="button" string="Quotas Amortização">
+                                              <field name="ano"/>
+                                              <field name="taxa"/>
+                                              <field name="valor"/>
+                                              <field name="amor_acu"/>
+                                              <field name="valor_liquid"/>
+                                              <field name="amort"/>
+                                          </tree>
+                                      </field>
+                                   </div>
+                                   <div>
+                                       <label for="title" string="Valor Amortizavel"/>
+                                       <field name="valor_amortizavel" style="width:100px"/>
+                                       <label for="title" style="width:330px" string=""/>
+                                       <label for="title" string="Valor Actual"/>
+                                       <field name="valor_actual" style="width:100px"/>
+                                   </div>
+                               </page>
+                               <page string="Seguros">
+                                   <div>
+                                      <field name="adquiz_seguro_ids" style="width:730px">
+                                          <tree editable="button" string="Seguros">
+                                              <field name="sequence" widget="handle"/>
+                                              <field name="siguro_id"/>
+                                              <field name="apolice"/>
+                                              <field name="data"/>
+                                              <field name="franquia"/>
+                                          </tree>
+                                      </field>
+                                   </div>
+                               </page>
+                           </notebook>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="adquisicao_tree" model="ir.ui.view">
+           <field name="name">Adquisição</field>
+           <field name="model">adquisicao</field>
+           <field name="arch" type="xml">
+               <tree string="Adquisição">
+                   <field name="name"/>
+                   <field name="codigo"/>
+                   <field name="codigo_patrimonial"/>
+                   <field name="data_adquisicao"/>
+                   <field name="data_inic_utiliaac"/>
+                   <field name="porteria_id"/>
+                   <field name="taxa"/>
+                   <field name="cod_sequencial"/>
+                   <field name="met_calculo_quotas"/>
+                   <field name="tipo"/>
+                   <field name="conta_id"/>
+                   <field name="exercicio_id"/>
+                   <field name="acumulada_id"/>
+               </tree>
+           </field>
+       </record>
+       <record id="adquisicao_act_window" model="ir.actions.act_window">
+           <field name="name">Adquisição</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">adquisicao</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Adquisição.
+             </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Adquisição ) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="adquisicao_menu" name="Adquisição" parent="investimento.menu_inventa" action="adquisicao_act_window" sequence="80"/>
+    </data>
+</odoo>

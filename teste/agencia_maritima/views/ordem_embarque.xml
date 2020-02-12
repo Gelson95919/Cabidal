@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="ordem_embarque_form" model="ir.ui.view">
+           <field name="name">Ordem Embarque</field>
+           <field name="model">ordem.embarque</field>
+           <field name="arch" type="xml">
+               <form string="Ordem Embarque">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="NM/VG/Ano" style="width:80px"/>
+                           <field name="nume" style="width:100px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="viag" style="width:100px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="ano" style="width:100px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="navio_id" style="width:150px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="O.E.Nº"/>
+                           <field name="o_e_n" style="width:100px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Origem" style="width:80px"/>
+                           <field name="porto_id_o" style="width:260px"/>
+                           <label for="title" string="" style="width:250px"/>
+                           <label for="title" string="Destino"/>
+                           <field name="porto_id_d" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Carregador" style="width:80px"/>
+                           <field name="terceito_id" style="width:830px"/>
+                       </div>
+                        <div>
+                           <label for="title" string="Recebedor" style="width:80px"/>
+                           <field name="recebedor" style="width:830px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data Emissão" style="width:80px"/>
+                           <field name="data_emissao" style="width:150px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Cálculo" style="font-weight: bold; color:blue"/>
+                       </div>
+
+
+                       <div>
+                           <field name="frete_liquido_calc"/>
+                           <label for="title" string="Frete Liquido" style="width:85px"/>
+                           <label for="title" string="" style="width:65px"/>
+                           <field name="agencia_calc"/>
+                           <label for="title" string="%Agência"/>
+                           <label for="title" string="" style="width:65px"/>
+                           <field name="estiva_desastiva_calc"/>
+                           <label for="title" string="Estiva/Desestiva" style="width:135px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="calcul_esti_desest" style="width:100px" attrs="{'invisible': [('estiva_desastiva_calc', '=', False)]}"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="%" style="width:10px" attrs="{'invisible': [('estiva_desastiva_calc', '=', False)]}"/>
+                           <label for="title" string="" style="width:70px"/>
+                           <field name="trafego_calc"/>
+                           <label for="title" string="Tráfego" style="width:100px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="calcul_traf" style="width:100px" attrs="{'invisible': [('trafego_calc', '=', False)]}"/>
+                       </div>
+                       <div>
+                           <field name="peso_calc"/>
+                           <label for="title" string="Peso" style="width:85px"/>
+                           <label for="title" string="" style="width:65px"/>
+                           <field name="impresso_calc"/>
+                           <label for="title" string="Impresso"/>
+                           <label for="title" string="" style="width:70px"/>
+                           <field name="peacao_calc"/>
+                           <label for="title" string="Peação" style="width:135px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="calcul_peacao" style="width:100px" attrs="{'invisible': [('peacao_calc', '=', False)]}"/>
+                           <label for="title" string="" style="width:85px"/>
+                           <field name="trafego_destino_calc"/>
+                           <label for="title" string="Tráfego Destino"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="calc_trafego_destino" style="width:100px" attrs="{'invisible': [('trafego_destino_calc', '=', False)]}"/>
+                       </div>
+                       <div>
+                           <field name="m3_calc"/>
+                           <label for="title" string="M3" style="width:100px"/>
+                           <label for="title" string="" style="width:50px"/>
+                           <field name="taxa_amp"/>
+                           <label for="title" string="Taxa AMP (0.75)"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <field name="equipamento_calc"/>
+                           <label for="title" string="Equipamento" style="width:135px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="calc_equipamento" style="width:100px" attrs="{'invisible': [('equipamento_calc', '=', False)]}"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Detalhes de Carga" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <field name="detalhes_carga_ids" style="width:1070px">
+                               <tree editable="bottom" string="Detalhes">
+                                   <field name="volume"/>
+                                   <field name="mercadoria_id"/>
+                                   <field name="peso_kg"/>
+                                   <field name="peso_tons"/>
+                                   <field name="cubica_m3"/>
+                                   <field name="incrie"/>
+                                   <field name="estiva_desest"/>
+                                   <field name="total"/>
+                               </tree>
+                           </field>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:120px"/>
+                           <label for="title" string="Serviço"/>
+                           <label for="title" string="" style="width:65px"/>
+                           <label for="title" string="Iva"/>
+                           <label for="title" string="" style="width:300px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Frete Liquido" style="width:90px"/>
+                           <field name="frete_liquido" style="width:100px"/>
+                           <label for="title" string="" style="width:10px"/>
+                           <field name="iva_fret_liq" style="width:100px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="ECV"/>
+                           <label for="title" string="" style="width:400px"/>
+                           <label for="title" string="Pagamento"/>
+                           <field name="pagamento" style="width:240px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Est/Desestiva" style="width:90px"/>
+                           <field name="estiva_desestiva" style="width:100px"/>
+                           <label for="title" string="" style="width:10px"/>
+                           <field name="iva_estiva_desestiva" style="width:100px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="ECV"/>
+                           <label for="title" string="" style="width:400px"/>
+                           <field name="carga_cativa"/>
+                           <label for="title" string="Carga Cativa"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="incluir_em_ce"/>
+                           <label for="title" string="Incluir em CE"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Impresso" style="width:90px"/>
+                           <field name="impresso" style="width:100px"/>
+                           <label for="title" string="" style="width:10px"/>
+                           <field name="iva_imprecio" style="width:100px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="ECV"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Agência%" style="width:90px"/>
+                           <field name="agencia" style="width:100px"/>
+                           <label for="title" string="" style="width:10px"/>
+                           <field name="iva_agencia" style="width:100px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="ECV"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Outros" style="width:90px"/>
+                           <field name="outros" style="width:215px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="TOTAL" style="width:90px"/>
+                           <field name="total" style="width:215px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <label for="title" string="ECV"/>
+                       </div>
+                       <div><label for="title" string="Obuservações"/> </div>
+                       <div><field name="obuservacao" style="width:1070px"/></div>
+                       <header>
+                            <button name="anular" string="Anular" type="object" icon="fa-remove" class="btn-primary"/>
+                            <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="ordem_embarque_tree" model="ir.ui.view">
+           <field name="name">Ordem Embarque</field>
+           <field name="model">ordem.embarque</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <!--<field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>
+                   <field name="name"/>-->
+
+               </tree>
+           </field>
+       </record>
+       <record id="ordem_embarque_act_window" model="ir.actions.act_window">
+           <field name="name">Ordem Embarque</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ordem.embarque</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Ordem Embarque.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ordem Embarque) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="ordem_embarque_menu" name="Ordem Embarque" parent="navios_cabotagem_menu" action="ordem_embarque_act_window" sequence="80"/>
+    </data>
+</odoo>

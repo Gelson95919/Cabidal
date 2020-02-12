@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="requerimento_saida_mercadoria_demorada_form" model="ir.ui.view">
+           <field name="name">Requerimento de Saida Mercadoria Demorada</field>
+           <field name="model">requerimento.saida.mercadoria.demorada</field>
+           <field name="arch" type="xml">
+               <form string="Requerimento de Saida Mercadoria Demorada">
+                   <sheet>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:450px"/>
+                          <label for="title" string="DERECÇÃO-GERAL DAS ALFÂNDIGAS" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                        <label for="title" string="" style="width:500px"/>
+                        <label for="title" string="ALFÂNDEGA DE PRAIA" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                        <label for="title" string="" style="width:350px"/>
+                        <label for="title" string="REQUERIMENTO PARA SAÍDA DE MERCADORIAS DEMORADAS" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="Nº de ordem"/>
+                          <field name="num_ordem" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:155px"/>
+                          <label for="title" string="Data" style="width:70px"/>
+                          <field name="data" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="EU, abaixao assinado,"/>
+                          <field name="abaixao" style="width:500px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string=",Despachante Oficial,"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="tenho a honra de solicitar a saida do armazém de Depósito-Leilões dos volumes a seguir indicados"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="Quant. Vols"/>
+                          <field name="quant_vols_1" style="width:175px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="Quant. Vols"/>
+                          <field name="quant_vols_2" style="width:175px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="Marcas e Nº"/>
+                          <field name="marcas_num" style="width:180px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="Vindos de"/>
+                          <field name="vindos_de" style="width:170px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="no Navio/avião"/>
+                          <field name="no_navio_aviao" style="width:175px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="entrado em"/>
+                          <field name="entrado_em" style="width:176px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="sob a C/M fiscal"/>
+                          <field name="sob_a_cm_fiscal" style="width:285px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="B/L ou L.T.A.Nº"/>
+                          <field name="bl_ou_lta_n" style="width:285px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="consignados a"/>
+                          <field name="consignado" style="width:685px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="com o valor Total de"/>
+                          <field name="com_valor_total_de" style="width:650px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:150px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:550px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="requerimento_saida_mercadoria_demorada_act_window" model="ir.actions.act_window">
+           <field name="name">Requerimento de Saida Mercadoria Demorada</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">requerimento.saida.mercadoria.demorada</field>
+           <field name="view_id" ref="requerimento_saida_mercadoria_demorada_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="requerimento_saida_mercadoria_demorada_menu" name="Requerimento Saida Mercadoria Demorada" parent="impressos_menu" action="requerimento_saida_mercadoria_demorada_act_window" sequence="80"/>
+    </data>
+</odoo>

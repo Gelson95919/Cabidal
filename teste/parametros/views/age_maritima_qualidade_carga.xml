@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="qualidade_carga_form" model="ir.ui.view">
+           <field name="name">Qualidade Mercadoria</field>
+           <field name="model">qualidade.mercadoria</field>
+           <field name="arch" type="xml">
+               <form string="Qualidade Mercadoria">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="qualidade_carga_tree" model="ir.ui.view">
+           <field name="name">Qualidade Mercadoria</field>
+           <field name="model">qualidade.mercadoria</field>
+           <field name="arch" type="xml">
+               <tree string="Qualidade Mercadoria">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="qualidade_carga_act_window" model="ir.actions.act_window">
+           <field name="name">Qualidade Mercadoria</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">qualidade.mercadoria</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Qualidade de Mercadoria.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Qualidade de Mercadoria) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="qualidade_carga_menu" name="Qualidadde Mercadoria" parent="fastgest_age_maritima" action="qualidade_carga_act_window" sequence="80"/>
+    </data>
+</odoo>

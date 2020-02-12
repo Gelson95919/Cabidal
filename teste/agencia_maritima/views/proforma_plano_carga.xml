@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="plaforma_plano_carga_form" model="ir.ui.view">
+           <field name="name">Plaforma Plano Carga</field>
+           <field name="model">plaforma.plano.carga</field>
+           <field name="arch" type="xml">
+               <form string="Plaforma Plano Carga">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                          <label for="title" string="Fretador" style="width:80px"/>
+                          <field name="fretador_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Navio" style="width:80px"/>
+                           <field name="navio_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Origem" style="width:80px"/>
+                           <field name="porto1_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Destino" style="width:80px"/>
+                           <field name="porto2_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data Chegada" style="width:80px"/>
+                           <field name="data_chegada" style ="width:260px"/>
+                           <label for="title" string="" style="width:20px"/>
+                           <label for="title" string="Calado"/>
+                           <field name="calado" style ="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Motivo Escala" style="width:80px"/>
+                           <field name="motivo_escala_id" style ="width:500px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Contrato"/></div>
+                       <div>
+                           <field name="contracto" widget="radio" options="{'horizontal': true}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Remitente" style="width:80px"/>
+                           <field name="remitente" style ="width:500px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="plaforma_plano_carga_tree" model="ir.ui.view">
+           <field name="name">Plaforma Plano Carga</field>
+           <field name="model">plaforma.plano.carga</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="remitente"/>
+                   <field name="fretador_id"/>
+                   <field name="navio_id"/>
+                   <field name="porto1_id"/>
+                   <field name="porto2_id"/>
+                   <field name="data_chegada"/>
+                   <field name="calado"/>
+                   <field name="motivo_escala_id"/>
+                   <field name="contracto"/>
+               </tree>
+           </field>
+       </record>
+       <record id="plaforma_plano_carga_act_window" model="ir.actions.act_window">
+           <field name="name">Plaforma Plano Carga</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">plaforma.plano.carga</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               riar um novo Plaforma Plano Carga.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Plaforma Plano Carga) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="plaforma_plano_carga_menu" name="Plaforma Plano Carga" parent="longo_curso_menu" action="plaforma_plano_carga_act_window" sequence="80"/>
+    </data>
+</odoo>

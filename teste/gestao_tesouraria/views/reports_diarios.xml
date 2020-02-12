@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_diarios_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="rep_diario"
+                model="folha.tesouraria"
+                string="Diarios"
+                name="gestao_tesouraria.rep_diarios_view"
+                file="gestao_tesouraria.form_all_diarioTeso"
+                paperformat="paperformat_diarios_report"
+                report_type="qweb-pdf"
+                menu="True"/>
+
+        <template id="rep_diarios_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h3>Folha de Tesouraria</h3>
+                            </strong>
+                        </div>
+
+                        <div style="border:1px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;background-color: #099999; ">
+                            <strong>
+                                <h3>
+                                    <span t-esc="o.id_meios_monetarios"/>
+                                    -
+                                    <span t-esc="o.name"/>
+                                </h3>
+                            </strong>
+                        </div>
+                        <div style="width: 860px; width: 100%; margin-top:10px; ">
+                            <table class="table table-condensed table-bordered" style="width: 100%">
+                                <thead>
+                                    <th class="text-left" style="width: 10%; color:red;">Ordem</th>
+                                    <th class="text-center" style="width: 15%; color:red;">Data.</th>
+                                    <th class="text-center" style="width: 30%; color:red;">Detalhes</th>
+                                    <th class="text-center" style="width: 15%; color:red;">Documentos</th>
+                                    <th class="text-center" style="width: 15%; color:red;">Entrada</th>
+                                    <th class="text-center" style="width: 15%; color:red;">Saida</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.pagamento_recebimento_ids" t-as="pl">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="pl.codigo"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="pl.date"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="pl.detalhes"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="pl.n_cheque"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="pl.vervalor_total_receb"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="pl.valor_total_pag"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+
+                            </table>
+                            <div class="col-xs-5"
+                                 style="border:0px solid black; width: 100%; height: 45px; margin-top: -10px;">
+                                <div style="border:0px solid black; width:150px; height: 30px; margin-left:57%;">
+                                    <th>Totais Parciais</th>
+                                </div>
+                                <div style="border:0px solid black;  width:130px; margin-top: -25px; height: 40px; margin-left:70%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.tot_parc_entrada"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                                <div style="border:0px solid black; width:53px; height: 40px; margin-top: -45px; margin-left:90%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.tot_parc_saida"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="col-xs-5"
+                                 style="border:0px solid black; width: 100%; height: 45px; margin-top: -10px;">
+                                <div style="border:0px solid black; width:150px; height: 30px; margin-left:57%;">
+                                    <th>Saldo Anterior</th>
+                                </div>
+                                <div style="border:0px solid black;  width:130px; margin-top: -25px; height: 40px; margin-left:70%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.saldo_ant"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="col-xs-5"
+                                 style="border:0px solid black; width: 100%; height: 45px; margin-top: -10px;">
+                                <div style="border:0px solid black; width:150px; height: 30px; margin-left:57%;">
+                                    <th>Saldo Seguinte</th>
+                                </div>
+                                <div style="border:0px solid black; width:100px; height: 40px; margin-top: -45px; margin-left:90%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.sald_sigu"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="col-xs-5"
+                                 style="border:0px solid black; width: 100%; height: 45px; margin-top: -10px;">
+                                <div style="border:0px solid black; width:150px; height: 30px; margin-left:57%;">
+                                    <th>Totais Control</th>
+                                </div>
+                                <div style="border:0px solid black;  width:130px; margin-top: -25px; height: 40px; margin-left:70%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.total_control_entrada"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                                <div style="border:0px solid black; width:100px; height: 40px; margin-top: -45px; margin-left:90%;">
+                                    <strong>
+                                        <p class="text-center">
+                                            <span t-esc="o.total_control_saida"/>
+                                        </p>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+
+
+
+                        <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border-right:1px solid black; text-align: Right; text-right; padding: 8px; margin-top: -1px; margin-left: 0px; width:592px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        Totais Parciais
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border-right:1px solid black; padding: 8px; width:102px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+
+                                        <span t-esc="o.tot_parc_entrada"/>
+
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 8px; width:100px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        <span t-esc="o.tot_parc_saida"/>
+                                    </strong>
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div style="border: 1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border-right:1px solid black; border-top:0px solid black; order-left:0px solid black; text-align: Right; text-right; padding: 8px; margin-top: -1px; margin-left: 0px; width:592px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        Saldo Anterior
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border-right:1px solid black; padding: 8px; width:102px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        <span t-esc="o.saldo_ant"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border: 0px solid black; padding: 8px; width:100px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+
+                                    </strong>
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div style="border: 1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                        -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border-right:1px solid black; text-align: Right; text-right; padding: 8px; margin-top: -1px; margin-left: 0px; width:592px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        Saldo Seguinte
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border-right:1px solid black; padding: 8px; width:102px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+
+
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 8px; width:100px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        <span t-esc="o.sald_sigu"/>
+                                    </strong>
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div style="border:1px solid black; margin-left: -1px; height: 43px; margin-top:-1px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: right;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border-right:1px solid black; text-align: Right;  border-top: 0px; text-right; padding: 8px; margin-top: -1px; margin-left: 0px; width:592px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        Totais Controlo
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border-right:1px solid black; padding: 8px; width:102px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        <span t-esc="o.total_control_entrada"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 8px; width:100px; margin-top: -1px; margin-left: 0px; -webkit-box-flex: 1;">
+                                <p>
+                                    <strong>
+                                        <span t-esc="o.total_control_saida"/>
+                                    </strong>
+                                </p>
+                            </div>
+
+                        </div>-->
+
+
+                    </t>
+                </t>
+
+            </t>
+        </template>
+    </data>
+</odoo>

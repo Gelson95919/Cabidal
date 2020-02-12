@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_consulta_conta_corrente,consulta.conta.corrente,model_consulta_conta_corrente,base.group_erp_manager,1,1,1,1
+access_consulta_conta_corrente,consulta.conta.corrente,model_consulta_conta_corrente,base.group_user,1,1,1,1
+
+access_gerar_conta_corente,gerar.conta.corente,model_gerar_conta_corente,base.group_erp_manager,1,1,1,1
+access_gerar_conta_corente,gerar.conta.corente,model_gerar_conta_corente,base.group_user,1,1,1,1
+

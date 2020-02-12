@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="consulta_extracto_form" model="ir.ui.view">
+           <field name="name">Consulta Extracto</field>
+           <field name="model">consulta.extracto</field>
+           <field name="arch" type="xml">
+               <form string="Consulta Extracto">
+                   <sheet>
+                       <div><label for="title" string="EXTRACTO CONTAS"/></div>
+                       <label for="title" style="width:450px" string=""/>
+                       <group>
+                           <field name="tipo" widget = 'radio' class="oe_edit_only" options="{'horizontal': true}" nolabel='1'/>
+                       </group>
+                       <div>
+                           <label for="title" string="Conta"/>
+                           <field name="conta" style="width:200px" attrs="{'readonly': [('tipo','=','porterceiro')]}"/>
+                           <label for="title" string="" style="width:50px"/>
+                           <label for="title" string="Terceiro"/>
+                           <field name="terceiro" style="width:200px"  attrs="{'readonly': [('tipo','=','porconta')]}"/>
+                           <label for="title" string="" style="width:50px"/>
+                           <label for="title" string="Período"/>
+                           <field name="periodo" style="width:200px"/>
+                           <label for="title" string="" style="width:50px"/>
+                           <!--<button name="selecionar" icon="fa-check-square" type="object" string="Selecionar"  class="btn-primary"/>-->
+                       </div>
+                       <field name="lansamendo_ids" readonly="1">
+                          <tree editable="bottom" string="tab Lancamento" delete="false" create="false" edite="false">
+                              <field name="diamov"/>
+                              <field name="mesmov"/>
+                              <field name="anomov"/>
+                              <field name="ordem"/>
+                              <field name="cod_terce"/>
+                              <field name="nome_conta"/>
+                              <field name="debito" sum="Debito"/>
+                              <field name="credito" sum="Credito"/>
+                          </tree>
+                       </field>
+                       <group col="3">
+                           <group>
+                               <field name="data_realizado" invisible="1"/>
+                               <label for="title" string="Totais Parciais"/>
+                           </group>
+                           <group>
+                               <field name="tot_1" nolabel='1' readonly="True"/>
+                           </group>
+                           <group>
+                               <field name="tot_2" nolabel='1' readonly="True"/>
+                           </group>
+                       </group>
+                       <header>
+                           <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                           <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="cons_extracto_act_window" model="ir.actions.act_window">
+           <field name="name">Extracto Contas</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">consulta.extracto</field>
+           <field name="view_id" ref="consulta_extracto_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="menu_consulta_extracto" name="Consulta Extracto" parent="contabilidade.menu_1" action="cons_extracto_act_window" sequence="4"/>
+    </data>
+</odoo>

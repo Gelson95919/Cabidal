@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="pagamento_form" model="ir.ui.view">
+           <field name="name">Processamento Pagamento Remunerações</field>
+           <field name="model">processamento.pagamento.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Processamento Pagamento Remunerações">
+                   <sheet>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <div>
+                              <label for="title" string="Ano"/>
+                              <field name="ano" style="width:260px"/>
+                              <label for="title" string="" style="width:120px"/>
+                              <button name="selecionar" type="object" string="Selecionar" icon="fa-refresh" style="font-size:20px;color:blue;"/>
+                           </div>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <notebook>
+                           <page string="Lista Pagamento">
+                               <group>
+                                   <div>
+                                       <field name="pagamento_lista">
+                                           <tree editable="bottomn" string="Tree">
+                                              <field name="id" />
+                                              <field name="name"/>
+                                              <field name="valor" sum = "Valor"/>
+                                              <field name="meio_monetario_id" />
+                                              <!--<field name="valorE" sum = "ValorE"/>-->
+                                           </tree>
+                                       </field>
+                                   </div>
+                               </group>
+                           </page>
+                           <page string="Gerar Ordem Pagamen">
+                               <div>
+                                   <button name="gerar_ordem_pag" type="object" string="Gerar Ordem Pagamen" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                                   <label for="title" string="Data"/>
+                                   <field name="data" style="width:260px"/>
+                               </div>
+                               <div><label for="title" string="" style="width:20px"/></div>
+                               <div>
+                                   <!--<field name="gerar_ordem_pag_list">
+                                       <tree editable="bottomn" string="Tree">
+                                          <field name="documento" />
+                                          <field name="benificiario"/>
+                                          <field name="valor" sum = "Valor"/>
+                                       </tree>
+                                   </field>-->
+                               </div>
+                               <button name="fechar" type="object" icon="fa-lock" class="btn-primary" string="Fechar"/>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="pagamento_tree" model="ir.ui.view">
+           <field name="name">Processamentos</field>
+           <field name="model">processamento.pagamento.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Processamento Pagamento Remunerações">
+                   <field name="ano"/>
+               </tree>
+           </field>
+       </record>
+       <record id="pagamento_act_window" model="ir.actions.act_window">
+           <field name="name">Processamento Pagamento Remunerações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">processamento.pagamento.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="pagamento_menu" name="Pagamentos" parent="menu_remuneracoes" action="pagamento_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="veiculos_requerimento_form" model="ir.ui.view">
+           <field name="name">Veiculos Requerimento</field>
+           <field name="model">veiculo.requerimento</field>
+           <field name="arch" type="xml">
+               <form string="Veiculos Requerimento">
+                   <sheet>
+                       <div><label for="title" string="MINISTÉRIO DAS INFRAESTROCTURAS E TRANSPORTES"/></div>
+                       <div><label for="title" string="DIRECÇÃO-GERAL DOS TRANSPORTES RODOVIÁRIOS"/></div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                          <label for="title" string="" style="width:450px"/>
+                          <label for="title" string="VEÍCULOS REQUERIMENTO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:250px"/>
+                          <field name="campo_1" style="width:460px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="REQUERIMENTO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Nome"/>
+                          <field name="nome" style="width:700px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Passaporte/BI Nº"/>
+                          <field name="documento" style="width:160px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="Emitido em"/>
+                          <field name="emitido_em" style="width:100px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="Por"/>
+                          <field name="por" style="width:250px"/>
+                      </div>
+                      <div>
+                         <label for="title" string="" style="width:100px"/>
+                         <label for="title" string="Data Nascimento"/>
+                         <field name="data_nascimento" style="width:160px"/>
+                         <label for="title" string="" style="width:5px"/>
+                         <label for="title" string="Nacionalidade"/>
+                         <field name="nacionlidade" style="width:370px"/>
+                      </div>
+                      <div>
+                         <label for="title" string="" style="width:100px"/>
+                         <label for="title" string="Residência"/>
+                         <field name="residencia" style="width:670px"/>
+                      </div>
+                      <div>
+                         <label for="title" string="" style="width:100px"/>
+                         <label for="title" string="Localidade"/>
+                         <field name="localidade" style="width:670px"/>
+                      </div>
+                      <div>
+                         <label for="title" string="" style="width:100px"/>
+                         <label for="title" string="Data" style="width:65px"/>
+                         <field name="data" style="width:100px"/>
+                      </div>
+                      <div><label for="title" string="" style="width:100px"/><label for="title" string="_________________________________________________________________________________________________________"/> </div>
+                       <div><label for="title" string="" style="width:100px"/></div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MATRÍCULA VEÍCULO"/>
+                          <field name="matricula_veiculo" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="DATA DA MATRÍCULA"/>
+                          <field name="data_matricula" style="width:100px"/>
+                      </div>
+                      <div><label for="title" string="" style="width:100px"/><label for="title" string="_________________________________________________________________________________________________________"/> </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="PRESTAÇÃO"  style="font-weight: bold; color:blue"/>
+                          <label for="title" string="" style="width:300px"/>
+                          <label for="title" string="DOCUMENTOS JUNTOS" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:120px"/>
+                          <label for="title" string="MATRÍCULA"/>
+                          <label for="title" string="" style="width:30px"/>
+                          <label for="title" string="Matrícula Inicial" style="width:150px"/>
+                          <field name="matricula_inicial"/>
+
+                          <label for="title" string="" style="width:100px"/>
+                          <field name="livrete_anterior"/>
+                          <label for="title" string="Livrete Anterior" style="width:150px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:235px"/>
+                          <label for="title" string="Cancelamento" style="width:150px"/>
+                          <field name="cancelamento"/>
+
+                          <label for="title" string="" style="width:100px"/>
+                          <field name="titulo_propiedade"/>
+                          <label for="title" string="Titulo de propiedade" style="width:150px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:518px"/>
+                          <field name="verbete_despacho_alfandiga"/>
+                          <label for="title" string="Verbete de despacho alfândigário"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:235px"/>
+                          <label for="title" string="Mudança de cor" style="width:150px"/>
+                          <field name="mudanca_cor"/>
+
+                          <label for="title" string="" style="width:100px"/>
+                          <field name="folha_homolagacao"/>
+                          <label for="title" string="Folha de homolagação"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:120px"/>
+                          <label for="title" string="LIVRETE" style="width:110px"/>
+                          <label for="title" string="Alteração de " style="width:150px"/>
+                          <field name="alteracao_de"/>
+
+                          <label for="title" string="" style="width:100px"/>
+                          <field name="catalogos"/>
+                          <label for="title" string="Catálogos"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:235px"/>
+                          <label for="title" string="2ª Via" style="width:150px"/>
+                          <field name="segunda_via"/>
+
+                          <label for="title" string="" style="width:100px"/>
+                          <field name="certificados_caracteristicas"/>
+                          <label for="title" string="Certificados / caracteristicas"/>
+                      </div>
+                       <div>
+                           <label for="title" string="" style="width:518px"/>
+                       </div>
+                      <div>
+                          <label for="title" string="" style="width:235px"/>
+                          <label for="title" string="Periodica" style="width:150px"/>
+                          <field name="periodica"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:120px"/>
+                          <label for="title" string="INSPECÇÃO" style="width:110px"/>
+                          <label for="title" string="Transformação" style="width:150px"/>
+                          <field name="transformacao"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:235px"/>
+                          <label for="title" string="Acidente" style="width:150px"/>
+                          <field name="acidente"/>
+                      </div>
+                      <div><label for="title" string="" style="width:100px"/><label for="title" string="_________________________________________________________________________________________________________"/> </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="CARACTERISTICAS DO VEICULO"  style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MARCA"/>
+                          <field name="marca" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="CAIXA(tipo)"/>
+                          <field name="caixa_tipo" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MODELO"/>
+                          <field name="modelo" style="width:250px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="COR"/>
+                          <field name="cor" style="width:305px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="CATEFORIA"/>
+                          <field name="cateforia" style="width:230px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="PNEUS(frente)"/>
+                          <field name="pneus_frent" style="width:250px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="ANO FABRICO"/>
+                          <field name="ano_fabrico" style="width:215px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="PNEUS(ret.)"/>
+                          <field name="pneus_ret" style="width:265px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Nº CHASSI"/>
+                          <field name="numero_chassi" style="width:240px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="LOTAÇÃO"/>
+                          <field name="lotacao" style="width:275px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MOTOR (Nº de cilindros)"/>
+                          <field name="motor_num_cilindro" style="width:155px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="PESO BRUTO"/>
+                          <field name="pesso_bruto" style="width:252px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MOTOR (Cilindrada)"/>
+                          <field name="motor_cilindrada" style="width:180px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="TARA"/>
+                          <field name="tara" style="width:307px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="MUTOR (Combustível)"/>
+                          <field name="mutor_combustivel" style="width:165px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="SERVIÇO"/>
+                          <field name="servico" style="width:286px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="CAIXA (dimenção)"/>
+                          <field name="caixa_demencao" style="width:190px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="OBS"/>
+                          <field name="obs" style="width:315px"/>
+                      </div>
+                      <div><label for="title" string="" style="width:100px"/></div>
+                      <div>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:550px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="veiculos_requerimento_act_window" model="ir.actions.act_window">
+           <field name="name">Veiculos Requerimento</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">veiculo.requerimento</field>
+           <field name="view_id" ref="veiculos_requerimento_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="veiculos_requerimento_menu" name="Veiculos Requerimento" parent="impressos_menu" action="veiculos_requerimento_act_window" sequence="80"/>
+    </data>
+</odoo>

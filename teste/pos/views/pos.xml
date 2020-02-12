@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pos_fom" model="ir.ui.view">
+            <field name="name">POS</field>
+            <field name="model">pos.pos</field>
+            <field name="arch" type="xml">
+                <form string="POS">
+                    <sheet>
+                      <label for="title" string="Cliente" />
+                      <field name="cliente_id" nolabel="1" style="width:500px"/>
+                      <div>
+                        <label for="title" string="NIF"/>
+                        <label for="title" string="___" style="color:White;"/>
+                        <field name="nif" nolabel="1" style="width:150px"/>
+                        <label for="title" string="_______________" style="color:White;"/>
+                        <label for="title" string="Endereço"/>
+                        <label for="title" string="___" style="color:White;"/>
+                        <field name="endereco" nolabel="1"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="color:White; width:3px"/>
+                      </div>
+                      <div>
+                        <label for="title" string="Imprimir V.D"/>
+                        <field name="imprimir" nolabel="1"/>
+                        <label for="title" string="" style="color:White; width:30px"/>
+                        <label for="title" string="Auto Venda"/>
+                        <field name="auto_venda"/>
+                        <label for="title" string="" style="color:White; width:30px"/>
+                        <label for="title" string="Imprimir Ticket"/>
+                        <field name="imprimir_ticket"/>
+                      </div>
+                      <group>
+                         <group>
+                            <div>
+                               <field name="quadro_pos" nolabel = '1' widget="sectio_and_note_one2many" style="width:800px">
+                                  <tree editable="bottomn" string="pos">
+                                     <field name="artigo_id"/>
+                                     <field name="quantidade"/>
+                                     <field name="preco_unitario"/>
+                                     <field name="iva"/>
+                                     <field name="parcial"/>
+                                     <field name="dto"/>
+                                 </tree>
+                               </field>
+                            </div>
+                            <div>
+                              <label for="title" string="" style="color:White; width:60px"/>
+                              <label for="title" string="TOTAL VENDA" style="color:black; font-weight: bold;"/>
+                              <h1><field name="total_venda" style="color:Green; font-weight: bold; width:300px"/></h1>
+                              <label for="title" string="" style="color:White; width:10px"/>
+                              <label for="title" string="Forma Pagamento" style="color:Blue;"/>
+                              <label for="title" string="" style="color:White;"/><field name="forma_pagamento" style="color:Black; font-weight: bold; width:165px"/>
+                              <label for="title" string="" style="color:White; width:10px"/>
+                              <label for="title" string="Efectivo Recebido" style="color:Blue;"/>
+                              <label for="title" string="" style="color:White;"/><field name="efectivo_recebido" style="color:Black; font-weight: bold; width:165px" attrs="{'readonly': [('forma_pagamento','!=', 'dinheiro'), ('forma_pagamento','!=', 'dinh_cart_cred'), ('forma_pagamento','!=', 'dinh_cart'), ('forma_pagamento','!=', 'dinh_cred')]}"/>
+                              <label for="title" string="" style="color:White; width:10px"/>
+                              <label for="title" string="Cartão" style="color:Blue;"/>
+                              <label for="title" string="" style="color:White; width:65px"/><field name="cartao" style="color:Black; font-weight: bold; width:165px" attrs="{'readonly': [('forma_pagamento','!=', 'cartao'), ('forma_pagamento','!=', 'dinh_cart_cred'), ('forma_pagamento','!=', 'dinh_cart'), ('forma_pagamento','!=', 'cart_cred')]}"/>
+                              <label for="title" string="" style="color:White; width:10px"/>
+                              <label for="title" string="Credito" style="color:Blue;"/>
+                              <label for="title" string="" style="color:White; width:65px"/><field name="credito" style="color:Black; font-weight: bold; width:165px" attrs="{'readonly': [('forma_pagamento','!=', 'credito'), ('forma_pagamento','!=', 'dinh_cart_cred'), ('forma_pagamento','!=', 'dinh_cred'), ('forma_pagamento','!=', 'cart_cred')]}"/>
+                              <h1><label for="title" string="" style="color:White; width:125px"/><label for="title" string="TROCO" style="color:black; font-weight: bold; "/></h1>
+                              <h1><field name="troco" style="color:black; font-weight: bold; width:300px"/></h1>
+                            </div>
+                         </group>
+                      </group>
+                      <header>
+                        <button name="retem_venda" string="Retém Venda" type="object" class="btn-primary"/>
+                        <button name="retoma_venda" string="Retoma Venda" type="object" class="btn-primary"/>
+                        <button name="anular_venda" string="Anular Venda." type="object" class="btn-primary"/>
+                        <button name="recupera_venda" string="Recupera Venda" type="object" class="btn-primary"/>
+                        <button name="cobrar_venda" string="Cobrar Venda" type="object" class="btn-primary"/>
+                        <button name="folha_venda" string="Folha de Venda" type="object" class="btn-primary"/>
+                        <button name="levanta_dinheiro" string="Levantar Dinheiro" type="object" class="btn-primary"/>
+                        <button name="desconto" string="Desconto" type="object" class="btn-primary"/>
+                      </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pos_act_window" model="ir.actions.act_window">
+            <field name="name">POS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.pos</field>
+            <field name="view_id" ref="pos_fom"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pos_menu" name="POS" parent="pos.menu_pos" action="pos_act_window" sequence="80"/>
+        <record id="caixa_form" model="ir.ui.view">
+            <field name="name">Caixa</field>
+            <field name="model">caixa.caixa</field>
+            <field name="arch" type="xml">
+                <form string="Caixa">
+                    <sheet>
+                        <group>
+                            <group>
+                              <field name="cod"/>
+                              <field name="name"/>
+                              <field name="utilizador_id"/>
+                              <label for="title" string="________________________________" style="color:White;"/>
+                            </group>
+                            <group>
+                              <field name="permit_recebiment"/>
+                              <field name="permit_pag"/>
+                              <field name="permit_anul"/>
+                              <field name="numeros_independent"/>
+                              <label for="title" string="________________________________" style="color:White;"/>
+                            </group>
+                        </group>
+                        <header>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                        </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="caixa_tree" model="ir.ui.view">
+            <field name="name">Caixa</field>
+            <field name="model">caixa.caixa</field>
+            <field name="arch" type="xml">
+                <tree string="Caixa">
+                    <field name="name"/>
+                    <field name="cod"/>
+                    <field name="utilizador_id"/>
+                    <field name="permit_recebiment"/>
+                    <field name="permit_pag"/>
+                    <field name="permit_anul"/>
+                    <field name="numeros_independent"/>
+                </tree>
+            </field>
+        </record>
+        <record id="caixa_act_window" model="ir.actions.act_window">
+            <field name="name">Caixa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">caixa.caixa</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','caixa_pos')]</field>
+            <field name="context">{'default_type': 'caixa_pos', 'type': 'caixa_pos'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Adicionar um novo Caixa.
+              </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Caixa) para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="caixa_menu" name="Caixa" parent="pos.menu_pos" action="caixa_act_window" sequence="80"/>
+        <record id="abrir_caixa_form" model="ir.ui.view">
+            <field name="name">Abrir Caixa</field>
+            <field name="model">abrir.caixa</field>
+            <field name="arch" type="xml">
+                <form string="Abrir Caixa">
+                    <sheet>
+                        <group>
+                           <group>
+                              <field name="caixa_id" style="width:150px"/>
+                              <field name="utilizador_id" style="width:150px"/>
+                           </group>
+                        </group>
+                        <label for="title" string="Abertura_________________________________________________________________________________________________________________________________________________" style="color:blue;"/>
+                        <div><label for="title" string="" style="color:White; width:10px"/></div>
+                        <div>
+                          <label for="title" string="_______________" style="color:White;"/>
+                          <label for="title" string="Data"/>
+                          <label for="title" string="____" style="color:White;"/>
+                          <field name="data_abertura" nolabel="1" style="width:150px"/>
+                        </div>
+                        <div><label for="title" string="" style="color:White; width:10px"/></div>
+                        <div>
+                          <label for="title" string="_______________" style="color:White;"/>
+                          <label for="title" string="Armazem"/>
+                          <field name="armazem_id" nolabel="1" style="width:150px"/>
+                          <label for="title" string="___" style="color:White;"/>
+                          <label for="title" string="Forma Pagamento"/>
+                          <field name="f_pag" nolabel="1" style="width:150px"/>
+                        </div>
+                        <div><label for="title" string="" style="color:White; width:10px"/></div>
+                        <label for="title" string="Fecho_____________________________________________________________________________________________________________________________________________________" style="color:blue;"/>
+                        <div><label for="title" string="" style="color:White; width:10px"/></div>
+                        <div>
+                          <label for="title" string="_______________" style="color:White;"/>
+                          <label for="title" string="Data"/>
+                          <label for="title" string="__________________" style="color:White;"/>
+                          <field name="data_fecho" nolabel="1" style="width:150px"/>
+                        </div>
+                        <div>
+                          <label for="title" string="_______________" style="color:White;"/>
+                          <label for="title" string="Montante Total Movimento"/>
+                          <field name="montante_total_movimento" nolabel="1" style="width:150px"/>
+                          <label for="title" string="___" style="color:White;"/>
+                          <button name="p" string="P" type="object" class="btn-primary"/>
+                          <label for="title" string="___" style="color:White;"/>
+                          <label for="title" string="Documento In terno de Fecho"/>
+                          <field name="doc_intern_fecho" nolabel="1" style="width:150px"/>
+                        </div>
+                        <header>
+                           <button name="imprimir" type="object" string="Imprimir"  icon="fa-print" class="btn-primary"/>
+                           <button name="abrir" type="object" string="Abrir" icon="fa-check-square-o" class="btn-primary"/>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                       </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+       <record id="abrir_caixa_tree" model="ir.ui.view">
+           <field name="name">Abrir Caixa</field>
+           <field name="model">abrir.caixa</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="caixa_id"/>
+                   <field name="utilizador_id"/>
+                   <field name="data_abertura"/>
+                   <field name="armazem_id"/>
+                   <field name="f_pag"/>
+                   <field name="data_fecho"/>
+                   <field name="montante_total_movimento"/>
+                   <field name="doc_intern_fecho"/>
+               </tree>
+           </field>
+       </record>
+       <record id="abrir_caixa_act_window" model="ir.actions.act_window">
+           <field name="name">Abrir Caixa</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">abrir.caixa</field>
+           <field name="domain">[('type','=','aber_caixa_pos')]</field>
+           <field name="context">{'default_type': 'aber_caixa_pos', 'type': 'aber_caixa_pos'}</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Adicionar um novo Abertura Caixa.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Abrir Caixa) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="abrir_caixa_menu" name="Abrir Caixa" parent="pos.menu_pos" action="abrir_caixa_act_window" sequence="80"/>
+    </data>
+</odoo>

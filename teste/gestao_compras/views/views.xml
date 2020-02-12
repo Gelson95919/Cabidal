@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Gestão Compras" web_icon="gestao_compras,static/description/icon.png"
+                  id="gestao_compras.menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="Compras" id="gestao_compras.menu_1" parent="gestao_compras.menu_root"/>
+        <menuitem name="Movimentos de Compras" id="gestao_compras.menu_concit_comp" parent="gestao_compras.menu_root"/>
+        <menuitem name="Compras e Contas a Pagar" id="fastgest_comp" parent="parametros.menu_2"/>
+        <menuitem name="Parâmetros" id="gestao_compras_menu_param" parent="gestao_compras.menu_root"/>
+    </data>
+</odoo>

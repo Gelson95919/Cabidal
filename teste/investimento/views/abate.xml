@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="abate_imobilizado_form" model="ir.ui.view">
+           <field name="name">Abate Imobilizado</field>
+           <field name="model">abate.imobilizado</field>
+           <field name="arch" type="xml">
+               <form string="Abate Imobilizado">
+                   <sheet>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Bem a Abeter" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Bem a Abeter" style="width:120px"/>
+                           <field name="bem_id" style="width:600px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Código Patrimonial"/>
+                           <field name="codigo_patrimonial" style="width:150px"/>
+                       </div>
+                        <div>
+                           <label for="title" string="Valor Adquisição" style="width:120px"/>
+                           <field name="valor_adquisicao" style="width:150px"/>
+                           <label for="title" style="width:210px" string=""/>
+                           <label for="title" string="Valor Actual"/>
+                           <field name="valor_actual" style="width:150px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor Amortizado" style="width:120px"/>
+                           <field name="valor_amortizado" style="width:150px"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Dados do Abate" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Motivo" style="width:70px"/>
+                           <field name="motivo_abate_id" style="width:150px"/>
+                           <label for="title" style="width:270px" string=""/>
+                            <label for="title" string="Data Abater"/>
+                           <field name="data_abater" style="width:150px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor Abate"/>
+                           <field name="valor_abate" style="width:150px"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <field name="contabilizado"/>
+                           <label for="title" string="Contabilizado"/>
+                           <label for="title" style="width:50px" string=""/>
+                           <label for="title" string="Diario"/>
+                           <field name="diario" style="width:100px"/>
+                           <label for="title" style="width:50px" string=""/>
+                           <label for="title" string="Numero"/>
+                           <field name="numero" style="width:100px"/>
+                       </div>
+                       <header>
+                           <button name="processar" string="Processar" type="object" class="oe_highlight"/>
+                           <button name="c" string="C" type="object" class="oe_highlight"/>
+                           <button name="()" string="()" type="object" class="oe_highlight"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="abate_imobilizado_tree" model="ir.ui.view">
+           <field name="name">Abate Imobilizado</field>
+           <field name="model">abate.imobilizado</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="bem_id"/>
+                   <field name="codigo_patrimonial"/>
+                   <field name="valor_adquisicao"/>
+                   <field name="valor_actual"/>
+                   <field name="valor_amortizado"/>
+                   <field name="data_abater"/>
+                   <field name="motivo_abate_id"/>
+                   <field name="contabilizado"/>
+                   <field name="diario"/>
+                   <field name="numero"/>
+               </tree>
+           </field>
+       </record>
+       <record id="abate_imobilizado_act_window" model="ir.actions.act_window">
+           <field name="name">Abate de Imobilizado</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">abate.imobilizado</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Abate de Imobilizado.
+             </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Abate de Imobilizado ) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="abate_imobilizado_menu" name="Abate Imobilizado" parent="investimento.menu_mov" action="abate_imobilizado_act_window" sequence="80"/>
+    </data>
+</odoo>

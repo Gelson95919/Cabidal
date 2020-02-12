@@ -1,0 +1,112 @@
+<odoo>
+    <data>
+        <record id="form_all_ent_plancont_anal" model="ir.ui.view">
+            <field name="name">Plano Conta Analitica</field>
+            <field name="model">planconta.planconta.analitica</field>
+            <field name="arch" type="xml">
+                 <form string="Plano Conta Analitica">
+                    <sheet>
+                        <div>
+                           <label for="title" string="Conta" style="width:60px"/>
+                           <field name="cod_plan_cont" style="width:100px"/>
+                        </div>
+                        <div>
+                           <label for="title" string="Descrição"/>
+                           <field name="nome" style="width:500px"/>
+                            <field name="control_cod_comp" force_save = "1" invisible="1"/>
+                            <field name="tama_estru" force_save = "1" invisible="1"/>
+                            <field name="sub_filho" force_save = "1" invisible="1"/>
+                            <field name="conta" force_save = "1" invisible="1"/>
+                            <field name="estrutura" force_save = "1" invisible="1"/>
+                            <field name="eliment_estr" force_save = "1" invisible="1"/>
+                            <field name="esnumerico" force_save = "1" invisible="1"/>
+                            <field name="exist_mae" force_save = "1" invisible="1"/>
+                            <field name="pronto" force_save = "1" invisible="1"/>
+                            <field name="filho_de" force_save = "1" invisible="1"/>
+                        </div>
+                        <notebook>
+                            <page string="Parâmetros">
+                               <div><label for="title" string="" style="width:6px"/></div>
+                               <div>
+                                   <field name="grupo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Grupo" style="width:680px"/>
+                                   <field name="leva_terce" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Leva Terceiro" style="width:150px"/>
+                               </div>
+                               <div>
+                                   <field name="leva_moeda_estrangeira" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Leva Moeda Estrangeira" style="width:680px"/>
+                                   <field name="gestao_credito" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Gestão Crédito" style="width:110px"/>
+                               </div>
+                               <div>
+                                   <field name="leva_centro_custo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Leva Centro Custo" style="width:680px"/>
+                                   <field name="fluxo_caixa" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Fluxo de Caixa" style="width:110px"/>
+                               </div>
+                               <div>
+                                   <field name="control_IVA" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Control IVA" style="width:100px"/>
+                                   <field name="IVA_id" attrs="{'readonly': [('control_IVA', '=', False)]}" style="width:260px"/>
+                               </div>
+                               <div>
+                                  <label for="title" string="Estructura de Conta"/>
+                                  <field name="estruturas_Contas" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Natureza de Conta" style="width:125px"/>
+                                   <field name="natureza_conta" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string=""  style="color:White;width:310px"/>
+                               </div>
+                                <div>
+                                   <label for="title" string="Natureza de Saldo" style="width:125px"/>
+                                   <field name="natureza_saldo" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                </div>
+
+                            </page>
+                            <page string="Control Imputação">
+                               <div><label for="title" string="" style="width:6px"/></div>
+                               <div>
+                                   <field name="control_imputa_centro_custo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                   <label for="title" string="Controle importação - Centro Custo"/>
+                               </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                  </form>
+            </field>
+        </record>
+        <record id="planConta_anal_act_tree" model="ir.ui.view">
+            <field name="name">Plano Conta Analitica</field>
+            <field name="model">planconta.planconta.analitica</field>
+            <field name="arch" type="xml">
+                <tree string="Plano Conta">
+                    <field name="cod_plan_cont"/>
+                    <field name="nome"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_cont_anal" model="ir.sequence">
+            <field name="name">Contabilidade Analitica</field>
+            <field name="code">planconta.planconta.analitica</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="compan_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_plan_Conta_act_analitc">
+          <field name="name">Plano Conta Analitica</field>
+          <field name="res_model">planconta.planconta.analitica</field>
+          <field name="view_mode">tree,form</field>
+          <!--<field name="view_id" ref="form_all_ent_plancont"/>-->
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Plano Conta Analitica.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Plano Conta Analitica) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name="Plano Conta Analitica" id="parametros.menu_ent_planconta_anal" parent="fastgest_contabil" action="action_window_plan_Conta_act_analitc"/>
+    </data>
+</odoo>

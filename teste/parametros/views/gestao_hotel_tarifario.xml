@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="tarifario_form" model="ir.ui.view">
+           <field name="name">Tarifário</field>
+           <field name="model">tarifario.tarifario</field>
+           <field name="arch" type="xml">
+               <form string="Tarifário">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string=""  style="color:White; width:5px"/>
+                           <field name="name" style="width:820px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Montante"/>
+                           <label for="title" string="" style="color:White; width:10px"/>
+                           <field name="montante" style="width:260px"/>
+                           <label for="title" string=""  style="color:White; width:300px"/>
+                           <label for="title" string="IVA"/>
+                           <field name="iva" style="width:230px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nº Ocupam"/>
+                           <label for="title" string=" "  style="color:White;"/>
+                           <field name="num_ocupam" style="width:260px"/>
+                           <label for="title" string=""  style="color:White; width:300px"/>
+                           <field name="no_taxa_turistica"/>
+                           <label for="title" string="Não encluir Taxa Turística"/>
+                       </div>
+                       <div>
+                         <label for="title" string="_Adicionais__________________________________________________________________________________________________________________" />
+                       </div>
+                       <div>
+                           <label for="title" string=""  style="color:White; width:300px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Adulto"/>
+                           <label for="title" string=""  style="color:White; width:20px"/>
+                           <field name="adulto" style="width:260px"/>
+                           <label for="title" string=""  style="color:White; width:300px"/>
+                           <label for="title" string="Criança"/>
+                           <field name="crianca" style="width:220px"/>
+                       </div>
+                       <div>
+                           <field name="incluir_pequeno_almoco"/>
+                           <label for="title" string="Incluir Pequeno Almoço"/>
+                           <label for="title" string=""  style="color:White; width:450px"/>
+                           <label for="title" string="Codigo/Fact"/>
+                           <field name="cod_fact" style="width:200px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="tarifario_tree" model="ir.ui.view">
+           <field name="name">Tarifário</field>
+           <field name="model">tarifario.tarifario</field>
+           <field name="arch" type="xml">
+               <tree string="Tarifário">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="tarifario_act_window" model="ir.actions.act_window">
+           <field name="name">Tarifário</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">tarifario.tarifario</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+              Criar um novo Tarifário.
+             </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tarifário) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="tarifario_menu" name="Tarifário" parent="fastgest_hotel" action="tarifario_act_window" sequence="80"/>
+    </data>
+</odoo>

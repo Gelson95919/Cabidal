@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_sub_category_form" model="ir.ui.view">
+            <field name="name">product sub category</field>
+            <field name="model">product.sub.category</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="idade"/>
+                                <field name="apelido"/>
+                                <field name="benificiario"/>
+                            </group>
+                            <group>
+                                <field name="parent_category"/>
+                                <field name="morada"/>
+                                <field name="morada"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_sub_category_tree" model="ir.ui.view">
+            <field name="name">product sub category</field>
+            <field name="model">product.sub.category</field>
+            <field name="arch" type="xml">
+                <tree string="">
+
+                    <field name="name"/>
+                    <field name="apelido"/>
+                    <field name="morada"/>
+                    <field name="idade"/>
+                    <field name="parent_category"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_sub_category_act_window" model="ir.actions.act_window">
+            <field name="name">product sub category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.sub.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="product_sub_category_menu" name="product sub category" parent="gestao_tesouraria.menu_1"
+                  action="product_sub_category_act_window" sequence=""/>
+        <record id="product_template_meu_form" model="ir.ui.view">
+            <field name="name">product template meu</field>
+            <field name="model">product.template.meu</field>
+            <field name="arch" type="xml">
+                <form string="product template meu">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="is_living_room"/>
+                                <field name="is_kitchen_stuff"/>
+                                <field name="is_bed"/>
+                            </group>
+                            <group>
+                                <field name="is_home_office"/>
+                                <field name="is_other"/>
+                                <field name="sub_categ_ids_m2o"/>
+                            </group>
+                            <div>
+                                <field name="product_sub_category_ids" style="width:1070px">
+                                    <tree editable="bottomn" string="Taxess">
+                                        <field name="name"/>
+                                        <field name="apelido"/>
+                                        <field name="morada"/>
+                                        <field name="idade"/>
+                                        <field name="parent_category"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_template_meu_tree" model="ir.ui.view">
+            <field name="name">product template meu</field>
+            <field name="model">product.template.meu</field>
+            <field name="arch" type="xml">
+                <tree string="product template meu">
+                    <field name="is_living_room"/>
+                    <field name="is_kitchen_stuff"/>
+                    <field name="is_bed"/>
+                    <field name="is_home_office"/>
+                    <field name="is_other"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_template_meu_act_wind" model="ir.actions.act_window">
+            <field name="name">product template meu</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template.meu</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="product_template_meu_menu" name="product template meu" parent="gestao_tesouraria.menu_1"
+                  action="product_template_meu_act_wind" sequence=""/>
+    </data>
+</odoo>

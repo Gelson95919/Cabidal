@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="guia_transf_form" model="ir.ui.view">
+            <field name="name">Guia Tranferencia</field>
+            <field name="model">guia.transfer</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="armazem_origem"/>
+                            <field name="armazem_destino"/>
+                        </group>
+                        <label for="title" string="Detalhis de Documento"/>
+                        <field name="detalhe_documento" widget="section_and_note_one2many"  style="width:1070px">
+                         <tree string="Lista document" editable="bottom">
+                             <field name="name"/>
+                             <field name="preco_custo"/>
+                             <field name="quantidade"/>
+                             <field name="unidade_medida_arm"/>
+                         </tree>
+                     </field>
+                     <label for="title" string="observações" style="color:Blue"/>
+                     <field name="obs" nolabel="1"/>
+                     <header>
+                           <button name="fechar" type="object" string="Fechar" icon="fa-lock" class="btn-primary"/>
+                           <button name="anular" type="object" string="Anular" icon="fa-remove" class="btn-primary"/>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                     </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="guia_transf_tree" model="ir.ui.view">
+            <field name="name">Guia Tranferencia</field>
+            <field name="model">guia.transfer</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="armazem_origem"/>
+                    <field name="armazem_destino"/>
+                    <field name="obs" nolabel="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="act_window_guia_transf" model="ir.actions.act_window">
+            <field name="name">Acrescentar Guia de Tranferencia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">guia.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Criar um novo Guia de Tranferencia.
+              </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas Guia de Tranferencia)
+                    para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="guia_transf_menu" name="Guia Transferencia" parent="inventarios.menu_inventario" action="act_window_guia_transf" sequence="80"/>
+    </data>
+</odoo>

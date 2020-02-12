@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="ajuda_custo_form" model="ir.ui.view">
+           <field name="name">Ajuda de Custo</field>
+           <field name="model">ajuda.custo</field>
+           <field name="arch" type="xml">
+               <form string="Ajuda de Custo">
+                   <sheet>
+                      <div>
+                          <label for="title" string="Descrição"/>
+                          <label for="title" string="_____"  style="color:White;"/>
+                          <field name="name" style="width:880px"/>
+                      </div>
+                      <div>
+                        <label for="title" string="Quantidade (Qt)"/>
+                        <field name="quantidade" style="width:260px"/>
+                        <label for="title" string="_________________________________________"  style="color:White;"/>
+                        <label for="title" string="Condição"/>
+                        <field name="condicao" style="width:260px"/>
+                      </div>
+                      <div>
+                         <label for="title" string="________________________________________________________________________________________________________________________________________" />
+                      </div>
+                       <div>
+                           <label for="title" string="__________________________________________"  style="color:White;"/>
+                       </div>
+                      <div>
+                          <label for="title" string="Verificador"/>
+                          <field name="verificador" style="width:260px"/>
+                          <label for="title" string="__________________________________________"  style="color:White;"/>
+                          <label for="title" string="Recerificador"/>
+                          <field name="recerificador" style="width:260px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Auxiliar"/>
+                          <label for="title" string="__"  style="color:White;"/>
+                          <field name="auxiliar" style="width:260px"/>
+                          <label for="title" string="__________________________________________"  style="color:White;"/>
+                          <label for="title" string="Outro"/>
+                          <label for="title" string="______"  style="color:White;"/>
+                          <field name="outro" style="width:260px"/>
+                      </div>
+                      </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="ajuda_custo_tree" model="ir.ui.view">
+           <field name="name">Ajuda de Custo</field>
+           <field name="model">ajuda.custo</field>
+           <field name="arch" type="xml">
+               <tree string="Ajuda de Custo">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="ajuda_custo_act_window" model="ir.actions.act_window">
+           <field name="name">Ajuda de Custo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ajuda.custo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Tarifa Ajuda de Custo.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ajuda de Custo) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="ajuda_custo_menu" name="Ajuda de Custo" parent="fastgest_despachante_agencia" action="ajuda_custo_act_window" sequence="80"/>
+    </data>
+</odoo>

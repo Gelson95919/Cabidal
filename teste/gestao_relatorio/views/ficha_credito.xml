@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="ficha_credito_form" model="ir.ui.view">
+            <field name="name">Ficha de Credito</field>
+            <field name="model">ficha.credito</field>
+            <field name="arch" type="xml">
+                <form string="Ficha de Credito">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                      <p>
+                         Este Ficha vem uma folha em branco para o preenchimento manual
+                      </p>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ficha_credito_act_window" model="ir.actions.act_window">
+            <field name="name">Ficha de Credito</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ficha.credito</field>
+            <field name="view_id" ref="ficha_credito_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="ficha_credito_menu" name="Ficha Credito" parent="gestao_relatorio.menu_rep"
+                  action="ficha_credito_act_window" sequence="80"/>
+    </data>
+</odoo>

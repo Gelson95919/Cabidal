@@ -1,0 +1,63 @@
+
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="form_all_conf_contab">
+      <field name="name">Confirencia Contabilidade</field>
+      <field name="model">confcontab.confcontab</field>
+      <field name="arch" type="xml">
+          <form string="Confirencia Contabilidade">
+
+              <sheet>
+                  <group>
+                      <group>
+                          <field name="nao_contabilizados"/>
+                          <field name="nao_na_razao"/>
+                      </group>
+                      <group>
+                          <field name="data_inicial"/>
+                          <field name="data_final"/>
+                      </group>
+                      <group>
+                          <div class="oe_inline">`
+                            <field name="conf_contab" style="width:1070px" readonly="1">
+                                <tree editable="bottom" string="Taxes">
+                                    <field name="interno"/>
+                                    <field name="data"/>
+                                    <field name="numero"/>
+                                    <field name="nome"/>
+                                    <field name="montante"/>
+                                    <field name="diario"/>
+                                    <field name="ordem"/>
+                                    <field name="razao"/>
+                                 </tree>
+                            </field>
+                            <header>
+                              <button name="action_quotation_send" string="Selecionar" icon="fa-undo" type="object" class="btn-primary"/>
+                              <button name="action_quotation_send" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                            </header>
+                          </div>
+                      </group>
+                  </group>
+              </sheet>
+
+          </form>
+      </field>
+    </record>
+    <!-- ações abrindo visualizações em modelos -->
+    <record model="ir.actions.act_window" id="action_window_conf">
+      <field name="name">Confirencia confcontab </field>
+      <field name="res_model">confcontab.confcontab</field>
+      <field name="target">inline</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="form_all_conf_contab"/>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Confirencia Contabilidade .
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Confirencia Contabilidade) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name=" Confirencia Contabilidade" id="menu_docum_conf" parent="gestao_compras.menu_concit_comp" action="action_window_conf"/>
+  </data>
+</odoo>

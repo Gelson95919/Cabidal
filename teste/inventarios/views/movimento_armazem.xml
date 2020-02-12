@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="movimento_armazem_form" model="ir.ui.view">
+            <field name="name">Movimento do Armazem</field>
+            <field name="model">movimento.armazem</field>
+            <field name="arch" type="xml">
+                <form string="Movimento do Armazem">
+                    <sheet>
+                        <div><label for="title" string="MOVIMENTO ARMAZEM"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                        <div>
+                          <label for="title" string="Armazem"/>
+                          <field name="armazem" nolabel="1" style="width:200px"/>
+                          <label for="title" string="________" style="color:White;"/>
+                          <label for="title" string="Data"/>
+                          <label for="title" string="________" style="color:White;"/>
+                          <label for="title" string="De"/>
+                          <field name="data_de" nolabel="1"/>
+                          <label for="title" string="__" style="color:White;"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary" style="width:80px"/>
+                        </div>
+                        <div>
+                          <label for="title" string="Artigo"/>
+                          <label for="title" string="__" style="color:White;"/>
+                          <field name="artigo_id" nolabel="1" style="width:200px"/>
+                          <label for="title" string="_____________________" style="color:White;"/>
+                          <label for="title" string="Ate"/>
+                          <field name="data_ate" nolabel="1"/>
+                          <label for="title" string="__" style="color:White;"/>
+                          <button name="selecionar" string="Selecionar" icon="fa-check-square-o" type="object" class="btn-primary"/>
+                        </div>
+                        <field name="movimento_armanzem" nolabel = '1' widget="sectio_and_note_one2many">
+                           <tree editable="bottomn" string="Movimento">
+                             <field name="doc_ref_n"/>
+                             <field name="ha_ref"/>
+                             <field name="data"/>
+                             <!--<field name="artigo_id"/>-->
+                             <field name="entrada" sum="Total Entrada"/>
+                             <field name="saida" sum="Total Saida"/>
+                             <!--<field name="Artigo"/>-->
+                           </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="movimento_armazem_act_window" model="ir.actions.act_window">
+            <field name="name">Movimento do Armazem</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">movimento.armazem</field>
+            <field name="view_id" ref="movimento_armazem_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="movimento_armazem_menu" name="Movimento do Armazem" parent="inventarios.menu_relatori" action="movimento_armazem_act_window" sequence="80"/>
+    </data>
+</odoo>

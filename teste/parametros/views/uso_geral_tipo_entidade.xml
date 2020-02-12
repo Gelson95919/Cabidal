@@ -1,0 +1,42 @@
+
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="fastgest.tipEnt">
+      <field name="name">fastgest Tipo Entidade</field>
+      <field name="model">entidade.entidade</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="value3"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="fastgest.action_window_tipEnt">
+      <field name="name">Tipo Entidade </field>
+      <field name="res_model">entidade.entidade</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+              Criar um novo Entidade.
+          </p><p>
+            Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Entidade) para projetos internos, pessoais ou de clientes.
+          </p>
+      </field>
+    </record>
+    <record model="ir.actions.server" id="fastgest.action_server_tipoEnt">
+      <field name="name">Gestao Compras server</field>
+      <field name="model_id" ref="model_entidade_entidade"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self.sale,
+        }
+      </field>
+    </record>
+    <menuitem name="Tipo Entidade " id="fastgest.menu_tipoEnt_list" parent="fastgest.menu_Uso_Geral" action="fastgest.action_window_tipEnt"/>
+  </data>
+</odoo>

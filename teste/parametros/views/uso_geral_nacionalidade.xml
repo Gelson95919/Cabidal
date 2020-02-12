@@ -1,0 +1,49 @@
+
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="form_all_nacio">
+      <field name="name">fastgest nacionalidade</field>
+      <field name="model">nacionalidade.nacionalidade</field>
+      <field name="arch" type="xml">
+        <form string="Nacionalidade">
+           <sheet>
+               <div><label for="title" string="" style="width:6px"/></div>
+               <group>
+                   <group>
+                       <field name="nacionalidad"/>
+                       <field name="pais_id"/>
+                   </group>
+                   <group>
+                       <field name="indicativo_id"/>
+                   </group>
+               </group>
+           </sheet>
+          </form>
+      </field>
+    </record>
+    <record id="form_all_nacio_tree_view" model="ir.ui.view">
+       <field name="name">nacionalidade.tree.view </field>
+       <field name="model">nacionalidade.nacionalidade</field>
+       <field name="arch" type="xml">
+         <tree >
+           <field name="nacionalidad"/>
+             <field name="pais_id"/>
+             <field name="indicativo_id"/>
+         </tree>
+       </field>
+    </record>
+    <record model="ir.actions.act_window" id="parametros.action_window_nacio">
+      <field name="name">Nacionalidade </field>
+      <field name="res_model">nacionalidade.nacionalidade</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            Criar um novo Nacionalidade.
+        </p><p>
+          Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Nacionalidade) para projetos internos, pessoais ou de clientes.
+        </p>
+      </field>
+    </record>
+    <menuitem name="Nacionalidade " id="parametros.menu_nacio_list" parent="parametros.menu_Uso_Geral" action="parametros.action_window_nacio"/>
+  </data>
+</odoo>

@@ -1,0 +1,181 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_orcameteso">
+            <field name="name">Orçamento Tesouraria</field>
+            <field name="model">orcamenteso.orcamenteso</field>
+            <field name="arch" type="xml">
+                <form string="Orçamento Tesouraria">
+                    <sheet>
+                        <group>
+                            <div>
+                                <label for="title" string="Período"/>
+                                <field name="Periodo" style="width:100px"/>
+                                <field name="descricao" style="width:100px" readonly="1"/>
+                            </div>
+                            <div>
+                                <label for="title" style="color:white" string="_"/>
+                            </div>
+                            <notebook name="studio_notebook_S8ebf">
+                                <page name="studio_page_9esJy" string="Orçamento">
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div>
+                                        <button name="action_quotation_send" string="Edit" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Print" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Zerar" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Init" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white"
+                                               string="____________________________________________________________________________"/>
+                                        <label for="title" string="Filtrar"/>
+                                        <field name="filtrar" style="width:180px"/>
+                                    </div>
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div class="oe_inline">
+                                        <field name="orcament" style="width:1070px">
+                                            <tree editable="bottom" string="Taxes">
+                                                <field name="codigo_plan_cont_id"/>
+                                                <field name="valor_anual" sum="Orcamento"/>
+                                                <field name="editar"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </page>
+                                <page name="studio_page_OE3jS" string="Alterações/Retificações">
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div>
+                                        <button name="action_quotation_send" string="Novo" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Editar" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Apagar" type="object"
+                                                class="btn-primary"/>
+                                    </div>
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div class="oe_inline">
+                                        <field name="alteracoes_ret" style="width:1070px">
+                                            <tree editable="bottom" string="Alteracoes">
+                                                <field name="codigo_plan_cont_id"/>
+                                                <field name="janeiro"/>
+                                                <field name="fevereiro"/>
+                                                <field name="marco"/>
+                                                <field name="abril"/>
+                                                <field name="maio"/>
+                                                <field name="junho"/>
+                                                <field name="julho"/>
+                                                <field name="agosto"/>
+                                                <field name="setembro"/>
+                                                <field name="outubro"/>
+                                                <field name="novembro"/>
+                                                <field name="dezembro"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </page>
+                                <page name="studio_page_OE3jS" string="Compromisos">
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div>
+                                        <button name="action_quotation_send" string="Novo" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Editar" type="object"
+                                                class="btn-primary"/>
+                                        <label for="title" style="color:white" string="_"/>
+                                        <button name="action_quotation_send" string="Apagar" type="object"
+                                                class="btn-primary"/>
+                                    </div>
+                                    <div>
+                                        <label for="title" style="color:white" string="_"/>
+                                    </div>
+                                    <div class="oe_inline">
+                                        <field name="compromiso" style="width:1070px">
+                                            <tree editable="bottom" string="Comprimiso">
+                                                <field name="codigo_plan_cont_id"/>
+                                                <field name="janeiro"/>
+                                                <field name="fevereiro"/>
+                                                <field name="marco"/>
+                                                <field name="abril"/>
+                                                <field name="maio"/>
+                                                <field name="junho"/>
+                                                <field name="julho"/>
+                                                <field name="agosto"/>
+                                                <field name="setembro"/>
+                                                <field name="outubro"/>
+                                                <field name="novembro"/>
+                                                <field name="dezembro"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tree_orcamento" model="ir.ui.view">
+            <field name="name">Orçamento Tesouraria</field>
+            <field name="model">orcamenteso.orcamenteso</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="descricao"/>
+                    <field name="Periodo"/>
+                    <field name="utilizador_id"/>
+                    <field name="utilizador_id"/>
+
+
+                </tree>
+            </field>
+        </record>
+        <!--<record id="orcamento_view" model="ir.ui.view">
+             <field name="name">Orçamento Tesouraria</field>
+             <field name="model">orcamenteso.orcamenteso</field>
+             <field name="arch" type="xml">
+                 <search string="Orçamento Tesouraria">
+                     <field name="descricao"/>
+                     <field name="Periodo"/>
+                     <group expand="0" string="Group By">
+                         <filter name="group_descricao" string="Período"
+                                 context="{'group_by':'descricao'}"
+                                 help="Group Período Wise"/>
+                     </group>
+                 </search>
+             </field>
+         </record>-->
+        <record model="ir.actions.act_window" id="action_window_orcamento">
+            <field name="name">Orçamento Tesouraria</field>
+            <field name="res_model">orcamenteso.orcamenteso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_group_descricao': 1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Orçamento Tesouraria.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Orçamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name=" Orçamento Tesouraria " id="menu_orcam_list" parent="gestao_tesouraria.menu_1"
+                  action="action_window_orcamento" sequence="8"/>
+
+    </data>
+</odoo>

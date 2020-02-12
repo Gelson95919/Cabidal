@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="rubrica_despacho_form" model="ir.ui.view">
+           <field name="name">Rubrica Despacho</field>
+           <field name="model">rubrica.despachante</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Código" style="width:70px"/>
+                           <field name="codigo" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Descrição" style="width:70px"/>
+                           <field name="descricao" style="width:650px"/>
+                       </div>
+                       <div>
+                           <field name="juntar_em_guia_cobranca"/>
+                           <label for="title" string="Juntar em Guia Cobrança"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Conta Artigo" style="width:90px"/>
+                         <field name="plano_conta_id" style="width:300px"/>
+                       </div>
+                       <div>
+                          <label for="title" string="Centro Custo" style="width:90px"/>
+                          <field name="organizacao_id" style="width:300px"/>
+                       </div>
+                        <div>
+                          <label for="title" string="Conta IVA" style="width:90px"/>
+                          <field name="plan_cont_id" style="width:300px"/>
+                       </div>
+                        <div>
+                          <label for="title" string="Fluxo Caixa" style="width:90px"/>
+                          <field name="plano_teso_id" style="width:300px"/>
+                       </div>
+                       <div>
+                          <label for="title" string="Código IVA" style="width:90px"/>
+                          <field name="plan_iva_id" style="width:300px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="rubrica_despacho_tree" model="ir.ui.view">
+           <field name="name">Rubrica Despacho</field>
+           <field name="model">rubrica.despachante</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="descricao"/>
+                   <field name="juntar_em_guia_cobranca"/>
+                   <field name="plano_conta_id"/>
+                   <field name="organizacao_id"/>
+                   <field name="plan_cont_id"/>
+                   <field name="plano_teso_id"/>
+                   <field name="plan_iva_id"/>
+               </tree>
+           </field>
+       </record>
+       <record id="rubrica_despacho_act_window" model="ir.actions.act_window">
+           <field name="name">Rubrica Despachante</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">rubrica.despachante</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="rubrica_despacho_menu" name="Rubrica Despachante" parent="fastgest_despachante_agencia" action="rubrica_despacho_act_window" sequence="80"/>
+
+    </data>
+</odoo>

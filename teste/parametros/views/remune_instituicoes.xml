@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="reeposicao_financas_form" model="ir.ui.view">
+            <field name="name">Reposição Finanças</field>
+            <field name="model">reposicao.financas</field>
+            <field name="arch" type="xml">
+                <form string="Reposição Finanças">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="numero"/>
+                            </group>
+                            <group>
+                                <field name="terceiro_id"/>
+                                <field name="cod_comp_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="reeposicao_financas_tree" model="ir.ui.view">
+            <field name="name">Reposição Finanças</field>
+            <field name="model">reposicao.financas</field>
+            <field name="arch" type="xml">
+                <tree string="Reposição Finanças">
+                    <field name="name"/>
+                    <field name="numero"/>
+                    <field name="terceiro_id"/>
+                    <field name="cod_comp_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="reeposicao_financas_act_window" model="ir.actions.act_window">
+            <field name="name">Reposição Finanças</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reposicao.financas</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Reposição Finanças.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Reposição Finanças)
+                    para projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="reposicao_financas_menu" name="Reposição Finanças" parent="fastgest_remuneracoe_instetuicao"
+                  action="reeposicao_financas_act_window" sequence="80"/>
+        <record id="seguranca_social_form" model="ir.ui.view">
+            <field name="name">Segurança Social</field>
+            <field name="model">seguranca.social</field>
+            <field name="arch" type="xml">
+                <form string="Segurança Social">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <label for="title" string="_________" style="color:white"/>
+                            <field name="name" style="width:850px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Desconto Associado"/>
+                            <field name="descont_asoc_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="Parâmetros Processamento (desconto) % ____________________________________________________________________________________________________"
+                                   style="color:blue"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Funcionario"/>
+                            <label for="title" string="_____" style="color:white"/>
+                            <field name="funcionario" style="width:260px"/>
+                            <label for="title" string="_____________________________________" style="color:white"/>
+                            <label for="title" string="Empresa"/>
+                            <field name="empresa" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta Contribuinte"/>
+                            <field name="plano_conta_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta"/>
+                            <label for="title" string="___________" style="color:white"/>
+                            <field name="plan_conta_id" style="width:260px"/>
+                            <label for="title" string="_____________________________________" style="color:white"/>
+                            <label for="title" string="Terceiro"/>
+                            <field name="terceiro_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Despesa"/>
+                            <label for="title" string="________" style="color:white"/>
+                            <field name="cod_comp_id" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="seguranca_social_tree" model="ir.ui.view">
+            <field name="name">Segurança Social</field>
+            <field name="model">seguranca.social</field>
+            <field name="arch" type="xml">
+                <tree string="Segurança Social">
+                    <field name="name"/>
+                    <field name="descont_asoc_id"/>
+                    <field name="funcionario"/>
+                    <field name="empresa"/>
+                    <field name="plano_conta_id"/>
+                    <field name="plan_conta_id"/>
+                    <field name="terceiro_id"/>
+                    <field name="cod_comp_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="seguranca_social_act_window" model="ir.actions.act_window">
+            <field name="name">Segurança Social</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">seguranca.social</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Segurança Social.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Segurança Social) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="seguranca_social_menu" name="Segurança Social" parent="fastgest_remuneracoe_instetuicao"
+                  action="seguranca_social_act_window" sequence="80"/>
+        <record id="sindicato_form" model="ir.ui.view">
+            <field name="name">Sindicato</field>
+            <field name="model">sindicato.sindicato</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <label for="title" string="_______" style="color:white"/>
+                            <field name="name" style="width:900px"/>
+                        </div>
+                        <label for="title" string="Parâmetros Processamento" style="color:blue"/>
+                        <div>
+                            <label for="title" string="Valor"/>
+                            <label for="title" string="__________________" style="color:white"/>
+                            <field name="valor" nolabel="1" style="width:260px"/>
+                            <label for="title" string="___________________________" style="color:white"/>
+                            <label for="title" string="Cálculo em Percentagem"/>
+                            <field name="calculo_em_percentario" nolabel="1" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Valor Minimo"/>
+                            <label for="title" string="___________" style="color:white"/>
+                            <field name="volor_minimo" nolabel="1" style="width:260px"/>
+                            <label for="title" string="____________________________" style="color:white"/>
+                            <label for="title" string="Desconto Asociado"/>
+                            <label for="title" string="__" style="color:white"/>
+                            <field name="descont_asoc_id" nolabel="1" style="width:260px"/>
+                        </div>
+                        <div>
+
+                        </div>
+                        <label for="title"
+                               string="________________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                            <label for="title" string="Terceiro"/>
+                            <label for="title" string="_______________" style="color:white"/>
+                            <field name="terceiro_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Despesa"/>
+                            <label for="title" string="_______________" style="color:white"/>
+                            <field name="cod_comp_id" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="sindicato_tree" model="ir.ui.view">
+            <field name="name">Sindicato</field>
+            <field name="model">sindicato.sindicato</field>
+            <field name="arch" type="xml">
+                <tree string="Sindicato">
+                    <field name="name"/>
+                    <field name="valor"/>
+                    <field name="calculo_em_percentario"/>
+                    <field name="volor_minimo"/>
+                    <field name="descont_asoc_id"/>
+                    <field name="terceiro_id"/>
+                    <field name="cod_comp_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sindicato_act_window" model="ir.actions.act_window">
+            <field name="name">Sindicato</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sindicato.sindicato</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Sindicato.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Sindicato) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="sindicato_meunu" name="Sindicato" parent="fastgest_remuneracoe_instetuicao"
+                  action="sindicato_act_window" sequence="80"/>
+        <record id="seguros_form" model="ir.ui.view">
+            <field name="name">Seguros</field>
+            <field name="model">seguros.seguros</field>
+            <field name="arch" type="xml">
+                <form string="Seguros">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <label for="title" string="" style="color:white"/>
+                            <field name="name" style="width:900px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="__________" style="color:white"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Parâmetros Processamento" style="color:blue"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Desconto Asociado"/>
+                            <label for="title" string="______" style="color:white"/>
+                            <field name="descont_asoc_id" nolabel="1" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Funcionario"/>
+                            <label for="title" string="____________" style="color:white"/>
+                            <field name="funcionario" nolabel="1" style="width:260px"/>
+                            <label for="title" string="__________________________________________" style="color:white"/>
+                            <label for="title" string="Cálculo em Percentagem"/>
+                            <field name="calculo_em_percentario" nolabel="1" style="width:180px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Empresa"/>
+                            <label for="title" string="______________" style="color:white"/>
+                            <field name="empresa" nolabel="1" style="width:260px"/>
+                            <label for="title" string="___________________________________________"
+                                   style="color:white"/>
+                            <label for="title" string="Cálculo em Percentagem"/>
+                            <field name="calcu_em_percentario" nolabel="1" style="width:180px"/>
+                        </div>
+                        <label for="title"
+                               string="_________________________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                            <label for="title" string="Conta"/>
+                            <label for="title" string="_________________" style="color:white"/>
+                            <field name="plano_conta_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Terceiro"/>
+                            <label for="title" string="_______________" style="color:white"/>
+                            <field name="terceiro_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Despesa"/>
+                            <label for="title" string="_______________" style="color:white"/>
+                            <field name="cod_comp_id" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="seguros_tree" model="ir.ui.view">
+            <field name="name">Seguros</field>
+            <field name="model">seguros.seguros</field>
+            <field name="arch" type="xml">
+                <tree string="Seguros">
+                    <field name="name"/>
+                    <field name="descont_asoc_id"/>
+                    <field name="funcionario"/>
+                    <field name="calculo_em_percentario"/>
+                    <field name="funcionario"/>
+                    <field name="calcu_em_percentario"/>
+                    <field name="plano_conta_id"/>
+                    <field name="terceiro_id"/>
+                    <field name="cod_comp_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="seguros_act_window" model="ir.actions.act_window">
+            <field name="name">Seguros</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">seguros.seguros</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Seguros.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Seguros) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="seguros_menu" name="Seguros" parent="fastgest_remuneracoe_instetuicao" action="seguros_act_window"
+                  sequence="80"/>
+    </data>
+</odoo>

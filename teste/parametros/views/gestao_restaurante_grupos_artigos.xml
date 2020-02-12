@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="group_artigos_form" model="ir.ui.view">
+           <field name="name">Grupos Artigo</field>
+           <field name="model">grupos.artigos</field>
+           <field name="arch" type="xml">
+               <form string="Grupos Artigo">
+                   <sheet>
+                       <group>
+                         <div>
+                           <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                           <label for="title" string="___"  style="color:White;"/>
+                           <label for="title" string="Grupo"/>
+                           <field name="grupo" style="width:50px"/>
+                           <label for="title" string="______________________________________________________________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Activo"/>
+                           <field name="activo" style="width:20px"/>
+                         </div>
+                       </group>
+                       <div>
+
+                       </div>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="name" style="width:940px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Ordem"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="ordem" style="width:260px"/>
+                           <label for="title" string="________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Impressora"/>
+                          <field name="impressora" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Artigos Associados"/>
+                       </div>
+                       <field name="associados" widget="many2many_tags"/>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="group_artigos_tree" model="ir.ui.view">
+           <field name="name">Grupos Artigo</field>
+           <field name="model">grupos.artigos</field>
+           <field name="arch" type="xml">
+               <tree string="Grupos Artigo">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="group_artigos_act_window" model="ir.actions.act_window">
+           <field name="name">Grupos Artigo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">grupos.artigos</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Realizar um novo Grupos Artigo.
+              </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Grupos Artigo) para projetos internos, pessoais ou de clientes.
+              </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="group_artigos_menu" name="Grupos Artigo" parent="fastgest_restaurante" action="group_artigos_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_encontro_conta_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="rep_encontr_conta"
+                model="econtroconta.econtroconta"
+                string="Encontro de conhta"
+                name="gestao_tesouraria.rep_encontr_cont_view"
+                file="gestao_tesouraria.form_all_encontro"
+                paperformat="paperformat_encontro_conta_report"
+                report_type="qweb-pdf"
+                menu="True"/>
+
+        <template id="rep_encontr_cont_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>Encontro de Conta Nº
+                                        <span t-esc="o.numero"/>
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:1px solid black; text-left; margin-left: -1px; height: 250px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         black;-webkit-box-orient: vertical;
+                                                                         -moz-box; -moz-box-orient: vertical; -webkit-border-radius: 5px;
+                                                                          display: -moz-box; ">
+
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Nome:
+                                        <span t-esc="o.name"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Morada:
+                                        <span t-esc="o.street"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Telf:
+                                        <span t-esc="o.phone"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Fax:
+                                        <span t-esc="o.fax"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        NIF:
+                                        <span t-esc="o.nif"/>
+                                    </p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px solid black;  margin-top: 22px; width:100%; margin-left: -1px; height: 25px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center; -moz-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width: 150px; -webkit-box-flex: 0;">
+                                <strong>
+                                    <p>Data</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width: 250px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>Descrição</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px; width: 200px; -webkit-box-flex: 0;">
+                                <strong>
+                                    <p>Entrada</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; padding: 2px; margin-top: -1px;  width: 250px; -webkit-box-flex: 0;">
+                                <strong>
+                                    <p>Saida</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:1px; margin-top: 10px; width:100%">
+                            <table style="width: 100% ">
+                                <tbody>
+                                    <t t-foreach="o.reg_docum_ids" t-as="r">
+                                        <tr>
+                                            <td class="text-center" style="width: 234px; solid black; border:1px;">
+                                                <span t-esc="r.data_realise"/>
+                                            </td>
+                                            <td class="text-center" style="width: 234px; solid black;">
+                                                <span t-esc="r.cod_documento"/>
+                                            </td>
+                                            <td class="text-center" style="width: 234px; solid black;">
+                                                <span t-esc="r.debito"/>
+                                            </td>
+                                            <td class="text-center" style="width: 234px; solid black;">
+                                                <span t-esc="r.credito"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="border:0px solid black; margin-left: 670px; height: 43px; width:20%;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: right;">
+                            <div style="border:0px solid black; margin:5px; display: -webkit-box;  display: -moz-box; -webkit-box-pack: left; -moz-box-pack: left;">
+                                <strong>
+                                    <p>Valor</p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; margin:5px; display: -webkit-box;  display: -moz-box; -webkit-box-pack: left; -moz-box-pack: left;">
+                                <strong>
+                                    <p class="text-left">
+                                        <span t-esc="o.selecionado_credito1"/>
+                                    </p>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

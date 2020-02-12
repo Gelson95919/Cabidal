@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Gestão Sócios" web_icon="gestao_socios,static/description/icon.png"
+                  id="gestao_socios.menu_root"/>
+
+        <menuitem name="Movimento Sócios" id="movimento_socio_menu" parent="gestao_socios.menu_root"/>
+
+        <menuitem name="Parâmetros" id="gestao_socio_menu_param" parent="gestao_socios.menu_root"/>
+
+
+    </data>
+</odoo>

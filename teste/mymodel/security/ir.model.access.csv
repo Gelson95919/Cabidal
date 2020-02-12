@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mymodel_mymodel,mymodel.mymodel,model_mymodel_mymodel,,1,0,0,0
+access_library_member,library.member,model_library_member,gestao_tesouraria.group_tesouraria_utiliz,1,1,1,1
+
+access_library_book,library.book,model_library_book,gestao_tesouraria.group_tesouraria_utiliz,1,1,1,1
+access_library_book_loan,library.book.loan,model_library_book_loan,gestao_tesouraria.group_tesouraria_utiliz,1,1,1,1
+
+

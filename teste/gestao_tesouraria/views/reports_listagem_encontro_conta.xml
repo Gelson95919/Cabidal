@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_list_encontro_conta_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="listagem_encontro_conta_report"
+                model="listagem.encontro.conta"
+                string="Listagem Encontro Conta"
+                name="gestao_tesouraria.listagem_encontro_conta_report_view"
+                file="gestao_microfinancas.form_all_list_enco_conta"
+                paperformat="paperformat_list_encontro_conta_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="listagem_encontro_conta_report_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="p">
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        LISTAGEM DE Encontro Conta
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <p>
+                                <strong>De:
+                                    <t t-esc="date_start"/>
+                                    Ate:
+                                    <t t-esc="date_end"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="width: 100%; margin-top:20px; ">
+                            <table class="table table-condensed table-bordered" style="width: 100%">
+                                <thead>
+                                    <th class="text-left" style="border:1px solid black; width: 15%">Numero</th>
+                                    <th class="text-left" style="border:1px solid black; width: 15%">Terceiro</th>
+                                    <th class="text-left" style="border:1px solid black; width: 30%">Nome</th>
+                                    <th class="text-left" style="border:1px solid black; width: 15%">Montante</th>
+                                    <th class="text-left" style="border:1px solid black; width: 15%">Data</th>
+                                    <th class="text-left" style="border:1px solid black; width: 10%">Anulado</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td class="text-left">
+                                                <span t-esc="o['numero']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['cod_terc']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['name']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['tot_parc_credito']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['data']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['anulado']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

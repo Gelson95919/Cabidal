@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="taxa_descarga_form" model="ir.ui.view">
+           <field name="name">Valor de Descarga</field>
+           <field name="model">valor.descarga</field>
+           <field name="arch" type="xml">
+               <form string="Valor de Descarga">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Porto"/>
+                           <label for="title" string="_____"  style="color:White;"/>
+                           <field name="porto" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Criterio"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="criterio" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="_______________________________"  style="color:White;"/></div>
+                       <div>
+                           <label for="title" string="Valor Inicial"/>
+                           <field name="valor_inicia" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Valor Final"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="valor_final" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Taxa"/>
+                           <label for="title" string="_____"  style="color:White;"/>
+                           <field name="taxa" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="taxa_descarga_tree" model="ir.ui.view">
+           <field name="name">Valor de Descarga</field>
+           <field name="model">valor.descarga</field>
+           <field name="arch" type="xml">
+               <tree string="Valor de Descarga">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="taxa_descarga_act_window" model="ir.actions.act_window">
+           <field name="name">Valor de Descarga</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">valor.descarga</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Valor de Descarga.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Valor de Descarga) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="taxa_descarga_menu" name="Taxa Descarga" parent="fastgest_age_maritima" action="taxa_descarga_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Gestão Despachos" web_icon="gestao_despacho,static/description/icon.png"
+                  id="gestao_despacho.menu_root"/>
+
+        <menuitem name="Despachos / Sydonia++" id="gestao_despacho_menu" parent="gestao_despacho.menu_root"/>
+
+        <menuitem name="Relatório" id="relatorio_menu" parent="gestao_despacho.menu_root"/>
+
+        <menuitem name="Listagem" id="lisatagem_menu" parent="gestao_despacho.menu_root"/>
+
+        <menuitem name="Impressos" id="impressos_menu" parent="gestao_despacho.menu_root"/>
+
+        <menuitem name="Parâmetros" id="gestao_despacho_menu_param" parent="gestao_despacho.menu_root"/>
+
+    </data>
+</odoo>

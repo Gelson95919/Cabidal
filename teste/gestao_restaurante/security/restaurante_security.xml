@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Data records go here -->
+        <record id="group_restaurante_user" model="res.groups">
+            <field name="name">User Cabosys Restaurante</field>
+            <field name="category_id" ref="base.module_category_restaurante"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_restaurante_manager" model="res.groups">
+            <field name="name">Manager Restaurante</field>
+            <field name="category_id" ref="base.module_category_restaurante"/>
+            <field name="implied_ids" eval="[(4, ref('group_restaurante_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+</odoo>

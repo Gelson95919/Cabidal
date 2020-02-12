@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_listagem_recibo">
+            <field name="name">Listagem Recibos</field>
+            <field name="model">litrecib.litrecib</field>
+            <field name="arch" type="xml">
+                <form string="Listagem Recibos">
+                     <header>
+                        <button name="get_report" string="Listar" icon="fa-print" type="object" class="btn-primary"/>
+                        <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem Recibo"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="Tipo"/>
+                        </div>
+                        <div class="oe_title">
+                            <field name="tipo" widget="radio" class="oe_edit_only"/>
+                        </div>
+                        <div>
+                            <field name="em_branco" attrs="{'readonly': [('tipo','!=', 'Modelo GP 010')]}"/>
+                            <label for="title" string="Em branco"/>
+                        </div>
+                        <div>
+                            <label for="title" string="De" style="width:25px"/>
+                            <field name="date_start" style="width:260px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Ate"/>
+                            <field name="date_end" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Ano"/>
+                            <field name="ano" attrs="{'readonly': [('tipo','=', 'Listagtem de Recibo')]}"
+                                   style="width:260px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Mes"/>
+                            <field name="mes" attrs="{'readonly': [('tipo','=', 'Listagtem de Recibo')]}"
+                                   style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_liast_rec">
+            <field name="name">Listagem de Recebimentos</field>
+            <field name="res_model">litrecib.litrecib</field>
+            <field name="view_id" ref="form_all_listagem_recibo"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Listagem de Recebimentos.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Listagem de
+                    Recebimentos) para projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Listagem de Recebimentos"  id="menu_lista_rec_list" parent="gestao_tesouraria.menu_2"
+                  action="action_window_liast_rec"/>
+    </data>
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="imprimir_documento_fatura_form" model="ir.ui.view">
+           <field name="name">Imprimir Documento Fatura</field>
+           <field name="model">imprimir.documento.fatura</field>
+           <field name="arch" type="xml">
+               <form string="Imprimir Documento Fatura">
+                   <sheet>
+                       <div><label for="title" string="IMPRIMIR DOCUMENTO" style = "color:blue; format:bold"/> </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <field name="documentos_pendentes"/>
+                           <label for="title" string="Docdumentos pendentes"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Prestação" style="width:70px"/>
+                           <field name="prestacao" style="width:260px" options = "{'no_create': True}"/>
+                           <label for="title" string="" style="width:290px"/>
+                           <label for="title" string="Curso" style="width:70px"/>
+                           <field name="curso_id" style="width:360px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Ano" style="width:70px"/>
+                           <field name="ano" style="width:260px"/>
+                           <label for="title" string="" style="width:290px"/>
+                           <label for="title" string="Ano Lectivo"/>
+                           <field name="ano_lectivo_id" style="width:360px" options = "{'no_create': True}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:965px"/>
+                           <button name="selecionar" icon="fa-check-square" type="object" string="Selecionar"  class="btn-primary"/>
+                       </div>
+                       <div>
+                           <field name="matricula_ids" style="width:1070px">
+                              <tree editable="bottom" string="Dados cursos" create="false">
+                                  <field name="ok" />
+                                  <field name="codigo_id_aluno"/>
+                                  <field name="numero" />
+                                  <field name="nome" />
+                                  <field name="data" />
+                                  <field name="matricula" />
+                              </tree>
+                           </field>
+                       </div>
+                       <div>
+                           <label for="title" string="Data Emissão"/>
+                           <field name="data_emissao" style="width:100px"/>
+                           <label for="title" string="" style="width:500px"/>
+                           <field name="alterar_data_emicao"/>
+                           <label for="title" string="Alterar Data Emissão"/>
+                           <label for="title" string="" style="width:20px"/>
+                           <field name="pre_visualizar"/>
+                           <label for="title" string="Pré-visualizar"/>
+                           <label for="title" string="" style="width:20px"/>
+                       </div>
+                       <div>
+                          <label for="title" string="" style="width:400px"/>
+                       </div>
+                       <header>
+                           <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="imprimir_documento_fatura_act_window" model="ir.actions.act_window">
+           <field name="name">Imprimir Documento Fatura</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">imprimir.documento.fatura</field>
+           <field name="view_id" ref="imprimir_documento_fatura_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="imprimir_documento_fatura_menu" name="Imprimir Documento" parent="movimento_academico_menu" action="imprimir_documento_fatura_act_window" sequence="80"/>
+    </data>
+</odoo>

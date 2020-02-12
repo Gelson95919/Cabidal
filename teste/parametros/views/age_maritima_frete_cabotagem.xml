@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="frete_cabotagem_form" model="ir.ui.view">
+           <field name="name">Frete Cabotagem</field>
+           <field name="model">frete.cabotagem</field>
+           <field name="arch" type="xml">
+               <form string="Frete Cabotagem">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Porto Origem"/>
+                           <label for="title" string="__"  style="color:White;"/>
+                           <field name="origem" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Porto Destino"/>
+                           <field name="destino" style="width:260px"/>
+                       </div>
+
+                       <div>
+                           <label for="title" string="Frete_______________________________________________ "/>
+                           <label for="title" string="_____________________________"  style="color:White;"/>
+                           <label for="title" string="Adicional__________________________________________ "/>
+                       </div>
+                       <div><label for="title" string="_____________________________________"  style="color:White;"/></div>
+                       <div>
+                           <label for="title" string="Taxa M3"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="taxa_m3_fr" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Taxa M3"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="taxa_m3_ad" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Taxa Tons"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="taxa_tons_fr" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Taxa Tons"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <field name="taxa_tons_ad" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="frete_cabotagem_tree" model="ir.ui.view">
+           <field name="name">Frete Cabotagem</field>
+           <field name="model">frete.cabotagem</field>
+           <field name="arch" type="xml">
+               <tree string="Frete Cabotagem">
+
+               </tree>
+           </field>
+       </record>
+       <record id="frete_cabotagem_act_window" model="ir.actions.act_window">
+           <field name="name">Frete Cabotagem</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">frete.cabotagem</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Frete Cabotagem.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Frete Cabotagem) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="frete_cabotagem_menu" name="Frete Cabotagem" parent="fastgest_age_maritima" action="frete_cabotagem_act_window" sequence="80"/>
+    </data>
+</odoo>

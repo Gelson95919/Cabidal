@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+         <template id="listing">
+           <ul>
+             <li t-foreach="objects" t-as="object">
+               <a t-attf-href="#{ root }/objects/#{ object.id }">
+                 <t t-esc="object.display_name"/>
+               </a>
+             </li>
+           </ul>
+         </template>
+
+        <!--<template xml:space="preserve">
+             <t t-extend="ListView.buttons">
+                 <t t-jquery="button.oe_list_add" t-operation="after">
+                   <header>
+                     <button name="action_quotation_send" string="Fechar" type="object" icon="fa-lock" class="btn-primary"/>
+                   </header>
+                 </t>
+             </t>
+        </template>-->
+
+
+         <template id="object">
+           <h1><t t-esc="object.display_name"/></h1>
+           <dl>
+             <t t-foreach="object._fields" t-as="field">
+               <dt><t t-esc="field"/></dt>
+               <dd><t t-esc="object[field]"/></dd>
+             </t>
+           </dl>
+         </template>
+    </data>
+</odoo>

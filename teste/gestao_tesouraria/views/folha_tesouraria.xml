@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="folha_tesoura_view" model="ir.ui.view">
+		<field name="name">Diarios de Tesouraria</field>
+		<field name="model">folha.tesouraria</field>
+		<field name="arch" type="xml">
+			<search string="Diario Tesouraria">
+                <field name="folha"></field>
+                <!--<field name="descricao"/>-->
+				<field name="movimento"/>
+				<field name="data"/>
+				<group expand="0" string="Group By">
+					<filter name="group_folha" string="Folha" context="{'group_by':'folha'}" help="Group Folha Wise"/>
+				</group>
+			</search>
+		</field>
+	  </record>
+      <record model="ir.actions.act_window" id="folha_action_window">
+            <field name="name">Diarios de Tesouraria</field>
+            <field name="context">{'search_default_group_folha': 1}</field>
+            <field name="res_model">folha.tesouraria</field>
+            <!--<field name="domain">[('pago', '=', False), ('desting_doc_desp', '=', True)]</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                   Criar um novo Despesas.
+               </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Diario ) para projetos internos, pessoais ou de clientes.
+               </p>
+            </field>
+      </record>
+       <!-- actions -->
+      <menuitem name="Diarios de Tesouraria " id="menu_folha_tes" parent="gestao_tesouraria.menu_1" action="folha_action_window" sequence="5"/>
+    </data>
+</odoo>

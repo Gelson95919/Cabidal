@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='library_loan_wizard_form' model='ir.ui.view'>
+            <field name='name'>library loan wizard form view</field>
+            <field name='model'>library.loan.wizard</field>
+            <field name='arch' type='xml'>
+                <form string="Borrow books">
+                    <sheet>
+                        <group>
+                            <field name='member_id'/>
+                        </group>
+                        <group>
+                            <field name='book_ids'/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name='record_loans' string='OK' class='btn-primary' type='object'/>
+                        <button string='Cancel' class='btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_wizard_loan_books" name="Registrar empréstimos"
+                    res_model="library.loan.wizard" view_mode="form" target="new"/>
+
+        <menuitem id="menu_wizard_loan_books"
+                  parent="mymodel_menu"
+                  action="action_wizard_loan_books"
+                  sequence="20"
+        />
+
+        <record id='library_menber_form' model='ir.ui.view'>
+            <field name='name'>Emprestar livros form view</field>
+            <field name='model'>library.member</field>
+            <field name='arch' type='xml'>
+                <form string="Emprestar livros">
+                    <sheet>
+                        <group>
+                            <field name='membe'/>
+                            <field name='member_number'/>
+                            <field name='partner_id'/>
+                        </group>
+                        <group>
+                            <field name='date_start'/>
+                            <field name='date_end'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

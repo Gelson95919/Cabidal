@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="lugares_form" model="ir.ui.view">
+            <field name="name">Lugares</field>
+            <field name="model">lugares.lugares</field>
+            <field name="arch" type="xml">
+                <form string="Lugares">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Código"/>
+                            <field name="codigo"/>
+                        </div>
+                        <div>
+                            <label for="title" string="___" style="color:White;"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Nome"/>
+                            <label for="title" string="___" style="color:White;"/>
+                            <field name="name" style="width:740px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Concelho"/>
+                            <field name="concelho_id" style="width:260px"/>
+                            <label for="title" string="________________________" style="color:White;"/>
+                            <label for="title" string="Freguesia"/>
+                            <field name="freguesia_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Zona"/>
+                            <label for="title" string="___" style="color:White;"/>
+                            <field name="zona_id" style="width:260px"/>
+                            <label for="title" string="________________________" style="color:White;"/>
+                            <label for="title" string="Ilha"/>
+                            <field name="ilha_id" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="form_all_lugar_search_view" model="ir.ui.view">
+            <field name="name">Todus.lug.search.view</field>
+            <field name="model">lugares.lugares</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="campos_relacional"/>
+                    <field name="name"/>
+
+                </search>
+            </field>
+        </record>
+        <record id="lugares_tree" model="ir.ui.view">
+            <field name="name">Lugares</field>
+            <field name="model">lugares.lugares</field>
+            <field name="arch" type="xml">
+                <tree string="Lugares">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <field name="campos_relacional"/>
+                    <field name="id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_lugares_codigo" model="ir.sequence">
+            <field name="name">Lugares</field>
+            <field name="code">lugares.lugares</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="lugares_act_window" model="ir.actions.act_window">
+            <field name="name">Lugares</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lugares.lugares</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Lugares.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Lugares) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="lugares_menu" name="Lugares" parent="fastgest_gest_microcred_tabelas" action="lugares_act_window"
+                  sequence="80"/>
+        <!--<menuitem name="Profissões " id="menu_prof_list" parent="fastgest_gest_microcred_tabelas" action="parametros.action_window_prof"/>
+        <menuitem name=" Serviços " id="menu_produto" parent="fastgest_gest_microcred_tabelas" action="parametros.action_window"/>
+        <menuitem name="Unidade Medida" id="menu_uni_med" parent="fastgest_gest_microcred_tabelas" action="parametros.action_window_uni_med"/>-->
+    </data>
+</odoo>

@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_movint">
+          <field name="name">Movimento Interno</field>
+          <field name="model">moninterno.moninterno</field>
+          <field name="arch" type="xml">
+            <form string="Movimento Interno">
+               <sheet>
+                   <div>
+                      <label for="title" string="Movimento"/>
+                      <field name="movimento"  style="width:820px"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Data" style="width:70px"/>
+                       <field name="date_release" style="width:100px"/>
+                       <label for="title" string="" style="width:365px"/>
+                       <label for="title" string="Centro Custo"/>
+                       <field name="centro_custo" style="width:260px"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Montante" style="width:70px"/>
+                       <field name="montante" style="width:100px"/>
+                       <field name="tipo_movimento" />
+                   </div>
+                   <div><label for="title" string="" style="width:20px"/> </div>
+                   <div>
+                       <label for="title" string="Descrição" style="width:70px"/>
+                   </div>
+                   <div>
+                      <field name="name" style="width:900px"/>
+                   </div>
+                   <div><label for="title" string="" style="width:20px"/> </div>
+                   <div>
+                       <label for="title" string="Origem" style="width:70px" attrs="{'invisible': [('tipo_movimento','!=','1')]}"/>
+                       <label for="title" string="Conta" style="width:70px" attrs="{'invisible': [('tipo_movimento','=','1')]}"/>
+                       <field name="conta_origem" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                       <label for="title" string="" style="width:230px"/>
+                       <label for="title" string="Saldo" style="width:70px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                       <field name="saldo" style="width:260px; color:blue" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Cheque" style="width:70px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                       <field name="cheque" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                       <label for="title" string="" style="width:230px"/>
+                       <label for="title" string="ESC" style="width:70px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                       <field name="esc" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '2')]}"/>
+                   </div>
+                   <div>
+                       <field name="contabilizado"/>
+                       <label for="title" string="Contabilizado"/>
+                       <label for="title" string="Diário" />
+                       <field name="diario" style="width:180px"/>
+                       <label for="title" string="" style="width:230px"/>
+                       <label for="title" string="Número" style="width:70px"/>
+                       <field name="numero" style="width:200px" />
+                       <label for="title" string="" style="width:25px"/>
+                       <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                   </div>
+                   <div>
+                       <label for="title" string=" " style="width:200px"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Destino" style="width:70px"  attrs="{'invisible': [('tipo_movimento','!=', '1')]}"/>
+                       <label for="title" string="Conta" style="width:70px" attrs="{'invisible': [('tipo_movimento','=', '1')]}"/>
+                       <field name="conta_destino" style="width:260px"   attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                       <label for="title" string="" style="width:230px"/>
+                       <label for="title" string="ESC" style="width:70px"  attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                       <field name="escd" style="width:260px" attrs="{'invisible': [('tipo_movimento','=', '3')]}"/>
+                   </div>
+                   <div>
+                       <field name="contabilizadod"/>
+                       <label for="title" string="Contabilizado"/>
+                       <label for="title" string="Diário"/>
+                       <field name="diariod" style="width:180px"/>
+                       <label for="title" string="" style="width:230px"/>
+                       <label for="title" string="Número" style="width:70px"/>
+                       <field name="numerod" style="width:200px"/>
+                       <label for="title" string="" style="width:25px"/>
+                       <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                   </div>
+               </sheet>
+            </form>
+          </field>
+        </record>
+        <!-- ações abrindo visualizações em modelos -->
+        <record model="ir.actions.act_window" id="action_window_moviment">
+          <field name="name">Movimento Interno </field>
+          <field name="res_model">moninterno.moninterno</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Movimento Interno.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Movimento Interno) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <!-- actions -->
+        <menuitem name="Movimento Interno " id="menu_moviint_list" parent="gestao_tesouraria.menu_1" action="action_window_moviment"/>
+    </data>
+</odoo>

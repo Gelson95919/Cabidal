@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="fatura_previsoria_form" model="ir.ui.view">
+            <field name="name">Factura Previsória</field>
+            <field name="model">factura.previsoria</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                           <label for="title" string="Data" style="width:70px"/>
+                           <field name="data" style="width:100px"/>
+                           <label for="title" string="" style="width:100px"/>
+                           <field name="xml_asycuda"/>
+                           <label for="title" string="XML(ASYCUDA)"/>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="N.O.R.D" style="font-weight: bold; color:blue"/>
+                           <field name="nord" style="width:100px"/>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="Nº Recibo"/>
+                           <field name="nume_recib" style="width:150px"/>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                            <label for="title" string="Destinatario"/>
+                            <field name="terceiro_id" style="width:910px"/>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <div><label for="title" string="Descrição Mercadoria"/></div>
+                        <div>
+                            <field name="descricao_mercadoria" style="width:1000px"/>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <notebook>
+                            <page string="Elementos">
+                                <di>
+                                    <label for="title" string="Calculo e Guia de Emolumento" style="font-weight: bold; color:blue"/>
+                                    <field name="guia_emolumento_ids" style="width:1000px">
+                                        <tree editable="button" string="Calculo e Guia de Emolumento">
+                                            <field name="tarifa_alfandiga_id" style="width:500px" options = "{'no_create': True}"/>
+                                            <field name="horas_remuneracoes_id" options = "{'no_create': True}"/>
+                                            <field name="quantidade" style="width:260px"/>
+                                        </tree>
+                                    </field>
+                                </di>
+                                <div><label for="title" string=""/> </div>
+                                <div>
+                                    <label for="title" string="Impresso Principal" style="width:120px"/>
+                                    <field name="impresso_principal" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="P.L" style="width:30px"/>
+                                    <field name="p_l" style="width:100px"/>
+                                    <label for="title" string="" style="width:165px"/>
+                                    <label for="title" string="G.T.I"/>
+                                    <field name="g_t_i" style="width:100px"/>
+                                    <label for="title" string="" style="width:80px"/>
+                                    <label for="title" string="Form"/>
+                                    <field name="form" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Impresso Intercalar"/>
+                                    <field name="impresso_intercalar" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="D.V" style="width:30px"/>
+                                    <field name="d_v" style="width:100px"/>
+                                    <label for="title" string="" style="width:125px"/>
+                                    <label for="title" string="Fotocopias"/>
+                                    <field name="fotocopias" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:80px"/>
+                                    <label for="title" string="T.C.E" style="width:35px"/>
+                                    <field name="t_c_e" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="T.N" style="width:30px"/>
+                                    <field name="t_n" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="Qt.Estampilhas"/>
+                                    <field name="quantidade_estampilhas" style="width:100px"/>
+                                </div>
+                                <div><label for="title" string=""/> </div>
+                                <div><label for="title" string="Regime" style="font-weight: bold; color:blue"/></div>
+                                <di>
+                                    <field name="regime_ids" style="width:1000px">
+                                        <tree editable="button" string="Outros">
+                                            <field name="regime_id" options = "{'no_create': True}"/>
+                                            <field name="valor_base"/>
+                                            <field name="agencia_desp_id" style="font-weight: bold; color:blue"/>
+                                            <field name="dep"/>
+                                        </tree>
+                                    </field>
+                                </di>
+                                <div>
+                                    <label for="title" string="Requerimento Normal" style="width:150px"/>
+                                    <field name="requerimento_normal" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="Exame Previo/Comercial(hs)"/>
+                                    <field name="exame_previo" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Requerimento Especial" style="width:150px"/>
+                                    <field name="requerimento_especial" style="width:100px"/>
+                                    <label for="title" string="" style="width:100px"/>
+                                    <label for="title" string="Expediente para Matricula" style="width:175px"/>
+                                    <field name="expediente_matricula" style="width:100px"/>
+                                </div>
+                                <div><label for="title" string=""/> </div>
+                            </page>
+                            <page string="Detalhes">
+                                 <di>
+                                    <field name="rubricas_ids" style="width:1000px">
+                                        <tree editable="button" string="Calculo e Guia de Emolumento">
+                                            <field name="cod" style="width:100px"/>
+                                            <field name="rubricas_id" options = "{'no_create': True}"/>
+                                            <field name="montante" sum="Montante"/>
+                                        </tree>
+                                    </field>
+                                </di>
+                                <div>
+                                    <label for="title" string="Desconto"/>
+                                    <field name="desconto" style="width:150px"/>
+                                    <label for="title" string="" style="width:2px"/>
+                                    <label for="title" string="%"/>
+                                    <label for="title" string="" style="width:30px"/>
+                                    <field name="desconto_2" style="width:150px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Total" style="width:60px"/>
+                                    <field name="total" style="width:150px"/>
+                                    <label for="title" string="" style="width:55px"/>
+                                    <button name="recalcular_dados" string="Recalcular Dados" class="btn-primary"/>
+                                </div>
+                            </page>
+                            <page string="Observações">
+                                <label for="title" string="Extracto Nº"/>
+                                <field name="extracto_num"  style="width:260px"/>
+                                <label for="title" string="" style="width:500px"/>
+                                <label for="title" string="Montante"/>
+                                <field name="montante" style="width:100px"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <header>
+                         <button name="fechar" string="Fechar" type="object" class="btn-primary" icon="fa-lock"/>
+                         <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                     </header>
+                </form>
+            </field>
+        </record>
+        <record id="fatura_previsoria_tree" model="ir.ui.view">
+            <field name="name">Factura Previsória</field>
+            <field name="model">factura.previsoria</field>
+            <field name="arch" type="xml">
+                <tree string="Factura Previsória">
+                    <field name="nume_recib"/>
+                    <field name="data"/>
+                    <field name="nord"/>
+                    <field name="terceiro_id"/>
+                    <field name="descricao_mercadoria"/>
+                    <!--<field name="name"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="fatura_previsoria_act_window" model="ir.actions.act_window">
+            <field name="name">Factura Previsória</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">factura.previsoria</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Criar um novo Factura Previsória.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Factura Previsória) para projetos internos, pessoais ou de clientes.
+             </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="fatura_previsoria_menu" name="Factura Previsória" parent="gestao_despacho_menu" action="fatura_previsoria_act_window" sequence="80"/>
+    </data>
+</odoo>

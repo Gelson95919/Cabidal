@@ -1,0 +1,140 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_produt">
+            <field name="name">Produto Servico</field>
+            <field name="model">produto.produto</field>
+            <field name="arch" type="xml">
+                <form string="Manutenção Produtos/Servico ">
+                    <sheet>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                            <field name="type" style="width:400px" invisible="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <field name="name" style="width:400px"/>
+                            <label for="title" string="" style="width:150px"/>
+                            <label for="title" string="Codigo Optativo"/>
+                            <field name="codigo" style="width:165px"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="_______________________________________________________________________________________________________________________________________________________"
+                                   style="color:Blue; font-weight: bold;"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Montante"/>
+                            <field name="montante" style="width:310px"/>
+                            <label for="title" string="" style="width:250px"/>
+                            <label for="title" string="IVA" style="width:50px"/>
+                            <field name="iva" style="width:210px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Detalhes"/>
+                        </div>
+                        <div>
+                            <field name="detalhes" style="width:900px"/>
+                        </div>
+                        <div attrs="{'invisible': [('type','=', '2')]}">
+                            <field name="faturacao_conta_outrem"/>
+                            <label for="title" string="Facturação por Canta de Outrem"/>
+                            <label for="title" string="" style="width:400px"/>
+                            <field name="utilizar_conf_processo"/>
+                            <label for="title" string="Utilizar Conf.De Processo"/>
+                        </div>
+                        <div attrs="{'invisible': [('type','=', '2')]}">
+                            <field name="adiantamento_cliente"/>
+                            <label for="title" string="Adiantamento de Cliente"/>
+                        </div>
+                        <div attrs="{'invisible': [('type','!=', '2')]}">
+                            <field name="sem_provistos"/>
+                            <label for="title" string="Sem Provistos (ex.Faturação por conta de outrem)" style="width:350px"/>
+                            <label for="title" string="" style="width:260px"/>
+                            <field name="rubrica_conta_escala"/>
+                            <label for="title" string="Rubrica Conta Escala"/>
+                        </div>
+                        <div attrs="{'invisible': [('type','!=', '2')]}">
+                            <label for="title" string="Tipo" attrs="{'invisible':[('rubrica_conta_escala', '=', False)]}"/>
+                            <field name="tipo" style="width:300px" attrs="{'invisible':[('rubrica_conta_escala', '=', False)]}"/>
+
+                            <label for="title" string="" style="width:310px"/>
+                            <label for="title" string="Rubrica" attrs="{'invisible':[('rubrica_conta_escala', '=', False)]}"/>
+                            <field name="rubrica" style="width:190px" attrs="{'invisible':[('rubrica_conta_escala', '=', False)]}"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="_______________________________________________________________________________________________________________________________________________________"
+                                   style="color:Blue; font-weight: bold;"/>
+                        </div>
+                        <div>
+                            <field name="mudar_tipo_movimento"/>
+                            <label for="title" string="Mudar Tipo Movimento se Negativo	"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta Artigio"/>
+                            <field name="conta_artigo"/>
+                            <label for="title" string="" style="width:380px"/>
+                            <label for="title" string="Centro Custo"/>
+                            <field name="centro_custo"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta IVA" style="width:80px"/>
+                            <field name="conta_iva"/>
+                            <label for="title" string="" style="width:380px"/>
+                            <label for="title" string="Fluxo Caixa" style="width:85px"/>
+                            <field name="fluxo_caixa"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Codigo Iva" style="width:80px"/>
+                            <field name="codigo_iva"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="form_all_prod_tree_view" model="ir.ui.view">
+            <field name="name">Produto.Servico.tree.view</field>
+            <field name="model">produto.produto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <field name="conta_artigo"/>
+                    <!--<field name="adiantamento_cliente"/>
+                    <field name="utilizar_conf_processo"/>
+                    <field name="mudar_tipo_movimento"/>
+                    <field name="conta_artigo"/>
+                    <field name="centro_custo"/>
+                    <field name="conta_iva"/>
+                    <field name="fluxo_caixa"/>
+                    <field name="codigo_iva"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_quota_produto" model="ir.sequence">
+            <field name="name">Produto</field>
+            <field name="code">produt.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">10</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window">
+            <field name="name">Serviços</field>
+            <field name="res_model">produto.produto</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','1')]</field>
+            <field name="context">{'default_type': '1', 'type': '1'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Produtos Serviços .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Produtos Serviços )
+                    para projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name=" Serviços " id="parametros.menu_produto" parent="parametros.menu_Uso_Geral"
+                  action="parametros.action_window"/>
+    </data>
+</odoo>

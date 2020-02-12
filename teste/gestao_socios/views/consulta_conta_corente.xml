@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="consulta_conta_corente_form" model="ir.ui.view">
+           <field name="name">Consulta Conta Corrente</field>
+           <field name="model">consulta.conta.corrente</field>
+           <field name="arch" type="xml">
+               <form string="Consulta Conta Corrente">
+                   <sheet>
+                      <label for="title" string="CONSULTA CONTA CORRENTE" style="font-weight: bold; color:blue"/>
+                      <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Ano" style ="width:35px"/>
+                           <field name="ano" style ="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Socio"/>
+                           <field name="socio_id" style ="width:500px" options = "{'no_create': True}"/>
+                           <label for="title" string="" style ="width:450px"/>
+                           <button name="ver" string="Ver" type="object" icon="fa-binoculars" class="btn-primary"/>
+                       </div>
+                       <div class="oe_inline">
+                          <field name="fatuclient_id" invisible="1"/>
+                          <!--<field name="cont_corent_ids" style="width:1070px" nolabel = '1' context="{'fatuclient_id':fatuclient_id}" widget="section_and_note_one2many" mode = "tree, kanban">
+                            <tree editable="bottom" string=""  delete="false" create="false" default_order = "write_date asc" eval="[(1,id,[ref('fatuclient_fatuclient')])]">
+                               <field name="sequence" widget="handle"/>
+                               <field name="date_control" force_save="1"/>
+                               <field name="name_control" force_save="1" attrs="{'readonly':[('pago','!=', False)]}"/>
+                               <field name="total_resumo_control" force_save="1"/>
+                               <field name="saldo_control" force_save="1"/>
+                               <field name="pago_control" force_save="1"/>
+                               <field name="pago" invisible="1"/>
+                               <field name="acobrado_control" sum="Valo Recibo" force_save="1"/>
+                            </tree>
+                          </field>-->
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="consulta_conta_corente_act_window" model="ir.actions.act_window">
+           <field name="name">Consulta Conta Corrente</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">consulta.conta.corrente</field>
+           <field name="view_id" ref="consulta_conta_corente_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="consulta_conta_corente_menu" name="Consulta Conta Corrente" parent="movimento_socio_menu" action="consulta_conta_corente_act_window" sequence="80"/>
+    </data>
+</odoo>

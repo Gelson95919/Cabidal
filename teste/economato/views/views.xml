@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="economato.list">
+      <field name="name">economato list</field>
+      <field name="model">economato.economato</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="economato.action_window">
+      <field name="name">economato window</field>
+      <field name="res_model">economato.economato</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="economato.action_server">
+      <field name="name">economato server</field>
+      <field name="model_id" ref="model_economato_economato"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="economato" id="economato.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="economato.menu_1" parent="economato.menu_root"/>
+    <menuitem name="Menu 2" id="economato.menu_2" parent="economato.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="economato.menu_1_list" parent="economato.menu_1"
+              action="economato.action_window"/>
+    <menuitem name="Server to list" id="economato" parent="economato.menu_2"
+              action="economato.action_server"/>
+    -->
+  </data>
+</odoo>

@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+    <!--=========  ========-->
+
+    <record id="form_all_alt_ors_teso" model="ir.ui.view">
+              <field name="name">Orçamento de Tesouraria</field>
+              <field name="model">orcamento.tesouraria</field>
+              <field name="arch" type="xml">
+                   <form string="Orçamento da Tesouraria ">
+                      <sheet>
+                          <group>
+                              <group>
+                                 <field name="ano"/>
+                              </group>
+                              <group>
+                                 <field name="pagamento_id"/>
+                              </group>
+                              <group>
+                                 <field name="valor_anual"/>
+                              </group>
+                              <group>
+                                 <field name="mes_inic"/>
+                              </group>
+                          </group>
+                          <div><label for="title" style="color:white" string="_"/></div>
+                       <div><label for="title" style="color:blue" string="Valores__________________________________________________________________________________________________________________________________________________"/></div>
+                       <div><label for="title" style="color:white" string="_"/></div>
+                       <div>
+                           <label for="title" string="Janeiro"/>
+                           <label for="title" string="_" style="color:white"/>
+                           <field name="janeiro" style="width:160px"/>
+                           <label for="title" string="_________" style="color:white"/>
+                           <label for="title" string="Maio"/>
+                           <label for="title" string="__" style="color:white"/>
+                           <field name="maio" style="width:160px"/>
+                           <label for="title" string="_________" style="color:white"/>
+                           <label for="title" string="Setembro"/>
+                           <field name="setembro" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Fevereiro"/>
+                           <field name="fevereiro" style="width:160px"/>
+                           <label for="title" string="_________" style="color:white"/>
+                           <label for="title" string="Junho"/>
+                           <label for="title" string="_" style="color:white"/>
+                           <field name="junho" style="width:160px"/>
+                           <label for="title" string="________" style="color:white"/>
+                           <label for="title" string="Outubro"/>
+                           <label for="title" string="_" style="color:white"/>
+                           <field name="outubro" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Março"/>
+                           <label for="title" string="__" style="color:white"/>
+                           <field name="marco" style="width:160px"/>
+                           <label for="title" string="_________" style="color:white"/>
+                           <label for="title" string="Julho"/>
+                           <label for="title" string="__" style="color:white"/>
+                           <field name="julho" style="width:160px"/>
+                           <label for="title" string="________" style="color:white"/>
+                           <label for="title" string="Novembro"/>
+                           <field name="novembro" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Abril"/>
+                           <label for="title" string="___" style="color:white"/>
+                           <field name="abril" style="width:160px"/>
+                           <label for="title" string="_________" style="color:white"/>
+                           <label for="title" string="Agosto"/>
+                           <label for="title" string="_" style="color:white"/>
+                           <field name="agosto" style="width:160px"/>
+                           <label for="title" string="________" style="color:white"/>
+                           <label for="title" string="Dezembro"/>
+                           <field name="dezembro" style="width:160px"/>
+                       </div>
+                       <div><label for="title" string="_" style="color:white"/></div>
+                      </sheet>
+                    </form>
+              </field>
+    </record>
+          <!-- ações abrindo visualizações em modelos -->
+    <record model="ir.actions.act_window" id="action_window_altteso">
+      <field name="name">Orçamento de Tesouraria </field>
+      <field name="res_model">orcamento.tesouraria</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+              Criar um novo Orçamento da Tesouraria.
+          </p><p>
+            Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Orçamento da Tesouraria) para projetos internos, pessoais ou de clientes.
+          </p>
+      </field>
+    </record>
+  <!--_________________________________________________________________________________________________________________-->
+    <menuitem name="Orçamento de Tesouraria" id="parametros.menu_alt_teso" parent="fastgest_tesoura" action="action_window_altteso"/>
+    </data>
+</odoo>

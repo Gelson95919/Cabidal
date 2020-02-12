@@ -1,0 +1,52 @@
+
+<odoo>
+  <data>
+
+
+       <record model="ir.ui.view" id="session_view">
+            <field name="name">selecao.fil</field>
+            <field name="model">selecao.fil</field>
+            <field name="arch" type="xml">
+                <form>
+                  <sheet>
+                    <group>
+                      <group>
+                          <field name="teste1"/>
+                          <field name="teste2"/>
+                      </group>
+                      <group>
+                          <field name="pai_id"/>
+                      </group>
+                      <div class="oe_inline">
+                               <field name="pais" style="width:845px"  nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban' >
+                                  <tree editable="bottom" string="Taxes">
+
+                                     <field name="name" />
+                                     <field name="apelido"/>
+                                     <field name="morada" />
+                                     <field name="telefone"/>
+
+                                  </tree>
+                               </field>
+                           </div>
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+       </record>
+
+
+
+       <record model="ir.actions.act_window" id="selecao_fil">
+            <field name="name">selecao</field>
+            <field name="res_model">selecao.fil</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+
+
+       <menuitem id="selecaofil_id" name="selecao fil" parent="gestao_compras.menu_concit_comp"
+              action="selecao_fil"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_list_folha_tesoura_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="listagem_folha_tesouraria_report"
+                model="posicao.tesouraria"
+                string="Listagem Posição Tesouraria"
+                name="gestao_relatorio.listagem_folha_tesoura_report_view"
+                file="gestao_relatorio.posicao_tesoueraria_form"
+                paperformat="paperformat_list_folha_tesoura_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="listagem_folha_tesoura_report_view">
+            <t t-call="web.html_container">
+
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; color:#FFF8DC; background-color:#0000FF; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        Posição de Tesouraria
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 22px; width:100%; margin-left: -1px; height: 25px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-left"
+                                 style="border:0px  solid black; width:7%; padding: 2px; margin-top: -1px;">
+                                <strong>
+                                    <p>Código</p>
+                                </strong>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px  solid black; padding: 2px; width:65%; margin-top: -1px;">
+                                <strong>
+                                    <p>Meio</p>
+                                </strong>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; border-left:0px; padding: 2px; margin-top: -1px; width:33%;">
+                                <strong>
+                                    <p>Disponivel</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div id="assi_linha" style="position:relative; top:-1px;">
+                            <div style="border:1px solid black; margin-top: -2px; border-top: 0px; width:100%;">
+                            </div>
+                        </div>
+                        <div style="width: 100%; margin-top:20px; border-top:0px">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td class="text-left">
+                                                <span t-esc="o['codigo']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['name']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['sald_sigu']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="assi_linha" style="position:relative; top:-1px;">
+                            <div style="border:1px solid black; margin-top: -2px; border-top: 0px; width:100%;">
+                            </div>
+                        </div>
+                        <div class="col col-2 offset-8 text-center">
+                            <td class="text-center">
+                                <strong><t t-esc="tot_despo"/></strong>
+                            </td>
+                        </div>
+                    </t>
+
+            </t>
+        </template>
+    </data>
+</odoo>

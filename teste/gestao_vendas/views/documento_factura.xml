@@ -1,0 +1,325 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_fat_client">
+            <field name="name">Fatura Cliente Form</field>
+            <field name="model">fatuclient.fatuclient</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fatura Cliente">
+                    <header>
+                        <button name="abrir" string="Abrir" type="object"
+                                attrs="{'invisible': [('control_estad_docum','!=', 'fechado')]}" icon="fa-unlock"
+                                class="btn-primary"/>
+                        <button name="fechar" string="Fechar" type="object"
+                                attrs="{'invisible': [('control_estad_docum','=', 'fechado')]}" icon="fa-lock"
+                                class="btn-primary"/>
+                        <button name="anular" string="Anular" type="object" icon="fa-remove" class="btn-primary"/>
+                        <button name="conta_corente" string="Cta.Cte."
+                                attrs="{'invisible': [('control_estad_docum','!=', 'aberto')]}" type="object"
+                                icon="fa-newspaper-o" class="btn-primary"/>
+                        <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                        <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                        <field name="control_estad_docum" widget="statusbar" clickable="True" options="{'fold_field': 'fold'}"/>
+                    </header>
+                    <sheet>
+                        <!--Campo de controlo-->
+                        <field name="state" invisible="1"/><!--Campo de controlo-->
+                        <div>
+                            <label for="title" string="Número Documento" style="font-weight: bold"/>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="nmuero" class="oe_inline" style="width:100px"/>
+                            </h1>
+                        </div>
+                        <div>
+                            <label for="title" string="Documento"/>
+                            <field name="tipo_docum_id" domain="[('fat_para','=','vendasFaturacao')]"
+                                   style="width:300px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Data" style="width:80px"/>
+                            <field name="dataf" style="width:260px"/>
+                        </div>
+                        <div>
+                            <field name="pago" invisible="1"/><!--Campo de controlo-->
+                            <field name="total_resumo" invisible="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" " style="width:80px"/>
+                        </div>
+                        <div>
+                            <label for="title"
+                                   string="_____Cliente_______________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Nome" style="width:70px"/>
+                            <field name="terceiro_id" domain="[('clientes','=',True)]" style="width:300px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Nif" style="width:80px"/>
+                            <field name="nif_pessoa"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Moeda" style="width:70px"/>
+                            <field name="moeda_id" style="width:300px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Forma" style="width:80px"/>
+                            <field name="tip_paga_id" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Armanzem" style="width:70px"/>
+                            <field name="armazem_id" style="width:300px"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Data Fatura" style="width:80px"/>
+                            <field name="date" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Endereço" style="width:70px"/>
+                            <field name="street2" style="width:300px"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" " style="width:80px"/>
+                        </div>
+                        <notebook name="studio_notebook_S8ebf">
+                            <page name="studio_page_9esJy" string="Detalhes">
+                                <group name="studio_group_F8TTh">
+                                    <group name="studio_group_F8TTh_left">
+                                        <div class="oe_inline">
+                                            <field name="fatura_linha_ids" widget="section_and_note_one2many"
+                                                   style="width:1070px">
+                                                <form string="Os campos">
+                                                    <field name="display_type" invisible="1"/>
+                                                    <notebook colspan="3" name="description">
+                                                        <page string="Description"
+                                                              attrs="{'invisible': [('display_type', '!=', False)]}">
+                                                            <field name="name1" style="width:170px"/>
+                                                        </page>
+                                                        <page string="Section"
+                                                              attrs="{'invisible': [('display_type', '!=', 'line_section')]}">
+                                                            <field name="name2" style="width:170px"/>
+                                                        </page>
+                                                        <page string="Note"
+                                                              attrs="{'invisible': [('display_type', '!=', 'line_note')]}">
+                                                            <field name="note" style="width:170px"/>
+                                                        </page>
+                                                    </notebook>
+                                                </form>
+                                                <tree string="Lista fatura"
+                                                      editable="bottom"> <!--create="false" edit="false" delete="false">-->
+                                                    <control>
+                                                        <create string="Add a line"/>
+                                                        <create string="Add a section"
+                                                                context="{'default_display_type': 'line_section'}"/>
+                                                        <create string="Add a note"
+                                                                context="{'default_display_type': 'line_note'}"/>
+                                                    </control>
+                                                    <field name="artigo_id"/>
+                                                    <field name="preco_unitario" sum="Preço Unitario"/>
+                                                    <field name="quantidade" sum="Quantidade"/>
+                                                    <field name="discount" sum="Desconto"/>
+                                                    <field name="iva"/>
+                                                    <field name="sub_total" sum="Sub-Total"/>
+                                                    <field name="display_type" invisible="1"/>
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </group>
+                                </group>
+                                <div name="studio_group_F8TTh_right">
+                                    <field name="aredondamento"/>
+                                    <label for="title" string="Aredondamento" style="width:70px"/>
+                                </div>
+                            </page>
+                            <page name="studio_page_9esJy" string="Observacoes">
+                                <group name="studio_group_F8TTh">
+                                    <group>
+                                        <field name="artigoob_id"/>
+                                        <field name="obs"/>
+                                    </group>
+                                    <group name="studio_group_F8TTh_left">
+                                        <field name="montante"/>
+                                        <field name="ivamo_id"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="studio_page_OE3jS" string="Contalbilidade">
+                                <div>
+                                    <label for="title" string="" style="color:white"/>
+                                </div>
+                                <div>
+                                    <field name="contabiliza"/>
+                                    <label for="title" string="Contabilizado"/>
+
+                                </div>
+                                <div>
+                                    <label for="title" string="Diario"/>
+                                    <label for="title" string="" style="color:white;width:40px"/>
+                                    <field name="diario" style="width:260px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Numero"/>
+                                    <label for="title" string="" style="color:white;width:30px"/>
+                                    <field name="numerofact" style="width:260px"/>
+                                    <label for="title" string="" style="color:white;width:40px"/>
+                                    <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="color:white"/>
+                                </div>
+                            </page>
+                        </notebook>
+                        <label for="title"
+                               string="____Resumo__________________________________________________________________________________________________________________________________________"/>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Desconto"/>
+                            <field name="desconto_resumo" nolabel="1" style="width:180px"/>
+                            <label for="title" string="" style="color:White;width:50px"/>
+                            <label for="title" string="IVA" nolabel="1"/>
+                            <field name="iva_resumo_di" nolabel="1" style="width:180px"/>
+                            <label for="title" string="" style="color:White;width:40px"/>
+                            <label for="title" string="Total" nolabel="1"/>
+                            <field name="total_resumo" nolabel="1" style="width:180px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- ncnnnnnnnnnn -->
+        <record id="form_all_fatclient_tree_view" model="ir.ui.view">
+            <field name="name">Fatuclient.tree.view</field>
+            <field name="model">fatuclient.fatuclient</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="pago == False" decoration-info="pago ==True" delete="false">
+                    <field name="terceiro_id"/>
+                    <field name="tipo_docum_id"/>
+                    <field name="dataf"/>
+                    <field name="montante"/>
+                    <field name="armazem_id"/>
+                    <field name="terceiro_id"/>
+                    <field name="moeda_id"/>
+                    <field name="street2"/>
+                    <field name="tip_paga_id"/>
+                    <field name="date"/>
+                    <field name="pago" invisible="1"/>
+                    <field name="utilizador_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_fatclient">
+            <field name="name">Fatura Cliente</field>
+            <field name="res_model">fatuclient.fatuclient</field>
+            <field name="view_mode">tree,form,activity</field>
+
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_fat','=','fatur_cliente')]</field>
+            <field name="context">{'default_type_fat': 'fatur_cliente', 'type_fat': 'fatur_cliente'}</field>
+
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova fatura de Cliente
+                </p>
+            </field>
+        </record>
+        <menuitem name=" Fatura Cliente" id="menu_fatclient_list" parent="gestao_vendas.menu_fat"
+                  action="action_window_fatclient"/>
+
+        <!--================= NOTA DEBITO =========================================-->
+        <record id="action_nota_debito_tree1" model="ir.actions.act_window">
+            <field name="name">Nota Debito</field>
+            <field name="res_model">fatuclient.fatuclient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[('type_fat','=','nota_debito')]</field>
+            <field name="context">{'default_type_fat': 'nota_debito', 'type_fat': 'nota_debito'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova Nota Debito
+                </p>
+            </field>
+        </record>
+        <record id="action_fatura_out_refund_tree1_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="form_all_fatclient_tree_view"/>
+            <field name="act_window_id" ref="action_nota_debito_tree1"/>
+            <field name="arch" type="xml">
+                <tree decoration-danger="pago == False" decoration-info="pago ==True">
+                    <field name="armazem_id"/>
+                    <field name="terceiro_id"/>
+                    <field name="moeda_id"/>
+                    <field name="street2"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_fatura_out_refund_tree1_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_all_fat_client"/>
+            <field name="act_window_id" ref="action_nota_debito_tree1"/>
+        </record>
+
+        <menuitem action="action_nota_debito_tree1" id="menu_action_fatura_out_refund" parent="gestao_vendas.menu_fat"
+                  sequence="1"/>
+
+        <!--================= NOTA CREDITO =========================================-->
+        <record id="action_invoice_out_refund" model="ir.actions.act_window">
+            <field name="name">Nota Credito</field>
+            <field name="res_model">fatuclient.fatuclient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('type_fat','=','nota_credito')]</field>
+            <field name="context">{'default_type_fat': 'nota_credito', 'type_fat': 'nota_credito'}</field>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registrar uma nova Nota Credito
+                </p>
+            </field>
+        </record>
+        <record id="action_Nota_out_cred1_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="form_all_fatclient_tree_view"/>
+            <field name="act_window_id" ref="action_invoice_out_refund"/>
+        </record>
+        <record id="action_Not_out_cred1_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_all_fat_client"/>
+            <field name="act_window_id" ref="action_invoice_out_refund"/>
+        </record>
+
+        <record id="sequ_desp_factur" model="ir.sequence">
+            <field name="name">Fatura Cliente</field>
+            <field name="code">fatuclient.fatuclient</field>
+            <field name="prefix">FC-%(range_year)s/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequ_despesas_factur_num" model="ir.sequence">
+            <field name="name">Fatura Cliente</field>
+            <field name="code">fatuclient.fatuclient.num</field>
+            <field name="prefix"></field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <menuitem action="action_invoice_out_refund" id="menu_action_nota_out_cred" parent="gestao_vendas.menu_fat"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>

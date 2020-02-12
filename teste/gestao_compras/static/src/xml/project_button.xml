@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-extend="ListView.buttons">
+                <t t-jquery="button.oe_list_add" t-operation="replace">
+                        <button t-if="widget.model == 'despesa.despesa'" class="oe_button oe_new_button oe_highlight"
+                                type="button">Создать новый проект</button>
+                        <button t-if="widget.model != 'despesa.despesa'" class="oe_button oe_list_add oe_highlight"
+                                type="button">AAAAA</button>
+                </t>
+    </t>
+</template>

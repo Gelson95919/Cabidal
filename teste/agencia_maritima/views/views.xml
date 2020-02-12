@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Agência Marítima" web_icon="agencia_maritima,static/description/icon.png"
+                  id="agencia_maritima.menu_root"/>
+
+        <menuitem name="Pequenas Encomendas/BL" id="pequenas_encomenda_menu" parent="agencia_maritima.menu_root"/>
+
+        <menuitem name="Entrada Navios" id="entrada_navios_menu" parent="agencia_maritima.menu_root"/>
+
+        <menuitem name="Longo Curso" id="longo_curso_menu" parent="agencia_maritima.menu_root"/>
+        <menuitem name="Manifesto" id="manifest_sub_menu" parent="longo_curso_menu"/>
+
+        <menuitem name="Navios-Cabotagem" id="navios_cabotagem_menu" parent="agencia_maritima.menu_root"/>
+
+        <menuitem name="Passagem Maritima" id="passagem_maritima_menu" parent="agencia_maritima.menu_root"/>
+
+        <menuitem name="Parâmetros" id="gestao_maritima_menu_param" parent="agencia_maritima.menu_root"/>
+
+
+    </data>
+</odoo>

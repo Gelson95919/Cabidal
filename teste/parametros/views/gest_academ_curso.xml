@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="curso_form" model="ir.ui.view">
+           <field name="name">Curso</field>
+           <field name="model">curso.curso</field>
+           <field name="arch" type="xml">
+               <form string="Curso">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Nome"/>
+                           <label for="title" string="_______"  style="color:White;"/>
+                           <field name="name" style="width:650px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="___________________________________"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor Matricula"/>
+                           <field name="valor_matricula" style="width:260px"/>
+                           <label for="title" string="____"  style="color:White;"/>
+                           <label for="title" string="Nº Prestações"/>
+                           <field name="prestacoes" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor Anual"/>
+                           <label for="title" string="___"  style="color:White;"/>
+                           <field name="valor_anual" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="curso_tree" model="ir.ui.view">
+           <field name="name">Curso</field>
+           <field name="model">curso.curso</field>
+           <field name="arch" type="xml">
+               <tree string="Curso">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="curso_act_window" model="ir.actions.act_window">
+           <field name="name">Curso</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">curso.curso</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Curso.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Curso) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="curso_menu" name="" parent="fastgest_gest_academica" action="curso_act_window" sequence="80"/>
+    </data>
+</odoo>

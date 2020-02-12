@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <menuitem id="inventarios.menu_root" name="Inventários" web_icon="gestao_vendas,static/description/icon.png"/>
+        <menuitem name="Conceitos de Inventário" id="inventarios.menu_inventario" parent="inventarios.menu_root"/>
+        <menuitem name="Relatorio" id="inventarios.menu_relatori" parent="inventarios.menu_root"/>
+        <menuitem name="Processo" id="inventarios.menu_processo" parent="inventarios.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_invent_menu_param" parent="inventarios.menu_root"/>
+
+    </data>
+</odoo>

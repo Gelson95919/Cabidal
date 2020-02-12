@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="aluno_form" model="ir.ui.view">
+           <field name="name">Aluno</field>
+           <field name="model">aluno.aluno</field>
+           <field name="arch" type="xml">
+               <form string="Aluno">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Nome"/>
+                           <field name="name" style="width:870px"/>
+                       </div>
+                       <notebook>
+                           <page string="Dados Gerais">
+                               <div>
+                                   <label for="title" string="_______________________________"  style="color:White;"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="NIF"/>
+                                   <label for="title" string="___"  style="color:White;"/>
+                                   <field name="nif" style="width:260px"/>
+                                   <label for="title" string="_______________________________"  style="color:White;"/>
+                                   <label for="title" string="E - mail"/>
+                                   <label for="title" string="_"  style="color:White;"/>
+                                   <field name="e_mail" style="width:320px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Idade"/>
+                                   <label for="title" string="_"  style="color:White;"/>
+                                   <field name="idade" style="width:260px"/>
+                                   <label for="title" string="_______________________________"  style="color:White;"/>
+                                   <label for="title" string="Morada"/>
+                                   <label for="title" string="_"  style="color:White;"/>
+                                   <field name="morada" style="width:320px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="BI"/>
+                                   <label for="title" string="____"  style="color:White;"/>
+                                   <field name="bi" style="width:260px"/>
+                                   <label for="title" string="_______________________________"  style="color:White;"/>
+                                   <label for="title" string="Concelho"/>
+                                   <field name="concelho" style="width:320px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="Sexo"/>
+                                   <label for="title" string="__"  style="color:White;"/>
+                                   <field name="sexo" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                               </div>
+                           </page>
+                           <page string="Conta Corente">
+                               <div>
+                                   <label for="title" string="_______________________________"  style="color:White;"/>
+                               </div>
+                               <field name="detalhes">
+                                  <tree  editable="bottom" string="Detalhes">
+                                      <field name="ano_lectivo"/>
+                                      <field name="ano"/>
+                                      <field name="tipo_matricula"/>
+                                  </tree>
+                               </field>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="aluno_tree" model="ir.ui.view">
+           <field name="name">Aluno</field>
+           <field name="model">aluno.aluno</field>
+           <field name="arch" type="xml">
+               <tree string="Aluno">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="aluno_act_window" model="ir.actions.act_window">
+           <field name="name">Aluno</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">aluno.aluno</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Aluno.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Aluno) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="aluno_menu" name="Aluno" parent="fastgest_gest_academica" action="aluno_act_window" sequence="80"/>
+    </data>
+</odoo>

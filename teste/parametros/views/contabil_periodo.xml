@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record id="form_all_ent_perio" model="ir.ui.view">
+            <field name="name">Periodo</field>
+            <field name="model">periodo.periodo</field>
+            <field name="arch" type="xml">
+                <form string="Periodo ">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="codigo"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="data_inicio"/>
+                                <field name="data_fim"/>
+                            </group>
+                            <group>
+                                <field name="fecho"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tree_all_ent_perio" model="ir.ui.view">
+            <field name="name">Periodo</field>
+            <field name="model">periodo.periodo</field>
+            <field name="arch" type="xml">
+                <tree string="Periodo">
+                    <field name="name"/>
+                    <field name="data_inicio"/>
+                    <field name="data_fim"/>
+                </tree>
+            </field>
+        </record>
+       <record id="seq_periodo" model="ir.sequence">
+            <field name="name">Periodo</field>
+            <field name="code">periodo.periodo</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_contab_perio">
+            <field name="name">Periodo</field>
+            <field name="res_model">periodo.periodo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Periodo.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Periodo) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Perido" id="parametros.menu_contab_perio" parent="fastgest_contabil"
+                  action="action_window_contab_perio"/>
+    </data>
+</odoo>

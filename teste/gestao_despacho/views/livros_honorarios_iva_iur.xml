@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="livro_honorario_iva_iur_form" model="ir.ui.view">
+           <field name="name">Livros Honorário/IVA/IUR</field>
+           <field name="model">livros.honorario.iva.iur</field>
+           <field name="arch" type="xml">
+               <form string="Livros Honorário/IVA/IUR">
+                   <sheet>
+                       <label for="title" string="LIVROS HONORÁRIOS/IVA/IUR" style="font-weight: bold; color:blue"/>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Ordenar Por" style="font-weight: bold; color:blue"/> </div>
+                       <div>
+                           <field name="ordenar_por" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Intervalo" style="width:180px; pxfont-weight: bold; color:blue"/>
+                           <label for="title" string="De" style="width:140px"/>
+                           <label for="title" string="Ate" style="width:100px"/>
+                       </div>
+                       <div>
+                           <field name="data"/>
+                           <label for="title" string="Data" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="data_de" style="width:100px" attrs="{'invisible': [('data', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="data_ate" style="width:100px" attrs="{'invisible': [('data', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="recibo"/>
+                           <label for="title" string="Recibo" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="fatura_defitiva_id_de" style="width:100px" attrs="{'invisible': [('recibo', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="fatura_defitiva_id_ate" style="width:100px" attrs="{'invisible': [('recibo', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="despacho"/>
+                           <label for="title" string="Despacho" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="despacho_id_de" style="width:100px" attrs="{'invisible': [('despacho', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="despacho_id_ate" style="width:100px" attrs="{'invisible': [('despacho', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="valor"/>
+                           <label for="title" string="Valor" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="valor_de" style="width:100px" attrs="{'invisible': [('valor', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="valor_ate" style="width:100px" attrs="{'invisible': [('valor', '!=', True)]}"/>
+                       </div>
+
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Filtrar" style="font-weight: bold; color:blue"/> </div>
+                       <div>
+                           <field name="por_importador"/>
+                           <label for="title" string="Por Importador"/>
+                       </div>
+                       <div>
+                           <label for="title" string="De" attrs="{'invisible': [('por_importador', '!=', True)]}"/>
+                           <field name="terceiro_id_de" style="width:500px" attrs="{'invisible': [('por_importador', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Ate" attrs="{'invisible': [('por_importador', '!=', True)]}"/>
+                          <field name="terceiro_id_ate" style="width:500px" attrs="{'invisible': [('por_importador', '!=', True)]}"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Pagamento" style="font-weight: bold; color:blue"/> </div>
+                       <div>
+                           <field name="so_recibo_com_pagamento"/>
+                           <label for="title" string="So recibo Com Pagamento"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data" />
+                           <field name="data_de_so" style="width:100"  attrs="{'invisible': [('so_recibo_com_pagamento', '!=', True)]}"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <field name="data_ate_so" style="width:100"  attrs="{'invisible': [('so_recibo_com_pagamento', '!=', True)]}"/>
+                       </div>
+                   </sheet>
+                   <header>
+                      <button name="aceitar" string="Aceitar" type="object" class="btn-primary" icon="fa-check-square-o"/>
+                      <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="livro_honorario_iva_iur_act_window" model="ir.actions.act_window">
+           <field name="name">Livros Honorário/IVA/IUR</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">livros.honorario.iva.iur</field>
+           <field name="view_id" ref="livro_honorario_iva_iur_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="livro_honorario_iva_iur_meno" name="Livros Honorário/IVA/IUR" parent="relatorio_menu" action="livro_honorario_iva_iur_act_window" sequence="80"/>
+
+    </data>
+</odoo>

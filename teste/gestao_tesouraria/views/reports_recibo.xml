@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_recibo_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="rep_recibo"
+                model="tesouraria.recebimento"
+                string="Recibo"
+                name="gestao_tesouraria.rep_recibo_view"
+                file="gestao_tesouraria.pagamento_recebimento_form"
+                paperformat="paperformat_recibo_report"
+                report_type="qweb-pdf"
+                menu="True"/>
+
+        <template id="rep_recibo_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <strong>
+                                <h3>CLIENTE</h3>
+                            </strong>
+                        </div>
+                        <div style="border:1px solid black; text-left; margin-left: -1px; height: 250px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-shadow:3px 3px 5px black;-webkit-box-orient: vertical;
+                                                                         -moz-box-shadow:3px 3px 5px black; -moz-box; -moz-box-orient: vertical; -webkit-border-radius: 5px;
+                                                                          display: -moz-box; ">
+
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Nome:
+                                        <span t-esc="o.nome_cliente"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Morada:
+                                        <span t-esc="o.street_cliente"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Telf:
+                                        <span t-esc="o.telemovel"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Fax:
+                                        <span t-esc="o.telefone_fixo"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        NIF:
+                                        <span t-esc="o.nif"/>
+                                    </p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <strong>
+                                <h3>RECIBO Nº
+                                    <span t-esc="o.n_recibo"/>
+                                </h3>
+                            </strong>
+                        </div>
+                        <!--<div style="border:1px solid black; text-center; margin-left: -1px; height: 43px; margin-top:2px;  width:200px; display: -webkit-box;
+                                                                     -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                     -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <p>X</p>
+                            </strong>
+                        </div>-->
+                        <div style="border:0px solid black; padding: 2px; width:100%; margin-top: -1px; margin-left: -1px;
+                                             -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal;
+                                              display: -moz-box; -moz-box-orient: horizontal;  height: 25px;">
+                            <div style="border:0px solid black; margin-left: -1px; padding: 1px; width:200px; height: 20px;">
+                                <p>
+                                    Data
+                                </p>
+                            </div>
+                            <div style="border:0px solid black; padding: 1px; width:250px; margin-left: 20px; height: 20px;">
+                                <p>
+                                    Forma de Recebimento
+                                </p>
+                            </div>
+                            <div style="border:0px solid black; padding: 1px; width:350px; margin-left: 20px; height: 20px;">
+                                <p>
+                                    Referência
+
+                                </p>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; padding: 2px; width:100%; margin-top: -1px; margin-left: -1px;
+                                             -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal;
+                                              display: -moz-box; -moz-box-orient: horizontal;  height: 25px;">
+                            <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:200px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                                <p>
+                                    <t t-if="o.dados_antigo == True">
+                                        <span t-esc="o.dfecpag"/>
+                                    </t>
+                                    <t t-if="o.dados_antigo == False">
+                                        <span t-esc="o.date"/>
+                                    </t>
+                                </p>
+                            </div>
+                            <div style="border:1px solid black; padding: 1px; width:250px; margin-left: 20px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+
+                                <t t-if="o.tipo_pagamento_receb == '1'">
+                                    <p>Dinheiro</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '2'">
+                                    <p>Cheque</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '3'">
+                                    <p>Transferência</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '4'">
+                                    <p>Deposito</p>
+                                </t>
+                            </div>
+                            <div style="border:1px solid black; padding: 1px; width:365px; margin-left: 20px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <p>
+                                    <span t-esc="o.n_cheque"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 22px; width:100%; margin-left: -1px; height: 25px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; padding: 2px; margin-top: -1px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>Descrição</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px solid black; border-left:0px; padding: 2px; margin-top: -1px; width:250px; -webkit-box-flex: 0; -1px;">
+                                <strong>
+                                    <p>Total</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; margin:5px;  width:700px; height: 35px; margin-top: 2px;">
+                            <strong>
+                                <p class="text-left">
+                                    <span t-esc="o.detalhes"/>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <t t-foreach="o.reg_docum_ids_receb" t-as="r">
+                                        <tr>
+                                            <td class="text-left">
+                                                <span t-esc="r.cod_documento"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="r.valorreceb"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="border:1px solid black; border-top:0px; text-right; margin-left: -1px; height: 1px; margin-top:100px;  width:100%;">
+
+                        </div>
+                        <div style="border:0px solid black; margin:5px; margin-left: 1105px; width:50px; display: -webkit-box;  display: -moz-box; -webkit-box-pack: left; -moz-box-pack: left;">
+                            <strong>
+                                <p>TOTAL</p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; margin:20px; margin-left: 1160px;  width:80px; height: 30px; margin-top: -35px;">
+                            <strong>
+                                <p class="text-right">
+                                    <span t-esc="o.vervalor_total_receb"/>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:1px solid black; border-top:0px; text-right; margin-left: -1px; height: 1px; margin-top:100px;  width:100%;">
+
+                        </div>
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <strong>
+                                <h3>CLIENTE</h3>
+                            </strong>
+                        </div>
+                        <div style="border:1px solid black; text-left; margin-left: -1px; height: 250px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-shadow:3px 3px 5px black;-webkit-box-orient: vertical;
+                                                                         -moz-box-shadow:3px 3px 5px black; -moz-box; -moz-box-orient: vertical; -webkit-border-radius: 5px;
+                                                                          display: -moz-box; ">
+
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Nome:
+                                        <span t-esc="o.nome_cliente"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Morada:
+                                        <span t-esc="o.street_cliente"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Telf:
+                                        <span t-esc="o.telemovel"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        Fax:
+                                        <span t-esc="o.telefone_fixo"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <div style="border:0px solid black; text-left; padding: 8px; margin-top: -1px; margin-left: -1px; width:200px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>
+                                        NIF:
+                                        <span t-esc="o.nif"/>
+                                    </p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; text-left; margin-left: -1px; height: 43px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                            <strong>
+                                <h3>RECIBO Nº
+                                    <span t-esc="o.n_recibo"/>
+                                </h3>
+                            </strong>
+                        </div>
+                        <!--<div style="border:1px solid black; text-center; margin-left: -1px; height: 43px; margin-top:2px;  width:200px; display: -webkit-box;
+                                                                     -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                     -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <p>X</p>
+                            </strong>
+                        </div>-->
+                        <div style="border:0px solid black; padding: 2px; width:100%; margin-top: -1px; margin-left: -1px;
+                                             -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal;
+                                              display: -moz-box; -moz-box-orient: horizontal;  height: 25px;">
+                            <div style="border:0px solid black; margin-left: -1px; padding: 1px; width:200px; height: 20px;">
+                                <p>
+                                    Data
+                                </p>
+                            </div>
+                            <div style="border:0px solid black; padding: 1px; width:250px; margin-left: 20px; height: 20px;">
+                                <p>
+                                    Forma de pagamento
+                                </p>
+                            </div>
+                            <div style="border:0px solid black; padding: 1px; width:350px; margin-left: 20px; height: 20px;">
+                                <p>
+                                    Referência
+
+                                </p>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; padding: 2px; width:100%; margin-top: -1px; margin-left: -1px;
+                                             -webkit-box-flex: 0; display: -webkit-box; -webkit-box-orient: horizontal;
+                                              display: -moz-box; -moz-box-orient: horizontal;  height: 25px;">
+                            <div style="border:1px solid black; margin-left: -1px; padding: 1px; width:200px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                                <p>
+                                    <span t-esc="o.dfecpag"/>
+                                </p>
+                            </div>
+                            <div style="border:1px solid black; padding: 1px; width:250px; margin-left: 20px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                                 <t t-if="o.tipo_pagamento_receb == '1'">
+                                    <p>Dinheiro</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '2'">
+                                    <p>Cheque</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '3'">
+                                    <p>Transferência</p>
+                                </t>
+                                <t t-if="o.tipo_pagamento_receb == '4'">
+                                    <p>Deposito</p>
+                                </t>
+                            </div>
+                            <div style="border:1px solid black; padding: 1px; width:365px; margin-left: 20px; height: 40px;  display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left; -webkit-border-radius: 5px  5px 5px  5px; padding: 8px;
+                                                                         -moz-border-radius: 5px  5px 5px  5px; display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: left;">
+                                <p>
+                                    <span t-esc="o.n_cheque"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black;  margin-top: 22px; width:100%; margin-left: -1px; height: 25px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border:1px  solid black; padding: 2px; margin-top: -1px; -webkit-box-flex: 1;">
+                                <strong>
+                                    <p>Descrição</p>
+                                </strong>
+                            </div>
+                            <div class="text-center"
+                                 style="border:1px solid black; border-left:0px; padding: 2px; margin-top: -1px; width:250px; -webkit-box-flex: 0; -1px;">
+                                <strong>
+                                    <p>Total</p>
+                                </strong>
+                            </div>
+                        </div>
+                        <div style="border:0px solid black; margin:5px;  width:700px; height: 35px; margin-top: 2px;">
+                            <strong>
+                                <p class="text-left">
+                                    <span t-esc="o.detalhes"/>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <t t-foreach="o.reg_docum_ids_receb" t-as="r">
+                                        <tr>
+                                            <td class="text-left">
+                                                <span t-esc="r.cod_documento"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="r.valorreceb"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="border:1px solid black; border-top:0px; text-right; margin-left: -1px; height: 1px; margin-top:100px;  width:100%;">
+
+                        </div>
+                        <div style="border:0px solid black; margin:5px; margin-left: 1105px; width:50px; display: -webkit-box;  display: -moz-box; -webkit-box-pack: left; -moz-box-pack: left;">
+                            <strong>
+                                <p>TOTAL</p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; margin:20px; margin-left: 1160px;  width:80px; height: 30px; margin-top: -35px;">
+                            <strong>
+                                <p class="text-right">
+                                    <span t-esc="o.vervalor_total_receb"/>
+                                </p>
+                            </strong>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

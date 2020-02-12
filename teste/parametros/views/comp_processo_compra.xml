@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="form_all_proc_com" model="ir.ui.view">
+           <field name="name">Processo</field>
+           <field name="model">processo.processo</field>
+           <field name="arch" type="xml">
+              <form string="Processo Compras">
+                 <sheet>
+                     <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="fecho"/>
+                        </group>
+                     </group>
+                     <group>
+                       <group>
+                       </group>
+                       <group>
+                       </group>
+                     </group>
+                 </sheet>
+              </form>
+           </field>
+        </record>
+        <record model="ir.actions.act_window" id="fastgest_action_window_proc_com">
+          <field name="name">Processo Compra</field>
+          <field name="res_model">processo.processo</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Processo Compra.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Processo Compra) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name="Processo Compra" id="parametros.menu_proc_comp" parent="fastgest_comp" action="fastgest_action_window_proc_com"/>
+    </data>
+</odoo>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="reparticao_financa_form" model="ir.ui.view">
+            <field name="name">Repartição Finanças</field>
+            <field name="model">reparticao.financa</field>
+            <field name="arch" type="xml">
+                <form string="Repartição Finanças">
+                    <sheet>
+                        <div><label for="title" string="" style="width:20px"/> </div>
+                        <div>
+                            <label for="title" string="Codigo"/>
+                            <field name="codigo" style="width:100px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Nome"/>
+                            <field name="name" style="width:400px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="reparticao_financa_tree" model="ir.ui.view">
+            <field name="name">Repartição Finanças</field>
+            <field name="model">reparticao.financa</field>
+            <field name="arch" type="xml">
+                <tree string="Repartição Finanças">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+          <record id="repart_codigo" model="ir.sequence">
+            <field name="name">Reposição Finanças</field>
+            <field name="code">reparticao.financas.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="reparticao1" model="reparticao.financa">
+            <field name="name">Paul</field>
+            <field name="codigo">112</field>
+        </record>
+        <record id="reparticao2" model="reparticao.financa">
+            <field name="name">Porto Novo</field>
+            <field name="codigo">113</field>
+        </record>
+        <record id="reparticao3" model="reparticao.financa">
+            <field name="name">Ribeira Grande</field>
+            <field name="codigo">114</field>
+        </record>
+        <record id="reparticao4" model="reparticao.financa">
+            <field name="name">Boa Vista</field>
+            <field name="codigo">121</field>
+        </record>
+        <record id="reparticao5" model="reparticao.financa">
+            <field name="name">Sal</field>
+            <field name="codigo">135</field>
+        </record>
+        <record id="reparticao6" model="reparticao.financa">
+            <field name="name">São Niculau</field>
+            <field name="codigo">146</field>
+        </record>
+        <record id="reparticao7" model="reparticao.financa">
+            <field name="name">São Vicente</field>
+            <field name="codigo">157</field>
+        </record>
+        <record id="reparticao8" model="reparticao.financa">
+            <field name="name">Brava</field>
+            <field name="codigo">210</field>
+        </record>
+        <record id="reparticao9" model="reparticao.financa">
+            <field name="name">Maio</field>
+            <field name="codigo">211</field>
+        </record>
+        <record id="reparticao10" model="reparticao.financa">
+            <field name="name">Praia</field>
+            <field name="codigo">223</field>
+        </record>
+        <record id="reparticao11" model="reparticao.financa">
+            <field name="name">Santa Catarina</field>
+            <field name="codigo">224</field>
+        </record>
+        <record id="reparticao12" model="reparticao.financa">
+            <field name="name">Santa Cruz</field>
+            <field name="codigo">225</field>
+        </record>
+        <record id="reparticao13" model="reparticao.financa">
+            <field name="name">Tarafal</field>
+            <field name="codigo">226</field>
+        </record>
+        <record id="reparticao14" model="reparticao.financa">
+            <field name="name">São Filipe</field>
+            <field name="codigo">232</field>
+        </record>
+        <record id="reparticao15" model="reparticao.financa">
+            <field name="name">Mosteiros</field>
+            <field name="codigo">233</field>
+        </record>
+        <record id="reparticao_financa_act_window" model="ir.actions.act_window">
+            <field name="name">Repartição Finanças</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reparticao.financa</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Criar um novo Repartição Finanças.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Repartição Finanças) para projetos internos, pessoais ou de clientes.
+             </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="reparticao_financa_menu" name="Repartição Finanças" parent="fastgest_gestao" action="reparticao_financa_act_window" sequence="80"/>
+    </data>
+</odoo>

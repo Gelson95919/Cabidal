@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="fundos_form" model="ir.ui.view">
+            <field name="name">Financiamento</field>
+            <field name="model">fundos.fundos</field>
+            <field name="arch" type="xml">
+                <form string="Financiamento">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Código"  style="width:130px"/>
+
+                            <field name="codigo" style="width:150px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="_______" style="color:White;"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <label for="title" string="_______" style="color:White;"/>
+                            <field name="name" style="width:950px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Meio Monetario"/>
+                            <label for="title" string="__" style="color:White;"/>
+                            <field name="meio_monetario" style="width:950px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="__________________________________________________"
+                                   style="color:White;"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Codigo Serviço"/>
+                            <label for="title" string="__" style="color:White;"/>
+                            <field name="codigo_servico" style="width:260px"/>
+                            <label for="title" string="______________________________________________"
+                                   style="color:White;"/>
+                            <label for="title" string="Centro Custo"/>
+                            <field name="centro_custo" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="__________________________________________________"
+                                   style="color:White;"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Modelo"/>
+                            <label for="title" string="_________" style="color:White;"/>
+                            <field name="modelo" style="width:950px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Modelo Confessão"/>
+                            <field name="modelo_confecao" style="width:950px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="fundos_tree" model="ir.ui.view">
+            <field name="name">Financiamento</field>
+            <field name="model">fundos.fundos</field>
+            <field name="arch" type="xml">
+                <tree string="Financiamento">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_financiamento_codigo" model="ir.sequence">
+            <field name="name">Financiamento</field>
+            <field name="code">fundos.fundos</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="fundos_act_window" model="ir.actions.act_window">
+            <field name="name">Financiamento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fundos.fundos</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Financiamento.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Financiamento) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="fundos_menu" name="Financiamento" parent="fastgest_gest_microcred_Gestao"
+                  action="fundos_act_window" sequence="80"/>
+    </data>
+</odoo>

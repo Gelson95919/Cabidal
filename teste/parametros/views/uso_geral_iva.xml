@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_iva_form">
+          <field name="name">Iva</field>
+          <field name="model">iva.iva</field>
+          <field name="arch" type="xml">
+              <form string="IVA ">
+                 <sheet>
+                     <div><label for="title" string="" style="width:6px"/></div>
+                     <div>
+                         <label for="title" string="Descrição"/>
+                         <field name="name" style="width:500px"/>
+                     </div>
+                     <div>
+                         <label for="title" string="Taxa" style="width:60px"/>
+                         <field name="taxa" style="width:260px"/>
+                         <label for="title" string="" style="width:6px"/>
+                         <label for="title" string="%" />
+                     </div>
+                 </sheet>
+              </form>
+          </field>
+        </record>
+        <record id="iva_tree_view" model="ir.ui.view">
+            <field name="name">IVA</field>
+            <field name="model">iva.iva</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <field name="taxa"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acta_codigo" model="ir.sequence">
+            <field name="name">IVA</field>
+            <field name="code">iva.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="iva1" model="iva.iva">
+            <field name="name">ZERO</field>
+            <field name="taxa">0</field>
+        </record>
+        <record id="iva2" model="iva.iva">
+            <field name="name">QUINZE</field>
+            <field name="taxa">15</field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_iva">
+          <field name="name">IVA </field>
+          <field name="res_model">iva.iva</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo iva.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de iva) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name=" Tabela IVA" id="parametros.menu_iva_list" parent="parametros.menu_Uso_Geral" action="parametros.action_window_iva"/>
+    </data>
+</odoo>

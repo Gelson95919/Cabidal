@@ -1,0 +1,18 @@
+.DemoClass
+{
+    width: 85%;
+    position: absolute;
+    height: 20%;
+    background-color:Blue;
+    left:auto;
+    right:auto;
+    border: 3px solid #73AD21;
+    top: 350px;
+}
+
+.TextDemoClass
+{
+    font-size:30px;
+    color:white;
+    text-align:center;
+}

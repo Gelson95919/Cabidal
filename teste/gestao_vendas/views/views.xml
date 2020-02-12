@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+
+                        <!-- Top menu item -->
+
+    <menuitem name="Gestão Vendas" web_icon="gestao_vendas,static/description/icon.png" id="gestao_vendas.menu_root"/>
+
+    <menuitem name="Faturas" id="gestao_vendas.menu_fat" parent="gestao_vendas.menu_root"/>
+
+    <menuitem name="Movimentos de Vendas" id="gestao_vendas.menu_vendas" parent="gestao_vendas.menu_root"/>
+
+    <menuitem name="Parâmetros" id="gestao_vendas_menu_param" parent="gestao_vendas.menu_root"/>
+                          <!-- actions -->
+
+
+
+
+  </data>
+</odoo>

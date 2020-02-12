@@ -1,0 +1,81 @@
+<odoo>
+  <data><!--gestao_restaurante.gestao_restaurant_menu_param OU parametros.menu_3 Nos Parentes de MENUS-->
+
+
+                     <!-- Top menu item -->
+    <menuitem name="Parâmetros" id="parametros.menu_root"/>
+
+    <!--<menuitem name="Parâmetros" id="parametros.menu_1" web_icon="parametros,static/description/icon.png" parent="parametros.menu_root"/>-->
+
+   <!--====================== MENU OUTRAS TABELAS   =================-->
+                          <!--Titulo suprior-->
+    <menuitem name=" Parâmetros " id="parametros.menu_2" parent="parametros.menu_root"/>
+
+                      <!-- MENU TABELA DE USO GERAL -->
+
+    <menuitem name="Tabela de Uso Geral" id="parametros.menu_Uso_Geral" parent="parametros.menu_2"/>
+
+
+    <menuitem name="Tabelas Por Modulos" id="parametros.menu_3" parent="parametros.menu_2"/>
+
+    <!--=======================MENU TABELA COMPRAS ======================-->
+                               <!--Compras-->
+    <menuitem name="Compras e Contas a Pagar" id="fastgest_comp"  parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA VENDAS   ======================-->
+                              <!--Titulo-->
+    <menuitem name="Vendas Contas a Receber" id="fastgest_vend" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA TESOURARIA   =======================-->
+    <menuitem name="Tesouraria" id="fastgest_tesoura" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA CONTABILIDADE  =======================-->
+    <menuitem name="Contabilidade" id="fastgest_contabil" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA Gestão  =======================-->
+    <menuitem name="Gestão" id="fastgest_gestao" parent="parametros.menu_3"/>
+
+
+    <!--=======================MENU TABELA INVENTARIO  =======================-->
+    <menuitem name="Inventários" id="fastgest_imveta" parent="parametros.menu_3"/><!--inventarios.gestao_invent_menu_param-->
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="fastgest_remuneracoe" name="Remunerações" parent="parametros.menu_3"/>
+    <menuitem id="fastgest_remuneracoe_instetuicao" name="Instituições" parent="fastgest_remuneracoe"/>
+    <menuitem id="fastgest_remuneracoe_dados_processo" name="Dados de Processamento" parent="fastgest_remuneracoe"/>
+    <menuitem id="fastgest_remuneracoe_dados_funcionario" name="Dados de Funcionarios" parent="fastgest_remuneracoe"/>
+    <menuitem id="fastgest_remuneracoe_outras_tabelas" name="Outras Tabelas" parent="fastgest_remuneracoe"/>
+
+    <!--=======================MENU TABELA INVESTIMENTOS =======================-->
+    <menuitem name="Investimentos" id="fastgest_invetimento" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA AGENCIA MARITIMA  =======================-->
+    <menuitem name="Agencia Maritima" id="fastgest_age_maritima" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA SOCIOS  =======================-->
+    <menuitem name="Gestão Sócios" id="fastgest_gest_socios" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA Acadêmica  =======================-->
+    <menuitem name="Gestão Acadêmica" id="fastgest_gest_academica" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA Gestão Microcredito  =======================-->
+    <menuitem name="Gestão Microcredito" id="fastgest_gest_microcred" parent="parametros.menu_3"/>
+    <menuitem name="Tabelas" id="fastgest_gest_microcred_tabelas" parent="fastgest_gest_microcred"/>
+    <menuitem name="Gestão" id="fastgest_gest_microcred_Gestao" parent="fastgest_gest_microcred"/>
+
+    <!--=======================MENU TABELA DESPACHANTE / SYDONIA =======================-->
+    <menuitem name="Despachante / Sydonia" id="fastgest_despachante" parent="parametros.menu_3"/>
+    <menuitem name="Agência" id="fastgest_despachante_agencia" parent="fastgest_despachante"/>
+
+    <!--=======================MENU TABELA GESTAO HOTE =======================-->
+    <menuitem name="Gestão Hotel" id="fastgest_hotel" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA RESTAURANTE =======================-->
+    <menuitem name="Gestão Restaurante" id="fastgest_restaurante" parent="parametros.menu_3"/>
+
+    <!--=======================MENU TABELA Outros =======================-->
+    <menuitem name="Outros" id="menu_outros" parent="parametros.menu_root"/>
+    <!--=======================MENU TABELA Configuracao =======================-->
+    <menuitem name="Configuração" id="menu_config" parent="parametros.menu_3"/>
+  </data>
+</odoo>

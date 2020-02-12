@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="spc.list">
+      <field name="name">spc list</field>
+      <field name="model">spc.spc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="spc.action_window">
+      <field name="name">spc window</field>
+      <field name="res_model">spc.spc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="spc.action_server">
+      <field name="name">spc server</field>
+      <field name="model_id" ref="model_spc_spc"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="spc" id="spc.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="spc.menu_1" parent="spc.menu_root"/>
+    <menuitem name="Menu 2" id="spc.menu_2" parent="spc.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="spc.menu_1_list" parent="spc.menu_1"
+              action="spc.action_window"/>
+    <menuitem name="Server to list" id="spc" parent="spc.menu_2"
+              action="spc.action_server"/>
+    -->
+  </data>
+</odoo>

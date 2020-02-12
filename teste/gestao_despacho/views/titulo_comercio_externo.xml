@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="titulo_comercio_externo_form" model="ir.ui.view">
+           <field name="name">Titulo do Comercio Externo</field>
+           <field name="model">titulo.comercio.externo</field>
+           <field name="arch" type="xml">
+               <form string="Titulo do Comercio Externo">
+                   <sheet>
+                       <div><label for="title" string="DIRECÇÃO-GERAL DO COMÉRCIO"/></div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                          <label for="title" string="" style="width:450px"/>
+                          <label for="title" string="TÍTULO DE COMERCIO EXTERNO-TCE" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="REQUERENTE" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nome" style="width:60px"/>
+                          <field name="nome" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Endereço"/>
+                          <field name="endereco" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Ramo de actividade"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="ramo_de_actividade" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Alvará Nº" style="width:60px"/>
+                          <field name="alvara" style="width:260px"/>
+                          <label for="title" string="" style="width:65px"/>
+                          <label for="title" string="NIF"/>
+                          <field name="nif" style="width:250px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Telefone" style="width:60px"/>
+                          <field name="telefone" style="width:260px"/>
+                          <label for="title" string="" style="width:65px"/>
+                          <label for="title" string="Fax"/>
+                          <field name="fax" style="width:250px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="E-mail" style="width:60px"/>
+                          <field name="e_mail" style="width:605px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="DESIGNAÇÃO DA OPERAÇÃO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string="" style="width:200px"/><field name="designacao_operacao" style="width:670px"/></div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="NATUREZA DOTITULO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="registro_previo"/>
+                          <label for="title" string="Registro Prévio"/>
+                          <label for="title" string="" style="width:275px"/>
+                          <field name="autorizacao_previa" />
+                          <label for="title" string="Autorização Prévia"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="EXPEDIDOR/DESTINATÁRIO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nome" style="width:60px"/>
+                          <field name="nome_exp" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Endereço"/>
+                          <field name="endereco_exp" style="width:600px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Pais de Origem/procedência" style="width:205px"/>
+                          <label for="title" string="Pais de destino" style="width:170px"/>
+                          <label for="title" string="Banco/Agência de liquidação Cambial"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="pais_origem" style="width:200px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <field name="pais_destino" style="width:160px"/>
+                          <label for="title" string="" style="width:10px"/>
+                          <field name="banco_agencia" style="width:280px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Tipo contrato" style="width:205px"/>
+                          <label for="title" string="Moeda dcontrato" style="width:170px"/>
+                          <label for="title" string="Modalidade Pagamento"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="tipo_contrato" style="width:200px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <field name="moeda_contrato" style="width:160px"/>
+                          <label for="title" string="" style="width:10px"/>
+                          <field name="modelidade_pagamento" style="width:280px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Despachante" style="width:380px"/>
+                          <label for="title" string="Estância Aduaneira" style="width:170px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="despachante" style="width:370px"/>
+                          <label for="title" string="" style="width:10px"/>
+                          <field name="estancia_aduaneir" style="width:280px"/>
+                      </div>
+                      <div><label for="title" string="" style="width:810px"/><button name="artigo" string="Artigo" type="object"  class="btn-primary"/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="EXPEDIDOR/DESTINATÁRIO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <label for="title" string="-Com dipendência de cambio" style="width:220px"/>
+                          <field name="com_dependencia_cambio"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <label for="title" string="-Sem dipendência de cambio" style="width:220px"/>
+                          <field name="sem_dependencia_cambio"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <label for="title" string="-Só Para despacho" style="width:220px"/>
+                          <field name="so_para_despacho"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <label for="title" string="-Só Para pagamento" style="width:220px"/>
+                          <field name="so_para_pagamento"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <label for="title" string="-Para despacho e pagamento" style="width:220px"/>
+                          <field name="so_para_despacho_pagamento"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Declaro que assumo a responsabilidade das declarações prestadas"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Data"/>
+                          <field name="dadta" style="width:100px"/>
+                      </div>
+                       <div><label for="title" string="" style="width:100px"/></div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:450px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="titulo_comercio_externo_act_window" model="ir.actions.act_window">
+           <field name="name">Titulo do Comercio Externo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">titulo.comercio.externo</field>
+           <field name="view_id" ref="titulo_comercio_externo_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="titulo_comercio_externo_menu" name="TCE-Titulo do Comercio Externo" parent="impressos_menu" action="titulo_comercio_externo_act_window" sequence="80"/>
+    </data>
+</odoo>

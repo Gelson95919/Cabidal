@@ -1,0 +1,35 @@
+<odoo>
+   <data>
+       <record id="form_all_famil" model="ir.ui.view">
+           <field name="name">Familia </field>
+           <field name="model">familia.familia</field>
+           <field name="arch" type="xml">
+              <form string="Familia">
+                 <sheet>
+                   <group>
+                     <group>
+                         <field name="name" style="width:250px"/>
+                     </group>
+                     <group>
+                        <!--<field name="date_release" style="width:150px"/>-->
+                     </group>
+                   </group>
+                 </sheet>
+              </form>
+           </field>
+       </record>
+       <record model="ir.actions.act_window" id="parametros.action_window_famil">
+         <field name="name"> Familia </field>
+         <field name="res_model">familia.familia</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Criar um novo Familia.
+            </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Familia) para projetos internos, pessoais ou de clientes.
+            </p>
+         </field>
+       </record>
+       <menuitem name="Familia" id="parametros.menu_famil" parent="fastgest_imveta" action="parametros.action_window_famil"/>
+   </data>
+</odoo>

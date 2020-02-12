@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record id="form_all_ent_diario" model="ir.ui.view">
+           <field name="name">Diários</field>
+           <field name="model">diario.diario</field>
+           <field name="arch" type="xml">
+               <form string="Diários ">
+                  <sheet>
+                      <group>
+                          <group>
+                             <field name="name"/>
+                          </group>
+                          <group>
+                              <field name="codigo"/>
+                          </group>
+                      </group>
+                      <group>
+                         <group>
+                            <field name="ttype"/>
+                            <field name="anual_mensal"/>
+                         </group>
+                         <group>
+                            <field name="numero_documento_inicial"/>
+                            <field name="conta"/>
+                         </group>
+                      </group>
+                  </sheet>
+               </form>
+           </field>
+        </record>
+        <record id="diario_tree" model="ir.ui.view">
+            <field name="name">actions</field>
+            <field name="model">diario.diario</field>
+            <field name="arch" type="xml">
+                <tree string="Diario">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_diar" model="ir.sequence">
+            <field name="name">Diario</field>
+            <field name="code">cod.diario</field>
+            <field name="padding">2</field>
+            <field name="prefix"></field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_diario">
+          <field name="name">Diários</field>
+          <field name="res_model">diario.diario</field>
+          <field name="view_mode">tree,form</field>
+          <!--<field name="view_id" ref="form_all_ent_diario"/>-->
+          <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                   Criar um novo Diários.
+               </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Diários) para projetos internos, pessoais ou de clientes.
+               </p>
+          </field>
+        </record>
+        <menuitem name="Diários" id="parametros.menu_ent_diario" parent="fastgest_contabil" action="action_window_diario"/>
+    </data>
+</odoo>

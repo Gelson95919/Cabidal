@@ -1,0 +1,160 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_moeda">
+            <field name="name">Moeda</field>
+            <field name="model">moeda.moeda</field>
+            <field name="arch" type="xml">
+                <form string="Moeda">
+                    <sheet>
+                        <div>
+                            <label for="title" string="Código" style="width:80px"/>
+                            <field name="codigo" readonly="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Descrição" style="width:80px"/>
+                            <field name="name" style="width:600px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <notebook name="studio_notebook_S8ebf">
+                            <page name="studio_page_9esJy" string="Dados">
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <label for="title"
+                                           string="Apresentação____________________________________________________________________________________________________________________________________________"
+                                           style="font-weight: bold; color:Blue"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Símbolo"/>
+                                    <field name="simbolo" style="width:150px"/>
+                                    <label for="title" string="" style="color:White;width:230px"/>
+                                    <label for="title" string="Abreviatura"/>
+                                    <field name="abreviatura" style="width:150px"/>
+                                    <label for="title" string="" style="color:White;width:5px"/>
+                                    <field name="moeda_base"/>
+                                    <label for="title" string="Moeda Base"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <label for="title"
+                                           string="Arredondamento_________________________________________________________________________________________________________________________________________"
+                                           style="font-weight: bold; color:Blue"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div class="oe_title">
+                                    <field name="aredondamento" widget="radio" class="oe_edit_only"
+                                           options="{'vertical': true}"/>
+                                    <label for="title" string="" style="color:White;width:280px"/>
+                                    <label for="title" string="Tipo"/>
+                                    <field name="tipo" widget="radio"/>
+                                </div>
+                                <div>
+                                    <label for="title"
+                                           string="Descrição para o externo__________________________________________________________________________________________________________________________________"
+                                           style="font-weight: bold; color:Blue"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Inteiro"/>
+                                    <field name="inteiro" style="width:150px"/>
+                                    <label for="title" string="" style="color:White;width:230px"/>
+                                    <label for="title" string="Decimal"/>
+                                    <field name="decimal" style="width:150px"/>
+                                </div>
+                            </page>
+                            <page name="studio_page_OE3jS" string="Câmbio">
+                                <div>
+                                    <label for="title" string="Cambio Fixo"/>
+                                    <field name="cambio_fixo"/>
+                                </div>
+                                <div class="oe_inline">
+                                    <field name="cambio">
+                                        <tree editable="bottom" string="Cambio">
+                                            <field name="data"/>
+                                            <field name="montante"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="moeda_tree" model="ir.ui.view">
+            <field name="name">Moeda</field>
+            <field name="model">moeda.moeda</field>
+            <field name="arch" type="xml">
+                <tree string="Moeda">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="moeda_codigo" model="ir.sequence">
+            <field name="name">Moeda</field>
+            <field name="code">moeda.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="moeda1" model="moeda.moeda">
+            <field name="name">ESCUDO CABUVERDIANO</field>
+            <field name="simbolo">ECV</field>
+            <field name="abreviatura">ECV</field>
+            <field name="moeda_base">1</field>
+            <field name="aredondamento">6</field>
+            <field name="tipo">1</field>
+            <field name="inteiro"></field>
+            <field name="decimal"></field>
+        </record>
+        <record id="moeda2" model="moeda.moeda">
+            <field name="name">EURO</field>
+            <field name="simbolo">EUR</field>
+            <field name="abreviatura">EUR</field>
+            <field name="moeda_base"></field>
+            <field name="aredondamento">6</field>
+            <field name="tipo">1</field>
+            <field name="inteiro">Euro(s)</field>
+            <field name="decimal">Centavo(s)</field>
+        </record>
+        <record id="moeda3" model="moeda.moeda">
+            <field name="name">DOLAR AMERICANO</field>
+            <field name="simbolo">$</field>
+            <field name="abreviatura">DOL</field>
+            <field name="moeda_base"></field>
+            <field name="aredondamento">6</field>
+            <field name="tipo">1</field>
+            <field name="inteiro">Dolare(s)</field>
+            <field name="decimal">Centimo(s)</field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_m">
+            <field name="name">Moedas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">moeda.moeda</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Moedas.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Moedas ) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name=" Moedas " id="parametros.menu_moeda_list" parent="fastgest_tesoura" action="action_window_m"/>
+    </data>
+</odoo>

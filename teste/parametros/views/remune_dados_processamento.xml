@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="instromento_form" model="ir.ui.view">
+           <field name="name">Instromento</field>
+           <field name="model">instromento.instromento</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <div>
+                         <label for="title" string="Descrição"/>
+                           <label for="title" string="____________" style="color:white"/>
+                         <field name="name" style="width:800px"/>
+                       </div>
+                       <group>
+                           <group>
+                               <field name="data_tab" style="width:180px"/>
+                               <field name="ins_reg_trab" style="width:180px"/>
+                               <field name="modo_process" style="width:180px"/>
+                           </group>
+                           <group string="Cálculo do Salário Hora">
+                               <field name="numero_meses" style="width:180px"/>
+                               <field name="horas_semanas" style="width:180px"/>
+                           </group>
+                       </group>
+                       <div>
+
+                       </div>
+                       <div>
+                         <label for="title" string=""/>
+
+                       </div>
+                       <div>
+                           <label for="title" string="_________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Conta"/>
+                         <label for="title" string="_______________" style="color:white"/>
+                         <field name="plano_conta_id" style="width:180px"/>
+                     </div>
+                      <div>
+                         <label for="title" string="Despesa/Descon"/>
+                         <label for="title" string="______" style="color:white"/>
+                         <field name="cod_comp_rem_id" style="width:180px"/>
+                     </div>
+                     <div>
+                         <label for="title" string="Despesa/Remun"/>
+                         <label for="title" string="______" style="color:white"/>
+                         <field name="cod_comp_desc_id" style="width:180px"/>
+                     </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="instromento_tree" model="ir.ui.view">
+           <field name="name">Instromento</field>
+           <field name="model">instromento.instromento</field>
+           <field name="arch" type="xml">
+               <tree string="Instromento">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="instromento_act_window" model="ir.actions.act_window">
+           <field name="name">Instromento</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">instromento.instromento</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Instromento.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Instromento) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="instromento_menu" name="Instromento" parent="fastgest_remuneracoe_dados_processo" action="instromento_act_window" sequence="80"/>
+       <record id="imposto_iur_form" model="ir.ui.view">
+           <field name="name">Imposto IUR</field>
+           <field name="model">impostio.iur</field>
+           <field name="arch" type="xml">
+               <form string="Imposto IUR">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="descont_asoc_id"/>
+                       </group>
+                       <notebook name="studio_notebook_S8ebf">
+                          <page name="studio_page_9esJy" string="Taxas de Retenção">
+                              <field name="taxaret">
+                                  <tree editable="bottom" string="Taxes">
+                                    <field name="cond"/>
+                                    <field name="remuner"/>
+                                    <field name="taxa"/>
+                                    <field name="parcela_abater"/>
+                                    <field name="enc_familiar"/>
+                                  </tree>
+                                </field>
+                          </page>
+                           <page name="studio_page_10esJy" string="Formula de Retenção">
+                               <group>
+                                 <group>
+                                   <field name="rend_coletavel" widget="many2many_tags" domain="[('sim','=',True)]" create="false"/>
+                                   <field name="imposto_reter" widget="many2many_tags" create="false"/>
+                                   <field name="valor_minimo"/>
+                                 </group>
+                               </group>
+                               <group>
+
+                               </group>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="imposto_iur_tree" model="ir.ui.view">
+           <field name="name">Imposto IUR</field>
+           <field name="model">impostio.iur</field>
+           <field name="arch" type="xml">
+               <tree string="Imposto IUR">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="imposto_iur_act_window" model="ir.actions.act_window">
+           <field name="name">Imposto IUR</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">impostio.iur</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Imposto IUR.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Instromento) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="imposto_iur_menu" name="Imposto IUR" parent="fastgest_remuneracoe_dados_processo" action="imposto_iur_act_window" sequence="80"/>odoo
+       <record id="rcIr_form" model="ir.ui.view">
+           <field name="name">Formula Retencao</field>
+           <field name="model">rcir.rcir</field>
+           <field name="arch" type="xml">
+               <form string="rcIr">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="sim"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="rcIr_tree" model="ir.ui.view">
+           <field name="name">Formula Retencao</field>
+           <field name="model">rcir.rcir</field>
+           <field name="arch" type="xml">
+               <tree string="Formula Retencao">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="rcIr_act_window" model="ir.actions.act_window">
+           <field name="name">Formula Retencao</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">rcir.rcir</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                  <!-- Add Text Here -->
+               </p><p>
+                  <!-- More details about what a user cImposto IURan do with this object will be OK -->
+               </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="rcIrvvv_menu" name="Formula Retencao " parent="fastgest_remuneracoe_dados_processo" action="rcIr_act_window" sequence=""/>
+       <record id="remuneracies_form" model="ir.ui.view">
+           <field name="name">Remunerações</field>
+           <field name="model">remuneracoes.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Remunerações">
+                   <sheet>
+                       <div>
+                         <label for="title" string="Descrição"/>
+                         <field name="name" style="width:800px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Tipo"/>
+                           <label for="title" string="_____" style="color:white"/>
+                           <field name="tipo" nolabel="1" style="width:180px"/>
+                           <label for="title" string="____________________" style="color:white"/>
+                           <label for="title" string="Base"/>
+                           <field name="basico" nolabel="1" />
+                           <label for="title" string="____________________________" style="color:white"/>
+                           <label for="title" string="Percentual"/>
+                           <field name="percent" nolabel="1" attrs="{'readonly': [('percentual', '=', False)]}" style="width:120px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor"/>
+                           <label for="title" string="_____" style="color:white"/>
+                           <field name="valor" nolabel="1" style="width:180px"/>
+                           <label for="title" string="___________________" style="color:white"/>
+                           <label for="title" string="Percentual"/>
+                           <field name="percentual" nolabel="1" attrs="{'readonly': [('basico', '=', True)]}" />
+                       </div>
+                       <div><label for="title" string="____________________" style="color:white"/></div>
+                       <div>
+                           <label for="title" string="Selecionar o desconto a que esta remunerações esta sujeita"/>
+                       </div>
+                       <div>
+                           <field name="selec_desconto" widget="many2many_tags" create="false" string="Selecionar desconto" style="width:400px"/>
+                           <label for="title" string="_____" style="color:white"/>
+                           <label for="title" string="Processar desconto de forma independente"/>
+                           <field name="proces_desc_form_depen" nolabel="1" style="width:180px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_____________________________________________________________________________________________________________________________________________" />
+                       </div>
+                       <div>
+                         <label for="title" string="Conta"/>
+                         <label for="title" string="_____________" style="color:white"/>
+                         <field name="plano_conta_id" style="width:180px"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Despesa/Gasto"/>
+                         <label for="title" string="______" style="color:white"/>
+                         <field name="cod_comp_desc_id" style="width:180px"/>
+                     </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="remuneracies_tree" model="ir.ui.view">
+           <field name="name">Remunerações</field>
+           <field name="model">remuneracoes.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Remunerações">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="remuneracies_act_window" model="ir.actions.act_window">
+           <field name="name">Remunerações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">remuneracoes.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Remunerações.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Remunerações) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="remuneracies_menu" name="Remunerações" parent="fastgest_remuneracoe_dados_processo" action="remuneracies_act_window" sequence="80"/>
+       <record id="descont_form" model="ir.ui.view">
+           <field name="name">Desconto</field>
+           <field name="model">desconto.desconto</field>
+           <field name="arch" type="xml">
+               <form string="Desconto">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="______" style="color:white"/>
+                           <field name="name" style="width:800px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Caracterizaçao do desconto"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor"/>
+                           <label for="title" string="__________" style="color:white"/>
+                           <field name="valor" nolabel="1" style="width:180px"/>
+                           <label for="title" string="_________________" style="color:white"/>
+                           <label for="title" string="Aredondamento"/>
+                           <field name="aredondamento1" widget="radio"/>
+                           <label for="title" string="____" style="color:white"/>
+                           <field name="aredondamento3" nolabel="1" style="width:180px" widget="radio"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Percentual"/>
+                           <field name="percentual" nolabel="1" style="width:180px"/>
+                       </div>
+                       <label for="title" string="__________________________________________________________________________________________________________________________________" />
+                       <div>
+                         <label for="title" string="Conta" style="width:180px"/>
+
+                         <field name="plano_conta_id" style="width:180px"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Despesa/Gasto"/>
+                         <label for="title" string="___________" style="color:white"/>
+                         <field name="cod_comp_desc_id" style="width:180px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="descont_tree" model="ir.ui.view">
+           <field name="name">Desconto</field>
+           <field name="model">desconto.desconto</field>
+           <field name="arch" type="xml">
+               <tree string="Desconto">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="descont_act_window" model="ir.actions.act_window">
+           <field name="name">Desconto</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">desconto.desconto</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Desconto.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Desconto) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="descont_menu" name="Desconto" parent="fastgest_remuneracoe_dados_processo" action="descont_act_window" sequence="80"/>
+       <record id="falta_form" model="ir.ui.view">
+           <field name="name">Faltas</field>
+           <field name="model">faltas.faltas</field>
+           <field name="arch" type="xml">
+               <form string="Faltas">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <field name="name" style="width:900px"/>
+                       </div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div><label for="title" string="Tipo de Falta ___________________________________________________________________________________________________________________________"/></div>
+                       <div><label for="title" string="________________" style="color:white"/></div>
+                       <div>
+                           <field name="tipofalta" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                           <label for="title" string="________________" style="color:white"/>
+                           <label for="title" string="Calculo em dias"/>
+                           <field name="calculo_em_dia" style="width:150px"/>
+                       </div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div>
+                           <label for="title" string="Esta Falta _______________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div>
+                           <field name="estafalta" widget="radio" nolabel="1"/>
+                       </div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div>
+                           <label for="title" string="Com Desconto Parcial"/>
+                           <field name="com_desconto_parcial" widget="many2many_tags" style="width:260px"/>
+                           <label for="title" string="___________________________" style="color:white"/>
+                           <label for="title" string="Com Desconto Total"/>
+                           <field name="com_desconto_total" widget="many2many_tags" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div><label for="title" string="Aredondamento ___________________________________________________________________________________________________________________________"/></div>
+                       <div><label for="title" string="" style="color:white"/></div>
+                       <div>
+                           <field name="aredondamento1" widget="radio"/>
+                           <label for="title" string="____" style="color:white"/>
+                           <field name="aredondamento3" nolabel="1" style="width:180px" widget="radio"/>
+                           <label for="title" string="______________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Conta"/>
+                           <field name="plano_conta_id" style="width:180px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="______________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="falta_tree" model="ir.ui.view">
+           <field name="name">Faltas</field>
+           <field name="model">faltas.faltas</field>
+           <field name="arch" type="xml">
+               <tree string="Faltas">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="falta_act_window" model="ir.actions.act_window">
+           <field name="name">Faltas</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">faltas.faltas</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Faltas.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Faltas) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="falta_menu" name="Faltas" parent="fastgest_remuneracoe_dados_processo" action="falta_act_window" sequence="80"/>
+       <record id="horas_extras_form" model="ir.ui.view">
+           <field name="name">Horas Extras</field>
+           <field name="model">horas.extras</field>
+           <field name="arch" type="xml">
+               <form string="Horas Extras">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <field name="name" style="width:800px"/>
+                       </div>
+                       <div><label for="title" string="Percentual"/>
+                           <field name="percentual" string="Percentual"/><label for="title" string="__________________________________________________________________________" style="color:white"/><label for="title" string="Motivo"/></div>
+                       <div>
+                           <label for="title" string="Valor"/>
+                           <label for="title" string="____" style="color:white"/>
+                           <field name="valor" style="width:260px"/>
+                           <label for="title" string="_________________________________________" style="color:white"/>
+                           <field name="motivo" widget="radio" nolabel="1"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Desconto"/>
+                           <field name="desconto" widget="many2many_tags" style="width:260px"/>
+                       </div>
+                       <label for="title" string="Arredondamento"/>
+                       <div>
+                           <field name="aredondamento1" widget="radio" nolabel="1"/>
+                           <label for="title" string="____" style="color:white"/>
+                           <field name="aredondamento3" nolabel="1" style="width:180px" widget="radio"/>
+                           <label for="title" string="__________________________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Conta"/>
+                           <label for="title" string="__" style="color:white"/>
+                           <field name="plano_conta_id" style="width:180px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Despesa"/>
+                           <field name="cod_comp_desc_id" style="width:180px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="horas_extras_tree" model="ir.ui.view">
+           <field name="name">Horas Extras</field>
+           <field name="model">horas.extras</field>
+           <field name="arch" type="xml">
+               <tree string="Horas Extras">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="horas_extras_act_window" model="ir.actions.act_window">
+           <field name="name">Horas Extras</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">horas.extras</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Horas Extras.
+             </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Horas Extras) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="UNIQUE_ID_categ" name="Horas Extras" parent="fastgest_remuneracoe_dados_processo" action="horas_extras_act_window" sequence="80"/>
+       <record id="processamento_especiais_form" model="ir.ui.view">
+           <field name="name">Processamento Especiais</field>
+           <field name="model">processamento.especiais</field>
+           <field name="arch" type="xml">
+               <form string=">Processamento Especiais">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="___________" style="color:white"/>
+                           <field name="name" style="width:800px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Processar proporcional a mês de engresso"/>
+                           <field name="processar_proporcional"/>
+                       </div>
+                       <label for="title" string="__" style="color:white"/>
+                       <div>
+                           <label for="title" string="Remunerações a processar"/>
+                           <label for="title" string="______________________________________" style="color:white"/>
+                           <label for="title" string="Desconto a processar"/>
+                           <label for="title" string="___________________________________________" style="color:white"/>
+                       </div>
+                       <div>
+                           <field name="remuneracoes" widget="many2many_tags" style="width:300px"/>
+                           <label for="title" string="_____________________" style="color:white"/>
+                           <field name="desconto" widget="many2many_tags" style="width:300px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="processamento_especiais_tree" model="ir.ui.view">
+           <field name="name">Processamento Especiais</field>
+           <field name="model">processamento.especiais</field>
+           <field name="arch" type="xml">
+               <tree string="Processamento Especiais">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="processamento_especiais_act_window" model="ir.actions.act_window">
+           <field name="name">Processamento Especiais</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">processamento.especiais</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Processamento Especiais.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Processamento Especiais) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="processamento_especiais_menu" name="Processamento Especiais" parent="fastgest_remuneracoe_dados_processo" action="processamento_especiais_act_window" sequence="80"/>
+    </data>
+</odoo>

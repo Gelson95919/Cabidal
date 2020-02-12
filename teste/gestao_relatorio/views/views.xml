@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <menuitem name="Gestão Relatório" web_icon="gestao_relatorio,static/description/icon.png"
+                  id="gestao_relatorio.menu_root"/>
+        <menuitem name="Gestão" id="gestao_relatorio.menu_rep" parent="gestao_relatorio.menu_root"/>
+        <menuitem name="Tesouraria" id="gestao_relatorio.menu_rep_tesours" parent="gestao_relatorio.menu_root"/>
+    </data>
+</odoo>

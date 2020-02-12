@@ -1,0 +1,174 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_monet">
+            <field name="name">fastgest Monetarios</field>
+            <field name="model">monetario.monetario</field>
+            <field name="arch" type="xml">
+
+                <form string="Meios Monetarios">
+                    <sheet>
+
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <field name="tipo_meio" widget="radio" options="{'horizontal': true}"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:Blue;"
+                                   string="_______________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Descrição" style="width:80px"/>
+                            <field name="name" style="width:800px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Saldo Inicial" style="width:80px"/>
+                            <field name="saldo_inicial" style="width:260px"/>
+                            <label for="title" string="" style="color:White;width:230px"/>
+                            <label for="title" string="Banco" attrs="{'readonly': [('tipo_meio','!=', '2')]}"/>
+                            <field name="banco" attrs="{'readonly': [('tipo_meio','!=', '2')]}"
+                                   style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Encaregado" style="width:80px"/>
+                            <field name="terceiro_id" style="width:800px" domain="[('trabalhadores','=',True)]"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Estado" style="width:80px"/>
+                            <field name="estado" style="width:260px"/>
+                            <label for="title" string="" style="color:White;width:230px"/>
+                            <label for="title" string="Numero Fecho"/>
+                            <field name="numero_fecho" style="width:210px"/>
+                        </div>
+                        <div>
+                            <field name="conc_rel_tesoura"/>
+                            <label for="title" string="Conciderar no relatório de posição tesouraria"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:Blue;"
+                                   string="_______________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Valor Caução"/>
+                            <field name="valor_caucao" attrs="{'readonly': [('tipo_meio','!=', '2')]}"
+                                   style="width:260px"/>
+                            <label for="title" string="" style="color:White;width:230px"/>
+                            <label for="title" string="Moeda"/>
+                            <field name="moeda" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:Blue;"
+                                   string="_______________________________________________________________________________________________________________________________________________"/>
+                        </div>
+                        <div>
+                            <label for="title" string="" style="width:6px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Diario" style="width:80px"/>
+                            <field name="diario" style="width:260px"/>
+                            <label for="title" string="" style="color:White;width:230px"/>
+                            <label for="title" string="Conta"/>
+                            <field name="conta" style="width:260px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Centro Custo"/>
+                            <field name="centro_custo" style="width:260px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="form_all_monet_tree_view" model="ir.ui.view">
+            <field name="name">monetario.tree.view</field>
+            <field name="model">monetario.monetario</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tipo_meio"/>
+                    <field name="saldo_inicial"/>
+                    <field name="banco"/>
+                    <field name="encaregado"/>
+                    <field name="estado"/>
+                    <field name="numero_fecho"/>
+                    <field name="valor_caucao"/>
+                    <field name="moeda"/>
+                    <field name="diario"/>
+                    <field name="conta"/>
+                    <field name="centro_custo"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_meio_monet" model="ir.sequence">
+            <field name="name">Meios Monetario</field>
+            <field name="code">meios.codigo</field>
+            <field name="padding">2</field>
+            <field name="prefix"></field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="meios_search_view" model="ir.ui.view">
+            <field name="name">Meio Monetario</field>
+            <field name="model">monetario.monetario</field>
+            <field name="arch" type="xml">
+                <search string="Fatura Information">
+                    <filter name="tipo_meio" icon="terp-personal" string="Caixa"
+                            domain="[('tipo_meio','=','caixa')]"
+                            help="Mostrar Caixa"/>
+                    <filter string="Deposito a Ordem" name="tipo_meio"
+                            domain="[('tipo_meio','=','desposto')]"
+                            help="Filter Diposito a Ordem"/>
+                    <filter string="Fundo Maneio" name="tipo_meio"
+                            domain="[('tipo_meio','=','testeFundo')]"
+                            help="Filter FundoManeio"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_monet">
+            <field name="name">Meios Monetarios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monetario.monetario</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Meios Monetarios.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Meios Monetarios) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <record id="hr_employee_normal_action_tree2" model="ir.actions.act_window">
+            <field name="name">Erics More Item</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monetario.monetario</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<record model="ir.default" id="test_more_item">
+            <field name="name">Test Item</field>
+            <field name="model" eval="'movinterno.movinterno'"/>
+            <field name="key">action</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,%d'%hr_employee_normal_action_tree2"/>
+            <field name="movinterno.movinterno" eval="True"/>
+        </record>-->
+
+        <menuitem name="Meios Monetarios " id="parametros.menu_monet_list" parent="fastgest_tesoura"
+                  action="parametros.action_window_monet"/>
+    </data>
+</odoo>

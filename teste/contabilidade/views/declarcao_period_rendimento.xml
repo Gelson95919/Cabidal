@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="declarar_periodicat_form" model="ir.ui.view">
+           <field name="name">Declaração periódica dos rendimentos.form</field>
+           <field name="model">declarar.perio.rend</field>
+           <field name="arch" type="xml">
+               <form string="Declaração periódica dos rendimentos">
+                   <sheet>
+                       <header>
+                          <button name="selecionar" string="Selecionar." type="object" icon="fa-check-square" class="btn-primary"/>
+                          <button name="processar" string="Processar" type="object" icon="fa-gears" class="btn-primary"/>
+                          <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                       </header>
+                       <group col="3">
+                          <group string="Dados">
+                            <div>
+                              <label for="title" string="Ano"/>
+                              <field name="ano" style="width:150px"/>
+                            </div>
+                            <div>
+                                <label for="title" style="width:60px" string=""/>
+                            </div>
+                            <div>
+                              <label for="title" string="Mes"/>
+                              <field name="mes" style="width:150px"/>
+                            </div>
+                            <div>
+                                <label for="title" style="width:60px" string=""/>
+                            </div>
+                            <div>
+                                <label for="title" string="Processar"/>
+                                <field name="processar"/>
+                            </div>
+                          </group>
+                          <group string="Formulário">
+                             <div>
+                                <field name="formulario" widget = 'radio'/>
+                             </div>
+                          </group >
+                          <group string="Acção">
+                            <div>
+                              <field name="accao" widget = 'radio'/>
+                            </div>
+                          </group>
+                       </group>
+                       <label for="title" string="___________________________________________________________________________________________________________________________________________________________"/>
+                       <notebook>
+                           <page string="Anexo Cliente">
+                               <!--<field name="dados_fatura_salario" nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban'>
+                                   <tree editable="bottomn" string="Anexo">
+                                     <field name="nif"/>
+                                     <field name="terceiro_id"/>
+                                     <field name="moeda_id"/>
+                                     <field name="date_release"/>
+                                     <field name="date"/>
+                                     <field name="totalr"/>
+                                  </tree>
+                               </field>-->
+                           </page>
+                           <page string="Anexo Cliente">
+                               <field name="dados_fatura_client" nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban'>
+                                   <tree editable="bottomn" string="Anexo">
+                                     <field name="nif"/>
+                                     <field name="terceiro_id"/>
+                                     <field name="moeda_id"/>
+                                     <field name="date"/>
+                                     <field name="total_resumo"/>
+                                  </tree>
+                               </field>
+                           </page>
+                           <page string="Anexo Fornecedores">
+                               <group>
+                                  <field name="dados_fatura_fornecedores" nolabel = '1' widget="sectio_and_note_one2many" model = 'tree,kanban'>
+                                      <tree editable="bottomn" string="Anexo Fornecedores">
+                                        <!--<field name="name"/>-->
+                                        <field name="tipo_docum_id"/>
+                                        <field name="data_docum"/>
+                                        <field name="valor_docum_esc"/>
+                                        <field name="nro_processo"/>
+                                        <field name="venc"/>
+                                        <field name="valor_outra_moeda"/>
+                                        <!--<field name="moeda"/>-->
+                                        <!--<field name="namedes"/>
+                                        <field name="codigo_dep" />
+                                        <field name="valor" />
+                                        <field name="iva" />
+                                        <field name="terceiro" />
+                                        <field name="valor_auxiliar" />-->
+                                      </tree>
+                                  </field>
+                               </group>
+                           </page>
+                           <page string="Declaração">
+                               <group>
+                                   <notebook>
+                                       <page string="Frente">
+                                          <div><label for="title" style="width:720px" string=""/></div>
+                                          <label for="title" style="color:Blue; font-weight: bold;"  string="Tipo Declaração/AnexoDecal"/>
+                                          <label for="title" style="width:320px" string=""/>
+                                          <label for="title" style="color:Blue; font-weight: bold; width:520px" string="Totais por grupo de Retenção"/>
+                                          <div>
+                                            <field name="salario"/>
+                                            <label for="title" string="Salario" style="font-weight: bold;"/>
+                                            <label for="title" style="width:430px" string=""/>
+                                            <label for="title" string="G1 - Retenção Cat.A" style="font-weight: bold;width:140px"/>
+                                            <field name="g1" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                            <field name="cliente"/>
+                                            <label for="title" string="Cliente" style="font-weight: bold;"/>
+                                            <label for="title" style="width:430px" string=""/>
+                                            <label for="title" string="G2 - Retenção Cat.B" style="font-weight: bold;width:140px" />
+                                            <field name="g2" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                             <field name="fornecidor"/>
+                                             <label for="title" string="Fornecidor" style="font-weight: bold;"/>
+                                             <label for="title" style="width:407px" string=""/>
+                                             <label for="title" string="G3 - Retenção Cat.C" style="font-weight: bold;width:140px"/>
+                                             <field name="g3" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                              <label for="title" string="Tipo" style="font-weight: bold;"/>
+                                              <field name="tipo_decl_anex" style="font-weight: bold; width:120px"/>
+                                              <label for="title" style="width:353px" string=""/>
+                                              <label for="title" string="G4 - Retenção Cat.D" style="font-weight: bold;width:140px"/>
+                                              <field name="g4" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                              <label for="title" style="width:500px" string=""/>
+                                              <label for="title" string="G5 - Retenção Cat.D" style="font-weight: bold;width:140px"/>
+                                              <field name="g5" style="width:150px"/>
+                                          </div>
+                                           <div>
+                                              <label for="title" style="width:500px" string=""/>
+                                              <label for="title" string="G6 - Retenção Cat.E" style="font-weight: bold;width:140px"/>
+                                              <field name="g5" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                              <label for="title" style="width:500px" string=""/>
+                                              <label for="title" string="G7 - Retenção Cat.TEU" style="font-weight: bold;"/>
+                                              <field name="g7" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                              <label for="title" string="Data Emissão" style="font-weight: bold;"/>
+                                              <field name="data" nolabel="1" style="width:220px"/>
+                                              <label for="title" style="width:190px" string=""/>
+                                              <label for="title" string="Total a pagar" style="font-weight: bold;width:140px"/>
+                                              <field name="total_pagar" nolabel="1" style="width:150px"/>
+                                          </div>
+                                          <div>
+                                              <label for="title" string="Observaçoes"/>
+                                          </div>
+                                          <div>
+                                              <field name="obs" nolabel="1"/>
+                                          </div>
+                                       </page>
+                                       <page  string="Verso">
+
+                                       </page>
+                                   </notebook>
+                               </group>
+                           </page>
+                           <page string="Configuração">
+                               <field name="conceito_despesas_fornec" nolabel="1"/>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="declarar_periodica_tree" model="ir.ui.view">
+          <field name="name">Declaração periódica dos rendimentos</field>
+          <field name="model">declarar.perio.rend</field>
+          <field name="arch" type="xml">
+              <tree string="Declarar iva mensal">
+                  <field name="ano"/>
+                  <field name="mes"/>
+                  <field name="processar"/>
+                  <field name="formulario"/>
+                  <field name="accao"/>
+              </tree>
+          </field>
+       </record>
+       <record id="act_window_declarar_periodica" model="ir.actions.act_window">
+          <field name="name">Declaração periódica dos rendimentos</field>
+          <field name="res_model">declarar.perio.rend</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Declaração periódica.
+            </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Declaração periódica) para projetos internos, pessoais ou de clientes.
+            </p>
+          </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="declarar_periodica" name="Declaração periódica dos rendimentos" parent="contabilidade.menu_2" action="act_window_declarar_periodica" sequence="80"/>
+    </data>
+</odoo>
