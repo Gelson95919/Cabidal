@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+       <record id="form_all_conc_mov_in" model="ir.ui.view">
+           <field name="name">Conceito Movimento Interno</field>
+           <field name="model">movinterno.movinterno</field>
+           <field name="arch" type="xml">
+               <form string="Conceito Movimento Interno">
+                 <sheet>
+                     <div><label for="title" string="" style="width:6px"/></div>
+                     <din>
+                        <label for="title" string="Descrição"/>
+                        <field name="name" style="width:800px"/>
+                     </din>
+                     <div>
+                        <label for="title" style="color:Blue;" string="__________________________________________________________________________________________________________________________"/>
+                     </div>
+                     <div><label for="title" string="" style="width:6px"/></div>
+                     <div>
+                        <field name="tipo_movimento" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                     </div>
+                     <div>
+                        <label for="title" style="color:Blue;" string="__________________________________________________________________________________________________________________________"/>
+                     </div>
+                     <div>
+                       <field name="movimento_reflexivo" attrs="{'readonly': [('tipo_movimento','!=', '1')]}"/>
+                       <label for="title" string="Movimento Reflexivo" style="width:260px"/>
+                       <label for="title" string=""  style="color:White;width:220px"/>
+                       <label for="title" string="Fluxo Caixa" style="width:90px"/>
+                       <field name="fluxo_de_caixa" style="width:260px"/>
+                     </div>
+                     <div>
+                         <field name="origem_nao_grava_contabilidade" attrs="{'readonly': [('movimento_reflexivo', '!=', True)]}"/>
+                         <label for="title" string="Origem Não Grava Contabilidade"/>
+                         <label for="title" string=""  style="color:White;width:280px"/>
+                         <label for="title" string="Centro Custo" style="width:90px"/>
+                         <field name="centro_custo" style="width:260px" attrs="{'readonly': [('movimento_reflexivo', '=', True)]}"/><!-- attrs="{'readonly': [('movimento_reflexivo', '=', True)]}"-->
+                     </div>
+                     <div>
+                         <field name="destino_nao_grava_contabilidade" attrs="{'readonly': [('movimento_reflexivo', '!=', True)]}"/>
+                         <label for="title" string="Destino Não Grava Contabilidade"/>
+                         <label for="title" string=""  style="color:White;width:280px"/>
+                         <label for="title" string="Conta" style="width:90px"/>
+                         <field name="conta" attrs="{'readonly': [('movimento_reflexivo', '=', True)]}" style="width:260px"/>
+                     </div>
+                     <div>
+                         <label for="title" string="Conta Iva"/>
+                         <field name="codigo_iva"/>
+                     </div>
+                 </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="seq_tip_mov_int_num" model="ir.sequence">
+           <field name="name">Tipo Movimento Interno</field>
+           <field name="code">tipo.movm.inter.num</field>
+           <field name="prefix"> </field>
+           <field name="padding">6</field>
+           <field name="company_id" eval="False"/>
+        </record>
+       <record model="ir.actions.act_window" id="action_window_concIntern">
+         <field name="name">Conceito Movimento Interno </field>
+         <field name="res_model">movinterno.movinterno</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+           <p class="oe_view_nocontent_create">
+               Criar um novo Conceito Movimento Interno.
+           </p><p>
+             Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Conceito Movimento Interno) para projetos internos, pessoais ou de clientes.
+           </p>
+         </field>
+       </record>
+       <menuitem name="Conceito Movimento Interno" id="parametros.menu_conc_mov" parent="fastgest_tesoura" action="action_window_concIntern"/>
+    </data>
+</odoo>

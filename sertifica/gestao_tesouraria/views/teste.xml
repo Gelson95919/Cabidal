@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_mymodule_tbl1_tree" model="ir.ui.view">
+		    <field name="name">mymodule.tbl1.tree.view</field>
+		    <field name="model">tbl1</field>
+		    <field name="arch" type="xml">
+		        <tree string="Bridge">
+		        	<field name="id"/>
+		        	<field name="code"/>
+		        	<field name="description"/>
+		        </tree>
+		    </field>
+		</record>
+
+
+		<record id="view_mymodule_tbl1_form" model="ir.ui.view">
+		    <field name="name">mymodule.tbl1.form.view</field>
+		    <field name="model">tbl1</field>
+		    <field name="arch" type="xml">
+		        <form string="Bridge">
+		        	<header>
+		        		<button name="open_second_class" type="object" string="Submit" />
+		        	</header>
+		        	<sheet>
+			            <group>
+			             		<field name="code"/>
+			           		<field name="description"/>
+
+			            </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="action_mymodule_tbl1" model="ir.actions.act_window">
+		    <field name="name">action tbl1</field>
+		    <field name="res_model">tbl1</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" eval="False"/>
+		</record>
+
+		<menuitem action="action_mymodule_tbl1" id="menu_action_mymodule_tbl1" parent="gestao_tesouraria.menu_1" sequence="140"/>
+
+		<record id="view_mymodule_tbl2_tree" model="ir.ui.view">
+		    <field name="name">mymodule.tbl2.tree.view</field>
+		    <field name="model">tbl2</field>
+		    <field name="arch" type="xml">
+		        <tree string="Mymodule" >
+		        	<field name="id_tbl1" readonly="1"/>
+		        	<field name="employee"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<record id="view_mymodule_tbl2_form" model="ir.ui.view">
+		    <field name="name">mymodule.tbl2.form.view</field>
+		    <field name="model">tbl2</field>
+		    <field name="arch" type="xml">
+		        <form string="Mymodule" duplicate="false">
+		            <group>
+		           		<field name="id_tbl1" readonly="1"/>
+			        	<field name="employee"/>
+		            </group>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="action_mymodule_tbl2" model="ir.actions.act_window">
+		    <field name="name">Insert</field>
+		    <field name="res_model">tbl2</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="view_id" ref="view_mymodule_tbl2_form" />
+            		     <field name="target">new</field>
+		</record>
+
+		<menuitem action="action_mymodule_tbl2" id="menu_action_mymodule_tbl2" parent="gestao_tesouraria.menu_1" sequence="150"/>
+
+
+
+
+        <!--<record id="view_mymodule_tbl1_tree" model="ir.ui.view">
+            <field name="name">teste</field>
+            <field name="model">tbl1</field>
+            <field name="arch" type="xml">
+                <tree string="Bridge">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="reg_date"/>
+                    <field name="department"/>
+                    <field name="available"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_mymodule_tbl1_form" model="ir.ui.view">
+            <field name="name">teste</field>
+            <field name="model">tbl1</field>
+            <field name="arch" type="xml">
+                <form string="Bridge" duplicate="false">
+                    <header>
+                        <button name="open_second_class" type="object" string="Submit"/>
+                        <button name="po_generator" type="object" string="Passar"/>
+                        <button name="insert_data" string="Insert/Update data" type="object"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="reg_date"/>
+                            <field name="department"/>
+                            <field name="available"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_mymodule_tbl1" model="ir.actions.act_window">
+            <field name="name">action tbl1</field>
+            <field name="res_model">tbl1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" eval="False"/>
+        </record>
+
+        <menuitem action="action_mymodule_tbl1" id="menu_action_mymodule_tbl1" parent="gestao_tesouraria.menu_1"
+                  sequence="140"/>
+
+        <record id="view_mymodule_tbl2_tree" model="ir.ui.view">
+            <field name="name">teste2</field>
+            <field name="model">tbl2</field>
+            <field name="arch" type="xml">
+                <tree string="Mymodule">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="reg_date"/>
+                    <field name="department"/>
+                    <field name="available"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_mymodule_tbl2_form" model="ir.ui.view">
+            <field name="name">teste2</field>
+            <field name="model">tbl2</field>
+            <field name="arch" type="xml">
+                <form string="Mymodule" duplicate="false">
+                    <sheet>
+                        <group>
+
+                            <field name="id_tbl1" readonly="1"/>
+		        	        <field name="employee"/>
+
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="reg_date"/>
+                            <field name="department"/>
+                            <field name="available"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_mymodule_tbl2" model="ir.actions.act_window">
+            <field name="name">Insert</field>
+            <field name="res_model">tbl2</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_mymodule_tbl2_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_mymodule_tbl2" id="menu_action_mymodule_tbl2" parent="gestao_tesouraria.menu_1"
+                  sequence="150"/>-->
+
+    </data>
+</odoo>

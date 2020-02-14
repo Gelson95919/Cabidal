@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="mapa_vencimento_form" model="ir.ui.view">
+           <field name="name">Mapa Vencimento</field>
+           <field name="model">mapa.vencimento</field>
+           <field name="arch" type="xml">
+               <form string="Mapa Vencimento">
+                   <sheet>
+                       <div><label for="title" string="MAPA VENCIMENTO" style="font-weight: bold;color:blue;"/></div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:260px"/>
+                       </div>
+                       <label for="title" style="width:10px" string=""/>
+                       <div>
+                           <label for="title" string="Departamento Área" style="color:Blue; font-weight: bold;"/>
+                       </div>
+                       <div>
+                           <field name="todos"/>
+                           <label for="title" string="Todos"/>
+                           <label for="title" style="width:250px" string=""/>
+                           <label for="title" string="Por Departamento"/>
+                           <field name="por_departamento" style="width:260px"/>
+                       </div>
+                       <div>
+                           <field name="uma_folha_por_departamento"/>
+                           <label for="title" string="Uma Folha Por Departamento"/>
+                           <label for="title" style="width:110px" string=""/>
+                           <label for="title" string="Departamento"/>
+                           <field name="departamento" style="width:260px"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <header>
+                           <button name="gerar" type="object" string="Gerar" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                        </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="mapa_vencimento_act_window" model="ir.actions.act_window">
+           <field name="name">Mapa Vencimentos</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">mapa.vencimento</field>
+           <field name="view_id" ref="mapa_vencimento_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="mapa_vencimento_menu" name="Mapa Vencimento" parent="menu_mapas_internos" action="mapa_vencimento_act_window" sequence="80"/>
+    </data>
+</odoo>

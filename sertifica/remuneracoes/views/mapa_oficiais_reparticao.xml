@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="mapa_oficial_reparticao_form" model="ir.ui.view">
+           <field name="name">Repartição</field>
+           <field name="model">mapas.oficiais.reparticao</field>
+           <field name="arch" type="xml">
+               <form string="repartição">
+                   <sheet>
+                       <div><label for="title" string="IMPOSTO ÚNICO DE RENDIMENTO" style="font-weight: bold;color:blue;"/></div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Repartição" style="color:Blue; font-weight: bold;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="De"/>
+                           <field name="de_reparticao_id" style="width:260px"/>
+                           <label for="title" style="width:260px" string="" />
+                           <label for="title" string="Ate"/>
+                           <field name="ate_reparticao_id" style="width:260px"/>
+                       </div>
+                       <header>
+                           <button name="gerar" type="object" string="Gerar" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                        </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="mapa_oficial_reparticao_act_window" model="ir.actions.act_window">
+           <field name="name">Imposto Único de Rendimento</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">mapas.oficiais.reparticao</field>
+           <field name="view_id" ref="mapa_oficial_reparticao_form"/>
+         <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="mapa_oficial_reparticao_reparticao" name="Imposto Único de Rendimento" parent="menu_mapas_oficiais" action="mapa_oficial_reparticao_act_window" sequence="80"/>
+    </data>
+</odoo>

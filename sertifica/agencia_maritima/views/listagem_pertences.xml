@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="listagem_pertences_form" model="ir.ui.view">
+           <field name="name">Listagem Pertences</field>
+           <field name="model">listagem.pertences</field>
+           <field name="arch" type="xml">
+               <form string="Listagem Pertences">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="LISTAGEM PERTENCES" style = "color:blue; format:bold"/> </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for = "title" string="Faturas embarque"/>
+                           <field name="faturas_id" style="width:300px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="listagem_pertences_act_window" model="ir.actions.act_window">
+           <field name="name">Listagem Pertences</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">listagem.pertences</field>
+           <field name="view_id" ref="listagem_pertences_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="listagem_pertences_menu" name="Listagem Pertences" parent="pequenas_encomenda_menu" action="listagem_pertences_act_window" sequence="80"/>
+
+       <record id="pertences_cobrados_form" model="ir.ui.view">
+           <field name="name">Pertences Cobrado</field>
+           <field name="model">pertences.cobrados</field>
+           <field name="arch" type="xml">
+               <form string="Pertences Cobrado">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="PERTENCES COBRADOS" style = "color:blue; format:bold"/> </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="De"/>
+                           <field name="de" style="width:100px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="A"/>
+                           <field name="a" style="width:100px"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="data_no_relatorio"/>
+                           <label for="title" string="Incluir data no Relatório"/>
+                       </div>
+                   </sheet>
+                   <header>
+                      <button name="aceitar" string="Aceitar" type="object" icon="fa-check-square" class="btn-primary"/>
+                      <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+      <record id="pertences_cobrados_act_window" model="ir.actions.act_window">
+          <field name="name">Relatorio de Pertences</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">pertences.cobrados</field>
+          <field name="view_id" ref="pertences_cobrados_form"/>
+          <field name="target">inline</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              <!-- Add Text Here -->
+            </p><p>
+              <!-- More details about what a user can do with this object will be OK -->
+            </p>
+          </field>
+      </record>
+      <menuitem id="pertences_cobrados_menu" name="Pertences Cobrado" parent="pequenas_encomenda_menu" action="pertences_cobrados_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="pos.menu_root" name="POS" web_icon="pos,static/description/icon.png" />
+        <menuitem name="Movimento de POS" id="pos.menu_pos" parent="pos.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_pos_menu_param" parent="pos.menu_root"/>
+    </data>
+</odoo>

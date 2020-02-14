@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="freguesia_form" model="ir.ui.view">
+            <field name="name">Freguesia</field>
+            <field name="model">freguesia.freguesia</field>
+            <field name="arch" type="xml">
+                <form string="Freguesia">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="codigo"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="concelho_id" readonly="True"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="freguesia_tree" model="ir.ui.view">
+            <field name="name">Freguesia</field>
+            <field name="model">freguesia.freguesia</field>
+            <field name="arch" type="xml">
+                <tree string="Freguesia">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--<record id="sequ_freguesia_codigo" model="ir.sequence">
+            <field name="name">Freguesia</field>
+            <field name="code">freguesia.freguesia</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="freguesia1" model="freguesia.freguesia">
+            <field name="codigo">111</field>
+            <field name="concelho_id">1</field>
+            <field name="name">Nossa Senhora do Rosário</field>
+        </record>
+        <record id="freguesia2" model="freguesia.freguesia">
+            <field name="codigo">112</field>
+            <field name="concelho_id">1</field>
+            <field name="name">Nossa Senhora do Livramento</field>
+        </record>
+        <record id="freguesia3" model="freguesia.freguesia">
+            <field name="codigo">113</field>
+            <field name="concelho_id">1</field>
+            <field name="name">Santo Crucifixo</field>
+        </record>
+        <record id="freguesia4" model="freguesia.freguesia">
+            <field name="codigo">114</field>
+            <field name="concelho_id">1</field>
+            <field name="name">S.Pedro Apóstolo</field>
+        </record>
+        <record id="freguesia5" model="freguesia.freguesia">
+            <field name="codigo">121</field>
+            <field name="concelho_id">2</field>
+            <field name="name">Santo António das Pombas</field>
+        </record>
+        <record id="freguesia6" model="freguesia.freguesia">
+            <field name="codigo">131</field>
+            <field name="concelho_id">3</field>
+            <field name="name">S.João Baptista</field>
+        </record>
+        <record id="freguesia7" model="freguesia.freguesia">
+            <field name="codigo">132</field>
+            <field name="concelho_id">3</field>
+            <field name="name">Santo André</field>
+        </record>
+        <record id="freguesia8" model="freguesia.freguesia">
+            <field name="codigo">211</field>
+            <field name="concelho_id">4</field>
+            <field name="name">Nossa Senhora da Luz</field>
+        </record>
+        <record id="freguesia9" model="freguesia.freguesia">
+            <field name="codigo">311</field>
+            <field name="concelho_id">5</field>
+            <field name="name">Nossa Senhora da Lapa</field>
+        </record>
+        <record id="freguesia10" model="freguesia.freguesia">
+            <field name="codigo">312</field>
+            <field name="concelho_id">5</field>
+            <field name="name">Nossa Senhora do Rosário</field>
+        </record>
+        <record id="freguesia12" model="freguesia.freguesia">
+            <field name="codigo">321</field>
+            <field name="concelho_id">6</field>
+            <field name="name">S.Francisco de Assis</field>
+        </record>
+        <record id="freguesia13" model="freguesia.freguesia">
+            <field name="codigo">411</field>
+            <field name="concelho_id">7</field>
+            <field name="name">Nossa Senhora das Dores</field>
+        </record>
+        <record id="freguesia14" model="freguesia.freguesia">
+            <field name="codigo">511</field>
+            <field name="concelho_id">8</field>
+            <field name="name">S.João Baptista</field>
+        </record>
+        <record id="freguesia15" model="freguesia.freguesia">
+            <field name="codigo">512</field>
+            <field name="concelho_id">8</field>
+            <field name="name">Santa Isabel</field>
+        </record>
+        <record id="freguesia16" model="freguesia.freguesia">
+            <field name="codigo">611</field>
+            <field name="concelho_id">9</field>
+            <field name="name">Nossa Senhora da Luz</field>
+        </record>
+        <record id="freguesia17" model="freguesia.freguesia">
+            <field name="codigo">711</field>
+            <field name="concelho_id">10</field>
+            <field name="name">Santo Amaro Abado</field>
+        </record>
+        <record id="freguesia18" model="freguesia.freguesia">
+            <field name="codigo">721</field>
+            <field name="concelho_id">11</field>
+            <field name="name">Santa Catarina</field>
+        </record>
+        <record id="freguesia19" model="freguesia.freguesia">
+            <field name="codigo">731</field>
+            <field name="concelho_id">12</field>
+            <field name="name">Santiago Maior</field>
+        </record>
+        <record id="freguesia20" model="freguesia.freguesia">
+            <field name="codigo">741</field>
+            <field name="concelho_id">13</field>
+            <field name="name">Nossa Senhora da Graça</field>
+        </record>
+        <record id="freguesia21" model="freguesia.freguesia">
+            <field name="codigo">751</field>
+            <field name="concelho_id">14</field>
+            <field name="name">Nossa Senhora da Luz</field>
+        </record>
+        <record id="freguesia22" model="freguesia.freguesia">
+            <field name="codigo">752</field>
+            <field name="concelho_id">14</field>
+            <field name="name">S.Nicolau Tolentino</field>
+        </record>
+        <record id="freguesia23" model="freguesia.freguesia">
+            <field name="codigo">761</field>
+            <field name="concelho_id">15</field>
+            <field name="name">S.Miguel Arcângelo</field>
+        </record>
+        <record id="freguesia24" model="freguesia.freguesia">
+            <field name="codigo">771</field>
+            <field name="concelho_id">16</field>
+            <field name="name">S.Salvador do Mundo</field>
+        </record>
+        <record id="freguesia25" model="freguesia.freguesia">
+            <field name="codigo">781</field>
+            <field name="concelho_id">17</field>
+            <field name="name">S.Lourenço dos Órgãos</field>
+        </record>
+        <record id="freguesia26" model="freguesia.freguesia">
+            <field name="codigo">791</field>
+            <field name="concelho_id">18</field>
+            <field name="name">Santíssimo Nome de Jesus</field>
+        </record>
+        <record id="freguesia27" model="freguesia.freguesia">
+            <field name="codigo">792</field>
+            <field name="concelho_id">18</field>
+            <field name="name">S.Jão Baptista</field>
+        </record>
+        <record id="freguesia28" model="freguesia.freguesia">
+            <field name="codigo">811</field>
+            <field name="concelho_id">19</field>
+            <field name="name">Nossa Senhora de Ajuda</field>
+        </record>
+        <record id="freguesia29" model="freguesia.freguesia">
+            <field name="codigo">821</field>
+            <field name="concelho_id">20</field>
+            <field name="name">S.Lourenço</field>
+        </record>
+        <record id="freguesia29" model="freguesia.freguesia">
+            <field name="codigo">821</field>
+            <field name="concelho_id">20</field>
+            <field name="name">S.Lourenço</field>
+        </record>
+        <record id="freguesia30" model="freguesia.freguesia">
+            <field name="codigo">822</field>
+            <field name="concelho_id">20</field>
+            <field name="name">Nossa Senhora de Conceição</field>
+        </record>
+        <record id="freguesia31" model="freguesia.freguesia">
+            <field name="codigo">831</field>
+            <field name="concelho_id">21</field>
+            <field name="name">Santa Catarina do Fogo</field>
+        </record>
+        <record id="freguesia32" model="freguesia.freguesia">
+            <field name="codigo">911</field>
+            <field name="concelho_id">22</field>
+            <field name="name">S.João Baptista</field>
+        </record>
+        <record id="freguesia33" model="freguesia.freguesia">
+            <field name="codigo">912</field>
+            <field name="concelho_id">22</field>
+            <field name="name">Nossa Senhora do Morte</field>
+        </record>-->
+        <record id="freguesia_act_window" model="ir.actions.act_window">
+            <field name="name">Freguesia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">freguesia.freguesia</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Freguesia.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Freguesia) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="freguesia_menu" name="Freguesias" parent="fastgest_gest_microcred_tabelas"
+                  action="freguesia_act_window" sequence="80"/>
+    </data>
+</odoo>

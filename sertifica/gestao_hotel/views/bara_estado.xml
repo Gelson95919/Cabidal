@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record model="ir.ui.view" id="view_statusbar_form">
+          <field name="name">Statusbar</field>
+          <field name="model">statusbar.demo</field>
+          <field name="type">form</field>
+          <field name="arch" type="xml">
+             <form string="Workflow record">
+                 <!--A tag de cabeçalho é criada para adicionar botões. Isso os coloca no topo Enviar feedback
+                    Histórico Salvas -->
+                <header>
+                    <button string="Definido para conceito" type="object" name="concept_progressbar" attrs="{'invisible': [('state', '=', 'concept')]}"/>
+                    <!--A classe oe_highlight dá ao botão uma cor vermelha quando é salvo.
+                    Geralmente é usado para indicar o comportamento esperado. -->
+                    <button string="Definir para começar" type="object" name="started_progressbar" class="oe_highlight" attrs="{'invisible': [('state','!=','concept')]}"/>
+                    <button string="Em progresso" type="object" name="progress_progressbar" attrs="{'invisible': [('state','=','progress')]}"/>
+                    <button string="Feita" type="object" name="done_progressbar" attrs="{'invisible': [('state','=','finished')]}"/>
+                    <!--Isto irá criar a barra de status, graças ao widget. -->
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <group>
+                    <field name="name"/>
+                </group>
+             </form>
+          </field>
+       </record>
+       <record id="view_statusbar_act_window" model="ir.actions.act_window">
+           <field name="name">Statusbar</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">statusbar.demo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="view_statusbar_menu" name="Statusbar" parent="gestao_hotel.menu_hotel" action="view_statusbar_act_window" sequence="80"/>
+    </data>
+</odoo>

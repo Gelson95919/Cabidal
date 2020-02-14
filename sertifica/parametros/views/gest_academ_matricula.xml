@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="matricula" model="ir.ui.view">
+           <field name="name">Matricula</field>
+           <field name="model">matricula.matricula</field>
+           <field name="arch" type="xml">
+               <form string="Matricula">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Nº Matricula"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="numero_matricula" style="width:260px"/>
+                           <label for="title" string="___________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Data"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="data" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="___________________________________________________"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Aluno"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="aluno" style="width:260px"/>
+                           <label for="title" string="___________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Curso"/>
+                           <field name="curso" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Ano Lectivo"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="ano_lectivo" style="width:260px"/>
+                           <label for="title" string="___________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Ano"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="ano" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Tipo Matricula"/>
+                           <field name="tipo_matricula" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Tem Disciplina em Atrasso"/>
+                           <field name="desciplina_atrazo" style="width:260px" attrs="{'readonly': [('tipo_matricula','!=', 'mtriculaNormal')]}"/>
+                       </div>
+                       <div>
+                          <label for="title" string="Tem Bolsa de Estudo"/>
+                          <field name="bolsario" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Primeira Vez"/>
+                           <field name="primeira_ves" style="width:260px" attrs="{'readonly': [('tipo_matricula','!=', 'mtriculaNormal')]}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                       </div>
+                       <label for="title" string="Valores__________________________________________________________________________________________________________________________________________"/>
+                       <div>
+                           <label for="title" string="Matricula"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="matricula" style="width:260px" attrs="{'readonly': [('primeira_ves', '=', False)]}"/>
+                       </div>
+                       <div>
+                           <label for="title" string="1º Semestre" attrs="{'invisible': [('tipo_matricula','!=', 'desciplinaAtrasso')]}"/>
+                           <field name="semestre1" style="width:260px" attrs="{'invisible': [('tipo_matricula','!=', 'desciplinaAtrasso')]}"/>
+                           <label for="title" string="Custo"  attrs="{'invisible': [('tipo_matricula','=', 'desciplinaAtrasso')]}"/>
+                           <label for="title" string="____" style="color:White;" attrs="{'invisible': [('tipo_matricula','=', 'desciplinaAtrasso')]}"/>
+                           <field name="curso_val" style="width:260px" attrs="{'invisible': [('tipo_matricula','=', 'desciplinaAtrasso')]}"/>
+                           <label for="title" string="________________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Prest"/>
+                           <field name="prest1" style="width:260px"/>
+
+                       </div>
+                       <div>
+                           <label for="title" string="2° Semestre"/>
+                           <field name="semestre2" style="width:260px" attrs="{'readonly': [('tipo_matricula','!=', 'desciplinaAtrasso')]}"/>
+                           <label for="title" string="________________________________________________________"  style="color:White;"/>
+                           <label for="title" string="Prest"/>
+                           <field name="prest2" style="width:260px" attrs="{'readonly': [('tipo_matricula','!=', 'desciplinaAtrasso')]}"/>
+                       </div>
+                       <field name="obs" style="width:1050px"/>
+                       <div>
+                           <label for="title" string="Gerar Conta Corente"/>
+                           <field name="ger_cont_corent"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="matricula_tree" model="ir.ui.view">
+           <field name="name">Matricula</field>
+           <field name="model">matricula.matricula</field>
+           <field name="arch" type="xml">
+               <tree string="Matricula">
+                   <field name="numero_matricula"/>
+                   <field name="aluno"/>
+                   <field name="ano_lectivo"/>
+                   <field name="ano"/>
+               </tree>
+           </field>
+       </record>
+       <record id="matricula_act_window" model="ir.actions.act_window">
+           <field name="name">Matricula</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">matricula.matricula</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Matricula.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Matricula) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="matricula_menu" name="Matricula" parent="fastgest_gest_academica" action="matricula_act_window" sequence="80"/>
+    </data>
+</odoo>

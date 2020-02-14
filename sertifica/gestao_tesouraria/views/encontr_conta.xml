@@ -1,0 +1,217 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_encontro">
+            <field name="name">Encontro de Contas</field>
+            <field name="model">econtroconta.econtroconta</field>
+            <field name="arch" type="xml">
+                <form string="Encontro Conta">
+                    <header>
+                        <button name="action_quotation_send" string="Imprimir" type="object" icon="fa-print"
+                                class="btn-primary"/>
+                        <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle"
+                                class="btn-primary"/>
+                        <button name="selecionar" string="Selecionar." type="object" icon="fa-gears"
+                                class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" style="color:white;" string="_"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Numero"/>
+                            <field name="numero" style="width:100px"/>
+                            <label for="title" style="color:white;width:700px" string=" "/>
+                            <label for="title" string="Data"/>
+                            <field name="data"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white;width:10px" string=" "/>
+                        </div>
+                        <div>
+                            <field name="doc_tesouraria"/>
+                            <label for="title" string="Documento Tesouraria"/>
+                            <label for="title" string="" style="color:White;width:160px"/>
+                            <field name="adiantamento_em_op"/>
+                            <label for="title" string="Adiantamento em OP"/>
+                            <label for="title" string="" style="color:White;width:160px"/>
+                        </div>
+                        <div>
+                            <field name="doc_autoriz"/>
+                            <label for="title" string="Documento Autorizado"/>
+                            <label for="title" string="" style="color:White;width:160px"/>
+                            <field name="doc_cta_cte"/>
+                            <label for="title" string="Documento Conta Corente"/>
+                        </div>
+                        <div>
+                            <label for="title" style="color:white;width:10px" string=" "/>
+                        </div>
+                        <div>
+                            <label for="title" string="Terceiro"/>
+                            <field name="terceiro_id" style="width:995px"/>
+                        </div>
+                        <notebook name="studio_notebook_S8ebf" style="width:1070px">
+                            <page name="studio_page_9esJy" string="Dados">
+                                <div>
+                                    <label for="title" style="color:white;" string="_"/>
+                                </div>
+                                <div class="oe_inline">
+                                    <field name="reg_docum_ids" style="width:1070px">
+                                        <tree editable="bottom" string="Documentos" delete="false" create="false">
+                                            <field name="data_documento" readonly="1"/>
+                                            <field name="cod_documento" readonly="1"/>
+                                            <field name="debito" readonly="1"/>
+                                            <field name="credito" readonly="1"/>
+                                            <field name="encontro"/>
+                                            <field name="saldar"/>
+
+                                            <field name="total" readonly="1" invisible="1"/>
+                                            <field name="saldo" readonly="1" invisible="1"/>
+                                            <field name="docPag" invisible="1"/>
+                                            <field name="valorPago" invisible="1"/>
+                                            <field name="movimen_docum" invisible="1"/>
+                                            <field name="numeros_docum" invisible="1"/>
+                                            <field name="nome_terc" invisible="1"/>
+                                            <field name="valorAsc" invisible="1"/>
+                                            <field name="ldocaut" invisible="1"/>
+                                            <field name="ordem_pago" invisible="1"/>
+                                            <field name="visualizar_no_tesorer" invisible="1"/>
+                                            <field name="tipo_docum" invisible="1"/>
+                                            <field name="sem_cta_cte" invisible="1"/>
+                                            <field name="control_op" invisible="1"/>
+                                            <field name="saldo_ord" invisible="1"/>
+                                            <field name="valor_ordpag" invisible="1"/>
+                                            <field name="pago" invisible="1"/>
+                                            <field name="documentos" invisible="1"/>
+                                            <field name="data_realise" invisible="1"/>
+                                            <field name="desting_doc_desp" invisible="1"/>
+                                            <field name="desting_doc_desp" invisible="1"/>
+                                            <field name="desting_doc_op" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="color:White;width:250px"/>
+                                    <label for="title" string="Totais Parciais" style="width:250px"/>
+                                    <field name="tot_parc_debito" style="color:blue; font-weight: bold; width:100px"
+                                           nolabel="1"/>
+                                    <label for="title" string="" style="color:White;width:60px"/>
+                                    <field name="tot_parc_credito" style="color:red; font-weight: bold; width:100px"
+                                           nolabel="1"/>
+                                    <label for="title" string="" style="color:White;width:125px"/>
+                                    <field name="tot_parc_saldar" style="width:50px" nolabel="1"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="color:White;width:250px"/>
+                                    <label for="title" string="Selecionado" style="width:250px"/>
+                                    <field name="selecionado_debito" style="width:100px" nolabel="1" force_save="1"
+                                           invisible="1"/>
+                                    <field name="selecionado_debito1" style="width:100px" nolabel="1" force_save="1"
+                                           readonly="1"/>
+                                    <label for="title" string="" style="color:White;width:60px"/>
+                                    <field name="selecionado_credito" style="width:100px" nolabel="1" force_save="1"
+                                           invisible="1"/>
+                                    <field name="selecionado_credito1" style="width:100px" nolabel="1" force_save="1"
+                                           readonly="1"/>
+                                    <label for="title" string="" style="color:White;width:125px"/>
+                                    <field name="selecionado_saldar" style="width:50px" nolabel="1" force_save="1"
+                                           invisible="1"/>
+                                    <field name="selecionado_saldar1" style="width:50px" nolabel="1" force_save="1"
+                                           readonly="1"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="color:white;width:10px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title"
+                                           string="____________________________________________________________________________________________________________________________________________________"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Contabilizar"/>
+                                    <field name="contabilizar"/>
+                                    <label for="title" style="color:white" string="____"/>
+                                    <label for="title" string="Data Movimento"/>
+                                    <field name="data_movimento"/>
+                                    <label for="title" style="color:white" string="____"/>
+                                    <label for="title" string="Diario"/>
+                                    <field name="diario" style="width:100px"/>
+                                    <label for="title" style="color:white" string="____"/>
+                                    <label for="title" string="Contabilizado"/>
+                                    <field name="contabilizado"/>
+                                    <label for="title" style="color:white" string="__"/>
+                                    <label for="title" string="Numero"/>
+                                    <field name="numero_contab" style="width:100px" nolabel="1"/>
+                                    <label for="title" style="color:white" string="__"/>
+                                    <button name="action_quotation_send" string="contabilizar" type="object"
+                                            class="btn-primary"/>
+                                    <label for="title" style="color:white" string="__"/>
+                                    <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="encontro_tree" model="ir.ui.view">
+            <field name="name">Encontro de Contas</field>
+            <field name="model">econtroconta.econtroconta</field>
+            <field name="arch" type="xml">
+                <tree string="Encontro Conta">
+                    <field name="id"/>
+                    <field name="numero"/>
+                    <field name="n_documento"/>
+                    <field name="terceiro_id"/>
+                    <field name="data"/>
+                    <field name="doc_tesouraria"/>
+                    <field name="doc_autoriz"/>
+                    <field name="adiantamento_em_op"/>
+                    <field name="doc_cta_cte"/>
+                    <field name="tot_parc_credito"/>
+                    <field name="tot_parc_debito"/>
+                    <field name="tot_parc_saldar"/>
+                    <field name="selecionado_credito"/>
+                    <field name="selecionado_debito"/>
+                    <field name="selecionado_saldar"/>
+                    <field name="data_movimento"/>
+                    <field name="contabilizar"/>
+                    <field name="contabilizado"/>
+                    <field name="diario"/>
+                    <field name="numero_contab"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_encontro">
+            <field name="name">Encontro de Contas</field>
+            <field name="res_model">econtroconta.econtroconta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Encontro de Conta.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Encontr de Conta) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <record id="seq_encontro_cont" model="ir.sequence">
+            <field name="name">Encontro Conta</field>
+            <field name="code">econtroconta.econtroconta.numero.abrev</field>
+            <field name="prefix">E.C-%(range_year)s-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_par_cont_numer" model="ir.sequence">
+            <field name="name">Encontro Conta</field>
+            <field name="code">econtroconta.econtroconta.numero</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!-- actions -->
+        <menuitem name=" Encontro de Contas " id="menu_encota_list" parent="gestao_tesouraria.menu_1"
+                  action="action_window_encontro" sequence="6"/>
+    </data>
+</odoo>

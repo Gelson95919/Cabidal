@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="declaracao_valor_form" model="ir.ui.view">
+           <field name="name">Declaração de Valores</field>
+           <field name="model">declaracao.valores</field>
+           <field name="arch" type="xml">
+               <form string="Declaração de Valores">
+                   <sheet>
+                      <label for="title" string="DECLARAÇÃO DE VALOR" style="font-weight: bold; color:blue"/>
+                      <div><label for="title" string=""/> </div>
+                      <group col ="3">
+                          <group></group><group string="Direcção-Geral das Alfândgas"></group>
+                      </group>
+                      <div>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="ALFÂNDIGA DE" style="font-weight: bold; color:blue"/>
+                           <field name="aalfandiga_de" style="width:200px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:300px"/>
+                          <label for="title" string="DECLARAÇÃO DE VALOR Nª" style="font-weight: bold; color:blue"/>
+                          <field name="campo_1" style="width:100px"/>
+                          <label for="title" string="/"/>
+                          <field name="campo_2" style="width:60px"/>
+                      </div>
+                      <div><label for="title" string=""/></div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="DECLARANTE"/>
+                          <field name="declarante" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="DESIGNAÇÃO DA MERCADORIA"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="designacao" style="width:700px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="VOLUMES"/>
+                          <field name="volumes" style="width:630px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="MEIO DE TRANSPORTE"/>
+                          <field name="meio_transporte" style="width:545px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="TIPO DE PROPIEDADE"/>
+                          <field name="tipo_propriedade" style="width:552px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="PROCEDÊNCIA" style="width:102px"/>
+                          <field name="procedencia" style="width:590px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="VALOR FOB" style="width:102px"/>
+                          <field name="valor_fob" style="width:590px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="FRET" style="width:102px"/>
+                          <field name="fret" style="width:592px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="SEGURO" style="width:102px"/>
+                          <field name="seguro" style="width:592px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:750px"/>
+                          <label for="title" string="Data" style="width:45px"/>
+                          <field name="data" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:746px"/>
+                          <label for="title" string="REGIME"/>
+                          <field name="regime" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="DBNª"/>
+                          <field name="dbn" style="width:100px"/>
+                          <label for="title" string="/"/>
+                          <field name="campo_3" style="width:100px"/>
+                          <label for="title" string="" style="width:5px"/>
+                          <label for="title" string="de"/>
+                          <field name="campo_4" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:470px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="declaracao_valor_act_window" model="ir.actions.act_window">
+           <field name="name">Declaração de Valores</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">declaracao.valores</field>
+           <field name="view_id" ref="declaracao_valor_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="declaracao_valor_menu" name="Declaração Valores" parent="impressos_menu" action="declaracao_valor_act_window" sequence="80"/>
+    </data>
+</odoo>

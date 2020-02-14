@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_balanco_report">
+            <field name="name">paperformatBalancete</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="balancet_report"
+                model="litregpag.litregpag"
+                string="Balancete"
+                name="contabilidade.balancet_report_view"
+                file="contabilidade.balancet_form"
+                paperformat="paperformat_balanco_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="balancet_report_view">
+            <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI- COOP-SOC.Coop. de Poupança e Credito de A.I.A</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        Balancete de Verificação do Razão Geral
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <p>
+                                <strong>Data:
+                                    <t t-esc="data_realizado"/>
+                                    Ano:
+                                    <t t-esc="ano"/>
+                                    Mês:
+                                    <t t-esc="mes"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="border:1px solid black; border-right:0px; ; border-left:0px; width:100%; margin-left: -1px; height: 80px; margin-top:15px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; ">
+                            <div class="text-center"
+                                 style="border-right:1px  solid black; padding: 20px; color:black; margin-top: -1px; margin-left: 1px;  width:140px;">
+                                <p>Conta</p>
+                            </div>
+                            <div class="text-left"
+                                 style="border:0px solid black; padding: 20px; color:black; margin-top: -1px; margin-left: -1px; width:375px;">
+                                <p>Descrição</p>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; color:black; height: 34px; padding: 1px; margin-top: -1px; width:240px;">
+                                <strong>
+                                    <p>Acumulados de Mês</p>
+                                </strong>
+                                <div style="border:0px solid black;  position:relative; margin-left: -1px;  height: 34px; top:-10px; width:511px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: left;">
+                                    <div style="border:0px solid black;  margin-left: 5px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Debitos</p>
+                                    </div>
+                                    <div style="border:0px solid black;  margin-left: 20px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Creditos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; color:black; height: 34px; padding: 1px; margin-top: -1px; width:240px;">
+                                <strong>
+                                    <p>Acumulados de Mês Seguinte</p>
+                                </strong>
+                                <div style="border:0px solid black;  position:relative; margin-left: -1px;  height: 34px; top:-10px; width:511px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: left;">
+                                    <div style="border:0px solid black;  margin-left: 5px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Debitos</p>
+                                    </div>
+                                    <div style="border:0px solid black;  margin-left: 20px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Creditos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center"
+                                 style="border:0px solid black; color:black; height: 34px; padding: 1px; margin-top: -1px; width:240px;">
+                                <strong>
+                                    <p>Saldos</p>
+                                </strong>
+                                <div style="border:0px solid black;  position:relative; margin-left: -1px;  height: 34px; top:-10px; width:140px; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: left;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: left;">
+                                    <div style="border:0px solid black;  margin-left: 5px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Devedores</p>
+                                    </div>
+                                    <div style="border:0px solid black;  margin-left: 20px; padding-top: 10px; margin-left: -1px; color:black; margin-top: 1px; height: 47px; width:120px;">
+                                        <p>Credores</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 100%; margin-top:10px; ">
+                            <table class="table table-condensed table-bordered" style="width: 100%"> <!--table-condensed table-bordered-->
+                                <!--<thead>
+                                    <th class="text-center" style="border:1px solid black; width: 5%">Conta</th>
+                                    <th class="text-left" style="border:1px solid black; width: 21%">Descrição</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Debito</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Credito</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Debito</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Credito</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Devedores</th>
+                                    <th class="text-center" style="border:1px solid black; width: 13%">Credores</th>
+                                </thead>-->
+
+                                <tbody>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-esc="o['conta']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-esc="o['descricao']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['deb_acum_mes']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['cred_acum_mes']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['deb_acum_mes_sig']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['cred_acum_mes_sig']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['sald_devedor']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['sal_credor']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+            </t>
+        </template>
+    </data>
+</odoo>

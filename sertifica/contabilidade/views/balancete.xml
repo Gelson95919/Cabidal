@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="balancet_form" model="ir.ui.view">
+            <field name="name">Balancete.form</field>
+            <field name="model">balancete.balancete</field>
+            <field name="arch" type="xml">
+                <form string="Balancete">
+                    <sheet>
+                        <div>
+                            <label for="title" string="BALANCETE"/>
+                        </div>
+                        <div>
+                            <label for="title" style="width:10px" string=""/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="tipo_balancete" widget='radio' class="oe_edit_only"
+                                       options="{'horizontal': true}" nolabel='1'/>
+                            </group>
+                            <group>
+                                <div>
+                                    <label for="title" string="Incluir Auxiliares"
+                                           attrs="{'invisible': [('tipo_balancete', '=', 'graus')]}"/>
+                                    <field name="incluir_auxiliar"
+                                           attrs="{'invisible': [('tipo_balancete', '=', 'graus')]}"/>
+                                    <field name="data_realizado" style="width:100px" invisible="1"/>
+                                </div>
+                            </group>
+                        </group>
+                        <label for="title"
+                               string="___________________________________________________________________________________________________________________________________________________________"/>
+                        <group col="4">
+                            <group string='Periodo'>
+                                <div>
+                                    <label for="title" string="Ano"/>
+                                    <field name="ano" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Mes"/>
+                                    <field name="mes" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Acumulado"/>
+                                    <label for="title" style="width:35px" string=""/>
+                                    <field name="acomulado"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Comparativo"/>
+                                    <label for="title" style="width:26px" string=""/>
+                                    <field name="comparativo"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Mes"/>
+                                    <field name="mes1" attrs="{'invisible': [('acomulado', '=', False)]}"
+                                           style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Nivel"/>
+                                    <field name="nivel" style="width:100px"/>
+                                </div>
+                            </group>
+                            <group string='Conta'>
+                                <div>
+                                    <label for="title" string="Inicio"/>
+                                    <field name="inicio_conta" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Fim" style="width:30px"/>
+                                    <field name="fin_conta" style="width:100px"/>
+                                </div>
+                                <div>
+                                    <label for="title" style="width:60px" string=""/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Anular Conta"/>
+                                    <field name="acomular_conta" style="width:30px"/>
+                                </div>
+                            </group>
+                            <group string='Terceiro' attrs="{'invisible': [('tipo_balancete', '!=', 'terceiro')]}">
+                                <div>
+                                    <field name="inicio_terc" nolabel="1" style="width:150px"/>
+                                    <field name="fin_terce" nolabel="1" style="width:150px"/>
+                                </div>
+                            </group>
+                            <group string='Centro Custo'
+                                   attrs="{'invisible': [('tipo_balancete', '!=', 'centrocusto')]}">
+                                <div>
+                                    <field name="inicio_centro_cust" nolabel="1" style="width:150px"/>
+                                    <field name="fin_centro_cust" nolabel="1" style="width:150px"/>
+                                </div>
+                            </group>
+
+                        </group>
+                        <group>
+                            <group string='Ordem' attrs="{'invisible': [('tipo_balancete', '!=', 'terceiro')]}">
+                                <field name="tipo" widget="radio" nolabel='1'/>
+                            </group>
+                            <group string='Ordem' attrs="{'invisible': [('tipo_balancete', '!=', 'centrocusto')]}">
+                                <field name="ordem" widget="radio" nolabel='1'/>
+                            </group>
+                            <group>
+                                <field name="formato_antigo"/>
+                                <field name="edit_report"/>
+                            </group>
+                        </group>
+                        <header>
+                            <button name="gerar" type="object" icon="fa-cogs" class="btn-primary" string="Gerar"/>
+                        </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="act_window_balancete" model="ir.actions.act_window">
+            <field name="name">Balancete</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">balancete.balancete</field>
+            <field name="view_id" ref="balancet_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Balancete.
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_balancete" name="Balancete" parent="contabilidade.menu_3" action="act_window_balancete"
+                  sequence="80"/>
+
+    </data>
+</odoo>

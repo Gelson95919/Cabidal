@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="extracto_form" model="ir.ui.view">
+           <field name="name">Extractos.form</field>
+           <field name="model">extracto.extracto</field>
+           <field name="arch" type="xml">
+               <form string="Extracto de Contas">
+                   <sheet>
+                       <div><label for="title" string="EXTRACTO DE CONTA"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                       <field name="por" widget = 'radio' class="oe_edit_only" options="{'horizontal': true}"/>
+                       <label for="title" string="___________________________________________________________________________________________________________________________________________________________"/>
+                       <group col = '3'>
+                           <group string = 'Pedido'>
+                               <field name="nadaver" nolabel="1"/>
+                               <field name="nadaver" nolabel="1"/>
+                               <div>
+                                 <label for="title" string="De"/>
+                                 <field name="data_in" nolabel ='1' style="width:100px"/>
+                               </div>
+                               <div>
+                                   <label for="title" style="width:60px" string=""/>
+                               </div>
+                               <div>
+                                 <label for="title" string="Ate"/>
+                                 <field name="data_fin" nolabel="1" style="width:100px"/>
+                               </div>
+                           </group>
+                           <group  string = 'Mes'>
+                               <div>
+                                 <field name="inter_mes" widget = 'radio' class="oe_edit_only" options="{'horizontal': true}" nolabel="1"/>
+                               </div>
+                               <div>
+
+                               </div>
+                               <div>
+                                 <label for="title" string="De" attrs="{'invisible': [('inter_mes','=', 'todos')]}"/>
+                                 <field name="data_de" nolabel="1" style="width:100px" attrs="{'readonly': [('inter_mes','=', 'todos')]}"/>
+                               </div>
+                               <div>
+                                   <label for="title" style="width:60px" string=""/>
+                               </div>
+                               <div>
+                                 <label for="title" string="Ate" attrs="{'invisible': [('inter_mes','=', 'todos')]}"/>
+                                 <field name="data_ate" nolabel="1" style="width:100px" attrs="{'readonly': [('inter_mes','=', 'todos')]}"/>
+                               </div>
+                           </group>
+                           <group string = 'Opção'>
+                               <div>
+                                   <field name="mudar_pagina"/>
+                                   <label for="title" string="Mudadar Pagina"/>
+                               </div>
+                               <div>
+                                   <label for="title" style="width:60px" string=""/>
+                               </div>
+                               <div>
+                                   <field name="moeda_estrangeiro"/>
+                                   <label for="title" string="Mueda Estrangeira"/>
+                               </div>
+                               <div>
+                                   <label for="title" style="width:60px" string=""/>
+                               </div>
+                               <div>
+                                  <label for="title" string="Conta Inicial" attrs="{'invisible': [('por', '=', 'porconta')]}"/>
+                                  <field name="conta_inicial" attrs="{'invisible': [('por', '=', 'porconta')]}"/>
+                               </div>
+                               <div>
+                                  <label for="title" string="Conta Final" attrs="{'invisible': [('por', '=', 'porconta')]}"/>
+                                  <field name="conta_final" attrs="{'invisible': [('por', '=', 'porconta')]}"/>
+                               </div>
+
+                           </group>
+                       </group>
+                       <group string = 'Codigo' col ='2'>
+                           <group>
+                               <field name="cod_inter_altern" widget = 'radio' class="oe_edit_only" options="{'horizontal': true}" nolabel="1"/>
+                               <div></div>
+                               <div>
+                                 <label for="title" string="De" attrs="{'invisible': [('cod_inter_altern', '!=', 'intervalo')]}"/>
+                                 <field name="inter_de" nolabel="1" style="width:100px" attrs="{'readonly': [('cod_inter_altern', '!=', 'intervalo')]}"/>
+                               </div>
+                                <div>
+                                   <label for="title" style="width:60px" string=""/>
+                               </div>
+                               <div>
+                                 <label for="title" string="Ate" attrs="{'invisible': [('cod_inter_altern', '!=', 'intervalo')]}"/>
+                                 <field name="inter_ate" nolabel="1" style="width:100px" attrs="{'readonly': [('cod_inter_altern', '!=', 'intervalo')]}"/>
+                                 <field name="campo_alterna" widget = 'many2many_tags' attrs="{'readonly': [('cod_inter_altern', '!=', 'alternado')]}" nolabel="1" options="{'no_create':True}"/>
+                               </div>
+                           </group>
+                       </group>
+                      <header>
+                           <button name="gerar" icon="fa-cogs" type="object" string="Gerar" class="btn-primary"/>
+                      </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="extractos_actions_act_window" model="ir.actions.act_window">
+           <field name="name">Extracto de Conta</field>
+           <field name="res_model">extracto.extracto</field>
+           <field name="view_id" ref="extracto_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Extracto de Conta.
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="extract_conta" name="Extracto" parent="contabilidade.menu_3" action="extractos_actions_act_window"/>
+
+    </data>
+</odoo>

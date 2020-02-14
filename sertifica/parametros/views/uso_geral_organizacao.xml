@@ -1,0 +1,51 @@
+
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="form_all_orga">
+      <field name="name">fastgest Organização</field>
+      <field name="model">organizacao.organizacao</field>
+      <field name="arch" type="xml">
+        <form string="Organização">
+           <sheet>
+               <div><label for="title" string="" style="width:6px"/></div>
+                <div>
+                    <label for="title" string="Descrição"/>
+                    <field name="name" style="width:800px"/>
+                </div>
+                <div>
+                   <label for="title" string="C.Custo" style="width:60px"/>
+                   <field name="C_Custo" style="width:240px"/>
+                    <label for="title" string=""  style="color:White;width:280px"/>
+                   <label for="title" string="Abreviatura"/>
+                   <field name="Abreviatura" style="width:200px"/>
+                </div>
+           </sheet>
+          </form>
+      </field>
+    </record>
+    <record id="form_all_orga_tree_view" model="ir.ui.view">
+       <field name="name">organizacao.tree.view </field>
+       <field name="model">organizacao.organizacao</field>
+       <field name="arch" type="xml">
+         <tree >
+           <field name="name"/>
+           <field name="C_Custo"/>
+           <field name="Abreviatura"/>
+         </tree>
+       </field>
+    </record>
+    <record model="ir.actions.act_window" id="parametros.action_window_orga">
+      <field name="name">Organização </field>
+      <field name="res_model">organizacao.organizacao</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Organização.
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Organização) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name="Organização" id="parametros.menu_orga_list" parent="parametros.menu_Uso_Geral" action="parametros.action_window_orga"/>
+  </data>
+</odoo>

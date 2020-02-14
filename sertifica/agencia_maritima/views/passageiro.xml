@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="passagem_inter_ilhas" model="ir.ui.view">
+           <field name="name">Passagens Inter Ilhas</field>
+           <field name="model">passagem</field>
+           <field name="arch" type="xml">
+               <form string="Passagens Inter Ilhas">
+                   <sheet>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Navio" style="width:80px"/>
+                           <field name="navio_id" style="width:260px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <field name="numer_navio" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Viagem/Ano" style="width:80px"/>
+                           <field name="num_viagem" style="width:200px"/>
+                           <label for="title" string="" style="width:2px"/>
+                           <field name="ano" style="width:160px"/>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="Classe"/>
+                           <field name="classe_id" style="width:360px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Origem" style="width:80px"/>
+                           <field name="porto_id_o" style="width:370px"/>
+                           <label for="title" string="" style="width:100px"/>
+                           <label for="title" string="Destino"/>
+                           <field name="porto_id_d" style="width:360px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nª Bilhete" style="width:80px"/>
+                           <field name="num_bilhete" style="width:100px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="___________________________________________________________________________________________________________________________________________________" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nome"/>
+                           <field name="nome" style="width:730px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Edade"/>
+                           <field name="edade" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Doc.Ident."/>
+                           <field name="domento" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Contacto"/>
+                           <field name="contocto" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Data Emissão"/>
+                           <field name="data_emicao" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nacionalidade"/>
+                           <field name="nqacionalidade" style="width:680px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="___________________________________________________________________________________________________________________________________________________" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Tarifa"/>
+                           <field name="tarifa" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Agência" style="width:70px"/>
+                           <field name="agencia" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Taxa(Enapor)"/>
+                           <field name="taxa_enapor" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Selos"/>
+                           <field name="selos" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Impressos" style="width:70px"/>
+                           <field name="impressos" style="width:100px"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Total" style="width:85px; font-weight: bold; color:blue"/>
+                           <field name="total" style="width:100px; font-weight: bold; color:red"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="____Pagamento______________________________________________________________________________________________________________________________________" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <field name="pagamento" style="width:100px" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                           <label for="title" string="" style="width:140px"/>
+                           <button name="meios" string="Meios" type="object" class="btn-primary"/>
+                       </div>
+                   </sheet>
+                   <header>
+                         <button name="anular" string="Anular" type="object" icon="fa-remove" class="btn-primary"/>
+                         <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                         <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="passagem_inter_ilhas_tree" model="ir.ui.view">
+           <field name="name"></field>
+           <field name="model">passagem</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <!--<field name="name"/>-->
+               </tree>
+           </field>
+       </record>
+       <record id="passagem_inter_ilhas_act_window" model="ir.actions.act_window">
+           <field name="name">Passagens Inter Ilhas</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">passagem</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="passagem_inter_ilhas_meu" name="Passagens" parent="passagem_maritima_menu" action="passagem_inter_ilhas_act_window" sequence="80"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="form_all_respo">
+      <field name="name">fastgest Responsáveis</field>
+      <field name="model">responsaves.responsaves</field>
+      <field name="arch" type="xml">
+        <form string="Responsáveis">
+          <sheet>
+              <div><label for="title" string="" style="width:6px"/></div>
+               <div>
+                 <label for="title" string="Descrição" style="width:60px"/>
+                 <field name="name" style="width:800px"/>
+               </div>
+               <div>
+                   <label for="title" string="Morada" style="width:60px"/>
+                   <field name="morada" style="width:800px"/>
+               </div>
+               <div>
+                   <label for="title" string="Cargo" style="width:60px"/>
+                   <field name="cargo" style="width:260px"/>
+                   <label for="title" string="" style="width:210px"/>
+                   <label for="title" string="Telefone" style="width:60px"/>
+                   <field name="telefone" style="width:260px"/>
+               </div>
+               <div>
+                   <label for="title" string="Telenovel" style="width:60px"/>
+                   <field name="telemovel" style="width:260px"/>
+                   <label for="title" string="" style="width:210px"/>
+                   <label for="title" string="E-mail" style="width:60px"/>
+                   <field name="email" style="width:260px"/>
+               </div>
+          </sheet>
+          </form>
+      </field>
+    </record>
+    <record id="form_all_respo_tree_view" model="ir.ui.view">
+       <field name="name">responsaves.tree.view </field>
+       <field name="model">responsaves.responsaves</field>
+       <field name="arch" type="xml">
+           <tree >
+               <field name="name"/>
+               <field name="morada"/>
+               <field name="cargo"/>
+               <field name="telefone"/>
+               <field name="telemovel"/>
+               <field name="email"/>
+           </tree>
+       </field>
+     </record>
+    <record model="ir.actions.act_window" id="parametros.action_window_respo">
+      <field name="name">Responsáveis </field>
+      <field name="res_model">responsaves.responsaves</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Responsáveis.
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Responsáveis) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name="Responsáveis " id="parametros.menu_resp_list" parent="parametros.menu_Uso_Geral" action="parametros.action_window_respo"/>
+  </data>
+</odoo>

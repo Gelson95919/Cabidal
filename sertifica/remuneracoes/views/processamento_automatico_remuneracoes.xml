@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="proces_autom_remun_form" model="ir.ui.view">
+           <field name="name">Processamento Automático Remunerações</field>
+           <field name="model">processamento.automatico.remuneracoes</field>
+           <field name="arch" type="xml">
+               <form string="Processamento Automático Remunerações">
+                   <sheet>
+                       <group>
+                          <div>
+                              <field name="tipo_process" widget="radio" options="{'horizontal': true}"/>
+                              <label for="title" string="Mês"/>
+                              <field name="mes" style="width:150px"/>
+                              <label for="title" style="width:50px" string=""/>
+                              <label for="title" string="Data Processamento"/>
+                              <field name="data_process" style="width:150px"/>
+                              <label for="title" style="width:50px" string=""/>
+                              <label for="title" string="Ano"/>
+                              <field name="ano" style="width:150px"/>
+                          </div>
+                       </group>
+                       <group name ="procesamento"></group>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <field name="tipo_organis" widget="radio" options="{'horizontal': true}" />
+                           <button name="(process)" type="object" icon="fa-gears" string="Processar" style="font-size:20px;color:blue;"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div><label for="title" string="Contabilidade_____________________________________________________________________________________________________________________________________________" style="color:Blue; font-weight: bold;"/></div>
+                       <div><label for="title" string="" style="width:20px"/></div>
+                       <label for="title" string="Contabilizado"/>
+                       <field name="contabilizado" style="width:150px"/>
+                       <label for="title" style="width:6px" string="" />
+                       <label for="title" string="Número"/>
+                       <field name="numero" style="width:150px"/>
+                       <label for="title" style="width:6px" string="" />
+                       <button name="(c)" type="object" string="C" class="btn-primary"/>
+                       <label for="title" style="width:6px" string="" />
+                       <button name="()" type="object" string="()" class="btn-primary"/>
+                       <header>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="proces_autom_remun_tree" model="ir.ui.view">
+           <field name="name">Processamento Automatico Remuneracoes</field>
+           <field name="model">processamento.automatico.remuneracoes</field>
+           <field name="arch" type="xml">
+               <tree string="Processamento Automático Remunerações">
+                   <field name="data_process"/>
+               </tree>
+           </field>
+       </record>
+       <record id="proces_autom_remun_act_window" model="ir.actions.act_window">
+           <field name="name">Processamento Automático Remunerações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">processamento.automatico.remuneracoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="proces_autom_remun_menu" name="Processamento Automático" parent="menu_remuneracoes" action="proces_autom_remun_act_window" sequence="80"/>
+       <record id="process_form_inherit" model="ir.ui.view">
+          <field name="name">Processamento</field>
+          <field name="model">processamento.automatico.remuneracoes</field>
+          <field name="inherit_id" ref="remuneracoes.proces_autom_remun_form"/>
+          <field name="arch" type="xml">
+             <xpath expr="//group[@name='procesamento']" position="inside">
+                  <div>
+                     <field name="remuneracoes_ids">
+                         <tree editable="bottomn" string="Tree">
+                            <field name="funcionario_id" />
+                            <field name="data_process"/>
+                            <field name="processar" /><!--attrs="{'invisible': [('tipo_process', '!=', 'processar')]}"-->
+                            <!--<field name="anular"/>attrs="{'invisible': [('tipo_process', '!=', 'anular')]}"-->
+                         </tree>
+                     </field>
+                  </div>
+             </xpath>
+          </field>
+       </record>
+    </data>
+</odoo>

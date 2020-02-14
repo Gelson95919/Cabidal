@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="formul_reg_docum" model="ir.ui.view">
+            <field name="name">REGISTRO DOCUMENTO</field>
+            <field name="model">reg.docum</field>
+            <field name="arch" type="xml">
+                <form string="REG DOCUM" create="false" edit="false">
+                     <header>
+                        <button name="assoc__cres" string=" ADD ID REL Crdt Aprov" type="object" class="btn-primary"/>
+                         <button name="assoc_op" string=" ADD ID REL Reg OP" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="documentos"/>
+                                <field name="data_realise"/>
+                                <field name="tipo_docum"/>
+                                <field name="numeros_docum"/>
+                                <field name="cod_documento"/>
+                                <field name="nome_terc"/>
+                                <field name="visualizar_no_tesorer"/>
+                                <field name="valorAsc"/>
+                                <field name="total"/>
+                                <field name="valorPago"/>
+                                <field name="ldocaut"/>
+                                <field name="docPag"/>
+                                <field name="pago"/>
+                            </group>
+                            <group>
+                                <field name="saldo"/>
+                                <field name="saldo_ord"/>
+                                <field name="fornec_tercd"/>
+                                <field name="ordem_pago"/>
+                                <field name="sem_cta_cte"/>
+                                <field name="control_op"/>
+                                <field name="displlay_type"/>
+                                <field name="state"/>
+                                <field name="control_estad_docum"/>
+                                <field name="valor_ordpag"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tree_view_reg_docum" model="ir.ui.view">
+            <field name="name">REGISTRO DOCUMENTO</field>
+            <field name="model">reg.docum</field>
+            <field name="arch" type="xml">
+                <tree string="Reg Docum">
+                    <button name="confirm" icon="fa-file-text-o" string="Documentos " class="btn btn-warning"/>
+                    <field name="id"/>
+                    <field name="CDOCINT2"/>
+                    <field name="CDOCINT"/>
+                    <field name="documentos"/>
+                    <field name="data_realise"/>
+                    <field name="tipo_docum"/>
+                    <field name="numeros_docum"/>
+                    <field name="cod_documento"/>
+                    <field name="data_documento"/>
+                    <field name="nome_terc"/>
+                    <field name="visualizar_no_tesorer"/>
+                    <field name="valorAsc"/>
+                    <field name="total"/>
+                    <field name="valorPago"/>
+                    <field name="desting_doc_desp"/>
+                    <field name="desting_doc_vend"/>
+                    <field name="desting_doc_op"/>
+                    <field name="cobrado"/>
+                    <field name="pago"/>
+                    <field name="saldo"/>
+                    <!--<field name="saldo_ord"/> Saldo no view OP
+                    <field name="fornec_tercd"/>-->
+                    <field name="ordem_pago"/>
+                    <field name="sem_cta_cte"/>
+                    <field name="control_op"/>
+                    <field name="displlay_type"/>
+                    <field name="state"/>
+                    <field name="control_estad_docum"/>
+                    <field name="debito"/>
+                    <field name="credito"/>
+                    <field name="encontro"/>
+                    <field name="saldar"/>
+                </tree>
+
+            </field>
+        </record>
+        <record id="search_view_reg_docum_group" model="ir.ui.view">
+            <field name="name">REGISTRO DOCUMENTO</field>
+            <field name="model">reg.docum</field>
+            <field name="arch" type="xml">
+                <search string="Documentos Information"><field name=""/>
+                    <field name="documentos"/>
+                    <field name="tipo_docum"/>
+                    <field name="cod_documento"/>
+                    <field name="data_realise"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_documentos" string="Documentos" domain="[('ldocaut', '=', True)]" context="{'group_by':'documentos'}"
+                                help="Group Documentos Wise"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="sequ_regue_docum" model="ir.sequence">
+            <field name="name">Registro Documento</field>
+            <field name="code">codigo.codigo</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequ_reg_docum_fat_cliente" model="ir.sequence">
+            <field name="name">Fatura Cliente</field>
+            <field name="code">codigo.fatur.cliente</field>
+            <field name="prefix">FC-%(range_year)s/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="act_windows_reg_docum" model="ir.actions.act_window">
+            <field name="name">REGISTRO DOCUMENTO</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="context">{'search_default_group_documentos': 1}</field>
+            <field name="res_model">reg.docum</field>
+            <!--<field name="view_id" ref="formul_reg_docum"/>
+            <field name="target">inline</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="auto_refresh" eval="2"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action-->
+        <menuitem id="sub_reg_docum" name="REGISTRO DOCUMENTO" parent="menu_outros" action="act_windows_reg_docum"
+                  sequence="80"/>
+    </data>
+</odoo>

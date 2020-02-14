@@ -1,0 +1,81 @@
+<odoo>
+  <data>
+     <record id="tabela_preco_form" model="ir.ui.view">
+         <field name="name">Tabela Preço</field>
+         <field name="model">tabela.preco</field>
+         <field name="arch" type="xml">
+             <form string="Tabela Preço">
+                 <sheet>
+                   <div><label for="title" string="TABELA PREÇOS"/></div>
+                   <div><label for="title" style="width:10px" string=""/> </div>
+                   <div>
+                      <label for="title" string="Armazém" style="width:74px"/>
+                      <field name="armazem" nolabel="1" style="width:260px"/>
+                   </div>
+                   <div>
+                      <label for="title" string ="Familia" style="width:74px"/>
+                      <field name="familia" nolabel="1" style="width:260px"/>
+                   </div>
+                   <div>
+                      <label for="title" string ="Sub Familia"/>
+                      <field name="sub_familia" nolabel="1" style="width:260px"/>
+                   </div>
+                   <div>
+                      <label for="title" style="color:Blue" string="__________________________________________________________________________________________________________________________________________________________"/>
+                   </div>
+                   <div>
+                     <label for="title" style="width:60px" string=""/>
+                   </div>
+                   <div>
+                     <label for="title" string ="Tudos os Preço"/>
+                     <field name="todos_precos" nolabel="1"/>
+                     <label for="title" string="____" style="color:White;"/>
+                     <label for="title" string ="Incluir Estoque"/>
+                     <field name="incluir_estoque" nolabel="1"/>
+                   </div>
+                   <div>
+                      <label for="title" style="color:Blue" string="__________________________________________________________________________________________________________________________________________________________"/>
+                   </div>
+                   <div>
+                     <label for="title" style="width:60px" string=""/>
+                   </div>
+                   <div>
+                      <field name="tiporelat" nolabel="1" widget="radio"/>
+                   </div>
+                   <header>
+                      <button name="aceitar" type="object" icon="fa-check-square-o" class="btn-primary" string="Aceitar"/>
+                   </header>
+                 </sheet>
+             </form>
+         </field>
+     </record>
+     <record id="tabela_preco_tree" model="ir.ui.view">
+         <field name="name">Tabela Preço</field>
+         <field name="model">tabela.preco</field>
+         <field name="arch" type="xml">
+             <tree string="Tabela Preço">
+                 <field name="armazem"/>
+                 <field name="familia"/>
+                 <field name="sub_familia"/>
+             </tree>
+         </field>
+     </record>
+    <record id="act_window_tabela_preco" model="ir.actions.act_window">
+        <field name="name">Tabela Preço</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tabela.preco</field>
+        <field name="view_id" ref="tabela_preco_form"/>
+        <field name="target">inline</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="tabela_preco_menu" name="Tabela Preço" parent="inventarios.menu_relatori" action="act_window_tabela_preco" sequence="80"/>
+  </data>
+</odoo>

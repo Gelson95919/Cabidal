@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <!--========= Form Código Compras ========-->
+         <record id="form_all_cod_com" model="ir.ui.view">
+            <field name="name">Código Compras</field>
+            <field name="model">compras.compras</field>
+            <field name="arch" type="xml">
+                <form string="Código Compras">
+                    <header>
+                       <button name="compor_op" string="ADD ID" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div>
+                            <label for="title" string="Código" style="width:60px"/>
+                            <field name="codigo" style="width:100px"/>
+                        </div>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <field name="name" style="width:800px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Tipo" style="width:60px"/>
+                            <field name="tipo" style="width:260px"/>
+                        </div>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div>
+                           <label for="title" string="__Configuração___________________________________________________________________________________________________________________________________________" style="color:Blue;"/>
+                        </div>
+                        <div>
+                           <field name="adiantamento_de_compra_gasto"/>
+                           <label for="title" string="Adiantamento de Compra" style="width:260px"/>
+                           <label for="title" style="color:White;width:360px" string=""/>
+                           <field name="pagamento_por_conta_de_outrem"/>
+                           <label for="title" string="Pagamento por Conta de Outrem" style="width:260px"/>
+                        </div>
+                        <div>
+                            <field name="incluir_na_cta_cte"/>
+                            <label for="title" string="Incluir na Conta Corrente" style="width:260px"/>
+                            <label for="title" style="color:White;width:360px" string=""/>
+                            <field name="tem_retencao_de_IUR"/>
+                            <label for="title" string="Tem Retenção de IUR" style="width:260px"/>
+                        </div>
+                        <div>
+                            <field name="utilizar_conta_reflexao"/>
+                            <label for="title" string="Utilizar Conta Reflexão" style="width:260px"/>
+                            <label for="title" style="color:White;width:360px" string=""/>
+                            <label for="title" string="Imposto"/>
+                            <field name="iur" attrs="{'readonly': [('tem_retencao_de_IUR', '!=', True)]}" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta Reflexão"/>
+                            <label for="title" string=""  style="color:White;width:50px"/>
+                            <field name="codigo_conta_id" style="width:120px" attrs="{'readonly': [('utilizar_conta_reflexao', '!=', True)]}"/>
+                            <label for="title" style="color:White;width:370px" string=""/>
+                            <label for="title" string="Conta"/>
+                            <label for="title" string=""  style="width:11px"/>
+                            <field name="contac_id" style="width:160px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Tipo DPR Fornecedores"/>
+                            <field name="tipologia_dpr_fornecedores" style="width:120px"/>
+                        </div>
+                        <div><label for="title" string="" style="width:6px"/></div>
+                        <div>
+                            <label for="title" string="__Contabilização___________________________________________________________________________________________________________________________________________" style="color:Blue;"/>
+                        </div>
+                        <div>
+                            <field name="utiliza_configuracao_de_processo"/>
+                            <label for="title" string="Utiliza Configuração de Processo" style="width:600px"/>
+                            <field name="mudar_tipo_de_movimento_se_for_negativo"/>
+                            <label for="title" string="Mudar Tipo de Movimento se For Negativo"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Conta" style="width:90px"/>
+                            <field name="conta_id" domain="[('grupo','=',True)]"/>
+                            <label for="title" style="color:White; width:360px" string=""/>
+                            <label for="title" string="Conta IVA"/>
+                            <label for="title" string=""  style="color:White;width:40px"/>
+                            <field name="conta_IVA_id"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Fluxo de Caixa"/>
+                            <field name="fluxo_de_caixa_id"/>
+                            <label for="title" string=""  style="color:White;width:360px"/>
+                            <label for="title" string="Código IVA"/>
+                            <label for="title" string=""  style="color:White;;width:30px"/>
+                            <field name="codigo_IVA_di"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Centro Custo" style="width:85px"/>
+                            <label for="title" string=""  style="color:White;width:5px"/>
+                            <field name="centro_custo_id"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+         </record>
+         <record id="form_all_codcomp_tree_view" model="ir.ui.view">
+            <field name="name">compras.tree.view </field>
+            <field name="model">compras.compras</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <!--<field name="date_release"/>
+                    <field name="tipo"/>
+                    <field name="adiantamento_de_compra_gasto"/>
+                    <field name="incluir_na_cta_cte"/>
+                    <field name="pagamento_por_conta_de_outrem"/>
+                    <field name="tem_retencao_de_IUR"/>
+                    <field name="iur"/>
+                    <field name="contac_id"/>
+                    <field name="utilizar_conta_reflexao"/>
+                    <field name="codigo_conta_id"/>
+                    <field name="tipologia_dpr_fornecedores"/>
+                    <field name="utiliza_configuracao_de_processo"/>
+                    <field name="mudar_tipo_de_movimento_se_for_negativo"/>
+                    <field name="conta_id"/>
+                    <field name="conta_IVA_id"/>
+                    <field name="fluxo_de_caixa_id"/>
+                    <field name="codigo_IVA_di"/>-->
+                </tree>
+            </field>
+         </record>
+        <record id="sequ_compras_codigo" model="ir.sequence">
+            <field name="name">Conceito compras</field>
+            <field name="code">compras.compras</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+          <!-- ações abrindo visualizações em modelos -->
+         <record model="ir.actions.act_window" id="fastgest_action_window_cod_com">
+           <field name="name">Código Compras </field>
+           <field name="res_model">compras.compras</field>
+           <field name="domain">[('type','=','cod_compras')]</field>
+           <field name="context">{'default_type': 'cod_compras', 'type': 'cod_compras'}</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                  Criar um novo Código Compras.
+              </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Código Compras) para projetos internos, pessoais ou de clientes.
+              </p>
+           </field>
+         </record>
+         <menuitem name="Código Compras" id="parametros.menu_cod_comp" parent="fastgest_comp" action="fastgest_action_window_cod_com"/>
+    </data>
+</odoo>

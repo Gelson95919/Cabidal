@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_list_enco_conta">
+            <field name="name">Listagem Encontro Conta</field>
+            <field name="model">listagem.encontro.conta</field>
+            <field name="arch" type="xml">
+                <form string="Listagem Encontro Conta">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight" icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem de Encontro Conta"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="De" style="width:25px"/>
+                            <field name="date_start"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Ate" style="width:25px"/>
+                            <field name="date_end"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_lista_encontro">
+            <field name="name">Listagem Encontro de Conta</field>
+            <field name="res_model">listagem.encontro.conta</field>
+            <field name="view_id" ref="form_all_list_enco_conta"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Realizar um novo Listagem .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de listagem) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Listagem de Encontro Conta"  id="menu_lista_list_enco_conta" parent="gestao_tesouraria.menu_2"
+                  action="action_window_lista_encontro"/>
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Define a vista de fiormulario-->
+       <record id="usuario_form_view" model="ir.ui.view">
+           <field name="name">usuario.form.view</field>
+           <field name="model">usuario.usuario</field>
+           <field name="arch" type="xml">
+               <form string="usuario form">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="last_login"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+
+       <!--Tree_view-->
+      <record id="usuario_tree_view" model="ir.ui.view">
+          <field name="name">usuario.tree.vie</field>
+          <field name="model">usuario.usuario</field>
+          <field name="arch" type="xml">
+              <tree string="usuario tree">
+                  <field name="name"/>
+                  <field name="last_login"/>
+              </tree>
+          </field>
+      </record>
+      <record id="action_menu" model="ir.actions.act_window">
+          <field name="name"></field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model"></field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              <!-- Add Text Here -->
+            </p><p>
+              <!-- More details about what a user can do with this object will be OK -->
+            </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="UNIQUE_ID_categ" name="" parent="" action="action_menu" sequence="9"/>
+    </data>
+</odoo>

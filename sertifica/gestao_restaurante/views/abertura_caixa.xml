@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <!--PARA TRABALHAO-->
+         <record id="abertura_caixa_act_window" model="ir.actions.act_window">
+           <field name="name">Abertura de Caixas</field>
+           <field name="res_model">abrir.caixa</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">tree,form</field>
+           <field eval="False" name="view_id"/>
+           <field name="domain">[('type','=','aber_caixa_restourante')]</field>
+           <field name="context">{'default_type': 'aber_caixa_restourante', 'type': 'aber_caixa_restourante'}</field>
+           <field eval="False" name="view_id"/>
+           <!--<field name="search_view_id" ref="view_account_invoice_filter"/>-->
+           <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                 Criar um novo Abertura Caixas.
+               </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Abertura Caixas)
+                 para projetos internos, pessoais ou de clientes.
+               </p>
+           </field>
+        </record>
+        <record id="abertura_caixa_tree_view" model="ir.actions.act_window.view">
+           <field eval="1" name="sequence"/>
+           <field name="view_mode">tree</field>
+           <field name="view_id" ref="pos.abrir_caixa_tree"/>
+           <field name="act_window_id" ref="abertura_caixa_act_window"/>
+        </record>
+        <record id="form_abertura_caixa_rest_form_view2" model="ir.actions.act_window.view">
+           <field eval="2" name="sequence"/>
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="pos.abrir_caixa_form"/>
+           <field name="act_window_id" ref="abertura_caixa_act_window"/>
+        </record>
+        <menuitem action="abertura_caixa_act_window" id="abertura_caixa_menu_rest" parent="menu_restaurante" sequence="1"/>
+
+    </data>
+</odoo>

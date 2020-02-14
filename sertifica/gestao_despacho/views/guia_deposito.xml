@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+       <data>
+           <record id="guia_deposito_form" model="ir.ui.view">
+               <field name="name">Guia de Deposito</field>
+               <field name="model">guia.deposito</field>
+               <field name="arch" type="xml">
+                   <form string="Guia de Deposito">
+                       <sheet>
+                           <label for="title" string="GUIA DE DEPÓSITO" style="font-weight: bold; color:blue"/>
+                           <div><label for="title" string=""/> </div>
+                           <group col ="3">
+                             <group></group>
+                             <group string="Direcção-Geral das Alfândgas"></group>
+                             <group></group>
+                           </group>
+
+                           <div>
+                               <label for="title" string="" style="width:200px"/>
+                               <label for="title" string="(a)"/>
+                               <field name="campo_a_1" style="width:700px"/>
+                           </div>
+                           <div><label for="title" string=""/> </div>
+                           <div>
+                               <label for="title" string="" style="width:460px"/>
+                               <label for="title" string="Guia de Depósito Nª....." style="font-weight: bold; color:black"/>
+                           </div>
+                           <div><label for="title" string=""/></div>
+                           <div>
+                               <label for="title" string="" style="width:200px"/>
+                               <label for="title" string="Esc."/>
+                               <field name="esc" style="width:260px"/>
+                               <label for="title" string="" style="width:340px"/>
+                               <field name="cabecalho"/>
+                               <label for="title" string="Cabeçalho"/>
+                           </div>
+                           <div><label for="title" string=""/> </div>
+                           <group>
+                                <div>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="Vai" style="width:25px"/>
+                                    <field name="campo_1" style="width:625px"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <label for="title" string="depositar" style="width:50px"/>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="na Tesouraria desta estância aduaneira a importância de "/>
+                                    <field name="campo_2" style="width:395px"/>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="e"/>
+                                    <field name="campo_3" style="width:715px"/>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="em conformidade com o despacho exarado no"/>
+                                    <field name="campo_4" style="width:455px"/>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="Nº"/>
+                                    <field name="campo_5" style="width:145px"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <label for="title" string="de"/>
+                                    <field name="campo_6" style="width:530px"/>
+                                    <label for="title" string="" style="width:200px"/>
+                                    <label for="title" string="(a)"/>
+                                    <field name="campo_7" style="width:255px"/>
+                                    <label for="title" string="" style="width:2px"/>
+                                    <label for="title" string=","/>
+                                    <field name="campo_8" style="width:70px"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <label for="title" string="de"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <field name="campo_9" style="width:140px"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <label for="title" string="de"/>
+                                    <label for="title" string="" style="width:10px"/>
+                                    <field name="campo_10" style="width:125px"/>
+                                </div>
+                           </group>
+                           <div><label for="title" string=""/> </div>
+                           <div>
+                               <label for="title" string="" style="width:200px"/>
+                               <label for="title" string="Nº Copia"/>
+                               <field name="num_copia" style="width:70px"/>
+                               <label for="title" string="" style="width:50px"/>
+                               <field name="verso"/>
+                               <label for="title" string="Verço"/>
+                               <label for="title" string="" style="width:400px"/>
+                               <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                           </div>
+                       </sheet>
+                   </form>
+               </field>
+           </record>
+           <record id="guia_deposito_act_window" model="ir.actions.act_window">
+                <field name="name">Guia de Deposito</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">guia.deposito</field>
+                <field name="view_id" ref="guia_deposito_form"/>
+                <field name="view_mode">tree,form</field>
+                <field name="help" type="html">
+                    <p class="oe_view_nocontent_create">
+                        <!-- Add Text Here -->
+                    </p><p>
+                       <!-- More details about what a user can do with this object will be OK -->
+                    </p>
+                </field>
+           </record>
+             <!-- This Menu Item must have a parent and an action -->
+           <menuitem id="guia_deposito_menu" name="Guia Deposito" parent="impressos_menu" action="guia_deposito_act_window" sequence="80"/>
+       </data>
+</odoo>

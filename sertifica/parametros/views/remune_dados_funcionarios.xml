@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="situacoes_form" model="ir.ui.view">
+           <field name="name">Situações</field>
+           <field name="model">situacoes.situacoes</field>
+           <field name="arch" type="xml">
+               <form string="Situações">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="_______" style="color:white"/>
+                           <field name="name" style="width:400px"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Estado"/>
+                         <field name="estado" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                         <field name="baixa_prolong" /> <!-- attrs="{'readonly': [('tipo_recb','!=', 'baixaprolongada')]"-->
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="situacoes_tree" model="ir.ui.view">
+           <field name="name">Situações</field>
+           <field name="model">situacoes.situacoes</field>
+           <field name="arch" type="xml">
+               <tree string="Situações">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="situacoes_act_window" model="ir.actions.act_window">
+           <field name="name">Situações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">situacoes.situacoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Situações.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Situações) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="situacoes_mnenu" name="Situações" parent="fastgest_remuneracoe_dados_funcionario" action="situacoes_act_window" sequence="80"/>
+       <record id="categorias_form" model="ir.ui.view">
+           <field name="name">Categorias</field>
+           <field name="model">categorias.categorias</field>
+           <field name="arch" type="xml">
+               <form string="Categorias">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="categorias_tree" model="ir.ui.view">
+           <field name="name">Categorias</field>
+           <field name="model">categorias.categorias</field>
+           <field name="arch" type="xml">
+               <tree string="Categorias">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="categorias_act_window" model="ir.actions.act_window">
+           <field name="name">Categorias</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">categorias.categorias</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Categorias.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Categorias) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="categorias_menu" name="Categorias" parent="fastgest_remuneracoe_dados_funcionario" action="categorias_act_window" sequence="80"/>
+       <record id="profecoes_form" model="ir.ui.view">
+           <field name="name">Profissões</field>
+           <field name="model">profecoes.profecoes</field>
+           <field name="arch" type="xml">
+               <form string="Profissões">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="profecoes_tree" model="ir.ui.view">
+           <field name="name">Profissões</field>
+           <field name="model">profecoes.profecoes</field>
+           <field name="arch" type="xml">
+               <tree string="Categorias">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="profecoes_act_window" model="ir.actions.act_window">
+           <field name="name">Profissões</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">profecoes.profecoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Profissões.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Profissões) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action
+       <menuitem id="profecoes_menu" name="Profissões" parent="fastgest_remuneracoe_dados_funcionario" action="profecoes_act_window" sequence="80"/>-->
+       <record id="habilitacoes_form" model="ir.ui.view">
+           <field name="name">Habilitações</field>
+           <field name="model">habilitacoes.habilitacoes</field>
+           <field name="arch" type="xml">
+               <form string="Profissões">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="habilitacoes_tree" model="ir.ui.view">
+           <field name="name">Habilitações</field>
+           <field name="model">habilitacoes.habilitacoes</field>
+           <field name="arch" type="xml">
+               <tree string="Categorias">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="habilitacoes_act_window" model="ir.actions.act_window">
+           <field name="name">Habilitações</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">habilitacoes.habilitacoes</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Habilitações.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Habilitações) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="habilitacoes__menu" name="Habilitações" parent="fastgest_remuneracoe_dados_funcionario" action="habilitacoes_act_window" sequence="80"/>
+       <record id="estado_civil_form" model="ir.ui.view">
+           <field name="name">Estado Civil</field>
+           <field name="model">estado.civil</field>
+           <field name="arch" type="xml">
+               <form string="Estado Civil">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="estado_civil_tree" model="ir.ui.view">
+           <field name="name">Estado Civil</field>
+           <field name="model">estado.civil</field>
+           <field name="arch" type="xml">
+               <tree string="Estado Civil">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="estado_civil_act_window" model="ir.actions.act_window">
+           <field name="name">Estado Civil</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">estado.civil</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Estado Civil.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Estado Civil) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="estado_civil_menu" name="Estado Civil" parent="fastgest_remuneracoe_dados_funcionario" action="estado_civil_act_window" sequence="80"/>
+
+    </data>
+</odoo>

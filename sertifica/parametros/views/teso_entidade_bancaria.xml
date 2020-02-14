@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+        <record id="form_all_ent_ban" model="ir.ui.view">
+            <field name="name">Entidade Bancaria</field>
+            <field name="model">entbanc.entbanc</field>
+            <field name="arch" type="xml">
+                <form string="Entidade Bancaria ">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="codigo"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="terceiro"/>
+                                <field name="codigo_SWIFT"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ent_banc_tree" model="ir.ui.view">
+            <field name="name">Entidade Bancaria</field>
+            <field name="model">entbanc.entbanc</field>
+            <field name="arch" type="xml">
+                <tree string="Entidade Bancaria">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_ent_banc_codigo" model="ir.sequence">
+            <field name="name">Entidade Bancaria</field>
+            <field name="code">entbanc.entbanc</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!--<record id="entbanc1" model="entbanc.entbanc">
+            <field name="name">BANCO COMERCIAL DO ATILANTICO</field>
+        </record>
+        <record id="entbanc2" model="entbanc.entbanc">
+            <field name="name">CAIXA ECONOMICA DE CABO VERDE</field>
+        </record>
+        <record id="entbanc3" model="entbanc.entbanc">
+            <field name="name">BANCO INTERATILANTICO</field>
+        </record>
+        <record id="entbanc4" model="entbanc.entbanc">
+            <field name="name">BANCO CABOVERDE DE NEGOCIOS</field>
+        </record>
+        <record id="entbanc5" model="entbanc.entbanc">
+            <field name="name">BANCO AFRICANO DE INVESTIMENTOS</field>
+        </record>-->
+        <record model="ir.actions.act_window" id="action_window_entBanc">
+            <field name="name">Entidade Bancaria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">entbanc.entbanc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Entidade Bancaria.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Entidade Bancaria) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Entidades Bancarias" id="parametros.menu_ent_banc" parent="fastgest_tesoura" action="action_window_entBanc"/>
+    </data>
+</odoo>

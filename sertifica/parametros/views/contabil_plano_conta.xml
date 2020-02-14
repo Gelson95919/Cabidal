@@ -1,0 +1,134 @@
+<odoo>
+    <data>
+        <record id="form_all_ent_plancont" model="ir.ui.view">
+            <field name="name">Plano Conta</field>
+            <field name="model">planconta.planconta</field>
+            <field name="arch" type="xml">
+                <form string="Plano Conta ">
+                    <!--<header>
+                        <button name="def_len_conta" string="Teste Val"
+                                type="object"
+                                class="btn-primary"/>
+                    </header>-->
+                    <sheet>
+
+                        <div>
+                            <label for="title" string="Conta" style="width:60px"/>
+                            <field name="cod_plan_cont" style="width:100px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                            <field name="control_cod_comp" force_save = "1" invisible="1"/>
+                            <field name="tama_estru" force_save = "1" invisible="1"/>
+                            <field name="sub_filho" force_save = "1" invisible="1"/>
+                            <field name="conta" force_save = "1" invisible="1"/>
+                            <field name="estrutura" force_save = "1" invisible="1"/>
+                            <field name="eliment_estr" force_save = "1" invisible="1"/>
+                            <field name="esnumerico" force_save = "1" invisible="1"/>
+                            <field name="exist_mae" force_save = "1" invisible="1"/>
+                            <field name="pronto" force_save = "1" invisible="1"/>
+                            <field name="filho_de" force_save = "1" invisible="1"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Descrição"/>
+                            <field name="nome" style="width:500px"/>
+                            <field name="novo_plan" style="width:50px" invisible="1"/>
+                            <field name="mae" style="width:50px" invisible="1"/>
+
+                        </div>
+                        <notebook>
+                            <page string="Parâmetros">
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <field name="grupo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Grupo" style="width:680px"/>
+                                    <field name="leva_terce"  attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Leva Terceiro" style="width:150px"/>
+                                </div>
+                                <div>
+                                    <field name="leva_moeda_estrangeira" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Leva Moeda Estrangeira" style="width:680px"/>
+                                    <field name="gestao_credito" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Gestão Crédito" style="width:110px"/>
+                                </div>
+                                <div>
+                                    <field name="leva_centro_custo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Leva Centro Custo" style="width:680px"/>
+                                    <field name="fluxo_caixa" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Fluxo de Caixa" style="width:110px"/>
+                                </div>
+                                <div>
+                                    <field name="control_IVA" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Control IVA" style="width:100px"/>
+                                    <field name="IVA_id" attrs="{'readonly': [('control_IVA', '=', False)]}"
+                                           style="width:260px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Estructura de Conta"/>
+                                    <field name="estruturas_Contas" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Natureza de Conta" style="width:125px"/>
+                                    <field name="natureza_conta" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="" style="color:White;width:310px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Natureza de Saldo" style="width:125px"/>
+                                    <field name="natureza_saldo" style="width:260px" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                </div>
+
+                            </page>
+                            <page string="Control Imputação">
+                                <div>
+                                    <label for="title" string="" style="width:6px"/>
+                                </div>
+                                <div>
+                                    <field name="control_imputa_centro_custo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <label for="title" string="Controle importação - Centro Custo"/>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="planConta_act_tree" model="ir.ui.view">
+            <field name="name">Plano Conta</field>
+            <field name="model">planconta.planconta</field>
+            <field name="arch" type="xml">
+                <tree string="Plano Conta">
+                    <field name="cod_plan_cont"/>
+                    <field name="nome"/>
+                    <field name="id"/>
+                    <field name="mud_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_plano_search_view" model="ir.ui.view">
+            <field name="name">Plano Conta</field>
+            <field name="model">planconta.planconta</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nome"/>
+                    <field name="cod_plan_cont"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_window_plan_Conta_act">
+            <field name="name">Plano Conta</field>
+            <field name="res_model">planconta.planconta</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="view_id" ref="form_all_ent_plancont"/>-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Plano Conta.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Plano Conta) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Plano Conta" id="parametros.menu_ent_planconta" parent="fastgest_contabil"
+                  action="action_window_plan_Conta_act"/>
+    </data>
+</odoo>

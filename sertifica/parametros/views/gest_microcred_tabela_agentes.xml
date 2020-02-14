@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="agente_form" model="ir.ui.view">
+            <field name="name">Agentes</field>
+            <field name="model">agentes.agentes</field>
+            <field name="arch" type="xml">
+                <form string="Agente">
+                    <sheet>
+                        <group>
+                            <field name="codigo"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="operador"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="agente_tree" model="ir.ui.view">
+            <field name="name">Agentes</field>
+            <field name="model">agentes.agentes</field>
+            <field name="arch" type="xml">
+                <tree string="Agentes">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                    <field name="utilizador_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_agente_codigo" model="ir.sequence">
+            <field name="name">Financiamento</field>
+            <field name="code">agentes.agentes</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="agentes_act_window" model="ir.actions.act_window">
+            <field name="name">Agentes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">agentes.agentes</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Agentes.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Agentes) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="agentes_menu" name="Agentes" parent="fastgest_gest_microcred_tabelas" action="agentes_act_window"
+                  sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="momotivo_abate_form" model="ir.ui.view">
+            <field name="name">Motivo Abate</field>
+            <field name="model">motivo.abate</field>
+            <field name="arch" type="xml">
+                <form string="Motivo Abate">
+                    <sheet>
+
+                        <div>
+                          <label for="title" string="Descrição"/>
+                          <field name="name" style="width:350px"/>
+                          <label for="title" string="_________________"  style="color:White;"/>
+                          <label for="title" string="Conta Movimento"/>
+                          <field name="conta_movimento"/>
+                        </div>
+                        <div>
+                          <label for="title" string="Motivo Venda/alienação"/>
+                          <field name="motivo_venda"/>
+                          <label for="title" string="______________________________________________________"  style="color:White;"/>
+                          <label for="title" string="Conta (-) Valia"/>
+                          <field name="conta"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="momotivo_abate_tree" model="ir.ui.view">
+            <field name="name">Motivo Abate</field>
+            <field name="model">motivo.abate</field>
+            <field name="arch" type="xml">
+                <tree string="Motivo Abate">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="momotivo_abate_act_window" model="ir.actions.act_window">
+            <field name="name">Motivo Abate</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">motivo.abate</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Criar um novo Motivo Abate.
+              </p><p>
+                 Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Motivo Abate) para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="momotivo_abate_menu" name="Motivo Abate" parent="fastgest_invetimento" action="momotivo_abate_act_window" sequence="80"/>
+        <!--<menuitem name="Unidade Medida" id="menu_uni_med" parent="fastgest_invetimento" action="parametros.action_window_uni_med"/>-->
+    </data>
+</odoo>

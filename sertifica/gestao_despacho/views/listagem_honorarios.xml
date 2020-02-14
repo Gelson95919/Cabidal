@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="listagem_rubros" model="ir.ui.view">
+            <field name="name">Listagens de Rubros</field>
+            <field name="model">listagems.rubros</field>
+            <field name="arch" type="xml">
+                <form string="Listagens de Rubros">
+                    <sheet>
+                        <label for="title" string="LISTAGEM DE RUBROS" style="font-weight: bold; color:blue"/>
+                       <div><label for="title" string=""/></div>
+                        <div><label for="title" string="Rubrica"/></div>
+                       <div>
+                           <field name="rubrica_alfandega"/>
+                           <label for="title" string="Rubricas de Alfandiga"/>
+                       </div>
+                       <div>
+                           <field name="rubrica_alfandega_id" style="width:500px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" string="Beneficiario"/>
+                       </div>
+                       <div>
+                          <field name="terceiro_id" style="width:500px"/>
+                       </div>
+                       <div>
+                          <label for="title" string="Data" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <field name="de_pagamento"/>
+                           <label for="title" string="De Pagamento"/>
+                       </div>
+                       <div>
+                           <label for="title" string="De"/>
+                           <field name="data_de" style="width:100"/>
+                           <label for="title" string="" style="width:30px"/>
+                           <label for="title" string="Ate"/>
+                           <field name="data_ate" style="width:100"/>
+                       </div>
+                    </sheet>
+                    <header>
+                      <button name="aceitar" string="Aceitar" type="object" class="btn-primary" icon="fa-check-square-o"/>
+                      <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                    </header>
+                </form>
+            </field>
+        </record>
+        <record id="listagem_act_window" model="ir.actions.act_window">
+            <field name="name">Listagens de Rubros</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">listagems.rubros</field>
+            <field name="view_id" ref="listagem_rubros"/>
+            <field name="target">inline</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="listagem_menu" name="Listagem Honorários" parent="relatorio_menu" action="listagem_act_window" sequence="80"/>
+    </data>
+</odoo>

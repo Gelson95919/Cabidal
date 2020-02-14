@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="fatura_definitiva_form" model="ir.ui.view">
+           <field name="name">Factura Definitiva</field>
+           <field name="model">factura.definitiva</field>
+           <field name="arch" type="xml">
+               <form string="Factura Difinitiva">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Nº Factura" style="width:80px"/>
+                           <field name="num_factur" style="width:100px"/>
+                           <label for="title" string="" style="width:270px"/>
+                           <button name="recarregar" icon="fa-refresh"  string="Recarregar" class="btn-primary"/>
+                           <label for="title" string="" style="width:255px"/>
+                           <label for="title" string="Montante"/>
+                           <field name="montante" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="N.O.R.D" style="width:80px; font-weight: bold; color:blue"/>
+                           <field name="nord" style="width:100px"/>
+                           <label for="title" string="" style="width:663px"/>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:100px"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                        <div>
+                            <label for="title" string="Destinatario" style="width:80px"/>
+                            <field name="terceiro_id" style="width:910px"/>
+                        </div>
+                        <div><label for="title" string=""/> </div>
+                        <div>
+                            <label for="title" string="Regime" style="width:80px"/>
+                            <field name="regime" style="width:100px"/>
+                        </div>
+                       <div>
+                            <label for="title" string="Nº Ordem" style="width:80px"/>
+                            <field name="num_ordem" style="width:100px"/>
+                            <label for="title" string="" style="width:100px"/>
+                            <label for="title" string="Data"/>
+                           <field name="data_ordem" style="width:100px"/>
+                       </div>
+                       <div>
+                            <label for="title" string="Nº Receita" style="width:80px"/>
+                            <field name="num_receita" style="width:100px"/>
+                            <label for="title" string="" style="width:100px"/>
+                            <label for="title" string="Data"/>
+                           <field name="data_receita" style="width:100px"/>
+                       </div>
+                       <notebook>
+                           <page string="Agênciamento">
+                               <div>
+                                    <field name="mercadoria_ids" style="width:1000px">
+                                        <tree editable="button" string="Mercadoria">
+                                            <field name="mercadoria"/>
+                                            <field name="valor"/>
+                                            <field name="quantidade"/>
+                                            <field name="posicao_tabela"/>
+                                            <field name="hanorarios"/>
+                                            <field name="acrescimo"/>
+                                        </tree>
+                                    </field>
+                               </div>
+                               <div><label for="title" string=""/> </div>
+                               <div>
+                                    <field name="outros_agenciamento_ids" list_options = '{"limit":6}' style="width:1000px">
+                                        <tree editable="button" string="Outros">
+                                            <field name="descricao"/>
+                                            <field name="posicao_tabela"/>
+                                            <field name="hanorario"/>
+                                        </tree>
+                                    </field>
+                               </div>
+                               <div>
+                                   <label for="title" string="Redução honorário (Nota)"/>
+                                   <label for="title" string="" style="width:530px"/>
+                                   <field name="hanorario_nota" style="width:300px"/>
+                               </div>
+                                <div>
+                                   <label for="title" string="Total geral honorário"/>
+                                   <label for="title" string="" style="width:560px"/>
+                                   <field name="total_geral_hanorario" style="width:300px"/>
+                               </div>
+                               <div>
+                                   <label for="title" string="IVA Cobrado Sobre honorário (15%)"/>
+                                   <label for="title" string="" style="width:470px"/>
+                                   <field name="iva_cobrado_hanorario" style="width:300px"/>
+                               </div>
+                           </page>
+                           <page string="Despesa">
+
+                           </page>
+                           <page string="Contabilidade">
+
+                                <div>
+                                   <label for="title" string="Data Movimento"/>
+                                   <field name="date_release" style="width:260px"/>
+                                   <label for="title" style="color:white;" string="__________________________________________"/>
+                                   <label for="title" string="Contabilizado"/>
+                                   <field name="contabilizado"/>
+                                </div>
+                                <div>
+                                   <label for="title" string="Diario"/>
+                                   <field name="diario" style="width:260px"/>
+                                   <label for="title" style="color:white;" string="_______________________________________________________"/>
+                                   <label for="title" string="Numero"/>
+                                   <field name="numero" style="width:260px"/>
+                                   <label for="title" style="color:white;" string="___"/>
+                                   <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>
+                                </div>
+
+                           </page>
+                       </notebook>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Facturas(s) Prov"/>
+                           <field name="factura_prov" style="width:260px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="Recibo(s)"/>
+                           <field name="recibo" style="width:260px"/>
+                       </div>
+                   </sheet>
+                   <header>
+                       <button name="fechar" string="Fechar" type="object" class="btn-primary" icon="fa-lock"/>
+                       <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="fatura_difinitiva_tree" model="ir.ui.view">
+           <field name="name">Factura Definitiva</field>
+           <field name="model">factura.definitiva</field>
+           <field name="arch" type="xml">
+               <tree string="Factura Definitiva">
+                   <field name="num_factur"/>
+                   <field name="montante"/>
+                   <field name="nord"/>
+                   <field name="data"/>
+                   <field name="terceiro_id"/>
+               </tree>
+           </field>
+       </record>
+      <record id="fatura_difinitiva_act_window" model="ir.actions.act_window">
+          <field name="name">Factura Definitiva</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">factura.definitiva</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Factura Definitiva.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Factura Definitiva) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="fatura_difinitiva_menu" name="Factura Definitiva" parent="gestao_despacho_menu" action="fatura_difinitiva_act_window" sequence="80"/>
+    </data>
+</odoo>

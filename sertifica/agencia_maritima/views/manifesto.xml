@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="manifesto_carga_form" model="ir.ui.view">
+           <field name="name">Manifesto de Carga</field>
+           <field name="model">manifesto.carga</field>
+           <field name="arch" type="xml">
+               <form string="Manifesto de Carga">
+                   <sheet>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Estancia Aduaneira"/>
+                           <field name="estancia_aduaneira" style="width:260px"/>
+                           <label for="title" string="" style="width:450px"/>
+                           <label for="title" string="Nº Interno"/>
+                           <field name="numero_interno" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Modo Transporte" style="width:120px"/>
+                           <field name="modo_transporte" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Dados de Viagem_________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Ano/Nº Viagem" style="width:120px"/>
+                           <field name="ano_num_viagem" style="width:260px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="Data Chegada"/>
+                           <field name="data_chegada" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Local Embarque" style="width:120px"/>
+                           <field name="local_embarque" style="width:260px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="Local Destino"/>
+                           <field name="local_destino" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nome Transporte" style="width:120px"/>
+                           <field name="nome_transport_id" style="width:260px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="Nacironalidade"/>
+                           <field name="nacionalidade_transporte" style="font-weight: bold; color:blue; width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Nº IMO Transporte" style="width:120px"/>
+                           <field name="imo_transporte" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Transportadorsa_____________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Nome"/>
+                           <field name="nome" style="width:340px"/>
+                           <label for="title" string="" style="width:400px"/>
+                           <label for="title" string="Codigo"/>
+                           <field name="codigo" style="width:200px"/>
+                       </div>
+                       <div><label for="title" string="Endereço"/></div>
+                       <div>
+                           <field name="endereco" style="width:1035px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Armazem" style="width:120px"/>
+                           <field name="armazem" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Contentores_________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <field name="contentor_ids" style="width:1070px">
+                               <tree string="Contentores" editable="bottom" >
+                                   <field name="numero_sequencia"/>
+                                   <field name="referencia"/>
+                                   <field name="tipo"/>
+                                   <field name="indicador"/>
+                               </tree>
+                           </field>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Resumo Carga_______________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Total Docs" style="width:100px"/>
+                           <field name="total_docums" style="width:260px"/>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="Total Pak"  style="width:95px"/>
+                           <field name="total_pak" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Total Pesso(Kg)" style="width:100px"/>
+                           <field name="total_pesso" style="width:260px"/>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="Nº Contentores"/>
+                           <field name="n_contentores" style="width:260px"/>
+                       </div>
+                       <header>
+                         <button name="ajuda" string="Ajuda" type="object" class="btn-primary" icon="fa-question-circle-o"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="manifesto_carga_tree" model="ir.ui.view">
+           <field name="name">Manifesto de Carga</field>
+           <field name="model">manifesto.carga</field>
+           <field name="arch" type="xml">
+               <tree string="Manifesto de Carga">
+                   <field name="numero_interno"/>
+                   <field name="modo_transporte"/>
+                   <field name="ano_num_viagem"/>
+                   <field name="data_chegada"/>
+                   <field name="local_embarque"/>
+                   <field name="local_destino"/>
+                   <field name="nome_transport_id"/>
+                   <field name="nacionalidade_transporte"/>
+                   <field name="imo_transporte"/>
+                   <field name="codigo"/>
+                   <field name="endereco"/>
+                   <field name="armazem"/>
+               </tree>
+           </field>
+       </record>
+       <record id="manifesto_carga_act_window" model="ir.actions.act_window">
+           <field name="name">Manifesto de Carga</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">manifesto.carga</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Manifesto de carga.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Manifesto de carga) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="manifesto_carga_menu" name="Manifesto Carga" parent="manifest_sub_menu" action="manifesto_carga_act_window" sequence="90"/>
+    </data>
+</odoo>

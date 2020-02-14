@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="fecho_dia_form" model="ir.ui.view">
+           <field name="name">Fecho Dia</field>
+           <field name="model">fecho.dia</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:100px"/>
+                           <label for="title" string="" style="width:600px"/>
+                           <button name="selecionar" string="Selecionar" type="object" icon="fa-sync" class="oe_highlight"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:600px"/>
+                       </div>
+                       <div>
+                            <field name="checkin_ids" style="width:830px">
+                                <tree editable="button" string="Checki-in" create="false" >
+                                    <field name="start_date"/>
+                                    <field name="hab_id"/>
+                                    <field name="nume_pessoa"/>
+                                    <field name="num_criancas"/>
+                                    <field name="montante_check_kin"/>
+                                </tree>
+                            </field>
+                       </div>
+                       <div>
+                           <button name="processar" string="Processar" type="object" icon="fa-gears" class="oe_highlight"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="fecho_dia_act_window" model="ir.actions.act_window">
+           <field name="name">Fecho Dia</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">fecho.dia</field>
+           <field name="view_id" ref="fecho_dia_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="fecho_dia_menu" name="Fecho Dia" parent="gestao_hotel.menu_hotel" action="fecho_dia_act_window" sequence="80"/>
+    </data>
+</odoo>

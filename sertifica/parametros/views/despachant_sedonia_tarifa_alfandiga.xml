@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="tarifa_alfandiga_form" model="ir.ui.view">
+           <field name="name">Tarifa Alfândega</field>
+           <field name="model">tarifa.alfandega</field>
+           <field name="arch" type="xml">
+               <form string="Tarifa Alfândega">
+                   <sheet>
+                        <div>
+                           <label for="title" string="Descrição"/>
+                           <label for="title" string="___"  style="color:White;"/>
+                           <field name="name" style="width:950px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Medida"/>
+                           <label for="title" string="_____"  style="color:White;"/>
+                           <field name="medida" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_____"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Hora Igual a Ajuda de Custa"/>
+                           <field name="hora_igual" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Valor Fixo (sem calculo hora)"/>
+                           <field name="valor_fixo" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="_____"  style="color:White;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Serviços de Verificação"/>
+                           <label for="title" string="_"  style="color:White;"/>
+                           <field name="servico_verificacao" style="width:260px"/>
+                           <label for="title" string="______________________________"  style="color:White;"/>
+                           <label for="title" string="Serviços de Verificador"/>
+                           <field name="servico_verificador" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Vitoria e outros Serviços"/>
+                           <field name="vitoria_outro_serv" style="width:260px"/>
+                           <label for="title" string="______________________________"  style="color:White;"/>
+                           <label for="title" string="Outros"/>
+                           <label for="title" string="______________"  style="color:White;"/>
+                           <field name="outros" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="tarifa_alfandiga_tree" model="ir.ui.view">
+           <field name="name">Tarifa Alfândega</field>
+           <field name="model">tarifa.alfandega</field>
+           <field name="arch" type="xml">
+               <tree string="Tarifa Alfândega">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="tarifa_alfandiga_act_window" model="ir.actions.act_window">
+           <field name="name">Tarifa Alfândega</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">tarifa.alfandega</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Tarifa Alfândega.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tarifa Alfândega) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="tarifa_alfandiga_menu" name="Tarifa Alfândega" parent="fastgest_despachante_agencia" action="tarifa_alfandiga_act_window" sequence="80"/>
+    </data>
+</odoo>

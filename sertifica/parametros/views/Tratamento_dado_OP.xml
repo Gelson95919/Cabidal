@@ -1,0 +1,296 @@
+<odoo>
+    <data>
+        <record id="form_trat" model="ir.ui.view">
+            <field name="name">Tratamento</field>
+            <field name="model">trat.dado.op</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="compor_op" string=" ADD ID TERC IN FORN" type="object" class="btn-primary"/>
+                        <!--<button name="add_id_terc_in_ops" string="ADD ID TER AO FORNEC" type="object" class="btn-primary"/>-->
+                        <button name="creat_terc" string="CREAT TERC" type="object" class="btn-primary"/>
+                        <button name="creat_op" string="CREAT OP" type="object" class="btn-primary"/>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="CDOCINT"/>
+                            <field name="DFECDOC"/>
+                            <field name="CMOVDOC"/>
+                            <field name="CTIPDOC"/>
+                            <field name="CNUMDOC"/>
+                            <field name="CIDEDOC"/>
+                            <field name="CCODTER"/>
+                            <field name="CNOMTER"/>
+                            <field name="NNETDOC"/>
+                            <field name="NIMPDOC"/>
+                            <field name="NTOTDOC"/>
+                            <field name="NVALPAG"/>
+                            <field name="LDOCAUT"/>
+                            <field name="LDOCPAG"/>
+                            <field name="LDOCANU"/>
+                            <field name="LDOCCER"/>
+                            <field name="CKEYUSE"/>
+                            <field name="MOBS"/>
+                            <field name="CIDEINT"/>
+                            <field name="LPAGUNI"/>
+                            <field name="LREDDET"/>
+                            <field name="DDATE"/>
+                            <field name="CTIME"/>
+                            <field name="COPER"/>
+                            <field name="CCODART"/>
+                            <field name="CCODDIA"/>
+                            <field name="CNUMORD"/>
+                            <field name="DFECMOV"/>
+                            <field name="NVALDES"/>
+                            <field name="NVALVAR"/>
+                            <field name="CTIPPAG"/>
+                            <field name="LDESPOR"/>
+                            <field name="LCTACTE"/>
+                            <field name="LTESORE"/>
+                            <field name="IDTER"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="tree_trat" model="ir.ui.view">
+            <field name="name">Tratamento</field>
+            <field name="model">trat.dado.op</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="id"/>
+                    <field name="CDOCINT"/>
+                    <field name="DFECDOC"/>
+                    <field name="CMOVDOC"/>
+                    <field name="CTIPDOC"/>
+                    <field name="CNUMDOC"/>
+                    <field name="CIDEDOC"/>
+                    <field name="CCODTER"/>
+                    <field name="CNOMTER"/>
+                    <field name="NNETDOC"/>
+                    <field name="NIMPDOC"/>
+                    <field name="NTOTDOC"/>
+                    <field name="NVALPAG"/>
+                    <field name="LDOCAUT"/>
+                    <field name="LDOCPAG"/>
+                    <field name="LDOCANU"/>
+                    <field name="LDOCCER"/>
+                    <field name="CKEYUSE"/>
+                    <field name="MOBS"/>
+                    <field name="CIDEINT"/>
+                    <field name="LPAGUNI"/>
+                    <field name="LREDDET"/>
+                    <field name="DDATE"/>
+                    <field name="CTIME"/>
+                    <field name="COPER"/>
+                    <field name="CCODART"/>
+                    <field name="CCODDIA"/>
+                    <field name="CNUMORD"/>
+                    <field name="DFECMOV"/>
+                    <field name="NVALDES"/>
+                    <field name="NVALVAR"/>
+                    <field name="CTIPPAG"/>
+                    <field name="LDESPOR"/>
+                    <field name="LCTACTE"/>
+                    <field name="LTESORE"/>
+                    <field name="IDTER"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_all_trat_op_search_view" model="ir.ui.view">
+            <field name="name">Todus.Terceiros.search.view</field>
+            <field name="model">trat.dado.op</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="CCODTER"/>
+                    <field name="CNOMTER"/>
+                    <field name="id"/>
+                </search>
+            </field>
+        </record>
+        <record id="trat_act_wind" model="ir.actions.act_window">
+            <field name="name">Tratamento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">trat.dado.op</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action
+        <menuitem id="trat_op_men" name="Trata OP" parent="parametros.menu_Uso_Geral" action="trat_act_wind"
+                  sequence="1000"/>-->
+
+        <record id="form_reg" model="ir.ui.view">
+            <field name="name">REG DOCUM</field>
+            <field name="model">docum</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="compor_op" string=" ADD ID TERC" type="object" class="btn-primary"/>
+                        <button name="compor_id_credito" string=" ADD ID CRED" type="object" class="btn-primary"/>
+                        <button name="assoc_op" string=" ASSOC OP" type="object" class="btn-primary"/>
+                        <button name="atualiz_cta_cte" string="UPDAT CTA CTE" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="id_cred_post"/>
+                            <field name="CDOCINT"/>
+                            <field name="DFECDOC"/>
+                            <field name="CMOVDOC"/>
+                            <field name="CTIPDOC"/>
+                            <field name="CNUMDOC"/>
+                            <field name="CIDEDOC"/>
+                            <field name="CCODTER"/>
+                            <field name="CNOMTER"/>
+                            <field name="NNETDOC"/>
+                            <field name="NIMPDOC"/>
+                            <field name="NTOTDOC"/>
+                            <field name="NVALPAG"/>
+                            <field name="LDOCAUT"/>
+                            <field name="LDOCPAG"/>
+                            <field name="LDOCANU"/>
+                            <field name="LDOCCER"/>
+                            <field name="CKEYUSE"/>
+                            <field name="MOBS"/>
+                            <field name="CIDEINT"/>
+                            <field name="LPAGUNI"/>
+                            <field name="LREDDET"/>
+                            <field name="DDATE"/>
+                            <field name="CTIME"/>
+                            <field name="COPER"/>
+                            <field name="CCODART"/>
+                            <field name="CCODDIA"/>
+                            <field name="CNUMORD"/>
+                            <field name="DFECMOV"/>
+                            <field name="NVALDES"/>
+                            <field name="NVALVAR"/>
+                            <field name="CTIPPAG"/>
+                            <field name="LDESPOR"/>
+                            <field name="LCTACTE"/>
+                            <field name="LTESORE"/>
+                            <field name="IDTER"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="form_doc_view" model="ir.ui.view">
+            <field name="name">DOC</field>
+            <field name="model">docum</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="cont"/>
+                </search>
+            </field>
+        </record>
+        <record id="tree_docum" model="ir.ui.view">
+            <field name="name">REG DOCUM</field>
+            <field name="model">docum</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="cont"/>
+                    <field name="id"/>
+                    <field name="compl"/>
+                    <!--<field name="a_outro"/>
+                    <field name="outro_1"/>
+                    <field name="outro_2"/>
+                    <field name="outro_3"/>
+                    <field name="outro_4"/>
+                    <field name="outro_5"/>
+                    <field name="outro_6"/>
+                    <field name="outro_7"/>
+                    <field name="outro_8"/>
+                    <field name="outro_9"/>
+                    <field name="outro_10"/>
+                    <field name="outro_11"/>
+                    <field name="outro_12"/>
+                    <field name="outro_13"/>
+                    <field name="outro_14"/>
+                    <field name="outro_15"/>
+                    <field name="outro_16"/>
+                    <field name="outro_17"/>
+                    <field name="outro_18"/>
+                    <field name="outro_19"/>
+                    <field name="outro_20"/>-->
+                    <field name="CDOCINT"/>
+                    <field name="DFECDOC"/>
+                    <field name="CMOVDOC"/>
+                    <field name="CTIPDOC"/>
+                    <field name="CNUMDOC"/>
+                    <field name="CIDEDOC"/>
+                    <field name="CCODTER"/>
+                    <field name="CNOMTER"/>
+                    <field name="NNETDOC"/>
+                    <field name="NIMPDOC"/>
+                    <field name="NTOTDOC"/>
+                    <field name="NVALPAG"/>
+                    <field name="LDOCAUT"/>
+                    <field name="LDOCPAG"/>
+                    <field name="LDOCANU"/>
+                    <field name="LDOCCER"/>
+                    <field name="CKEYUSE"/>
+                    <field name="MOBS"/>
+                    <field name="CIDEINT"/>
+                    <field name="LPAGUNI"/>
+                    <field name="LREDDET"/>
+                    <field name="DDATE"/>
+                    <field name="CTIME"/>
+                    <field name="COPER"/>
+                    <field name="CCODART"/>
+                    <field name="CCODDIA"/>
+                    <field name="CNUMORD"/>
+                    <field name="DFECMOV"/>
+                    <field name="NVALDES"/>
+                    <field name="NVALVAR"/>
+                    <field name="CTIPPAG"/>
+                    <field name="LDESPOR"/>
+                    <field name="LCTACTE"/>
+                    <field name="LTESORE"/>
+                    <field name="IDTER"/>
+                    <field name="id_cred_post"/>
+                    <field name="IDCRED"/>
+                    <field name="id_op"/>
+                    <field name="NUMEROCRED"/>
+                    <field name="PAGOTOTAL"/>
+                    <field name="ESTADO"/>
+                    <field name="DIVIDA"/>
+                </tree>
+            </field>
+        </record>
+        <record id="form_all_trat_docun_search_view" model="ir.ui.view">
+            <field name="name">DOCUM</field>
+            <field name="model">docum</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="CCODTER"/>
+                    <field name="CNOMTER"/>
+                    <field name="id"/>
+                </search>
+            </field>
+        </record>
+        <record id="trat_docun_wind" model="ir.actions.act_window">
+            <field name="name">DOCUM</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">docum</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action
+        <menuitem id="trat_reg_men" name="REG DOCUM" parent="parametros.menu_Uso_Geral" action="trat_docun_wind"
+                  sequence="20000"/>-->
+    </data>
+</odoo>

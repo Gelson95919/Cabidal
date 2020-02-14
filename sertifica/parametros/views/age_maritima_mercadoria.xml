@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="mercadoria_form" model="ir.ui.view">
+           <field name="name">Mercadoria</field>
+           <field name="model">mercadoria</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for ="title" string="Mercadoria"/>
+                       </div>
+                       <div>
+                           <field name="name" style="width:830px"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Peso Kg"/>
+                         <field name="peso" style="width:260px"/>
+                         <label for="title" string="" style="width:160px"/>
+                         <label for="title" string="Cubicagem M³"/>
+                         <field name="cubicagem" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+      <record id="mercadoria_tree" model="ir.ui.view">
+          <field name="name">Mercadoria</field>
+          <field name="model">mercadoria</field>
+          <field name="arch" type="xml">
+              <tree string="">
+                  <field name="name"/>
+                  <field name="cubicagem"/>
+                  <field name="peso"/>
+              </tree>
+          </field>
+      </record>
+      <record id="mercado_act_window" model="ir.actions.act_window">
+          <field name="name">Mercadoria</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">mercadoria</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Mercadoria.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Mercadoria) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="mercadoria_act_window" name="Mercadorias" parent="fastgest_age_maritima" action="mercado_act_window"  sequence="1"/>
+
+    </data>
+</odoo>

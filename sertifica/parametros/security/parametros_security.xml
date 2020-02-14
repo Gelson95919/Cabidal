@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Data records go here -->
+        <record id="group_tabela_uso_geral" model="res.groups">
+            <field name="name">Tabela Uso Geral</field>
+        </record>
+        <record id="group_tabela_compras" model="res.groups">
+            <field name="name">Tabela Compras/Despesas</field>
+        </record>
+        <record id="group_tabela_vendas" model="res.groups">
+            <field name="name">Tabela Vendas/Faturação</field>
+        </record>
+        <record id="group_tabela_tesouraria" model="res.groups">
+            <field name="name">Tabela Tesouraria</field>
+        </record>
+        <record id="group_tabela_contabiliade" model="res.groups">
+            <field name="name">Tabela Gestão Fiscal</field>
+        </record>
+        <record id="group_tabela_inventario" model="res.groups">
+            <field name="name">Tabela Inventario</field>
+        </record>
+        <record id="group_tabela_remuneracoes" model="res.groups">
+            <field name="name">Tabela Remunerações</field>
+        </record>
+        <record id="group_tabela_investimento" model="res.groups">
+            <field name="name">Tabela Investimento</field>
+        </record>
+        <record id="group_tabela_agencia_maritima" model="res.groups">
+            <field name="name">Tabela Agencia Maritima</field>
+        </record>
+        <record id="group_tabela_gestao_socio" model="res.groups">
+            <field name="name">Tabela Gestão Socio</field>
+        </record>
+        <record id="group_tabela_gestao_academica" model="res.groups">
+            <field name="name">Tabela Gestão Academica</field>
+        </record>
+        <record id="group_tabela_gestao_microcredito" model="res.groups">
+            <field name="name">Tabela Gestão Microcredito</field>
+        </record>
+        <record id="group_tabela_despachante" model="res.groups">
+            <field name="name">Tabela Despachante</field>
+        </record>
+        <record id="group_tabela_gesta_hotel" model="res.groups">
+            <field name="name">Tabela Gestão Hotel</field>
+        </record>
+        <record id="group_tabela_getao_restaurante" model="res.groups">
+            <field name="name">Tabela Gestão Restaurante</field>
+        </record>
+        <record id="group_tabela_getao_restaurante" model="res.groups">
+            <field name="name">Tabela Gestão Restaurante</field>
+        </record>
+    </data>
+</odoo>

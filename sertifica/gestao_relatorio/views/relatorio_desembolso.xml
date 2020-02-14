@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <record id="relatori_desembolso_form" model="ir.ui.view">
+            <field name="name">Relatório Desembolso</field>
+            <field name="model">relatorio.desembolso</field>
+            <field name="arch" type="xml">
+                <form string="Relatório Reembolso">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem de Previsão"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="De" style="width:25px"/>
+                            <field name="date_start"/>
+                            <label for="title" string="" style="width:300px"/>
+                            <label for="title" string="Ate" style="width:25px"/>
+                            <field name="date_end"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" "/>
+                        </div>
+                        <div>
+                            <field name="agrup_por"/>
+                            <label for="title" string="Agrupar"/>
+                            <label for="title" string="" style="width:400px"/>
+                             <field name="agrup_agente"/>
+                            <label for="title" string="Agrupar por Agente"/>
+                        </div>
+                        <div>
+                            <label for="title" string="por"/>
+                            <field name="por" style="width:250px"/>
+                            <label for="title" string="" style="width:200px"/>
+                            <label for="title" string="Agente"/>
+                            <field name="agente" style="width:250px" attrs="{'readonly': [('agrup_agente','!=',True)], 'required':[('agrup_agente','=',True)]}"/>
+                        </div>
+                        <div>
+                            <label for="title" string=" "/>
+                        </div>
+                        <div>
+                            <field name="fundo_financiamento"/>
+                            <label for="title" string="Fundo Financimento"/>
+                            <label for="title" string="" style="width:400px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Fundo"/>
+                            <field name="fundo_id" style="width:200px" attrs="{'readonly': [('fundo_financiamento','!=',True)], 'required':[('agrup_agente','=',True)]}"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="relatorio_desembolso_act_wind_prev" model="ir.actions.act_window">
+            <field name="name">Relatório Desembolso</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">relatorio.desembolso</field>
+            <field name="view_id" ref="relatori_desembolso_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="relatorio_reembolso_menu" name="Relatório Desembolso" parent="gestao_relatorio.menu_rep"
+                  action="relatorio_desembolso_act_wind_prev" sequence="80"/>
+    </data>
+</odoo>

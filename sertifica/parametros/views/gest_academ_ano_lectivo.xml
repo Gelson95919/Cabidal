@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="ano_lectivo_form" model="ir.ui.view">
+           <field name="name">Ano Lectivo</field>
+           <field name="model">ano.lectivo</field>
+           <field name="arch" type="xml">
+               <form string="Ano Lectivo">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Descrição"/>
+                           <field name="name"  style="width:600px"/>
+                           <label for="title" string=""  style="color:White;width:300px"/>
+                           <label for="title" string="Fecho"/>
+                           <field name="fecho" />
+                       </div>
+                       <field name="detalhes">
+                           <tree  editable="bottom" string="Detalhes">
+                               <field name="numero"/>
+                               <field name="descricao"/>
+                               <field name="data"/>
+                           </tree>
+                       </field>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="ano_lectivo_tree" model="ir.ui.view">
+           <field name="name">Ano Lectivo</field>
+           <field name="model">ano.lectivo</field>
+           <field name="arch" type="xml">
+               <tree string="Ano Lectivo">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="ano_lectivo_act_window" model="ir.actions.act_window">
+           <field name="name">Ano Lectivo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ano.lectivo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Ano Lectivo.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Ano Lectivo) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="ano_lectivo_menu" name="Ano Letivo" parent="fastgest_gest_academica" action="ano_lectivo_act_window" sequence="80"/>
+    </data>
+</odoo>

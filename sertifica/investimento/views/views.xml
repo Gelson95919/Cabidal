@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Gestão Investimentos" web_icon="investimento,static/description/icon.png"
+                  id="investimento.menu_root"/>
+        <menuitem name="Movimentos Investimentos" id="investimento.menu_inventa" parent="investimento.menu_root"/>
+        <menuitem name="Movimentos" id="investimento.menu_mov" parent="investimento.menu_root"/>
+        <menuitem name="Parâmetros" id="gestao_invest_menu_param" parent="investimento.menu_root"/>
+    </data>
+</odoo>

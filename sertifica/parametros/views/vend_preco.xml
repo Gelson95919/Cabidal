@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="form_all_prec" model="ir.ui.view">
+            <field name="name">All Preço</field>
+            <field name="model">preco.preco</field>
+            <field name="arch" type="xml">
+                <form string="Preço ">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <group>
+                          <group>
+                            <field name="n_preco"/>
+                            <field name="valor"/>
+                          </group>
+                          <group>
+                            <field name="iva_incluido"/>
+                          </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_preco">
+          <field name="name">Preço </field>
+          <field name="res_model">preco.preco</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Preço.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Preço) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name="Preço" id="parametros.menu_preco" parent="fastgest_vend" action="action_window_preco"/>
+    </data>
+</odoo>

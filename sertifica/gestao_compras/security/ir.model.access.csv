@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_despesa_despesa,despesa.despesa,model_despesa_despesa,gestao_compras.group_compras_despesas,1,1,1,1
+access_despesa_despesa,despesa.despesa,model_despesa_despesa,gestao_compras.group_compras_despesas,1,1,1,1
+
+access_confcontab_confcontab,confcontab.confcontab,model_confcontab_confcontab,gestao_compras.group_compras_despesas,1,1,1,1
+access_confcontab_confcontab,confcontab.confcontab,model_confcontab_confcontab,gestao_compras.group_compras_despesas,1,1,1,1
+
+access_listadocun_listadocun,listadocun.listadocun,model_listadocun_listadocun,gestao_compras.group_compras_despesas,1,1,1,1
+access_listadocun_listadocun,listadocun.listadocun,model_listadocun_listadocun,gestao_compras.group_compras_despesas,1,1,1,1
+

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="listagem_livro__deve_haber_form" model="ir.ui.view">
+           <field name="name">Listagem de Livros Deve-haber</field>
+           <field name="model">listagem.livros.deve.haber</field>
+           <field name="arch" type="xml">
+               <form string="Listagem de Livros Deve-haber">
+                   <sheet>
+                       <label for="title" string="LISTAGEM DE LIVROS DEVE-HABER" style="font-weight: bold; color:blue"/>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Ordenar Por" style="font-weight: bold; color:blue"/> </div>
+                       <div>
+                           <field name="ordenar_por" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Intervalo" style="width:180px; pxfont-weight: bold; color:blue"/>
+                           <label for="title" string="De" style="width:140px"/>
+                           <label for="title" string="Ate" style="width:100px"/>
+                       </div>
+                       <div>
+                           <field name="data"/>
+                           <label for="title" string="Data" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="data_de" style="width:100px" attrs="{'invisible': [('data', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="data_ate" style="width:100px" attrs="{'invisible': [('data', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="processo"/>
+                           <label for="title" string="Processo" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="haber_id_de" style="width:100px" attrs="{'invisible': [('processo', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="haber_id_ate" style="width:100px" attrs="{'invisible': [('processo', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="valor"/>
+                           <label for="title" string="Valor" style="width:70px"/>
+                           <label for="title" string="" style="width:40px"/>
+                           <field name="valor_de" style="width:100px" attrs="{'invisible': [('valor', '!=', True)]}"/>
+                           <label for="title" string="" style="width:60px"/>
+                           <field name="valor_ate" style="width:100px" attrs="{'invisible': [('valor', '!=', True)]}"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div><label for="title" string="Filtrar" style="font-weight: bold; color:blue"/> </div>
+                       <div>
+                           <field name="por_importador"/>
+                           <label for="title" string="Por Importador"/>
+                           <label for="title" string="" style="width:5px"/>
+                           <field name="terceiro_id" style="width:500px" attrs="{'invisible': [('por_importador', '!=', True)]}"/>
+                       </div>
+                       <div>
+                           <field name="todos_movimentos"/>
+                           <label for="title" string="Todos Movimento"/>
+                       </div>
+                   </sheet>
+                   <header>
+                      <button name="aceitar" string="Aceitar" type="object" class="btn-primary" icon="fa-check-square-o"/>
+                      <button name="ajuda" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="listagem_livro__deve_haber_act_window" model="ir.actions.act_window">
+           <field name="name">Listagem de Livros Deve-haber</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">listagem.livros.deve.haber</field>
+           <field name="view_id" ref="listagem_livro__deve_haber_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="listagem_livro__deve_haber_menu" name="Listagem de Livros Deve-haber" parent="relatorio_menu" action="listagem_livro__deve_haber_act_window" sequence="80"/>
+
+        <!--NOVA DATA-->
+        <record id="nova_data_form" model="ir.ui.view">
+           <field name="name">Nova Data</field>
+           <field name="model">nova.data</field>
+           <field name="arch" type="xml">
+               <form string="Nova Data">
+                   <sheet>
+                       <div>
+                           <label for="title" string="CODIGO" style="width:100px"/>
+                           <field name="codigo" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="TIPO" style="width:100px"/>
+                           <field name="tipo" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="NUMERO" style="width:100px"/>
+                           <field name="numero" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="DATARECIB" style="width:100px"/>
+                           <field name="data_recib" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="DESCRIÇÃO" style="width:100px"/>
+                           <field name="descricao" style="width:630px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="VALORPROC" style="width:100px"/>
+                           <field name="valor_proc" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="VALORHONO" style="width:100px"/>
+                           <field name="valor_hono" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="HONOCTA" style="width:100px"/>
+                           <field name="honocta" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="VALORRECI" style="width:100px"/>
+                           <field name="valor_reci" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="SALDOPROC" style="width:100px"/>
+                           <field name="saldo_proc" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="DEBE" style="width:100px"/>
+                           <field name="debe" style="width:160px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="HABER" style="width:100px"/>
+                           <field name="haber" style="width:160px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="DATAULTIM" style="width:100px"/>
+                           <field name="data_ultim" style="width:160px"/>
+                       </div>
+                   </sheet>
+                   <header>
+                      <button name="primeiro" string="" type="object" class="btn-primary" icon="glyphicon-triangle-left"/>
+                      <button name="pra_frente" string="" type="object" icon="glyphicon-menu-right" class="btn-primary"/>
+                      <button name="pra_tras" string="" type="object" icon="glyphicon-menu-left" class="btn-primary"/>
+                      <button name="ultimo" string="" type="object" icon="glyphicon-triangle-right" class="btn-primary"/>
+                      <label for="title" string="" style="width:200px"/>
+                      <button name="refrech_pra_frente" string="" type="object" icon="fa-redo-alt" class="btn-primary"/>
+                      <button name="refrech_pra_tras" string="" type="object" icon="fas fa-undo-alt" class="btn-primary"/>
+                   </header>
+               </form>
+           </field>
+       </record>
+       <record id="nova_data_tree" model="ir.ui.view">
+           <field name="name">Nova Data</field>
+           <field name="model">nova.data</field>
+           <field name="arch" type="xml">
+               <tree string="nova.data">
+                   <field name="codigo"/>
+                   <field name="tipo"/>
+                   <field name="numero"/>
+                   <field name="data_recib"/>
+                   <field name="descricao"/>
+                   <field name="valor_proc"/>
+                   <field name="valor_hono"/>
+                   <field name="honocta"/>
+                   <field name="valor_reci"/>
+                   <field name="saldo_proc"/>
+                   <field name="debe"/>
+                   <field name="haber"/>
+                   <field name="data_ultim"/>
+               </tree>
+           </field>
+       </record>
+       <record id="nova_data_act_window" model="ir.actions.act_window">
+           <field name="name">Nova Data</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">nova.data</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <!--<menuitem id="nova_data_menu" name="Nova Data" parent="relatorio_menu" action="nova_data_act_window" sequence="80"/>-->
+    </data>
+</odoo>

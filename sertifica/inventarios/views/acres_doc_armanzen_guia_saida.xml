@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="acrescent_docum_armaz_saida_form" model="ir.ui.view">
+           <field name="name">Acrescentar Documento de Armazem Guia Saida</field>
+           <field name="model">guia.saida</field>
+           <field name="arch" type="xml">
+               <form string="Acrescentar Documento de Armazem Guia Saida">
+                   <sheet>
+                     <group>
+                         <label for="title" string="Cabeçalho de documento" style="color:Blue; font-weight: bold;"/>
+                          <group>
+                              <field name="numero"/>
+                              <field name="armanzem"/>
+                              <field name="terceiro"/>
+                          </group>
+                          <group>
+                             <field name="data"/>
+                             <field name="motivo"/>
+                             <field name="valor_tot_doc"/>
+                          </group>
+                     </group>
+                     <div>
+                        <label for="title" string="___________________________________________________________________________________" style="color:White;"/>
+                        <label for="tilte" string="Doc.Ref.Nº"/>
+                        <field name="doc_ref_n" style="width:110px" nolabel="1"/>
+                        <field name="data_thek" style="width:110px" nolabel="1"/>
+                     </div>
+                     <label for="title" string="Detalhes de Documento" style="color:Blue"/>
+                     <field name="detalhe_documento_armanzem" widget="section_and_note_one2many"  style="width:1070px">
+                         <tree string="Lista documento" editable="bottom">
+                             <!--<field name="name"/>-->
+                             <field name="artigo_id"/>
+                             <field name="preco_custo"/>
+                             <field name="quantidade"/>
+                             <field name="sub_total" sum="Totais"/>
+                         </tree>
+                     </field>
+                     <label for="title" string="observações" style="color:Blue"/>
+                     <field name="obs" nolabel="1"/>
+                     <header>
+                           <button name="imprimir" type="object" string="Imprimir"  icon="fa-print" class="btn-primary"/>
+                           <button name="fechar" type="object" string="Fechar" icon="fa-lock" class="btn-primary"/>
+                           <button name="anular" type="object" string="Anular" icon="fa-remove" class="btn-primary"/>
+                           <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                     </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="acrescent_docum_armaz_saida_tree" model="ir.ui.view">
+           <field name="name">Acrescentar Documento de Armazem Guia de Entrada</field>
+           <field name="model">guia.saida</field>
+           <field name="arch" type="xml">
+               <tree string="Acrescentar Documento de Armazem Guia Saida">
+                   <field name="numero"/>
+                   <field name="armanzem"/>
+                   <field name="terceiro"/>
+                   <field name="data"/>
+                   <field name="motivo"/>
+                   <field name="doc_ref_n"/>
+                   <field name="data_thek"/>
+                   <!--<field name="name"/>
+                   <field name="preco_custo"/>
+                   <field name="quantidade"/>
+                   <field name="sub_total"/>-->
+                   <field name="obs"/>
+
+               </tree>
+           </field>
+       </record>
+      <record id="act_window_acrescent_docum_armaz_saida" model="ir.actions.act_window">
+          <field name="name">Acrescentar Documento de Armazem Guia Saida</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">guia.saida</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Criar um novo Guia de Saida.
+            </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas Guia de Saida)
+                    para projetos internos, pessoais ou de clientes.
+            </p>
+          </field>
+      </record>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="acrescent_docum_armaz_saida_menu" name="Guia Saida" parent="inventarios.menu_inventario" action="act_window_acrescent_docum_armaz_saida" sequence="80"/>
+    </data>
+</odoo>

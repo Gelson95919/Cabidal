@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="amortizacao_portuaria_form" model="ir.ui.view">
+           <field name="name">Amortização/Portuária</field>
+           <field name="model">amortizacoa.portuaria</field>
+           <field name="arch" type="xml">
+               <form string="Amortização/Porteria">
+                   <sheet>
+                       <group>
+                         <group>
+                             <field name="name"/>
+                         </group>
+                         <group>
+                             <field name="grupo"/>
+                         </group>
+                       </group>
+                       <label for="title" string="Contas__________________________________________________________________________________________________________"/>
+                       <div>
+                         <label for="title" string="Adquisição"/>
+                         <label for="title" string="____"  style="color:White;"/>
+                         <field name="adquisicao"/>
+                         <label for="title" string="_____________________________"  style="color:White;"/>
+                         <label for="title" string="Amort.Acomulada"/>
+                         <field name="amort_acomulada"/>
+                       </div>
+                       <div>
+                         <label for="title" string="Amort.Exercicio"/>
+                         <field name="amort_exerc"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="amortizacao_portuaria_tree" model="ir.ui.view">
+           <field name="name">Amortização/Porteria</field>
+           <field name="model">amortizacoa.portuaria</field>
+           <field name="arch" type="xml">
+               <tree string="Amortização/Portuária">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="amortizacao_portuaria_act_window" model="ir.actions.act_window">
+           <field name="name">Amortização/Portuária</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">amortizacoa.portuaria</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Criar um novo Amortização/Portuária.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Amortização/Portuária) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="amortizacao_portuaria_menu" name="Amortização Porteria" parent="fastgest_invetimento" action="amortizacao_portuaria_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gerar_cont_form" model="ir.ui.view">
+            <field name="name">Gerar Contabilidade</field>
+            <field name="model">gerar.contabilidade</field>
+            <field name="arch" type="xml">
+                <form string="Gerar Contabilidade">
+                    <sheet>
+                        <div><label for="title" string="GERAR DOCUMENTOS CONTABILIDADE"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                        <group>
+                            <field name="modulo"/>
+                        </group>
+                        <label for="title" string="_____Opções__________________________________________________________________________________________________________________________________________"/>
+                        <group>
+                            <group>
+                               <field name="selecionar_por"/>
+                               <field name="tipodoc_id"  attrs="{'invisible': [('selecionar_por', '!=', 'tipodocumento')]}"/>
+                               <field name="terceiro_id"  attrs="{'invisible': [('selecionar_por', '!=', 'terceiro')]}"/>
+                               <field name="monetario_id"/>
+                            </group>
+                            <group>
+                               <field name="ordenar_por"/>
+                               <field name="data_inicial"/>
+                               <field name="data_final"/>
+                            </group>
+                            <group string="__________________________________________________" >
+                                <field name="solo_gerar"/>
+                                <field name="gera_novo_numero_contab"/>
+                                <field name="mes"/>
+                            </group>
+                            <group string="_______________________________________________">
+                                <field name="so_os_nao_contabilidado"/>
+                                <field name="processar_document"/>
+                                <field name="diario_pro_defeito"/>
+                            </group>
+                        </group>
+                        <header>
+                           <button name="processar" type="object" icon="fa-cogs" string="Gerar" class="btn-primary"/>
+                           <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
+                        </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="act_windowgerar_contabil" model="ir.actions.act_window">
+            <field name="name">Gerar Contabilidade</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gerar.contabilidade</field>
+            <field name="view_id" ref="gerar_cont_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_gerar_contabilidade" name="Gerar Contabilidade"  parent="contabilidade.menu_1" action="act_windowgerar_contabil" sequence="7"/>
+    </data>
+</odoo>

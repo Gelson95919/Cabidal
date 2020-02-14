@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="fecho_caixa_form" model="ir.ui.view">
+           <field name="name">Fecho Caixa</field>
+           <field name="model">feixo.caixa</field>
+           <field name="arch" type="xml">
+               <form string="Fecho Caixa">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Caixa"/>
+                           <field name="caixa" style="width:260px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Operador" style="width:70px"/>
+                           <field name="operador" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Turno"/>
+                           <field name="turno" style="width:260px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Movimento"/>
+                           <field name="movimento" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data"  style="width:35px"/>
+                           <field name="data" style="width:100px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="" style="width:200px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Check-in" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <div>
+                           <button name="selecionar" string="Ver" type="object" icon=""  class="oe_highlight"/>
+                       </div>
+                        <div>
+                            <field name="checkin_ids" style="width:830px">
+                                <tree editable="button" string="Checki-in" create="false" >
+                                    <field name="habitacao_id"/>
+                                    <field name="cliente_ids"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="montante_check_kin"/>
+                                </tree>
+                            </field>
+                       </div>
+                       <div>
+                           <label for="title" string="Tesouraria" style="font-weight: bold; color:blue"/>
+                       </div>
+                       <header>
+                      <button name="confirmar_fechar" string="Confirmar e Fechar" type="object" class="oe_highlight" />
+                      <button name="imprimir" string="Imprimir" type="object" class="oe_highlight" icon="fa-print"/>
+                  </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="fecho_caixa_act_window" model="ir.actions.act_window">
+           <field name="name">Fecho Caixa</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">feixo.caixa</field>
+           <field name="view_id" ref="fecho_caixa_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="fecho_caixa_menu" name="Fecho Turno" parent="gestao_hotel.menu_hotel" action="fecho_caixa_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="posicao_tesoueraria_form" model="ir.ui.view">
+            <field name="name">Posição de Tesouraria</field>
+            <field name="model">posicao.tesouraria</field>
+            <field name="arch" type="xml">
+                <form string="Posição de Tesouraria">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                      <p>
+                         Este Ficha retrata sobre a posição de Folha de tesouraria
+                      </p>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="posicao_tesoueraria_act_window" model="ir.actions.act_window">
+            <field name="name">Posição de Tesouraria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">posicao.tesouraria</field>
+            <field name="view_id" ref="posicao_tesoueraria_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="posicao_tesoura_menu" name="Posição de Tesouraria" parent="gestao_relatorio.menu_rep_tesours"
+                  action="posicao_tesoueraria_act_window" sequence="80"/>
+    </data>
+</odoo>

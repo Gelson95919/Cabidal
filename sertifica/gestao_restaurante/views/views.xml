@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <menuitem id="gestao_restaurante.menu_root" name="Restaurante" web_icon="gestao_restaurante,static/description/icon.png" />
+       <menuitem name="Movimento Restaurante" id="gestao_restaurante.menu_restaurante" parent="gestao_restaurante.menu_root"/>
+
+        <menuitem name="Parâmetros" id="gestao_restaurant_menu_param" parent="gestao_restaurante.menu_root"/>
+    </data>
+</odoo>

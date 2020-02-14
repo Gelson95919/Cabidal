@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+       <record id="form_all_lista_doc_ven" model="ir.ui.view">
+          <field name="name">Listagem Documentos </field>
+          <field name="model">listadocunv.listadocunv</field>
+          <field name="arch" type="xml">
+              <form string="Listagem Documentos ">
+                <sheet>
+                   <!--<field name="desclistdoc"/>-->
+                   <div>
+                       <field name="listagem" widget="radio" class="oe_edit_only"/>
+                   </div>
+                   <div>
+                     <field name="em_aberto_ate_data_lancamento"/>
+                     <label for="title" string="Em aberto ate data selecionada"/>
+                   </div>
+                   <div><label for="title" string="" style="width:20px"/> </div>
+                   <div>
+                       <label for="title" string="______________________________________________________________________________________________________________________________________________________"/>
+                   </div>
+                   <div>￼​
+                     <field name="por_cliente"/>
+                     <label for="title" string="Por Cliente" style="width:350px"/>
+                     <field name="uma_folha_por_benificiario" attrs="{'readonly': [('por_cliente', '=', False)]}"/>
+                     <label for="title" string="Uma folha por Benificiario"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Cliente"/>
+                       <field name="cliente" attrs="{'readonly': [('por_cliente', '=', False)]}"  style="width:300px"/>
+                   </div>
+                   <div>
+                     <field name="ditalhes_pagamento" attrs="{'readonly': [('por_cliente', '=', False)]}"/>
+                     <label for="title" string="Detalhes Pagamento" style="width:300px"/>
+                   </div>
+                   <div>
+                       <label for="title" string="______________________________________________________________________________________________________________________________________________________"/>
+                   </div>
+                   <div>
+                       <label for="title" string="Data"/>
+                   </div>
+                   <div><label for="title" string="De"/><field name="data_inicio"/><label for="title" string="" style="width:200px"/><field name="tipo_documemt"/><label for="title" string="Tipo documento"/></div>
+                   <div><label for="title" string="Ate"/><field name="data_fim"/><label for="title" string="" style="width:200px"/><field name="documento" widget="many2many_tags" attrs="{'readonly': [('tipo_documemt', '=', False)]}" style="width:260px"/></div>
+                   <div>
+                      <label for="title" string="______________________________________________________________________________________________________________________________________________________"/>
+                   </div>
+                   <div>
+                         <field name="movimento" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                   </div>
+                   <div><label for="title" string="______________________________________________________________________________________________________________________________________________________"/></div>
+                   <div>
+                     <field name="confirencia_contabilidade"/>
+                     <label for="title" string="Confirencia Contabilidade"/>
+                   </div>
+                   <header>
+                       <button name="action_quotation_send" string="Selecionar" icon="fa-undo" type="object" class="btn-primary"/>
+                       <button name="action_quotation_send" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                   </header>
+                </sheet>
+              </form>
+          </field>
+       </record>
+       <record model="ir.actions.act_window" id="action_window_listagemv">
+         <field name="name">Listagem Documentos </field>
+         <field name="res_model">listadocunv.listadocunv</field>
+         <field name="view_id" ref="form_all_lista_doc_ven"/>
+         <field name="target">inline</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Listagem de Documentos
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Listagem de Documentos) para projetos internos, pessoais ou de clientes.
+             </p>
+         </field>
+       </record>
+       <menuitem name="Listagem Documentos " id="menu_lista_docum" parent="gestao_vendas.menu_vendas" action="action_window_listagemv"/>
+    </data>
+</odoo>

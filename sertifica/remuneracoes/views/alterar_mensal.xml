@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="alteracoes_mensais_form" model="ir.ui.view">
+           <field name="name">Alterações Mensais</field>
+           <field name="model">altercoes.mensais</field>
+           <field name="arch" type="xml">
+               <form string="Alterações Mensais">
+                   <sheet>
+                       <div>
+                           <label for="title" string="Funcionário"/>
+                           <field name="funcionario_id" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/></div>
+                       <notebook>
+                           <page string="Faltas" name="faltas">
+                              <group>
+                                  <group style="width:400px">
+                                     <div>
+                                        <notebook style="width:500px" name="list_calindadr">
+                                          <page string="Lista" name="lista"><div><label for="title" style="width:6px" string="" /></div></page>
+                                          <page string="Calindario" name="calindar"><div><label for="title" style="width:6px" string="" /></div></page>
+                                        </notebook>
+                                     </div>
+                                  </group>
+                                  <group style="width:400px;" name="group2" string="."></group>
+                              </group>
+                           </page>
+                           <page string="Horas" name="horas">
+                               <group>
+                                  <group style="width:400px">
+                                     <div>
+                                        <notebook style="width:500px" name="list_calindadr_horas">
+                                          <page string="Lista" name="lista_horas"><div><label for="title" style="width:6px" string="" /></div></page>
+                                          <page string="Calindario" name="calindar_horas"><div><label for="title" style="width:6px" string="" /></div></page>
+                                        </notebook>
+                                     </div>
+                                  </group>
+                                  <group style="width:400px;" name="group2_horas" string="."></group>
+                              </group>
+                           </page>
+                           <page string="Remunerações / Desconto">
+                               <group>
+                                   <group>
+                                       <div>
+                                           <label for="title" string="Remunerações" style="color:Blue;width:260 font-weight: bold;"/>
+                                           <field name="remuneracoes_lista">
+                                               <tree editable="bottomn" string="Tree">
+                                                  <field name="remuneracoes_id" />
+                                                  <field name="desc_remuner"/>
+                                                  <field name="temp_qt"/>
+                                                  <field name="valor_auxil"/>
+                                               </tree>
+                                           </field>
+                                       </div>
+                                   </group>
+                                   <group>
+                                       <div>
+                                           <label for="title" string="Desconto" style="color:Blue;width:260 font-weight: bold;"/>
+                                           <field name="desconto_lista">
+                                               <tree editable="bottomn" string="Tree">
+                                                  <field name="descont_id" />
+                                                  <field name="descre_descont"/>
+                                                  <field name="valor"/>
+                                               </tree>
+                                           </field>
+                                       </div>
+                                   </group>
+                               </group>
+                               <div>
+                                   <label for="title" string="Mes" />
+                                   <field name="mes_remuner" style="width:260px"/>
+                               </div>
+                           </page>
+                       </notebook>
+                       <header>
+                         <button name="confirmar" icon="fa-check-square-o" class="btn-primary" type="object" string="Confirmar"/>
+                         <button name="ajuda" type="object" string="Ajuda" icon="fa-question-circle-o" class="btn-primary"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="alteracoes_mensais_tree" model="ir.ui.view">
+           <field name="name">Alterações Mensais</field>
+           <field name="model">altercoes.mensais</field>
+           <field name="arch" type="xml">
+               <tree string="Alterações Mensais">
+                   <!--<field name="funcionario_id"/>-->
+               </tree>
+           </field>
+       </record>
+       <record id="alteracoes_mensais_act_window" model="ir.actions.act_window">
+           <field name="name">Alterações Mensais</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">altercoes.mensais</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>before
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="alteracoes_mensais_menu" name="Alterações Mensais" parent="menu_remuneracoes" action="alteracoes_mensais_act_window" sequence="80"/>
+
+       <record id="alteracao_faltas_form_inherit" model="ir.ui.view">
+          <field name="name">Alteracoes Faltas</field>
+          <field name="model">altercoes.mensais</field>
+          <field name="inherit_id" ref="remuneracoes.alteracoes_mensais_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//page[@name='lista']" position="inside">
+                 <div>
+                   <field name="lista_faltas" style="width:450px"><!--Lista de lado Esquerdo na aba Faltas-->
+                      <tree editable="bottomn" string="Tree">
+                        <field name="data" />
+                        <field name="faltas_processadas"/>
+                        <field name="dur"/>
+                      </tree>
+                   </field>
+                 </div>
+                 <div>
+                     <label for="title" string="Mes"/>
+                     <field name="mes" style="width:150px"/>
+                 </div>
+              </xpath>
+              <xpath expr="//page[@name='calindar']" position="inside">
+                 <div>
+                     <label for="title" string="Calindario"/>
+                     <field name="calindario" style="width:150px"/>
+                 </div>
+              </xpath>
+              <xpath expr="//group[@name='group2']" position="inside">
+                <group>
+                   <div>
+                      <field name="outras_alteracao" style="width:500px"> <!--Lista de lado Dereito na aba Faltas-->
+                         <tree editable="bottomn" string="Tree">
+                           <field name="calindario"/>
+                           <field name="faltas" />
+                           <field name="duracao"/>
+                           <field name="observacao"/>
+                         </tree>
+                      </field>
+                      <div>
+                          <label for="title" string="Faltas" style="width:74px"/>
+                          <field name="faltas" style="width:200px"  options = "{'no_create': true}"/>
+                          <label for="title" style="width:5px" string="" />
+                          <label for="title" string="Duração"/>
+                          <field name="duracao" style="width:105px"/>
+                          <label for="title" style="width:1px" string="" />
+                          <field name="tipofalta" style="width:40px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Observações"/>
+                          <field name="observacao" style="width:415px"/>
+                          <button name="adicionar" type="object" string="Adicionar"/>
+                          <label for="title" style="width:6px" string="" />
+                          <button name="limpar" type="object" string="Limpar"/>
+                      </div>
+                   </div>
+                </group>
+              </xpath>
+          </field>
+       </record>
+       <record id="alteracao_horas_form_inherit" model="ir.ui.view">
+          <field name="name">Alteracoes Horas</field>
+          <field name="model">altercoes.mensais</field>
+          <field name="inherit_id" ref="remuneracoes.alteracoes_mensais_form"/>
+          <field name="arch" type="xml">
+                <xpath expr="//page[@name='lista_horas']" position="inside">
+                 <div>
+                   <field name="lista_horas" style="width:450px"><!--Lista de lado Esquerdo na aba Horas-->
+                      <tree editable="bottomn" string="Tree">
+                        <field name="data" />
+                        <field name="horas_extra_processadas"/>
+                        <field name="dur"/>
+                      </tree>
+                   </field>
+                 </div>
+                 <div>
+                     <label for="title" string="Mes"/>
+                     <field name="mes" style="width:150px"/>
+                 </div>
+              </xpath>
+              <xpath expr="//page[@name='calindar_horas']" position="inside">
+                 <div>
+                     <label for="title" string="Calindario"/>
+                     <field name="calindario" style="width:150px"/>
+                 </div>
+              </xpath>
+              <xpath expr="//group[@name='group2_horas']" position="inside">
+                <group>
+                   <div>
+                      <field name="outras_alteracao_horas" style="width:500px"><!--Lista de lado Dereito na aba Horas-->
+                         <tree editable="bottomn" string="Tree" create="false">
+                           <field name="calindario"/>
+                           <field name="horas" />
+                           <field name="duracao"/>
+                           <field name="observacao"/>
+                         </tree>
+                      </field>
+                      <div>
+                          <label for="title" string="Hora" style="width:74px"/>
+                          <field name="horas" style="width:200px"/>
+                          <label for="title" style="width:5px" string="" />
+                          <label for="title" string="Duração"/>
+                          <field name="duracao" style="width:105px"/>
+                          <label for="title" style="width:1px" string="" />
+                          <label for="title" string="Horas" style="width:40px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Observações"/>
+                          <field name="observacao" style="width:415px"/>
+                          <button name="adicionar" type="object" string="Adicionar"/>
+                          <label for="title" style="width:6px" string="" />
+                          <button name="limpar" type="object" string="Limpar"/>
+                      </div>
+                   </div>
+                </group>
+              </xpath>
+          </field>
+       </record>
+    </data>
+</odoo>

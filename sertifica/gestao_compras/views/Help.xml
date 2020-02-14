@@ -1,0 +1,95 @@
+
+<odoo>
+  <data>
+
+
+        <record model="ir.ui.view" id="view_parent_form">
+           <field name="name">parent.model.form</field>
+           <field name="model">parent.model</field>
+           <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <!--<field name="parent_field_1"/>-->
+                           <field name="parent_field_2"/>
+                       </group>
+                       <notebook>
+                           <page string="Child Data">
+                               <!-- you can display child data like code below -->
+                               <field name="child_field_ids">
+                                   <tree>
+                                       <field name="child_field_1"/>
+                                       <field name="child_field_2"/>
+                                       <field name="child_field_3"/>
+                                   </tree>
+                               </field>
+                           </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+        </record>
+
+
+
+     <!-- actions -->
+
+    <menuitem name="Help" id="menu_help" parent="gestao_compras.menu_concit_comp"
+              action="action_window_Help"/>
+
+    <!--<record model="ir.ui.view" id="form_all_mil">
+         <field name="name">Project Milestone Invoicing </field>
+         <field name="model">parents.models</field>
+         <field name="arch" type="xml">
+              <form string="Pagamento da Despesa">
+                    <field name='project'/>
+                    <field name='client' />
+                    <field name='milestone' />
+                    <field name='payment' />
+              </form>
+         </field>
+    </record>
+
+    <record model="ir.ui.view" id="action_project_milestone_invoicing_tree">
+            <field name="name">Project Milestone Invoicing</field>
+            <field name="model">parents.models</field>
+            <field name="arch" type="xml">
+                <tree string="Project Milestone Invoicing" create="false">
+                    <field name='project'/>
+                    <field name='client' />
+                    <field name='milestone' />
+                    <field name='payment' />
+                </tree>
+            </field>
+    </record>-->
+
+    <!-- Form view Action for Project Milestone Invoicing -->
+    <!--<record id="action_project_milestone_invoicing_view" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Project Milestone Invoicing</field>
+            <field name="res_model">parent.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first milestone</p>
+            </field>
+    </record>-->
+
+
+    <record model="ir.actions.act_window" id="action_window_Help">
+      <field name="name">Help </field>
+      <field name="res_model">parent.model</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Help.
+                </p><p>
+                  Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Help ) para projetos internos, pessoais ou de clientes.
+                </p>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="mapa_oficial_seguranca_social_form" model="ir.ui.view">
+           <field name="name">Seguranca social</field>
+           <field name="model">mapas.oficiais.seguranca.social</field>
+           <field name="arch" type="xml">
+               <form string="Seguranca Social">
+                   <sheet>
+                       <div><label for="title" string="SEGURANÇA SOCIAL" style="font-weight: bold;color:blue;"/></div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:260px"/>
+                           <label for="title" style="width:260px" string="" />
+                           <label for="title" string="Imprimir Mudelo Oficial"/>
+                           <field name="imprimir_modelo_oficial" style="width:260px" nolabel="1"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Entidade" style="color:Blue; font-weight: bold;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="De"/>
+                           <field name="de_seguranca_social_id" style="width:260px"/>
+                           <label for="title" style="width:10px" string=""/>
+                           <label for="title" string="Ate"/>
+                           <field name="ate_seguranca_social_id" style="width:260px"/>
+                       </div>
+                       <div>
+                           <field name="notas" nolabel="1"/>
+                       </div>
+                       <header>
+                           <button name="gerar" type="object" string="Gerar" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                        </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="mapa_oficial_seguranca_social_act_window" model="ir.actions.act_window">
+           <field name="name">Seguranças Social</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">mapas.oficiais.seguranca.social</field>
+           <field name="view_id" ref="mapa_oficial_seguranca_social_form"/>
+         <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="mapa_oficial_seguranca_menu" name="Seguranças Social" parent="menu_mapas_oficiais" action="mapa_oficial_seguranca_social_act_window" sequence="80"/>
+    </data>
+</odoo>

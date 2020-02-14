@@ -1,0 +1,31 @@
+<odoo>
+   <data>
+       <record id="form_all_mot-movimet" model="ir.ui.view">
+           <field name="name">Motivo Movimento Stock </field>
+           <field name="model">movimentostok.movimentostok</field>
+           <field name="arch" type="xml">
+              <form string="Movimento Stok">
+                 <sheet>
+                     <div>
+                          <label for="title" string="Descrição"/>
+                          <field name="name" style="width:500px"/>
+                     </div>
+                 </sheet>
+              </form>
+           </field>
+       </record>
+       <record model="ir.actions.act_window" id="parametros.action_window_mov_stok">
+         <field name="name"> Motivo Movimento Stock </field>
+         <field name="res_model">movimentostok.movimentostok</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Criar um novo Motivo Movimento Stok.
+            </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Motivo Movimento Stock) para projetos internos, pessoais ou de clientes.
+            </p>
+         </field>
+       </record>
+       <menuitem name="Motivo Movimento Stok" id="parametros.menu_mot_moviment" parent="fastgest_imveta" action="parametros.action_window_mov_stok"/>
+   </data>
+</odoo>

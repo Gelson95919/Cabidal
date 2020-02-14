@@ -1,0 +1,2055 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pais_form" model="ir.ui.view">
+            <field name="name">País</field>
+            <field name="model">pais.pais</field>
+            <field name="arch" type="xml">
+                <form string="País">
+                    <sheet>
+                        <div>
+                            <label for="title" string="" style="width:20px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Nome Internacional" style="width:150px"/>
+                            <field name="nome_internacional" style="width:500px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Codigo Alfa2" style="width:150px"/>
+                            <field name="cod_alfa_2" style="width:150px"/>
+                            <label for="title" style="width:85px" string=""/>
+                            <label for="title" string="Codigo Alfa3" style="width:100px"/>
+                            <field name="cod_alfa_3" style="width:150px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Codigo Numerico" style="width:150px"/>
+                            <field name="cod_numerico" style="width:150px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pais_tree" model="ir.ui.view">
+            <field name="name">País</field>
+            <field name="model">pais.pais</field>
+            <field name="arch" type="xml">
+                <tree string="País">
+                    <field name="cod_alfa_2"/>
+                    <field name="cod_alfa_3"/>
+                    <field name="cod_numerico"/>
+                    <field name="nome_internacional"/>
+                </tree>
+            </field>
+        </record>
+        <record id="pais1" model="pais.pais">
+            <field name="cod_alfa_2">AD</field>
+            <field name="cod_alfa_3">AND</field>
+            <field name="cod_numerico">020</field>
+            <field name="fips">AN</field>
+            <field name="nome_ES">Andorra</field>
+            <field name="nome_internacional">Andorra</field>
+        </record>
+        <record id="pais2" model="pais.pais">
+            <field name="cod_alfa_2">AE</field>
+            <field name="cod_alfa_3">ARE</field>
+            <field name="cod_numerico">784</field>
+            <field name="fips">AE</field>
+            <field name="nome_ES">Emiratos Aürabes Unidos</field>
+            <field name="nome_internacional">United Arab Emirates</field>
+        </record>
+        <record id="pais3" model="pais.pais">
+            <field name="cod_alfa_2">AF</field>
+            <field name="cod_alfa_3">AFG</field>
+            <field name="cod_numerico">004</field>
+            <field name="fips">AF</field>
+            <field name="nome_ES">Afganistßn</field>
+            <field name="nome_internacional">Afghanistan</field>
+        </record>
+        <record id="pais4" model="pais.pais">
+            <field name="cod_alfa_2">AG</field>
+            <field name="cod_alfa_3">ATG</field>
+            <field name="cod_numerico">028</field>
+            <field name="fips">AC</field>
+            <field name="nome_ES">Antigua y Barbuda</field>
+            <field name="nome_internacional">Antigua and Barbuda</field>
+        </record>
+        <record id="pais5" model="pais.pais">
+            <field name="cod_alfa_2">AI</field>
+            <field name="cod_alfa_3">AIA</field>
+            <field name="cod_numerico">660</field>
+            <field name="fips">AV</field>
+            <field name="nome_ES">Anguila</field>
+            <field name="nome_internacional">Anguilla</field>
+        </record>
+        <record id="pais6" model="pais.pais">
+            <field name="cod_alfa_2">AL</field>
+            <field name="cod_alfa_3">ALB</field>
+            <field name="cod_numerico">008</field>
+            <field name="fips">AL</field>
+            <field name="nome_ES">Albania</field>
+            <field name="nome_internacional">Albania</field>
+        </record>
+        <record id="pais7" model="pais.pais">
+            <field name="cod_alfa_2">AM</field>
+            <field name="cod_alfa_3">ARM</field>
+            <field name="cod_numerico">051</field>
+            <field name="fips">AM</field>
+            <field name="nome_ES">Armenia</field>
+            <field name="nome_internacional">Armenia</field>
+        </record>
+        <record id="pais8" model="pais.pais">
+            <field name="cod_alfa_2">AO</field>
+            <field name="cod_alfa_3">AGO</field>
+            <field name="cod_numerico">024</field>
+            <field name="fips">AO</field>
+            <field name="nome_ES">Angola</field>
+            <field name="nome_internacional">Angola</field>
+        </record>
+        <record id="pais9" model="pais.pais">
+            <field name="cod_alfa_2">AQ</field>
+            <field name="cod_alfa_3">ATA</field>
+            <field name="cod_numerico">010</field>
+            <field name="fips">AY</field>
+            <field name="nome_ES">Antßrtida</field>
+            <field name="nome_internacional">Antarctica</field>
+        </record>
+        <record id="pais10" model="pais.pais">
+            <field name="cod_alfa_2">AR</field>
+            <field name="cod_alfa_3">ARG</field>
+            <field name="cod_numerico">032</field>
+            <field name="fips">AR</field>
+            <field name="nome_ES">Argentina</field>
+            <field name="nome_internacional">Argentina</field>
+        </record>
+        <record id="pais11" model="pais.pais">
+            <field name="cod_alfa_2">AS</field>
+            <field name="cod_alfa_3">ASM</field>
+            <field name="cod_numerico">016</field>
+            <field name="fips">AQ</field>
+            <field name="nome_ES">Samoa Americana</field>
+            <field name="nome_internacional">American Samoa</field>
+        </record>
+        <record id="pais12" model="pais.pais">
+            <field name="cod_alfa_2">AT</field>
+            <field name="cod_alfa_3">AUT</field>
+            <field name="cod_numerico">040</field>
+            <field name="fips">AU</field>
+            <field name="nome_ES">Austria</field>
+            <field name="nome_internacional">Austria</field>
+        </record>
+        <record id="pais13" model="pais.pais">
+            <field name="cod_alfa_2">AU</field>
+            <field name="cod_alfa_3">AUS</field>
+            <field name="cod_numerico">036</field>
+            <field name="fips">AS</field>
+            <field name="nome_ES">Australia</field>
+            <field name="nome_internacional">Australia</field>
+        </record>
+        <record id="pais14" model="pais.pais">
+            <field name="cod_alfa_2">AW</field>
+            <field name="cod_alfa_3">ABW</field>
+            <field name="cod_numerico">533</field>
+            <field name="fips">AA</field>
+            <field name="nome_ES">Aruba</field>
+            <field name="nome_internacional">Aruba</field>
+        </record>
+        <record id="pais15" model="pais.pais">
+            <field name="cod_alfa_2">AX</field>
+            <field name="cod_alfa_3">ALA</field>
+            <field name="cod_numerico">248</field>
+            <field name="fips"></field>
+            <field name="nome_ES">Islas Iüland</field>
+            <field name="nome_internacional">Iland Islands</field>
+        </record>
+        <record id="pais16" model="pais.pais">
+            <field name="cod_alfa_2">AZ</field>
+            <field name="cod_alfa_3">AZE</field>
+            <field name="cod_numerico">031</field>
+            <field name="fips">AJ</field>
+            <field name="nome_ES">Azerbaiyßn</field>
+            <field name="nome_internacional">Azerbaijan</field>
+        </record>
+        <record id="pais17" model="pais.pais">
+            <field name="cod_alfa_2">BA</field>
+            <field name="cod_alfa_3">BIH</field>
+            <field name="cod_numerico">070</field>
+            <field name="fips">BK</field>
+            <field name="nome_ES">Bosnia y Herzegovina</field>
+            <field name="nome_internacional">Bosnia and Herzegovina</field>
+        </record>
+        <record id="pais18" model="pais.pais">
+            <field name="cod_alfa_2">BB</field>
+            <field name="cod_alfa_3">BRB</field>
+            <field name="cod_numerico">052</field>
+            <field name="fips">BB</field>
+            <field name="nome_ES">Barbados</field>
+            <field name="nome_internacional">Barbados</field>
+        </record>
+        <record id="pais19" model="pais.pais">
+            <field name="cod_alfa_2">BD</field>
+            <field name="cod_alfa_3">BGD</field>
+            <field name="cod_numerico">050</field>
+            <field name="fips">BG</field>
+            <field name="nome_ES">Bangladesh</field>
+            <field name="nome_internacional">Bangladesh</field>
+        </record>
+        <record id="pais20" model="pais.pais">
+            <field name="cod_alfa_2">BE</field>
+            <field name="cod_alfa_3">BEL</field>
+            <field name="cod_numerico">056</field>
+            <field name="fips">BE</field>
+            <field name="nome_ES">BÚlgica</field>
+            <field name="nome_internacional">Belgium</field>
+        </record>
+        <record id="pais21" model="pais.pais">
+            <field name="cod_alfa_2">BF</field>
+            <field name="cod_alfa_3">BFA</field>
+            <field name="cod_numerico">854</field>
+            <field name="fips">UV</field>
+            <field name="nome_ES">Burkina Faso</field>
+            <field name="nome_internacional">Burkina Faso</field>
+        </record>
+        <record id="pais22" model="pais.pais">
+            <field name="cod_alfa_2">BG</field>
+            <field name="cod_alfa_3">BGR</field>
+            <field name="cod_numerico">100</field>
+            <field name="fips">BU</field>
+            <field name="nome_ES">Bulgaria</field>
+            <field name="nome_internacional">Bulgaria</field>
+        </record>
+        <record id="pais23" model="pais.pais">
+            <field name="cod_alfa_2">BH</field>
+            <field name="cod_alfa_3">BHR</field>
+            <field name="cod_numerico">048</field>
+            <field name="fips">BA</field>
+            <field name="nome_ES">Bahrein</field>
+            <field name="nome_internacional">Bahrain</field>
+        </record>
+        <record id="pais24" model="pais.pais">
+            <field name="cod_alfa_2">BI</field>
+            <field name="cod_alfa_3">BDI</field>
+            <field name="cod_numerico">108</field>
+            <field name="fips">BY</field>
+            <field name="nome_ES">Burundi</field>
+            <field name="nome_internacional">Burundi</field>
+        </record>
+        <record id="pais25" model="pais.pais">
+            <field name="cod_alfa_2">BJ</field>
+            <field name="cod_alfa_3">BEN</field>
+            <field name="cod_numerico">204</field>
+            <field name="fips">BN</field>
+            <field name="nome_ES">Benin</field>
+            <field name="nome_internacional">Benin</field>
+        </record>
+        <record id="pais26" model="pais.pais">
+            <field name="cod_alfa_2">BL</field>
+            <field name="cod_alfa_3">BLM</field>
+            <field name="cod_numerico">652</field>
+            <field name="fips">TB</field>
+            <field name="nome_ES">San BartolomÚ</field>
+            <field name="nome_internacional">Saint BarthÚlemy</field>
+        </record>
+        <record id="pais27" model="pais.pais">
+            <field name="cod_alfa_2">BM</field>
+            <field name="cod_alfa_3">BMU</field>
+            <field name="cod_numerico">060</field>
+            <field name="fips">BD</field>
+            <field name="nome_ES">Bermuda</field>
+            <field name="nome_internacional">Bermuda</field>
+        </record>
+        <record id="pais28" model="pais.pais">
+            <field name="cod_alfa_2">BN</field>
+            <field name="cod_alfa_3">BRN</field>
+            <field name="cod_numerico">096</field>
+            <field name="fips">BX</field>
+            <field name="nome_ES">Brunei Darussalam</field>
+            <field name="nome_internacional">Brunei Darussalam</field>
+        </record>
+        <record id="pais29" model="pais.pais">
+            <field name="cod_alfa_2">BO</field>
+            <field name="cod_alfa_3">BOL</field>
+            <field name="cod_numerico">068</field>
+            <field name="fips">BL</field>
+            <field name="nome_ES">Bolivia</field>
+            <field name="nome_internacional">Bolivia</field>
+        </record>
+        <record id="pais30" model="pais.pais">
+            <field name="cod_alfa_2">BQ</field>
+            <field name="cod_alfa_3">BES</field>
+            <field name="cod_numerico">535</field>
+            <field name="fips"></field>
+            <field name="nome_ES">Bonaire, San Eustaquio y Saba</field>
+            <field name="nome_internacional">Bonaire, Sint Eustatius and Saba</field>
+        </record>
+        <record id="pais31" model="pais.pais">
+            <field name="cod_alfa_2">BR</field>
+            <field name="cod_alfa_3">BRA</field>
+            <field name="cod_numerico">076</field>
+            <field name="fips">BR</field>
+            <field name="nome_ES">Brasil</field>
+            <field name="nome_internacional">Brazil</field>
+        </record>
+        <record id="pais32" model="pais.pais">
+            <field name="cod_alfa_2">BS</field>
+            <field name="cod_alfa_3">BHS</field>
+            <field name="cod_numerico">044</field>
+            <field name="fips">BF</field>
+            <field name="nome_ES">Bahamas</field>
+            <field name="nome_internacional">Bahamas</field>
+        </record>
+        <record id="pais33" model="pais.pais">
+            <field name="cod_alfa_2">BT</field>
+            <field name="cod_alfa_3">BTN</field>
+            <field name="cod_numerico">064</field>
+            <field name="fips">BT</field>
+            <field name="nome_ES">Butßn</field>
+            <field name="nome_internacional">Bhutan</field>
+        </record>
+        <record id="pais34" model="pais.pais">
+            <field name="cod_alfa_2">BV</field>
+            <field name="cod_alfa_3">BVT</field>
+            <field name="cod_numerico">074</field>
+            <field name="fips">BV</field>
+            <field name="nome_ES">Isla Bouvet</field>
+            <field name="nome_internacional">Bouvet Island</field>
+        </record>
+        <record id="pais35" model="pais.pais">
+            <field name="cod_alfa_2">BW</field>
+            <field name="cod_alfa_3">BWA</field>
+            <field name="cod_numerico">072</field>
+            <field name="fips">BC</field>
+            <field name="nome_ES">Botswana</field>
+            <field name="nome_internacional">Botswana</field>
+        </record>
+        <record id="pais36" model="pais.pais">
+            <field name="cod_alfa_2">BY</field>
+            <field name="cod_alfa_3">BLR</field>
+            <field name="cod_numerico">112</field>
+            <field name="fips">BO</field>
+            <field name="nome_ES">Belar·s</field>
+            <field name="nome_internacional">Belarus</field>
+        </record>
+        <record id="pais37" model="pais.pais">
+            <field name="cod_alfa_2">BZ</field>
+            <field name="cod_alfa_3">BLZ</field>
+            <field name="cod_numerico">084</field>
+            <field name="fips">BH</field>
+            <field name="nome_ES">Belice</field>
+            <field name="nome_internacional">Belize</field>
+        </record>
+        <record id="pais38" model="pais.pais">
+            <field name="cod_alfa_2">CA</field>
+            <field name="cod_alfa_3">CAN</field>
+            <field name="cod_numerico">124</field>
+            <field name="fips">CA</field>
+            <field name="nome_ES">Canadß</field>
+            <field name="nome_internacional">Canada</field>
+        </record>
+        <record id="pais39" model="pais.pais">
+            <field name="cod_alfa_2">CC</field>
+            <field name="cod_alfa_3">CCK</field>
+            <field name="cod_numerico">166</field>
+            <field name="fips">CK</field>
+            <field name="nome_ES">Islas Cocos (Keeling)</field>
+            <field name="nome_internacional">Cocos (Keeling) Islands</field>
+        </record>
+        <record id="pais40" model="pais.pais">
+            <field name="cod_alfa_2">CD</field>
+            <field name="cod_alfa_3">COD</field>
+            <field name="cod_numerico">180</field>
+            <field name="fips">CG</field>
+            <field name="nome_ES">Congo (Rep. Democrßtica)</field>
+            <field name="nome_internacional">Congo Dem. Rep of the</field>
+        </record>
+        <record id="pais41" model="pais.pais">
+            <field name="cod_alfa_2">CF</field>
+            <field name="cod_alfa_3">CAF</field>
+            <field name="cod_numerico">140</field>
+            <field name="fips">CT</field>
+            <field name="nome_ES">Rep·blica Centroafricana</field>
+            <field name="nome_internacional">Central African Republic</field>
+        </record>
+        <record id="pais42" model="pais.pais">
+            <field name="cod_alfa_2">CG</field>
+            <field name="cod_alfa_3">COG</field>
+            <field name="cod_numerico">178</field>
+            <field name="fips">CF</field>
+            <field name="nome_ES">Congo (Brazzaville)</field>
+            <field name="nome_internacional">Congo, Republic of</field>
+        </record>
+        <record id="pais43" model="pais.pais">
+            <field name="cod_alfa_2">CH</field>
+            <field name="cod_alfa_3">CHE</field>
+            <field name="cod_numerico">756</field>
+            <field name="fips">SZ</field>
+            <field name="nome_ES">Suiza</field>
+            <field name="nome_internacional">Switzerland</field>
+        </record>
+        <record id="pais44" model="pais.pais">
+            <field name="cod_alfa_2">CI</field>
+            <field name="cod_alfa_3">CIV</field>
+            <field name="cod_numerico">384</field>
+            <field name="fips">IV</field>
+            <field name="nome_ES">Costa de Marfil</field>
+            <field name="nome_internacional">Cote d'Ivoire</field>
+        </record>
+        <record id="pais45" model="pais.pais">
+            <field name="cod_alfa_2">CK</field>
+            <field name="cod_alfa_3">COK</field>
+            <field name="cod_numerico">184</field>
+            <field name="fips">CW</field>
+            <field name="nome_ES">Islas Cook</field>
+            <field name="nome_internacional">Cook Islands</field>
+        </record>
+        <record id="pais46" model="pais.pais">
+            <field name="cod_alfa_2">CL</field>
+            <field name="cod_alfa_3">CHL</field>
+            <field name="cod_numerico">152</field>
+            <field name="fips">CI</field>
+            <field name="nome_ES">Chile</field>
+            <field name="nome_internacional">Chile</field>
+        </record>
+        <record id="pais47" model="pais.pais">
+            <field name="cod_alfa_2">CM</field>
+            <field name="cod_alfa_3">CMR</field>
+            <field name="cod_numerico">120</field>
+            <field name="fips">CM</field>
+            <field name="nome_ES">Camer·n</field>
+            <field name="nome_internacional">Cameroon</field>
+        </record>
+        <record id="pais48" model="pais.pais">
+            <field name="cod_alfa_2">CN</field>
+            <field name="cod_alfa_3">CHN</field>
+            <field name="cod_numerico">156</field>
+            <field name="fips">CH</field>
+            <field name="nome_ES">China</field>
+            <field name="nome_internacional">China</field>
+        </record>
+        <record id="pais49" model="pais.pais">
+            <field name="cod_alfa_2">CO</field>
+            <field name="cod_alfa_3">COL</field>
+            <field name="cod_numerico">170</field>
+            <field name="fips">CO</field>
+            <field name="nome_ES">Colombia</field>
+            <field name="nome_internacional">Colombia</field>
+        </record>
+        <record id="pais50" model="pais.pais">
+            <field name="cod_alfa_2">CR</field>
+            <field name="cod_alfa_3">CRI</field>
+            <field name="cod_numerico">188</field>
+            <field name="fips">CS</field>
+            <field name="nome_ES">Costa Rica</field>
+            <field name="nome_internacional">Costa Rica</field>
+        </record>
+        <record id="pais51" model="pais.pais">
+            <field name="cod_alfa_2">CU</field>
+            <field name="cod_alfa_3">CUB</field>
+            <field name="cod_numerico">192</field>
+            <field name="fips">CU</field>
+            <field name="nome_ES">Cuba</field>
+            <field name="nome_internacional">Cuba</field>
+        </record>
+        <record id="pais52" model="pais.pais">
+            <field name="cod_alfa_2">CV</field>
+            <field name="cod_alfa_3">CPV</field>
+            <field name="cod_numerico">132</field>
+            <field name="fips">CV</field>
+            <field name="nome_ES">Cabo Verde</field>
+            <field name="nome_internacional">Cape Verde</field>
+        </record>
+        <record id="pais53" model="pais.pais">
+            <field name="cod_alfa_2">CW</field>
+            <field name="cod_alfa_3">CUW</field>
+            <field name="cod_numerico">531</field>
+            <field name="fips">UC</field>
+            <field name="nome_ES">Curaþao</field>
+            <field name="nome_internacional">Curaçao</field>
+        </record>
+        <record id="pais54" model="pais.pais">
+            <field name="cod_alfa_2">CX</field>
+            <field name="cod_alfa_3">CXR</field>
+            <field name="cod_numerico">162</field>
+            <field name="fips">KT</field>
+            <field name="nome_ES">Isla de Navidad</field>
+            <field name="nome_internacional">Christmas Island</field>
+        </record>
+        <record id="pais55" model="pais.pais">
+            <field name="cod_alfa_2">CY</field>
+            <field name="cod_alfa_3">CYP</field>
+            <field name="cod_numerico">196</field>
+            <field name="fips">CY</field>
+            <field name="nome_ES">Chipre</field>
+            <field name="nome_internacional">Cyprus</field>
+        </record>
+        <record id="pais56" model="pais.pais">
+            <field name="cod_alfa_2">CZ</field>
+            <field name="cod_alfa_3">CZE</field>
+            <field name="cod_numerico">203</field>
+            <field name="fips">EZ</field>
+            <field name="nome_ES">Rep·blica Checa</field>
+            <field name="nome_internacional">Czech Republic</field>
+        </record>
+        <record id="pais57" model="pais.pais">
+            <field name="cod_alfa_2">DE</field>
+            <field name="cod_alfa_3">DEU</field>
+            <field name="cod_numerico">276</field>
+            <field name="fips">GM</field>
+            <field name="nome_ES">Alemania</field>
+            <field name="nome_internacional">Germany</field>
+        </record>
+        <record id="pais58" model="pais.pais">
+            <field name="cod_alfa_2">DJ</field>
+            <field name="cod_alfa_3">DJI</field>
+            <field name="cod_numerico">262</field>
+            <field name="fips">DJ</field>
+            <field name="nome_ES">Yibuti</field>
+            <field name="nome_internacional">Djibouti</field>
+        </record>
+        <record id="pais59" model="pais.pais">
+            <field name="cod_alfa_2">DK</field>
+            <field name="cod_alfa_3">DNK</field>
+            <field name="cod_numerico">208</field>
+            <field name="fips">DA</field>
+            <field name="nome_ES">Dinamarca</field>
+            <field name="nome_internacional">Denmark</field>
+        </record>
+        <record id="pais60" model="pais.pais">
+            <field name="cod_alfa_2">DM</field>
+            <field name="cod_alfa_3">DMA</field>
+            <field name="cod_numerico">212</field>
+            <field name="fips">DO</field>
+            <field name="nome_ES">Dominica</field>
+            <field name="nome_internacional">Dominica</field>
+        </record>
+        <record id="pais61" model="pais.pais">
+            <field name="cod_alfa_2">DO</field>
+            <field name="cod_alfa_3">DOM</field>
+            <field name="cod_numerico">214</field>
+            <field name="fips">DR</field>
+            <field name="nome_ES">Rep·blica Dominicana</field>
+            <field name="nome_internacional">Dominican Republic</field>
+        </record>
+        <record id="pais62" model="pais.pais">
+            <field name="cod_alfa_2">DZ</field>
+            <field name="cod_alfa_3">DZA</field>
+            <field name="cod_numerico">012</field>
+            <field name="fips">AG</field>
+            <field name="nome_ES">Argelia</field>
+            <field name="nome_internacional">Algeria</field>
+        </record>
+        <record id="pais63" model="pais.pais">
+            <field name="cod_alfa_2">EC</field>
+            <field name="cod_alfa_3">ECU</field>
+            <field name="cod_numerico">218</field>
+            <field name="fips">EC</field>
+            <field name="nome_ES">Ecuador</field>
+            <field name="nome_internacional">Ecuador</field>
+        </record>
+        <record id="pais64" model="pais.pais">
+            <field name="cod_alfa_2">EE</field>
+            <field name="cod_alfa_3">EST</field>
+            <field name="cod_numerico">233</field>
+            <field name="fips">EN</field>
+            <field name="nome_ES">Estonia</field>
+            <field name="nome_internacional">Estonia</field>
+        </record>
+        <record id="pais65" model="pais.pais">
+            <field name="cod_alfa_2">EG</field>
+            <field name="cod_alfa_3">EGY</field>
+            <field name="cod_numerico">818</field>
+            <field name="fips">EG</field>
+            <field name="nome_ES">Egipto</field>
+            <field name="nome_internacional">Egypt</field>
+        </record>
+        <record id="pais66" model="pais.pais">
+            <field name="cod_alfa_2">EH</field>
+            <field name="cod_alfa_3">ESH</field>
+            <field name="cod_numerico">732</field>
+            <field name="fips">WI</field>
+            <field name="nome_ES">Sßhara Occidental</field>
+            <field name="nome_internacional">Western Sahara</field>
+        </record>
+        <record id="pais67" model="pais.pais">
+            <field name="cod_alfa_2">ER</field>
+            <field name="cod_alfa_3">ERI</field>
+            <field name="cod_numerico">232</field>
+            <field name="fips">ER</field>
+            <field name="nome_ES">Eritrea</field>
+            <field name="nome_internacional">Eritrea</field>
+        </record>
+        <record id="pais68" model="pais.pais">
+            <field name="cod_alfa_2">ES</field>
+            <field name="cod_alfa_3">ESP</field>
+            <field name="cod_numerico">724</field>
+            <field name="fips">SP</field>
+            <field name="nome_ES">Espa±a</field>
+            <field name="nome_internacional">Spain</field>
+        </record>
+        <record id="pais69" model="pais.pais">
+            <field name="cod_alfa_2">ET</field>
+            <field name="cod_alfa_3">ETH</field>
+            <field name="cod_numerico">231</field>
+            <field name="fips">ET</field>
+            <field name="nome_ES">EtiopÝa</field>
+            <field name="nome_internacional">Ethiopia</field>
+        </record>
+        <record id="pais70" model="pais.pais">
+            <field name="cod_alfa_2">FI</field>
+            <field name="cod_alfa_3">FIN</field>
+            <field name="cod_numerico">246</field>
+            <field name="fips">FI</field>
+            <field name="nome_ES">Finlandia</field>
+            <field name="nome_internacional">Finland</field>
+        </record>
+        <record id="pais71" model="pais.pais">
+            <field name="cod_alfa_2">FJ</field>
+            <field name="cod_alfa_3">FJI</field>
+            <field name="cod_numerico">242</field>
+            <field name="fips">FJ</field>
+            <field name="nome_ES">Fiyi</field>
+            <field name="nome_internacional">Fiji</field>
+        </record>
+        <record id="pais72" model="pais.pais">
+            <field name="cod_alfa_2">FK</field>
+            <field name="cod_alfa_3">FLK</field>
+            <field name="cod_numerico">238</field>
+            <field name="fips">FK</field>
+            <field name="nome_ES">Islas Malvinas (Falkland)</field>
+            <field name="nome_internacional">Falkland Islands (Malvinas)</field>
+        </record>
+        <record id="pais73" model="pais.pais">
+            <field name="cod_alfa_2">FM</field>
+            <field name="cod_alfa_3">FSM</field>
+            <field name="cod_numerico">583</field>
+            <field name="fips">FM</field>
+            <field name="nome_ES">Micronesia</field>
+            <field name="nome_internacional">Micronesia, Fed. States of</field>
+        </record>
+        <record id="pais74" model="pais.pais">
+            <field name="cod_alfa_2">FO</field>
+            <field name="cod_alfa_3">FRO</field>
+            <field name="cod_numerico">234</field>
+            <field name="fips">FO</field>
+            <field name="nome_ES">Islas Feroe</field>
+            <field name="nome_internacional">Faroe Islands</field>
+        </record>
+        <record id="pais75" model="pais.pais">
+            <field name="cod_alfa_2">FR</field>
+            <field name="cod_alfa_3">FRA</field>
+            <field name="cod_numerico">250</field>
+            <field name="fips">FR</field>
+            <field name="nome_ES">Francia</field>
+            <field name="nome_internacional">France</field>
+        </record>
+        <record id="pais76" model="pais.pais">
+            <field name="cod_alfa_2">GA</field>
+            <field name="cod_alfa_3">GAB</field>
+            <field name="cod_numerico">266</field>
+            <field name="fips">GB</field>
+            <field name="nome_ES">Gab¾n</field>
+            <field name="nome_internacional">Gabon</field>
+        </record>
+        <record id="pais77" model="pais.pais">
+            <field name="cod_alfa_2">GB</field>
+            <field name="cod_alfa_3">GBR</field>
+            <field name="cod_numerico">826</field>
+            <field name="fips">UK</field>
+            <field name="nome_ES">Reino Unido</field>
+            <field name="nome_internacional">United Kingdom</field>
+        </record>
+        <record id="pais78" model="pais.pais">
+            <field name="cod_alfa_2">GD</field>
+            <field name="cod_alfa_3">GBR</field>
+            <field name="cod_numerico">308</field>
+            <field name="fips">GJ</field>
+            <field name="nome_ES">Granada</field>
+            <field name="nome_internacional">Grenada</field>
+        </record>
+        <record id="pais79" model="pais.pais">
+            <field name="cod_alfa_2">GE</field>
+            <field name="cod_alfa_3">GEO</field>
+            <field name="cod_numerico">268</field>
+            <field name="fips">GG</field>
+            <field name="nome_ES">Georgia</field>
+            <field name="nome_internacional">Georgia</field>
+        </record>
+        <record id="pais80" model="pais.pais">
+            <field name="cod_alfa_2">GF</field>
+            <field name="cod_alfa_3">GUF</field>
+            <field name="cod_numerico">254</field>
+            <field name="fips">FG</field>
+            <field name="nome_ES">Guayana Francesa</field>
+            <field name="nome_internacional">French Guiana</field>
+        </record>
+        <record id="pais81" model="pais.pais">
+            <field name="cod_alfa_2">GG</field>
+            <field name="cod_alfa_3">GGY</field>
+            <field name="cod_numerico">831</field>
+            <field name="fips">GK</field>
+            <field name="nome_ES">Guernsey</field>
+            <field name="nome_internacional">Guernsey</field>
+        </record>
+        <record id="pais82" model="pais.pais">
+            <field name="cod_alfa_2">GH</field>
+            <field name="cod_alfa_3">GHA</field>
+            <field name="cod_numerico">288</field>
+            <field name="fips">GH</field>
+            <field name="nome_ES">Ghana</field>
+            <field name="nome_internacional">Ghana</field>
+        </record>
+        <record id="pais83" model="pais.pais">
+            <field name="cod_alfa_2">GI</field>
+            <field name="cod_alfa_3">GIB</field>
+            <field name="cod_numerico">292</field>
+            <field name="fips">GI</field>
+            <field name="nome_ES">Gibraltar</field>
+            <field name="nome_internacional">Gibraltar</field>
+        </record>
+        <record id="pais84" model="pais.pais">
+            <field name="cod_alfa_2">GL</field>
+            <field name="cod_alfa_3">GRL</field>
+            <field name="cod_numerico">304</field>
+            <field name="fips">GL</field>
+            <field name="nome_ES">Groenlandia</field>
+            <field name="nome_internacional">Greenland</field>
+        </record>
+        <record id="pais85" model="pais.pais">
+            <field name="cod_alfa_2">GM</field>
+            <field name="cod_alfa_3">GMB</field>
+            <field name="cod_numerico">270</field>
+            <field name="fips">GA</field>
+            <field name="nome_ES">Gambia</field>
+            <field name="nome_internacional">Gambia</field>
+        </record>
+        <record id="pais86" model="pais.pais">
+            <field name="cod_alfa_2">GN</field>
+            <field name="cod_alfa_3">GIN</field>
+            <field name="cod_numerico">324</field>
+            <field name="fips">GV</field>
+            <field name="nome_ES">Guinea</field>
+            <field name="nome_internacional">Guinea</field>
+        </record>
+        <record id="pais87" model="pais.pais">
+            <field name="cod_alfa_2">GP</field>
+            <field name="cod_alfa_3">GLP</field>
+            <field name="cod_numerico">312</field>
+            <field name="fips">GP</field>
+            <field name="nome_ES">Guadalupe</field>
+            <field name="nome_internacional">Guadeloupe</field>
+        </record>
+        <record id="pais88" model="pais.pais">
+            <field name="cod_alfa_2">GQ</field>
+            <field name="cod_alfa_3">GNQ</field>
+            <field name="cod_numerico">226</field>
+            <field name="fips">EK</field>
+            <field name="nome_ES">Guinea Ecuatorial</field>
+            <field name="nome_internacional">Equatorial Guinea</field>
+        </record>
+        <record id="pais89" model="pais.pais">
+            <field name="cod_alfa_2">GR</field>
+            <field name="cod_alfa_3">GRC</field>
+            <field name="cod_numerico">300</field>
+            <field name="fips">GR</field>
+            <field name="nome_ES">Grecia</field>
+            <field name="nome_internacional">Greece</field>
+        </record>
+        <record id="pais90" model="pais.pais">
+            <field name="cod_alfa_2">GS</field>
+            <field name="cod_alfa_3">SGS</field>
+            <field name="cod_numerico">239</field>
+            <field name="fips">SX</field>
+            <field name="nome_ES">Georgia del Sur e Islas Sandwich</field>
+            <field name="nome_internacional">South Georgia and the South Sandwich Islands</field>
+        </record>
+        <record id="pais91" model="pais.pais">
+            <field name="cod_alfa_2">GT</field>
+            <field name="cod_alfa_3">GTM</field>
+            <field name="cod_numerico">320</field>
+            <field name="fips">GT</field>
+            <field name="nome_ES">Guatemala</field>
+            <field name="nome_internacional">Guatemala</field>
+        </record>
+        <record id="pais92" model="pais.pais">
+            <field name="cod_alfa_2">GU</field>
+            <field name="cod_alfa_3">GUM</field>
+            <field name="cod_numerico">316</field>
+            <field name="fips">GQ</field>
+            <field name="nome_ES">Guam</field>
+            <field name="nome_internacional">Guam</field>
+        </record>
+        <record id="pais93" model="pais.pais">
+            <field name="cod_alfa_2">GW</field>
+            <field name="cod_alfa_3">GNB</field>
+            <field name="cod_numerico">624</field>
+            <field name="fips">PU</field>
+            <field name="nome_ES">Guinea-Bissau</field>
+            <field name="nome_internacional">Guinea-Bissau</field>
+        </record>
+        <record id="pais94" model="pais.pais">
+            <field name="cod_alfa_2">GY</field>
+            <field name="cod_alfa_3">GUY</field>
+            <field name="cod_numerico">328</field>
+            <field name="fips">GY</field>
+            <field name="nome_ES">Guayana</field>
+            <field name="nome_internacional">Guyana</field>
+        </record>
+        <record id="pais95" model="pais.pais">
+            <field name="cod_alfa_2">HK</field>
+            <field name="cod_alfa_3">HKG</field>
+            <field name="cod_numerico">344</field>
+            <field name="fips">HK</field>
+            <field name="nome_ES">Hong Kong</field>
+            <field name="nome_internacional">Hong Kong</field>
+        </record>
+        <record id="pais96" model="pais.pais">
+            <field name="cod_alfa_2">HM</field>
+            <field name="cod_alfa_3">HMD</field>
+            <field name="cod_numerico">334</field>
+            <field name="fips">HM</field>
+            <field name="nome_ES">Islas Heard y McDonald</field>
+            <field name="nome_internacional">Heard and McDonald Islands</field>
+        </record>
+        <record id="pais97" model="pais.pais">
+            <field name="cod_alfa_2">HN</field>
+            <field name="cod_alfa_3">HND</field>
+            <field name="cod_numerico">340</field>
+            <field name="fips">HO</field>
+            <field name="nome_ES">Honduras</field>
+            <field name="nome_internacional">Honduras</field>
+        </record>
+        <record id="pais98" model="pais.pais">
+            <field name="cod_alfa_2">HR</field>
+            <field name="cod_alfa_3">HRV</field>
+            <field name="cod_numerico">191</field>
+            <field name="fips">HR</field>
+            <field name="nome_ES">Croacia</field>
+            <field name="nome_internacional">Croatia</field>
+        </record>
+        <record id="pais99" model="pais.pais">
+            <field name="cod_alfa_2">HT</field>
+            <field name="cod_alfa_3">HTI</field>
+            <field name="cod_numerico">332</field>
+            <field name="fips">HA</field>
+            <field name="nome_ES">HaitÝ</field>
+            <field name="nome_internacional">Haiti</field>
+        </record>
+        <record id="pais100" model="pais.pais">
+            <field name="cod_alfa_2">HU</field>
+            <field name="cod_alfa_3">HUN</field>
+            <field name="cod_numerico">348</field>
+            <field name="fips">HU</field>
+            <field name="nome_ES">HungrÝa</field>
+            <field name="nome_internacional">Hungary</field>
+        </record>
+        <record id="pais101" model="pais.pais">
+            <field name="cod_alfa_2">ID</field>
+            <field name="cod_alfa_3">IDN</field>
+            <field name="cod_numerico">360</field>
+            <field name="fips">ID</field>
+            <field name="nome_ES">Indonesia</field>
+            <field name="nome_internacional">Indonesia</field>
+        </record>
+        <record id="pais102" model="pais.pais">
+            <field name="cod_alfa_2">IE</field>
+            <field name="cod_alfa_3">IRL</field>
+            <field name="cod_numerico">372</field>
+            <field name="fips">EI</field>
+            <field name="nome_ES">Irlanda</field>
+            <field name="nome_internacional">Ireland</field>
+        </record>
+        <record id="pais103" model="pais.pais">
+            <field name="cod_alfa_2">IL</field>
+            <field name="cod_alfa_3">ISR</field>
+            <field name="cod_numerico">376</field>
+            <field name="fips">IS</field>
+            <field name="nome_ES">Israel</field>
+            <field name="nome_internacional">Israel</field>
+        </record>
+        <record id="pais104" model="pais.pais">
+            <field name="cod_alfa_2">IM</field>
+            <field name="cod_alfa_3">IMN</field>
+            <field name="cod_numerico">833</field>
+            <field name="fips">IM</field>
+            <field name="nome_ES">Isla de Man</field>
+            <field name="nome_internacional">Isle of Man</field>
+        </record>
+        <record id="pais105" model="pais.pais">
+            <field name="cod_alfa_2">IN</field>
+            <field name="cod_alfa_3">IND</field>
+            <field name="cod_numerico">356</field>
+            <field name="fips">IN</field>
+            <field name="nome_ES">India</field>
+            <field name="nome_internacional">India</field>
+        </record>
+        <record id="pais106" model="pais.pais">
+            <field name="cod_alfa_2">IO</field>
+            <field name="cod_alfa_3">IOT</field>
+            <field name="cod_numerico">086</field>
+            <field name="fips">IO</field>
+            <field name="nome_ES">Territorio Britßnico del OcÚano Indico</field>
+            <field name="nome_internacional">British Indian Ocean Territory</field>
+        </record>
+        <record id="pais107" model="pais.pais">
+            <field name="cod_alfa_2">IQ</field>
+            <field name="cod_alfa_3">IRQ</field>
+            <field name="cod_numerico">368</field>
+            <field name="fips">IZ</field>
+            <field name="nome_ES">Irak</field>
+            <field name="nome_internacional">Iraq</field>
+        </record>
+        <record id="pais108" model="pais.pais">
+            <field name="cod_alfa_2">IR</field>
+            <field name="cod_alfa_3">IRN</field>
+            <field name="cod_numerico">364</field>
+            <field name="fips">IR</field>
+            <field name="nome_ES">Irßn</field>
+            <field name="nome_internacional">Iran</field>
+        </record>
+        <record id="pais109" model="pais.pais">
+            <field name="cod_alfa_2">IS</field>
+            <field name="cod_alfa_3">ISL</field>
+            <field name="cod_numerico">352</field>
+            <field name="fips">IC</field>
+            <field name="nome_ES">Islandia</field>
+            <field name="nome_internacional">Iceland</field>
+        </record>
+        <record id="pais110" model="pais.pais">
+            <field name="cod_alfa_2">IT</field>
+            <field name="cod_alfa_3">ITA</field>
+            <field name="cod_numerico">380</field>
+            <field name="fips">IT</field>
+            <field name="nome_ES">Italia</field>
+            <field name="nome_internacional">Italy</field>
+        </record>
+        <record id="pais111" model="pais.pais">
+            <field name="cod_alfa_2">JE</field>
+            <field name="cod_alfa_3">JEY</field>
+            <field name="cod_numerico">832</field>
+            <field name="fips">JE</field>
+            <field name="nome_ES">Jersey</field>
+            <field name="nome_internacional">Jersey</field>
+        </record>
+        <record id="pais112" model="pais.pais">
+            <field name="cod_alfa_2">JM</field>
+            <field name="cod_alfa_3">JAM</field>
+            <field name="cod_numerico">388</field>
+            <field name="fips">JM</field>
+            <field name="nome_ES">Jamaica</field>
+            <field name="nome_internacional">Jamaica</field>
+        </record>
+        <record id="pais113" model="pais.pais">
+            <field name="cod_alfa_2">JO</field>
+            <field name="cod_alfa_3">JOR</field>
+            <field name="cod_numerico">400</field>
+            <field name="fips">JO</field>
+            <field name="nome_ES">Jordania</field>
+            <field name="nome_internacional">Jordan</field>
+        </record>
+        <record id="pais114" model="pais.pais">
+            <field name="cod_alfa_2">JP</field>
+            <field name="cod_alfa_3">JPN</field>
+            <field name="cod_numerico">392</field>
+            <field name="fips">JA</field>
+            <field name="nome_ES">Jap¾n</field>
+            <field name="nome_internacional">Japan</field>
+        </record>
+        <record id="pais115" model="pais.pais">
+            <field name="cod_alfa_2">KE</field>
+            <field name="cod_alfa_3">KEN</field>
+            <field name="cod_numerico">404</field>
+            <field name="fips">KE</field>
+            <field name="nome_ES">Kenia</field>
+            <field name="nome_internacional">Kenya</field>
+        </record>
+        <record id="pais116" model="pais.pais">
+            <field name="cod_alfa_2">KG</field>
+            <field name="cod_alfa_3">KGZ</field>
+            <field name="cod_numerico">417</field>
+            <field name="fips">KG</field>
+            <field name="nome_ES">Kirguistßn</field>
+            <field name="nome_internacional">Kyrgyzstan</field>
+        </record>
+        <record id="pais117" model="pais.pais">
+            <field name="cod_alfa_2">KH</field>
+            <field name="cod_alfa_3">KHM</field>
+            <field name="cod_numerico">116</field>
+            <field name="fips">CB</field>
+            <field name="nome_ES">Camboya</field>
+            <field name="nome_internacional">Cambodia</field>
+        </record>
+        <record id="pais118" model="pais.pais">
+            <field name="cod_alfa_2">KI</field>
+            <field name="cod_alfa_3">KIR</field>
+            <field name="cod_numerico">296</field>
+            <field name="fips">KR</field>
+            <field name="nome_ES">Kiribati</field>
+            <field name="nome_internacional">Kiribati</field>
+        </record>
+        <record id="pais119" model="pais.pais">
+            <field name="cod_alfa_2">KM</field>
+            <field name="cod_alfa_3">COM</field>
+            <field name="cod_numerico">174</field>
+            <field name="fips">CN</field>
+            <field name="nome_ES">Islas Comoros</field>
+            <field name="nome_internacional">Comoros</field>
+        </record>
+        <record id="pais120" model="pais.pais">
+            <field name="cod_alfa_2">KN</field>
+            <field name="cod_alfa_3">KNA</field>
+            <field name="cod_numerico">659</field>
+            <field name="fips">SC</field>
+            <field name="nome_ES">Saint Kitts y Nevis</field>
+            <field name="nome_internacional">Saint Kitts and Nevis</field>
+        </record>
+        <record id="pais121" model="pais.pais">
+            <field name="cod_alfa_2">KP</field>
+            <field name="cod_alfa_3">PRK</field>
+            <field name="cod_numerico">408</field>
+            <field name="fips">KN</field>
+            <field name="nome_ES">Corea del Norte</field>
+            <field name="nome_internacional">Korea, Democratic People's Republic of</field>
+        </record>
+        <record id="pais122" model="pais.pais">
+            <field name="cod_alfa_2">KR</field>
+            <field name="cod_alfa_3">KOR</field>
+            <field name="cod_numerico">410</field>
+            <field name="fips">KS</field>
+            <field name="nome_ES">Corea del Sur</field>
+            <field name="nome_internacional">Korea, Republic of</field>
+        </record>
+        <record id="pais123" model="pais.pais">
+            <field name="cod_alfa_2">KW</field>
+            <field name="cod_alfa_3">KWT</field>
+            <field name="cod_numerico">414</field>
+            <field name="fips">KU</field>
+            <field name="nome_ES">Kuwait</field>
+            <field name="nome_internacional">Kuwait</field>
+        </record>
+        <record id="pais124" model="pais.pais">
+            <field name="cod_alfa_2">KY</field>
+            <field name="cod_alfa_3">CYM</field>
+            <field name="cod_numerico">136</field>
+            <field name="fips">CJ</field>
+            <field name="nome_ES">Islas Caimßn</field>
+            <field name="nome_internacional">Cayman Islands</field>
+        </record>
+        <record id="pais125" model="pais.pais">
+            <field name="cod_alfa_2">KZ</field>
+            <field name="cod_alfa_3">KAZ</field>
+            <field name="cod_numerico">398</field>
+            <field name="fips">KZ</field>
+            <field name="nome_ES">Kazajstßn</field>
+            <field name="nome_internacional">Kazakhstan</field>
+        </record>
+        <record id="pais126" model="pais.pais">
+            <field name="cod_alfa_2">LA</field>
+            <field name="cod_alfa_3">LAO</field>
+            <field name="cod_numerico">418</field>
+            <field name="fips">LA</field>
+            <field name="nome_ES">Laos</field>
+            <field name="nome_internacional">Lao, PDR</field>
+        </record>
+        <record id="pais127" model="pais.pais">
+            <field name="cod_alfa_2">LB</field>
+            <field name="cod_alfa_3">LBN</field>
+            <field name="cod_numerico">422</field>
+            <field name="fips">LE</field>
+            <field name="nome_ES">LÝbano</field>
+            <field name="nome_internacional">Lebanon</field>
+        </record>
+        <record id="pais128" model="pais.pais">
+            <field name="cod_alfa_2">LC</field>
+            <field name="cod_alfa_3">LCA</field>
+            <field name="cod_numerico">662</field>
+            <field name="fips">ST</field>
+            <field name="nome_ES">Santa LucÝa</field>
+            <field name="nome_internacional">Saint Lucia</field>
+        </record>
+        <record id="pais129" model="pais.pais">
+            <field name="cod_alfa_2">LI</field>
+            <field name="cod_alfa_3">LIE</field>
+            <field name="cod_numerico">438</field>
+            <field name="fips">LS</field>
+            <field name="nome_ES">Liechtenstein</field>
+            <field name="nome_internacional">Liechtenstein</field>
+        </record>
+        <record id="pais130" model="pais.pais">
+            <field name="cod_alfa_2">LK</field>
+            <field name="cod_alfa_3">LKA</field>
+            <field name="cod_numerico">144</field>
+            <field name="fips">CE</field>
+            <field name="nome_ES">Sri Lanka</field>
+            <field name="nome_internacional">Sri Lanka</field>
+        </record>
+        <record id="pais131" model="pais.pais">
+            <field name="cod_alfa_2">LR</field>
+            <field name="cod_alfa_3">LBR</field>
+            <field name="cod_numerico">430</field>
+            <field name="fips">LI</field>
+            <field name="nome_ES">Liberia</field>
+            <field name="nome_internacional">Liberia</field>
+        </record>
+        <record id="pais132" model="pais.pais">
+            <field name="cod_alfa_2">LS</field>
+            <field name="cod_alfa_3">LSO</field>
+            <field name="cod_numerico">426</field>
+            <field name="fips">LT</field>
+            <field name="nome_ES">Lesoto</field>
+            <field name="nome_internacional">Lesotho</field>
+        </record>
+        <record id="pais133" model="pais.pais">
+            <field name="cod_alfa_2">LT</field>
+            <field name="cod_alfa_3">LTU</field>
+            <field name="cod_numerico">440</field>
+            <field name="fips">LH</field>
+            <field name="nome_ES">Lituania</field>
+            <field name="nome_internacional">Lithuania</field>
+        </record>
+        <record id="pais134" model="pais.pais">
+            <field name="cod_alfa_2">LU</field>
+            <field name="cod_alfa_3">LUX</field>
+            <field name="cod_numerico">442</field>
+            <field name="fips">LU</field>
+            <field name="nome_ES">Luxemburgo</field>
+            <field name="nome_internacional">Luxembourg</field>
+        </record>
+        <record id="pais135" model="pais.pais">
+            <field name="cod_alfa_2">LV</field>
+            <field name="cod_alfa_3">LVA</field>
+            <field name="cod_numerico">428</field>
+            <field name="fips">LG</field>
+            <field name="nome_ES">Letonia</field>
+            <field name="nome_internacional">Latvia</field>
+        </record>
+        <record id="pais136" model="pais.pais">
+            <field name="cod_alfa_2">LY</field>
+            <field name="cod_alfa_3">LBY</field>
+            <field name="cod_numerico">434</field>
+            <field name="fips">LY</field>
+            <field name="nome_ES">Libia</field>
+            <field name="nome_internacional">Libya</field>
+        </record>
+        <record id="pais137" model="pais.pais">
+            <field name="cod_alfa_2">MA</field>
+            <field name="cod_alfa_3">MAR</field>
+            <field name="cod_numerico">504</field>
+            <field name="fips">MO</field>
+            <field name="nome_ES">Marruecos</field>
+            <field name="nome_internacional">Morocco</field>
+        </record>
+        <record id="pais138" model="pais.pais">
+            <field name="cod_alfa_2">MC</field>
+            <field name="cod_alfa_3">MCO</field>
+            <field name="cod_numerico">492</field>
+            <field name="fips">MN</field>
+            <field name="nome_ES">M¾naco</field>
+            <field name="nome_internacional">Monaco</field>
+        </record>
+        <record id="pais139" model="pais.pais">
+            <field name="cod_alfa_2">MD</field>
+            <field name="cod_alfa_3">MDA</field>
+            <field name="cod_numerico">498</field>
+            <field name="fips">MD</field>
+            <field name="nome_ES">Moldova</field>
+            <field name="nome_internacional">Moldova, Republic of</field>
+        </record>
+        <record id="pais140" model="pais.pais">
+            <field name="cod_alfa_2">ME</field>
+            <field name="cod_alfa_3">MNE</field>
+            <field name="cod_numerico">499</field>
+            <field name="fips">MJ</field>
+            <field name="nome_ES">Montenegro</field>
+            <field name="nome_internacional">Montenegro</field>
+        </record>
+        <record id="pais141" model="pais.pais">
+            <field name="cod_alfa_2">MF</field>
+            <field name="cod_alfa_3">MAF</field>
+            <field name="cod_numerico">663</field>
+            <field name="fips">RN</field>
+            <field name="nome_ES">San MartÝn</field>
+            <field name="nome_internacional">Saint Martin</field>
+        </record>
+        <record id="pais142" model="pais.pais">
+            <field name="cod_alfa_2">MG</field>
+            <field name="cod_alfa_3">MDG</field>
+            <field name="cod_numerico">450</field>
+            <field name="fips">MA</field>
+            <field name="nome_ES">Madagascar</field>
+            <field name="nome_internacional">Madagascar</field>
+        </record>
+        <record id="pais143" model="pais.pais">
+            <field name="cod_alfa_2">MH</field>
+            <field name="cod_alfa_3">MHL</field>
+            <field name="cod_numerico">584</field>
+            <field name="fips">RM</field>
+            <field name="nome_ES">Islas Marshall</field>
+            <field name="nome_internacional">Marshall Islands</field>
+        </record>
+        <record id="pais144" model="pais.pais">
+            <field name="cod_alfa_2">MK</field>
+            <field name="cod_alfa_3">MKD</field>
+            <field name="cod_numerico">807</field>
+            <field name="fips">MK</field>
+            <field name="nome_ES">Macedonia</field>
+            <field name="nome_internacional">Macedonia</field>
+        </record>
+        <record id="pais145" model="pais.pais">
+            <field name="cod_alfa_2">ML</field>
+            <field name="cod_alfa_3">MLI</field>
+            <field name="cod_numerico">466</field>
+            <field name="fips">ML</field>
+            <field name="nome_ES">MalÝ</field>
+            <field name="nome_internacional">Mali</field>
+        </record>
+        <record id="pais146" model="pais.pais">
+            <field name="cod_alfa_2">MM</field>
+            <field name="cod_alfa_3">MMR</field>
+            <field name="cod_numerico">104</field>
+            <field name="fips">BM</field>
+            <field name="nome_ES">Myanmar</field>
+            <field name="nome_internacional">Myanmar</field>
+        </record>
+        <record id="pais147" model="pais.pais">
+            <field name="cod_alfa_2">MN</field>
+            <field name="cod_alfa_3">MNG</field>
+            <field name="cod_numerico">496</field>
+            <field name="fips">MG</field>
+            <field name="nome_ES">Mongolia</field>
+            <field name="nome_internacional">Mongolia</field>
+        </record>
+        <record id="pais148" model="pais.pais">
+            <field name="cod_alfa_2">MO</field>
+            <field name="cod_alfa_3">MAC</field>
+            <field name="cod_numerico">446</field>
+            <field name="fips">MC</field>
+            <field name="nome_ES">Macao</field>
+            <field name="nome_internacional">Macau</field>
+        </record>
+        <record id="pais149" model="pais.pais">
+            <field name="cod_alfa_2">MP</field>
+            <field name="cod_alfa_3">MNP</field>
+            <field name="cod_numerico">580</field>
+            <field name="fips">CQ</field>
+            <field name="nome_ES">Islas Marianas del Norte</field>
+            <field name="nome_internacional">Northern Mariana Islands</field>
+        </record>
+        <record id="pais150" model="pais.pais">
+            <field name="cod_alfa_2">MQ</field>
+            <field name="cod_alfa_3">MTQ</field>
+            <field name="cod_numerico">474</field>
+            <field name="fips">MB</field>
+            <field name="nome_ES">Martinica</field>
+            <field name="nome_internacional">Martinique</field>
+        </record>
+        <record id="pais151" model="pais.pais">
+            <field name="cod_alfa_2">MR</field>
+            <field name="cod_alfa_3">MRT</field>
+            <field name="cod_numerico">478</field>
+            <field name="fips">MR</field>
+            <field name="nome_ES">Mauritania</field>
+            <field name="nome_internacional">Mauritania</field>
+        </record>
+        <record id="pais152" model="pais.pais">
+            <field name="cod_alfa_2">MS</field>
+            <field name="cod_alfa_3">MSR</field>
+            <field name="cod_numerico">500</field>
+            <field name="fips">MH</field>
+            <field name="nome_ES">Montserrat</field>
+            <field name="nome_internacional">Montserrat</field>
+        </record>
+        <record id="pais153" model="pais.pais">
+            <field name="cod_alfa_2">MT</field>
+            <field name="cod_alfa_3">MLT</field>
+            <field name="cod_numerico">470</field>
+            <field name="fips">MT</field>
+            <field name="nome_ES">Malta</field>
+            <field name="nome_internacional">Malta</field>
+        </record>
+        <record id="pais154" model="pais.pais">
+            <field name="cod_alfa_2">MU</field>
+            <field name="cod_alfa_3">MUS</field>
+            <field name="cod_numerico">480</field>
+            <field name="fips">MP</field>
+            <field name="nome_ES">Mauricio</field>
+            <field name="nome_internacional">Mauritius</field>
+        </record>
+        <record id="pais155" model="pais.pais">
+            <field name="cod_alfa_2">MV</field>
+            <field name="cod_alfa_3">MDV</field>
+            <field name="cod_numerico">462</field>
+            <field name="fips">MV</field>
+            <field name="nome_ES">Maldivas</field>
+            <field name="nome_internacional">Maldives</field>
+        </record>
+        <record id="pais156" model="pais.pais">
+            <field name="cod_alfa_2">MW</field>
+            <field name="cod_alfa_3">MWI</field>
+            <field name="cod_numerico">454</field>
+            <field name="fips">MI</field>
+            <field name="nome_ES">Malawi</field>
+            <field name="nome_internacional">Malawi</field>
+        </record>
+        <record id="pais157" model="pais.pais">
+            <field name="cod_alfa_2">MX</field>
+            <field name="cod_alfa_3">MEX</field>
+            <field name="cod_numerico">484</field>
+            <field name="fips">MX</field>
+            <field name="nome_ES">MÚxico</field>
+            <field name="nome_internacional">Mexico</field>
+        </record>
+        <record id="pais158" model="pais.pais">
+            <field name="cod_alfa_2">MY</field>
+            <field name="cod_alfa_3">MYS</field>
+            <field name="cod_numerico">458</field>
+            <field name="fips">MY</field>
+            <field name="nome_ES">Malasia</field>
+            <field name="nome_internacional">Malaysia</field>
+        </record>
+        <record id="pais159" model="pais.pais">
+            <field name="cod_alfa_2">MZ</field>
+            <field name="cod_alfa_3">MOZ</field>
+            <field name="cod_numerico">508</field>
+            <field name="fips">MZ</field>
+            <field name="nome_ES">Mozambique</field>
+            <field name="nome_internacional">Mozambique</field>
+        </record>
+        <record id="pais160" model="pais.pais">
+            <field name="cod_alfa_2">NA</field>
+            <field name="cod_alfa_3">NAM</field>
+            <field name="cod_numerico">516</field>
+            <field name="fips">WA</field>
+            <field name="nome_ES">Namibia</field>
+            <field name="nome_internacional">New Caledonia</field>
+        </record>
+        <record id="pais161" model="pais.pais">
+            <field name="cod_alfa_2">NC</field>
+            <field name="cod_alfa_3">NCL</field>
+            <field name="cod_numerico">540</field>
+            <field name="fips">NC</field>
+            <field name="nome_ES">Nueva Caledonia</field>
+            <field name="nome_internacional">New Caledonia</field>
+        </record>
+        <record id="pais162" model="pais.pais">
+            <field name="cod_alfa_2">NE</field>
+            <field name="cod_alfa_3">NER</field>
+            <field name="cod_numerico">562</field>
+            <field name="fips">NG</field>
+            <field name="nome_ES">NÝger</field>
+            <field name="nome_internacional">Niger</field>
+        </record>
+        <record id="pais163" model="pais.pais">
+            <field name="cod_alfa_2">NF</field>
+            <field name="cod_alfa_3">NFK</field>
+            <field name="cod_numerico">574</field>
+            <field name="fips">NF</field>
+            <field name="nome_ES">Norfolk Island</field>
+            <field name="nome_internacional">Norfolk Island</field>
+        </record>
+        <record id="pais164" model="pais.pais">
+            <field name="cod_alfa_2">NG</field>
+            <field name="cod_alfa_3">NGA</field>
+            <field name="cod_numerico">566</field>
+            <field name="fips">NI</field>
+            <field name="nome_ES">Nigeria</field>
+            <field name="nome_internacional">Nigeria</field>
+        </record>
+        <record id="pais165" model="pais.pais">
+            <field name="cod_alfa_2">NI</field>
+            <field name="cod_alfa_3">NIC</field>
+            <field name="cod_numerico">558</field>
+            <field name="fips">NU</field>
+            <field name="nome_ES">Nicaragua</field>
+            <field name="nome_internacional">Nicaragua</field>
+        </record>
+        <record id="pais166" model="pais.pais">
+            <field name="cod_alfa_2">NL</field>
+            <field name="cod_alfa_3">NLD</field>
+            <field name="cod_numerico">528</field>
+            <field name="fips">NL</field>
+            <field name="nome_ES">PaÝses Bajos</field>
+            <field name="nome_internacional">Netherlands</field>
+        </record>
+        <record id="pais167" model="pais.pais">
+            <field name="cod_alfa_2">NO</field>
+            <field name="cod_alfa_3">NOR</field>
+            <field name="cod_numerico">578</field>
+            <field name="fips">NO</field>
+            <field name="nome_ES">Noruega</field>
+            <field name="nome_internacional">Norway</field>
+        </record>
+        <record id="pais168" model="pais.pais">
+            <field name="cod_alfa_2">NP</field>
+            <field name="cod_alfa_3">NPL</field>
+            <field name="cod_numerico">524</field>
+            <field name="fips">NP</field>
+            <field name="nome_ES">Nepal</field>
+            <field name="nome_internacional">Nepal</field>
+        </record>
+        <record id="pais169" model="pais.pais">
+            <field name="cod_alfa_2">NR</field>
+            <field name="cod_alfa_3">NRU</field>
+            <field name="cod_numerico">520</field>
+            <field name="fips">NR</field>
+            <field name="nome_ES">Nauru</field>
+            <field name="nome_internacional">Nauru</field>
+        </record>
+        <record id="pais170" model="pais.pais">
+            <field name="cod_alfa_2">NU</field>
+            <field name="cod_alfa_3">NIU</field>
+            <field name="cod_numerico">570</field>
+            <field name="fips">NE</field>
+            <field name="nome_ES">Niue</field>
+            <field name="nome_internacional">Niue</field>
+        </record>
+        <record id="pais171" model="pais.pais">
+            <field name="cod_alfa_2">NZ</field>
+            <field name="cod_alfa_3">NZL</field>
+            <field name="cod_numerico">554</field>
+            <field name="fips">NZ</field>
+            <field name="nome_ES">Nueva Zelanda</field>
+            <field name="nome_internacional">New Zealand</field>
+        </record>
+        <record id="pais172" model="pais.pais">
+            <field name="cod_alfa_2">OM</field>
+            <field name="cod_alfa_3">OMN</field>
+            <field name="cod_numerico">512</field>
+            <field name="fips">MU</field>
+            <field name="nome_ES">Omßn</field>
+            <field name="nome_internacional">Oman</field>
+        </record>
+        <record id="pais173" model="pais.pais">
+            <field name="cod_alfa_2">PA</field>
+            <field name="cod_alfa_3">PAN</field>
+            <field name="cod_numerico">591</field>
+            <field name="fips">PM</field>
+            <field name="nome_ES">Panamß</field>
+            <field name="nome_internacional">Panama</field>
+        </record>
+        <record id="pais174" model="pais.pais">
+            <field name="cod_alfa_2">PE</field>
+            <field name="cod_alfa_3">PER</field>
+            <field name="cod_numerico">604</field>
+            <field name="fips">PE</field>
+            <field name="nome_ES">Per·</field>
+            <field name="nome_internacional">Peru</field>
+        </record>
+        <record id="pais175" model="pais.pais">
+            <field name="cod_alfa_2">PF</field>
+            <field name="cod_alfa_3">PYF</field>
+            <field name="cod_numerico">258</field>
+            <field name="fips">FP</field>
+            <field name="nome_ES">Polinesia FrancÚs</field>
+            <field name="nome_internacional">French Polynesia</field>
+        </record>
+        <record id="pais176" model="pais.pais">
+            <field name="cod_alfa_2">PG</field>
+            <field name="cod_alfa_3">PNG</field>
+            <field name="cod_numerico">598</field>
+            <field name="fips">PP</field>
+            <field name="nome_ES">Papua Nueva Guinea</field>
+            <field name="nome_internacional">Papua New Guinea</field>
+        </record>
+        <record id="pais177" model="pais.pais">
+            <field name="cod_alfa_2">PH</field>
+            <field name="cod_alfa_3">PHL</field>
+            <field name="cod_numerico">608</field>
+            <field name="fips">RP</field>
+            <field name="nome_ES">Filipinas</field>
+            <field name="nome_internacional">Philippines</field>
+        </record>
+        <record id="pais178" model="pais.pais">
+            <field name="cod_alfa_2">PK</field>
+            <field name="cod_alfa_3">PAK</field>
+            <field name="cod_numerico">586</field>
+            <field name="fips">PK</field>
+            <field name="nome_ES">Pakistßn</field>
+            <field name="nome_internacional">Pakistan</field>
+        </record>
+        <record id="pais179" model="pais.pais">
+            <field name="cod_alfa_2">PL</field>
+            <field name="cod_alfa_3">POL</field>
+            <field name="cod_numerico">616</field>
+            <field name="fips">PL</field>
+            <field name="nome_ES">Polonia</field>
+            <field name="nome_internacional">Poland</field>
+        </record>
+        <record id="pais180" model="pais.pais">
+            <field name="cod_alfa_2">PM</field>
+            <field name="cod_alfa_3">SPM</field>
+            <field name="cod_numerico">666</field>
+            <field name="fips">SB</field>
+            <field name="nome_ES">San Pedro y Miquel¾n</field>
+            <field name="nome_internacional">Saint Pierre and Miquelon</field>
+        </record>
+        <record id="pais181" model="pais.pais">
+            <field name="cod_alfa_2">PN</field>
+            <field name="cod_alfa_3">PCN</field>
+            <field name="cod_numerico">612</field>
+            <field name="fips">PC</field>
+            <field name="nome_ES">Islas Pitcairn</field>
+            <field name="nome_internacional">Pitcairn Island</field>
+        </record>
+        <record id="pais182" model="pais.pais">
+            <field name="cod_alfa_2">PR</field>
+            <field name="cod_alfa_3">PRI</field>
+            <field name="cod_numerico">630</field>
+            <field name="fips">RQ</field>
+            <field name="nome_ES">Puerto Rico</field>
+            <field name="nome_internacional">Puerto Rico</field>
+        </record>
+        <record id="pais183" model="pais.pais">
+            <field name="cod_alfa_2">PS</field>
+            <field name="cod_alfa_3">PSE</field>
+            <field name="cod_numerico">275</field>
+            <field name="fips">GZ</field>
+            <field name="nome_ES">Palestina</field>
+            <field name="nome_internacional">Palestinian territories</field>
+        </record>
+        <record id="pais184" model="pais.pais">
+            <field name="cod_alfa_2">PT</field>
+            <field name="cod_alfa_3">PRT</field>
+            <field name="cod_numerico">620</field>
+            <field name="fips">PO</field>
+            <field name="nome_ES">Portugal</field>
+            <field name="nome_internacional">Portugal</field>
+        </record>
+        <record id="pais185" model="pais.pais">
+            <field name="cod_alfa_2">PW</field>
+            <field name="cod_alfa_3">PLW</field>
+            <field name="cod_numerico">585</field>
+            <field name="fips">PS</field>
+            <field name="nome_ES">Palau</field>
+            <field name="nome_internacional">Palau</field>
+        </record>
+        <record id="pais186" model="pais.pais">
+            <field name="cod_alfa_2">PY</field>
+            <field name="cod_alfa_3">PRY</field>
+            <field name="cod_numerico">600</field>
+            <field name="fips">PA</field>
+            <field name="nome_ES">Paraguay</field>
+            <field name="nome_internacional">Paraguay</field>
+        </record>
+        <record id="pais187" model="pais.pais">
+            <field name="cod_alfa_2">QA</field>
+            <field name="cod_alfa_3">QAT</field>
+            <field name="cod_numerico">634</field>
+            <field name="fips">QA</field>
+            <field name="nome_ES">Qatar</field>
+            <field name="nome_internacional">Qatar</field>
+        </record>
+        <record id="pais188" model="pais.pais">
+            <field name="cod_alfa_2">RE</field>
+            <field name="cod_alfa_3">REU</field>
+            <field name="cod_numerico">638</field>
+            <field name="fips">RE</field>
+            <field name="nome_ES">Reuni¾n</field>
+            <field name="nome_internacional">RÚunion</field>
+        </record>
+        <record id="pais189" model="pais.pais">
+            <field name="cod_alfa_2">RO</field>
+            <field name="cod_alfa_3">ROU</field>
+            <field name="cod_numerico">642</field>
+            <field name="fips">RO</field>
+            <field name="nome_ES">Rumania</field>
+            <field name="nome_internacional">Romania</field>
+        </record>
+        <record id="pais190" model="pais.pais">
+            <field name="cod_alfa_2">RS</field>
+            <field name="cod_alfa_3">SRB</field>
+            <field name="cod_numerico">688</field>
+            <field name="fips">RI</field>
+            <field name="nome_ES">Serbia</field>
+            <field name="nome_internacional">Serbia</field>
+        </record>
+        <record id="pais191" model="pais.pais">
+            <field name="cod_alfa_2">RU</field>
+            <field name="cod_alfa_3">RUS</field>
+            <field name="cod_numerico">643</field>
+            <field name="fips">RS</field>
+            <field name="nome_ES">Rusia</field>
+            <field name="nome_internacional">Russian Federation</field>
+        </record>
+        <record id="pais192" model="pais.pais">
+            <field name="cod_alfa_2">RW</field>
+            <field name="cod_alfa_3">RWA</field>
+            <field name="cod_numerico">646</field>
+            <field name="fips">RW</field>
+            <field name="nome_ES">Ruanda</field>
+            <field name="nome_internacional">Rwanda</field>
+        </record>
+        <record id="pais193" model="pais.pais">
+            <field name="cod_alfa_2">SA</field>
+            <field name="cod_alfa_3">SAU</field>
+            <field name="cod_numerico">682</field>
+            <field name="fips">SA</field>
+            <field name="nome_ES">Arabia Saudita</field>
+            <field name="nome_internacional">Saudi Arabia</field>
+        </record>
+        <record id="pais194" model="pais.pais">
+            <field name="cod_alfa_2">SB</field>
+            <field name="cod_alfa_3">SLB</field>
+            <field name="cod_numerico">090</field>
+            <field name="fips">BP</field>
+            <field name="nome_ES">Islas Salom¾n</field>
+            <field name="nome_internacional">Solomon Islands</field>
+        </record>
+        <record id="pais195" model="pais.pais">
+            <field name="cod_alfa_2">SC</field>
+            <field name="cod_alfa_3">SYC</field>
+            <field name="cod_numerico">690</field>
+            <field name="fips">SE</field>
+            <field name="nome_ES">Seychelles</field>
+            <field name="nome_internacional">Seychelles</field>
+        </record>
+        <record id="pais196" model="pais.pais">
+            <field name="cod_alfa_2">SD</field>
+            <field name="cod_alfa_3">SDN</field>
+            <field name="cod_numerico">729</field>
+            <field name="fips">SU</field>
+            <field name="nome_ES">Sudßn</field>
+            <field name="nome_internacional">Sudan</field>
+        </record>
+        <record id="pais197" model="pais.pais">
+            <field name="cod_alfa_2">SE</field>
+            <field name="cod_alfa_3">SWE</field>
+            <field name="cod_numerico">752</field>
+            <field name="fips">SW</field>
+            <field name="nome_ES">Suecia</field>
+            <field name="nome_internacional">Sweden</field>
+        </record>
+        <record id="pais198" model="pais.pais">
+            <field name="cod_alfa_2">SG</field>
+            <field name="cod_alfa_3">SGP</field>
+            <field name="cod_numerico">702</field>
+            <field name="fips">SN</field>
+            <field name="nome_ES">Singapur</field>
+            <field name="nome_internacional">Singapore</field>
+        </record>
+        <record id="pais199" model="pais.pais">
+            <field name="cod_alfa_2">SH</field>
+            <field name="cod_alfa_3">SHN</field>
+            <field name="cod_numerico">654</field>
+            <field name="fips">SH</field>
+            <field name="nome_ES">Santa Helena, Ascensi¾n y Tristßn da Cunha</field>
+            <field name="nome_internacional">Saint Helena, Ascension and Tristan da Cunha</field>
+        </record>
+        <record id="pais200" model="pais.pais">
+            <field name="cod_alfa_2">SI</field>
+            <field name="cod_alfa_3">SVN</field>
+            <field name="cod_numerico">705</field>
+            <field name="fips">SI</field>
+            <field name="nome_ES">Eslovenia</field>
+            <field name="nome_internacional">Slovenia</field>
+        </record>
+        <record id="pais201" model="pais.pais">
+            <field name="cod_alfa_2">SJ</field>
+            <field name="cod_alfa_3">SJM</field>
+            <field name="cod_numerico">744</field>
+            <field name="fips">SV</field>
+            <field name="nome_ES">Islas Svalbard y Jan Mayen</field>
+            <field name="nome_internacional">Svalbard and Jan Mayen</field>
+        </record>
+        <record id="pais202" model="pais.pais">
+            <field name="cod_alfa_2">SK</field>
+            <field name="cod_alfa_3">SVK</field>
+            <field name="cod_numerico">703</field>
+            <field name="fips">LO</field>
+            <field name="nome_ES">Eslovaquia</field>
+            <field name="nome_internacional">Slovakia</field>
+        </record>
+        <record id="pais203" model="pais.pais">
+            <field name="cod_alfa_2">SL</field>
+            <field name="cod_alfa_3">SLE</field>
+            <field name="cod_numerico">694</field>
+            <field name="fips">SL</field>
+            <field name="nome_ES">Sierra Leona</field>
+            <field name="nome_internacional">Sierra Leone</field>
+        </record>
+        <record id="pais204" model="pais.pais">
+            <field name="cod_alfa_2">SM</field>
+            <field name="cod_alfa_3">SMR</field>
+            <field name="cod_numerico">674</field>
+            <field name="fips">SM</field>
+            <field name="nome_ES">San Marino</field>
+            <field name="nome_internacional">San Marino</field>
+        </record>
+        <record id="pais205" model="pais.pais">
+            <field name="cod_alfa_2">SN</field>
+            <field name="cod_alfa_3">SEN</field>
+            <field name="cod_numerico">686</field>
+            <field name="fips">SG</field>
+            <field name="nome_ES">Senegal</field>
+            <field name="nome_internacional">Senegal</field>
+        </record>
+        <record id="pais206" model="pais.pais">
+            <field name="cod_alfa_2">SO</field>
+            <field name="cod_alfa_3">SOM</field>
+            <field name="cod_numerico">706</field>
+            <field name="fips">SO</field>
+            <field name="nome_ES">Somalia</field>
+            <field name="nome_internacional">Somalia</field>
+        </record>
+        <record id="pais207" model="pais.pais">
+            <field name="cod_alfa_2">SR</field>
+            <field name="cod_alfa_3">SUR</field>
+            <field name="cod_numerico">740</field>
+            <field name="fips">NS</field>
+            <field name="nome_ES">Suriname</field>
+            <field name="nome_internacional">Suriname</field>
+        </record>
+        <record id="pais208" model="pais.pais">
+            <field name="cod_alfa_2">ST</field>
+            <field name="cod_alfa_3">STP</field>
+            <field name="cod_numerico">678</field>
+            <field name="fips">TP</field>
+            <field name="nome_ES">Santo TomÚ y PrÝncipe</field>
+            <field name="nome_internacional">Sao Tome and Principe</field>
+        </record>
+        <record id="pais209" model="pais.pais">
+            <field name="cod_alfa_2">SV</field>
+            <field name="cod_alfa_3">SLV</field>
+            <field name="cod_numerico">222</field>
+            <field name="fips">ES</field>
+            <field name="nome_ES">El Salvador</field>
+            <field name="nome_internacional">El Salvador</field>
+        </record>
+        <record id="pais210" model="pais.pais">
+            <field name="cod_alfa_2">SX</field>
+            <field name="cod_alfa_3">SXM</field>
+            <field name="cod_numerico">534</field>
+            <field name="fips">NN</field>
+            <field name="nome_ES">San MartÝn (parte Holandesa)</field>
+            <field name="nome_internacional">Sint Maarten (Dutch part)</field>
+        </record>
+        <record id="pais211" model="pais.pais">
+            <field name="cod_alfa_2">SY</field>
+            <field name="cod_alfa_3">SYR</field>
+            <field name="cod_numerico">760</field>
+            <field name="fips">SY</field>
+            <field name="nome_ES">Siria</field>
+            <field name="nome_internacional">Syrian Arab Republic</field>
+        </record>
+        <record id="pais212" model="pais.pais">
+            <field name="cod_alfa_2">SZ</field>
+            <field name="cod_alfa_3">SWZ</field>
+            <field name="cod_numerico">748</field>
+            <field name="fips">WZ</field>
+            <field name="nome_ES">Suazilandia</field>
+            <field name="nome_internacional">Swaziland</field>
+        </record>
+        <record id="pais213" model="pais.pais">
+            <field name="cod_alfa_2">TC</field>
+            <field name="cod_alfa_3">TCA</field>
+            <field name="cod_numerico">796</field>
+            <field name="fips">TK</field>
+            <field name="nome_ES">Islas Turcas y Caicos</field>
+            <field name="nome_internacional">Turks and Caicos Islands</field>
+        </record>
+        <record id="pais214" model="pais.pais">
+            <field name="cod_alfa_2">TD</field>
+            <field name="cod_alfa_3">TCD</field>
+            <field name="cod_numerico">148</field>
+            <field name="fips">CD</field>
+            <field name="nome_ES">Chad</field>
+            <field name="nome_internacional">Chad</field>
+        </record>
+        <record id="pais215" model="pais.pais">
+            <field name="cod_alfa_2">TF</field>
+            <field name="cod_alfa_3">ATF</field>
+            <field name="cod_numerico">260</field>
+            <field name="fips">FS</field>
+            <field name="nome_ES">Territorios Franceses del Sur</field>
+            <field name="nome_internacional">French Southern Territories</field>
+        </record>
+        <record id="pais216" model="pais.pais">
+            <field name="cod_alfa_2">TG</field>
+            <field name="cod_alfa_3">TGO</field>
+            <field name="cod_numerico">768</field>
+            <field name="fips">TO</field>
+            <field name="nome_ES">Togo</field>
+            <field name="nome_internacional">Togo</field>
+        </record>
+        <record id="pais217" model="pais.pais">
+            <field name="cod_alfa_2">TH</field>
+            <field name="cod_alfa_3">THA</field>
+            <field name="cod_numerico">764</field>
+            <field name="fips">TH</field>
+            <field name="nome_ES">Tailandia</field>
+            <field name="nome_internacional">Thailand</field>
+        </record>
+        <record id="pais218" model="pais.pais">
+            <field name="cod_alfa_2">TJ</field>
+            <field name="cod_alfa_3">TJK</field>
+            <field name="cod_numerico">762</field>
+            <field name="fips">TI</field>
+            <field name="nome_ES">Tayikistßn</field>
+            <field name="nome_internacional">Tajikistan</field>
+        </record>
+        <record id="pais219" model="pais.pais">
+            <field name="cod_alfa_2">TK</field>
+            <field name="cod_alfa_3">TKL</field>
+            <field name="cod_numerico">772</field>
+            <field name="fips">TL</field>
+            <field name="nome_ES">Tokelau</field>
+            <field name="nome_internacional">Tokelau</field>
+        </record>
+        <record id="pais220" model="pais.pais">
+            <field name="cod_alfa_2">TL</field>
+            <field name="cod_alfa_3">TLS</field>
+            <field name="cod_numerico">626</field>
+            <field name="fips">TT</field>
+            <field name="nome_ES">Timor Oriental</field>
+            <field name="nome_internacional">Timor-Leste (East Timor)</field>
+        </record>
+        <record id="pais221" model="pais.pais">
+            <field name="cod_alfa_2">TM</field>
+            <field name="cod_alfa_3">TKM</field>
+            <field name="cod_numerico">795</field>
+            <field name="fips">TX</field>
+            <field name="nome_ES">Turkmenistßn</field>
+            <field name="nome_internacional">Turkmenistan</field>
+        </record>
+        <record id="pais222" model="pais.pais">
+            <field name="cod_alfa_2">TN</field>
+            <field name="cod_alfa_3">TUN</field>
+            <field name="cod_numerico">788</field>
+            <field name="fips">TS</field>
+            <field name="nome_ES">T·nez</field>
+            <field name="nome_internacional">Tunisia</field>
+        </record>
+        <record id="pais223" model="pais.pais">
+            <field name="cod_alfa_2">TO</field>
+            <field name="cod_alfa_3">TON</field>
+            <field name="cod_numerico">776</field>
+            <field name="fips">TN</field>
+            <field name="nome_ES">Tonga</field>
+            <field name="nome_internacional">Tonga</field>
+        </record>
+        <record id="pais224" model="pais.pais">
+            <field name="cod_alfa_2">TR</field>
+            <field name="cod_alfa_3">TUR</field>
+            <field name="cod_numerico">792</field>
+            <field name="fips">TU</field>
+            <field name="nome_ES">TurquÝa</field>
+            <field name="nome_internacional">Turkey</field>
+        </record>
+        <record id="pais225" model="pais.pais">
+            <field name="cod_alfa_2">TT</field>
+            <field name="cod_alfa_3">TTO</field>
+            <field name="cod_numerico">780</field>
+            <field name="fips">TD</field>
+            <field name="nome_ES">Trinidad y Tobago</field>
+            <field name="nome_internacional">Trinidad and Tobago</field>
+        </record>
+        <record id="pais226" model="pais.pais">
+            <field name="cod_alfa_2">TV</field>
+            <field name="cod_alfa_3">TUV</field>
+            <field name="cod_numerico">798</field>
+            <field name="fips">TV</field>
+            <field name="nome_ES">Tuvalu</field>
+            <field name="nome_internacional">Tuvalu</field>
+        </record>
+        <record id="pais227" model="pais.pais">
+            <field name="cod_alfa_2">TW</field>
+            <field name="cod_alfa_3">TWN</field>
+            <field name="cod_numerico">158</field>
+            <field name="fips">TW</field>
+            <field name="nome_ES">Taiwan</field>
+            <field name="nome_internacional">Taiwan</field>
+        </record>
+        <record id="pais228" model="pais.pais">
+            <field name="cod_alfa_2">TZ</field>
+            <field name="cod_alfa_3">TZA</field>
+            <field name="cod_numerico">834</field>
+            <field name="fips">TZ</field>
+            <field name="nome_ES">Tanzania</field>
+            <field name="nome_internacional">Tanzania</field>
+        </record>
+        <record id="pais229" model="pais.pais">
+            <field name="cod_alfa_2">UA</field>
+            <field name="cod_alfa_3">UKR</field>
+            <field name="cod_numerico">804</field>
+            <field name="fips">UP</field>
+            <field name="nome_ES">Ucrania</field>
+            <field name="nome_internacional">Ukraine</field>
+        </record>
+        <record id="pais230" model="pais.pais">
+            <field name="cod_alfa_2">UG</field>
+            <field name="cod_alfa_3">UGA</field>
+            <field name="cod_numerico">800</field>
+            <field name="fips">UG</field>
+            <field name="nome_ES">Uganda</field>
+            <field name="nome_internacional">Uganda</field>
+        </record>
+        <record id="pais231" model="pais.pais">
+            <field name="cod_alfa_2">UM</field>
+            <field name="cod_alfa_3">UMI</field>
+            <field name="cod_numerico">581</field>
+            <field name="fips"></field>
+            <field name="nome_ES">Islas Ultramarinas de EE.UU.</field>
+            <field name="nome_internacional">United States Minor Outlying Islands</field>
+        </record>
+        <record id="pais232" model="pais.pais">
+            <field name="cod_alfa_2">US</field>
+            <field name="cod_alfa_3">USA</field>
+            <field name="cod_numerico">840</field>
+            <field name="fips">US</field>
+            <field name="nome_ES">Estados Unidos</field>
+            <field name="nome_internacional">United States</field>
+        </record>
+        <record id="pais233" model="pais.pais">
+            <field name="cod_alfa_2">UY</field>
+            <field name="cod_alfa_3">URY</field>
+            <field name="cod_numerico">858</field>
+            <field name="fips">UY</field>
+            <field name="nome_ES">Uruguay</field>
+            <field name="nome_internacional">Uruguay</field>
+        </record>
+        <record id="pais234" model="pais.pais">
+            <field name="cod_alfa_2">UZ</field>
+            <field name="cod_alfa_3">UZB</field>
+            <field name="cod_numerico">860</field>
+            <field name="fips">UZ</field>
+            <field name="nome_ES">Uzbekistßn</field>
+            <field name="nome_internacional">Uzbekistan</field>
+        </record>
+        <record id="pais235" model="pais.pais">
+            <field name="cod_alfa_2">VA</field>
+            <field name="cod_alfa_3">VAT</field>
+            <field name="cod_numerico">336</field>
+            <field name="fips">VT</field>
+            <field name="nome_ES">Ciudad del Vaticano</field>
+            <field name="nome_internacional">Vatican City State</field>
+        </record>
+        <record id="pais236" model="pais.pais">
+            <field name="cod_alfa_2">VC</field>
+            <field name="cod_alfa_3">VCT</field>
+            <field name="cod_numerico">670</field>
+            <field name="fips">VC</field>
+            <field name="nome_ES">San Vicente y las Granadinas</field>
+            <field name="nome_internacional">Saint Vincent and the Grenadines</field>
+        </record>
+        <record id="pais237" model="pais.pais">
+            <field name="cod_alfa_2">VE</field>
+            <field name="cod_alfa_3">VEN</field>
+            <field name="cod_numerico">862</field>
+            <field name="fips">VE</field>
+            <field name="nome_ES">Venezuela</field>
+            <field name="nome_internacional">Venezuela</field>
+        </record>
+        <record id="pais238" model="pais.pais">
+            <field name="cod_alfa_2">VG</field>
+            <field name="cod_alfa_3">VGB</field>
+            <field name="cod_numerico">092</field>
+            <field name="fips">VI</field>
+            <field name="nome_ES">Islas VÝrgenes Britßnicas</field>
+            <field name="nome_internacional">Virgin Islands, British</field>
+        </record>
+        <record id="pais239" model="pais.pais">
+            <field name="cod_alfa_2">VI</field>
+            <field name="cod_alfa_3">VIR</field>
+            <field name="cod_numerico">850</field>
+            <field name="fips">VQ</field>
+            <field name="nome_ES">Islas VÝrgenes de EE.UU.</field>
+            <field name="nome_internacional">Virgin Islands, U.S.</field>
+        </record>
+        <record id="pais240" model="pais.pais">
+            <field name="cod_alfa_2">VN</field>
+            <field name="cod_alfa_3">VNM</field>
+            <field name="cod_numerico">704</field>
+            <field name="fips">VM</field>
+            <field name="nome_ES">Viet Nam</field>
+            <field name="nome_internacional">Viet Nam</field>
+        </record>
+        <record id="pais241" model="pais.pais">
+            <field name="cod_alfa_2">VU</field>
+            <field name="cod_alfa_3">VUT</field>
+            <field name="cod_numerico">548</field>
+            <field name="fips">NH</field>
+            <field name="nome_ES">Vanuatu</field>
+            <field name="nome_internacional">Vanuatu</field>
+        </record>
+        <record id="pais242" model="pais.pais">
+            <field name="cod_alfa_2">WF</field>
+            <field name="cod_alfa_3">WLF</field>
+            <field name="cod_numerico">876</field>
+            <field name="fips">WF</field>
+            <field name="nome_ES">Wallis y Futuna</field>
+            <field name="nome_internacional">Wallis and Futuna</field>
+        </record>
+        <record id="pais243" model="pais.pais">
+            <field name="cod_alfa_2">WS</field>
+            <field name="cod_alfa_3">WSM</field>
+            <field name="cod_numerico">882</field>
+            <field name="fips">WS</field>
+            <field name="nome_ES">Samoa</field>
+            <field name="nome_internacional">Samoa</field>
+        </record>
+        <record id="pais244" model="pais.pais">
+            <field name="cod_alfa_2">YE</field>
+            <field name="cod_alfa_3">YEM</field>
+            <field name="cod_numerico">887</field>
+            <field name="fips">YM</field>
+            <field name="nome_ES">Yemen</field>
+            <field name="nome_internacional">Yemen</field>
+        </record>
+        <record id="pais245" model="pais.pais">
+            <field name="cod_alfa_2">YT</field>
+            <field name="cod_alfa_3">MYT</field>
+            <field name="cod_numerico">175</field>
+            <field name="fips">MF</field>
+            <field name="nome_ES">Mayotte</field>
+            <field name="nome_internacional">Mayotte</field>
+        </record>
+        <record id="pais246" model="pais.pais">
+            <field name="cod_alfa_2">ZA</field>
+            <field name="cod_alfa_3">ZAF</field>
+            <field name="cod_numerico">710</field>
+            <field name="fips">SF</field>
+            <field name="nome_ES">Sudßfrica</field>
+            <field name="nome_internacional">South Africa</field>
+        </record>
+        <record id="pais247" model="pais.pais">
+            <field name="cod_alfa_2">ZM</field>
+            <field name="cod_alfa_3">ZMB</field>
+            <field name="cod_numerico">894</field>
+            <field name="fips">ZA</field>
+            <field name="nome_ES">Zambia</field>
+            <field name="nome_internacional">Zambia</field>
+        </record>
+        <record id="pais248" model="pais.pais">
+            <field name="cod_alfa_2">ZW</field>
+            <field name="cod_alfa_3">ZWE</field>
+            <field name="cod_numerico">716</field>
+            <field name="fips">ZI</field>
+            <field name="nome_ES">Zimbabue</field>
+            <field name="nome_internacional">Zimbabwe</field>
+        </record>
+        <record id="pais249" model="pais.pais">
+            <field name="cod_alfa_2">SS</field>
+            <field name="cod_alfa_3">SSD</field>
+            <field name="cod_numerico">728</field>
+            <field name="fips">OD</field>
+            <field name="nome_ES">Sudßn del Sur</field>
+            <field name="nome_internacional">South Sudan</field>
+        </record>
+        <record id="pais_act_window" model="ir.actions.act_window">
+            <field name="name">País</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pais.pais</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo País.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de País) para projetos
+                    internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pais_menu" name="País" parent="parametros.menu_Uso_Geral" action="pais_act_window" sequence="80"/>
+    </data>
+</odoo>

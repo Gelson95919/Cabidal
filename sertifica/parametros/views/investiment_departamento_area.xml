@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="departamento_area_form" model="ir.ui.view">
+            <field name="name">Departamento/Area</field>
+            <field name="model">departamento.area</field>
+            <field name="arch" type="xml">
+                <form string="Departamento/Area">
+                    <sheet>
+                      <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="centro_custo"/>
+                        </group>
+                        <group>
+                            <field name="abreviatura"/>
+                        </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="departamento_area_tree" model="ir.ui.view">
+            <field name="name">Departamento/Area</field>
+            <field name="model">departamento.area</field>
+            <field name="arch" type="xml">
+                <tree string="Departamento/Area">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="departamento_area_act_window" model="ir.actions.act_window">
+            <field name="name">Departamento/Area</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">departamento.area</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Criar um novo Departamento/Area.
+              </p><p>
+              Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Departamento/Area) para projetos internos, pessoais ou de clientes.
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="departamento_area_menu" name="Departamento/Area" parent="fastgest_invetimento" action="departamento_area_act_window" sequence="80"/>
+    </data>
+</odoo>

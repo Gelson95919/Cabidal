@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="socios_form" model="ir.ui.view">
+           <field name="name">Sócios</field>
+           <field name="model">socios.socios</field>
+           <field name="arch" type="xml">
+               <form string="Sócios">
+                   <sheet>
+                       <group>
+                            <field name="name" style="width:840px"/>
+                       </group>
+                       <div>
+                           <label for="title" string="NIF"/>
+                           <label for="title" string="_________________"  style="color:White;"/>
+                           <field name="nif" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Numero Socio"/>
+                           <field name="numero_socio" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Telefone"/>
+                           <label for="title" string="____________"  style="color:White;"/>
+                           <field name="telefone" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Movel"/>
+                           <label for="title" string="_______"  style="color:White;"/>
+                           <field name="movel" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="E-mail"/>
+                           <label for="title" string="______________"  style="color:White;"/>
+                           <field name="e_mail" style="width:260px" widget="email"/>
+                           <label for="title" string="_______________________________" style="color:White;"/>
+                           <label for="title" string="Tipo"/>
+                           <label for="title" string="________" style="color:White;"/>
+                           <field name="tipo" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Inscrição"/>
+                           <label for="title" string="____________"  style="color:White;"/>
+                           <field name="incricao" style="width:260px"/>
+                           <label for="title" string="_______________________________" style="color:White;"/>
+                           <label for="title" string="Activo"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="activo" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="socios_tree" model="ir.ui.view">
+           <field name="name">Sócios</field>
+           <field name="model">socios.socios</field>
+           <field name="arch" type="xml">
+               <tree string="Sócios">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="socios_act_window" model="ir.actions.act_window">
+           <field name="name">Sócios</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">socios.socios</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Sócios.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Sócios) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="socios_menu" name="Sócios" parent="fastgest_gest_socios" action="socios_act_window" sequence="80"/>
+    </data>
+</odoo>

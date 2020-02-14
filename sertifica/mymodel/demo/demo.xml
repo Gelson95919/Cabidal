@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id="author_af" model="res.partner">
+            <field name="name">Alexandre Fayolle</field>
+        </record>
+        <record id="author_dr" model="res.partner">
+            <field name="name">Daniel Reis</field>
+        </record>
+        <record id="author_hb" model="res.partner">
+            <field name="name">Holger Brunn</field>
+        </record>
+        <record id="book_cookbook" model="library.book">
+            <field name="name">Odoo Cookbook</field>
+            <field name="short_name">cookbook</field>
+            <field name="date_release">2016-03-01</field>
+            <field name="author_ids" eval="[(6, 0, [ref('author_af'), ref('author_dr'), ref('author_hb')])]"/>
+            <field name="publisher_id" ref="res_partner_packt"/>
+        </record>
+        <!--  -->
+        <!--   <record id="object0" model="mymodel.mymodel"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="mymodel.mymodel"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="mymodel.mymodel"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="mymodel.mymodel"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="mymodel.mymodel"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>

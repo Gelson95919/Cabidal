@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="relatorio_motivo_form" model="ir.ui.view">
+            <field name="name">Relatorio Motivo Saida/Entrada Stock</field>
+            <field name="model">relatorio.motivo</field>
+            <field name="arch" type="xml">
+                <form string="Relatorio Motivo Saida/Entrada Stock">
+                    <sheet>
+                        <div><label for="title" string="RELATORIO MOTIVO SAIDA/ENTRADA STOCK"/></div>
+                        <div><label for="title" style="width:10px" string=""/> </div>
+                        <div>
+                          <label for="title" string="Motivo"/>
+                          <label for="title" string="___" style="color:White;"/>
+                          <field name="motivo" style="width:420px"/>
+                        </div>
+                        <div>
+                          <label for="title" string="Data Inicio"/>
+                          <field name="data_inicio"/>
+                          <label for="title" string="______" style="color:White;"/>
+                          <label for="title" string="Data Fim"/>
+                          <field name="data_fim"/>
+                        </div>
+                        <div>
+                          <label for="title" string="Artigo"/>
+                          <label for="title" string="___" style="color:White;"/>
+                          <field name="artigo_id" style="width:420px"/>
+                        </div>
+                        <header>
+                          <button name="aceitar" type="object" class="btn-primary" icon="fa-check-square-o" string="Aceitar"/>
+                        </header>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="relatorio_motivo_act_window" model="ir.actions.act_window">
+            <field name="name">Relatorio Motivo Saida/Entrada Stock</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">relatorio.motivo</field>
+            <field name="view_id" ref="relatorio_motivo_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="relatorio_motivo_menu" name="Listagem Motivo" parent="inventarios.menu_relatori" action="relatorio_motivo_act_window" sequence="80"/>
+    </data>
+</odoo>

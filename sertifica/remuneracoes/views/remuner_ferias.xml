@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="remunjer_ferias_form" model="ir.ui.view">
+           <field name="name">Férias</field>
+           <field name="model">ferias.ferias</field>
+           <field name="arch" type="xml">
+               <form string="Férias">
+                   <sheet>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Ano Férias" style="width:125px"/>
+                           <field name="ano_ferias" style="width:260px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <label for="title" string="Ano Processo" style="width:125px"/>
+                           <field name="ano_processo" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="% a Processar" style="width:125px"/>
+                           <field name="a_processar" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                         <label for="title" string="Considerar Somente Remunerações Base" style="width:280px"/>
+                         <field name="consider_remuner" style="width:260px"/>
+                         <label for="title" string="Considerar proporcional Data Ingresso ou case" style="width:260px"/>
+                         <field name="consider_proporcional" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="remunjer_ferias_tree" model="ir.ui.view">
+           <field name="name">Férias</field>
+           <field name="model">ferias.ferias</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="ano_ferias"/>
+                   <field name="ano_processo"/>
+               </tree>
+           </field>
+       </record>
+       <record id="remunjer_ferias_act_window" model="ir.actions.act_window">
+           <field name="name">Férias</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ferias.ferias</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="remunjer_ferias_menu" name="Férias" parent="menu_remuneracoes" action="remunjer_ferias_act_window" sequence="80"/>
+    </data>
+</odoo>

@@ -1,0 +1,169 @@
+
+<odoo>
+  <data>
+       <!--FORM-->
+      <record id="reserva_form" model="ir.ui.view">
+          <field name="name">Reserva</field>
+          <field name="model">reserva</field>
+          <field name="arch" type="xml">
+              <form string="Reserva">
+                  <header>
+                       <button name="check_in" string="Check-in" type="object" icon="" attrs="{'invisible':['|',('active_mostra_btn_chek_in','!=',True)]}" class="oe_highlight"/>
+                       <button name="consumo" string="Consumos" type="object" icon="" attrs="{'invisible': [('mostra_btn_consumo','!=','mostrabtnConsumo')]}" class="oe_highlight"/><!-- attrs="{'invisible':['|',('check_in_feito','!=',True)]}"-->
+                       <button name="pagamentos" string="Pagamento" type="object" icon="fa-credit-card" attrs="{'invisible': [('state','!=','pagamento')]}"  class="oe_highlight"/><!--attrs="{'invisible':['|',('check_in_feito','!=',True)]}"-->
+                       <button name="check_out" string="Check-Out" type="object" icon="" attrs="{'invisible': [('state','!=','checkout')]}" class="oe_highlight"/><!---->
+                      <!--Isto irá criar a barra de status, graças ao widget. -->
+                       <field name="state" widget="statusbar"/>
+                  </header>
+                  <sheet>
+                      <div>
+                          <label for="title" string="RESERVAS" style="font-weight: bold; color:blue"  attrs="{'invisible':['|',('active_mostra_btn_chek_in','!=',False)]}"/>
+                          <label for="title" string="CHECK-IN" style="font-weight: bold; color:blue" attrs="{'invisible': [('state','!=','concept')]}"/>
+                          <label for="title" string="CONSUMO" style="font-weight: bold; color:blue" attrs="{'invisible': [('state','!=','consumo')]}"/>
+                          <label for="title" string="PAGAMENTO" style="font-weight: bold; color:blue" attrs="{'invisible': ['|',('state','!=','pagamento'),('mostra_quadro_pag','!=','pagos')]}"/>
+                          <label for="title" string="CHECK-OUT" style="font-weight: bold; color:blue"  attrs="{'invisible': [('state','!=','checkout')]}"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+
+                          <field name="mostra_btn_consumo" invisible="1"/>
+                          <field name="controlo" invisible="1"/>
+                          <field name="mostra_quadro_pag" invisible="1"/>
+                          <field name="active_mostra_btn_chek_in" invisible="1"/>
+                          <field name="realizar_check_in" invisible="1"/>
+
+
+                          <label for="title" string="Habitação" style="width:70px"/>
+                          <field name="habitacao_id" style="width:100px"/>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Tarifa"/>
+                          <field name="tarifa_id" style="width:300px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Chegada" style="width:70px"/>
+                          <field name="start_date" style="width:100px"/>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Saída"/>
+                          <field name="end_date" style="width:100px"/>
+                          <label for="title" string="" style="width:30px"/>
+                          <label for="title" string="Nº Noites" style="width:70px"/>
+                          <field name="duration" style="width:100px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Cliente" style="width:70px"/>
+                          <field name="cliente_ids" style="width:640px" widget="many2many_tags"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Nº Pessoa" style="width:70px"/>
+                          <field name="nume_pessoa" style="width:100px"/>
+                          <label for="title" string="" style="width:360px"/>
+                          <label for="title" string="Nº Criança" style="width:70px"/>
+                          <field name="num_criancas" style="width:100px"/>
+                      </div>
+                      <div>
+                          <field name="check_in_feito" invisible="0" attrs="{'invisible':['|',('realizar_check_in','!=',True)]}"/>
+                          <label for="title" string="Check-in" style="width:70px" attrs="{'invisible':['|',('realizar_check_in','!=',True)]}"/>
+                      </div>
+                      <div>
+                          <label for="title" string="OBS"/>
+                      </div>
+                      <div>
+                          <field name="obs" style="width:730px"/>
+
+                          <field name="montante_check_kin" style="width:730px"/>
+                      </div>
+                       <div>
+                            <field name="ocupantes_ids" style="width:730px" attrs="{'invisible': [('state','!=','concept')]}">
+                                <tree editable="button" string="Ocupantes">
+                                    <field name="name"/>
+                                    <field name="idade"/>
+                                    <field name="tipo"/>
+                                    <field name="doc_ident"/>
+                                    <field name="pais_id"/>
+                                </tree>
+                            </field>
+                       </div>
+                       <div>
+                            <field name="consumos_ids" style="width:730px"  attrs="{'invisible': [('state','!=','consumo')]}">
+                                <tree editable="button" string="Consumos">
+                                    <field name="data"/>
+                                    <field name="tipo_consumo_id"/>
+                                    <field name="montante"/>
+                                    <field name="valor"/>
+                                    <field name="iva"/>
+                                     <field name="total"/>
+                                    <field name="obs"/>
+                                </tree>
+                            </field>
+                       </div>
+                       <div>
+                            <field name="pagamentos_ids" style="width:730px" attrs="{'invisible': ['|',('state','!=','pagamento'),('mostra_quadro_pag','!=','pagos')]}">
+                                <tree editable="button" string="Pagamentos">
+                                    <field name="data"/>
+                                    <field name="tipo_pagamento_id"/>
+                                    <field name="montante"/>
+                                    <field name="obs"/>
+                                </tree>
+                            </field>
+                       </div>
+                      <div>
+                          <label for="title" string="Forma de Pagamento"  attrs="{'invisible': [('state','!=','checkout')]}"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Nome" style="width:70px"  attrs="{'invisible': [('state','!=','checkout')]}"/>
+                          <field name="terceiro_id" style="width:640px" attrs="{'invisible': [('state','!=','checkout')]}"/>
+                      </div>
+                      <div>
+                          <field name="tipo_pagamento" widget="radio" options="{'horizontal': true}"  attrs="{'invisible': [('state','!=','checkout')]}"/>
+                      </div>
+                      <div>
+                          <field name="imprimo_recibo" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','pronto_pagamento')]}"/>
+                          <label for="title" string="Imprime Recibo" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','pronto_pagamento')]}"/>
+                          <label for="title" string="" style="width:20px"/>
+                          <button name="print_recibo" string="Imprime recibo" type="object" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','pronto_pagamento')]}"/>
+                      </div>
+                      <div>
+                          <field name="gerar_factura" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','credito')]}"/>
+                          <label for="title" string="Imprime Factura" attrs="{'invisible': ['|',('state','!=','checkout'), ('tipo_pagamento','!=','credito')]}"/>
+                          <label for="title" string="" style="width:20px"/>
+                          <button name="imprime_fatura" string="Imprime Factura" type="object" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','credito'), ('gerar_factura', '!=', True)]}"/>
+                      </div>
+                      <div>
+                          <label for="title" string="Hab" attrs="{'invisible': [('state','!=','checkout')]}" style="width:70px"/>
+                          <field name="hab_id" style="width:640px" attrs="{'invisible': ['|', ('state','!=','checkout'), ('tipo_pagamento','!=','transferir')]}"/>
+                      </div>
+                  <header>
+                      <!--<button name="editar_nome" string="Editar Nomes" type="object" attrs="{'invisible': [('state','!=','concept')]}" icon=""  class="oe_highlight"/>-->
+                      <button name="comfirmar_checkin" string="Confirmar" type="object" icon="" attrs="{'invisible':[('controlo','=',True)]}" class="oe_highlight"/>
+                      <button name="comfirmar_pagamento" string="Confirmar" type="object" icon="" attrs="{'invisible': ['|',('state','!=','pagamento'), ('mostra_quadro_pag','!=','pagos')]}" class="oe_highlight"/>
+
+                      <button name="conta" string="Conta" type="object" class="oe_highlight" attrs="{'invisible': [('state','!=','checkout')]}"/>
+                      <button name="confirmar_checkout" string="Confirmar Check-out" type="object" class="oe_highlight" attrs="{'invisible': [('state','!=','checkout')]}"/>
+                  </header>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+       <!--CALENDAR-->
+       <record model="ir.ui.view" id="session_calendar_view">
+            <field name="name">reserva</field>
+            <field name="model">reserva</field>
+            <field name="arch" type="xml">
+                <calendar string="Session Calendar" date_start="start_date" date_stop="end_date" color="instructor_id">
+                    <field name="cliente_ids"/>
+                </calendar>
+            </field>
+       </record>
+
+       <!--ACTION WINDOWS-->
+      <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">Reservas</field>
+            <field name="res_model">reserva</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,form</field>
+       </record>
+
+       <menuitem id="session_menu" name="Reserva" parent="gestao_hotel.menu_hotel" action="session_list_action"/>
+
+  </data>
+</odoo>

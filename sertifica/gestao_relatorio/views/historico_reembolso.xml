@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id="historico_reembolso_form" model="ir.ui.view">
+            <field name="name">Histórico de Riembolso</field>
+            <field name="model">historico.reembolso</field>
+            <field name="arch" type="xml">
+                <form string="Carteira em Risco">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Listagem Historico de Reembolso"/>
+                        </div>
+                        <label for="title" style="width:450px" string=""/>
+                        <div>
+                            <label for="title" string="Numero Crédito" style="width:150px"/>
+                            <field name="num_credito" style="width:200px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="historico_reembolso_act_window" model="ir.actions.act_window">
+            <field name="name">Histórico de Riembolso</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">historico.reembolso</field>
+            <field name="view_id" ref="historico_reembolso_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="hstorico_reembolso_menu" name="Histórico de Reembolso" parent="gestao_relatorio.menu_rep"
+                  action="historico_reembolso_act_window" sequence="80"/>
+    </data>
+</odoo>

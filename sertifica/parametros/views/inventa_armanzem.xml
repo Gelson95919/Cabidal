@@ -1,0 +1,36 @@
+<odoo>
+   <data>
+    <record id="form_all_arma" model="ir.ui.view">
+              <field name="name">Armanzem </field>
+              <field name="model">armanzem.armanzem</field>
+              <field name="arch" type="xml">
+                    <form string="Armanzem">
+                       <sheet>
+                         <group>
+                           <group>
+                               <field name="name" style="width:250px"/>
+                           </group>
+                           <group>
+                              <field name="date_release" style="width:150px"/>
+                           </group>
+                         </group>
+                       </sheet>
+                    </form>
+              </field>
+    </record>
+     <!-- ações abrindo visualizações em modelos -->
+    <record model="ir.actions.act_window" id="parametros.action_window_arma">
+      <field name="name"> Armanzem </field>
+      <field name="res_model">armanzem.armanzem</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+         <p class="oe_view_nocontent_create">
+             Criar um novo Armanzem.
+         </p><p>
+           Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Armanzem) para projetos internos, pessoais ou de clientes.
+         </p>
+      </field>
+    </record>
+    <menuitem name="Armanzem" id="parametros.menu_arma" parent="fastgest_imveta" action="parametros.action_window_arma"/>
+   </data>
+</odoo>

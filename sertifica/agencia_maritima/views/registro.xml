@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="registro_form" model="ir.ui.view">
+           <field name="name">Registro</field>
+           <field name="model">registro</field>
+           <field name="arch" type="xml">
+               <form string="Registro">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Viagem" style="width:70px"/>
+                           <field name="viagem" style ="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="ENTRADA________________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Navio Motor" style="width:80px"/>
+                           <field name="navio_motor_id" style ="width:260px"/>
+                           <label for="title" string="" style="width:225px"/>
+                           <label for="title" string="Motivo Escala"/>
+                           <field name="motivo_escala_id" style ="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Armador" style="width:80px"/>
+                           <field name="armador_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Fretador" style="width:80px"/>
+                           <field name="fretador_id" style ="width:500px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Data Entrada"/>
+                           <field name="data_entrada" style ="width:260px"/>
+                           <label for="title" string="" style="width:223px"/>
+                           <label for="title" string="Porto Agencia"/>
+                           <field name="porto_agencia_id" style ="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Procedência" style="width:80px"/>
+                           <field name="procedencia_id" style ="width:260px"/>
+                       </div>
+                       <div>
+                           <notebook>
+                               <page string="Embarque">
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                      <label for="title" string="Passageiros______________________________________________________________________________________________________________________________________________"/>
+                                   </div>
+                                   <div><label for="title" string=""/></div>
+                                   <div>
+                                       <label for="title" string="Embarcados"/>
+                                       <field name="embarcados" style ="width:260px"/>
+                                       <label for="title" string="" style="width:223px"/>
+                                       <label for="title" string="Desembarcado"/>
+                                       <field name="desembarcado" style ="width:250px"/>
+                                   </div>
+                                   <div><label for="title" string=""/></div>
+                                   <div>
+                                      <label for="title" string="Cargas________________________________________________________________________________________________________________________________________________"/>
+                                   </div>
+                                   <div><label for="title" string=""/></div>
+                                   <div>
+                                       <label for="title" string="Carregadas"/>
+                                       <field name="carregada" style ="width:260px"/>
+                                       <label for="title" string="" style="width:223px"/>
+                                       <label for="title" string="Descaregadas"/>
+                                       <field name="descaregadas" style ="width:260px"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                      <label for="title" string="SAIDA________________________________________________________________________________________________________________________________________________"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                     <label for="title" string="Data Saida"/>
+                                     <field name="data_saida" style ="width:260px"/>
+                                   </div>
+                                   <div><label for="title" string=""/></div>
+                                   <div>
+                                      <field name="porto_id_1" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_2" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_3" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_4" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_5" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_6" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_7" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_8" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                      <field name="porto_id_9" style ="width:100px"/>
+                                      <label for="title" string="" style="width:5px"/>
+                                   </div>
+                               </page>
+                               <page string="Outros Dados">
+                                   <div><label for="title" string="" style="width:5px"/></div>
+                                   <div>
+                                      <label for="title" string="Número Tripolante" style ="width:130px"/>
+                                      <field name="numero_tripolante" style ="width:100px"/>
+                                   </div>
+                                   <div>
+                                      <label for="title" string="Comandante/Capitão"/>
+                                      <field name="comandante" style ="width:450px"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div><label for="title" string="Contrato"/></div>
+                                   <div>
+                                       <field name="contracto" widget="radio" options="{'horizontal': true}"/>
+                                       <field name="outro" style ="width:270px" attrs="{'invisible': [('contracto', '!=', 'out')]}"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div><label for="title" string="Observação"/></div>
+                                   <div>
+                                       <field name="obsevacao" style ="width:930px"/>
+                                   </div>
+                                   <div><label for="title" string="" style="width:5px"/></div>
+                                   <div>
+                                      <label for="title" string="Contabilidade_____________________________________________________________________________________________________________________________________________"/>
+                                   </div>
+                                   <div><label for="title" string=""/> </div>
+                                   <div>
+                                     <label for="title" string="Conta"/>
+                                     <field name="conta_id" style ="width:260px"/>
+                                     <label for="title" string="" style="width:323px"/>
+                                     <label for="title" string="Terceiro"/>
+                                     <field name="terceiro_id" style ="width:260px"/>
+                                   </div>
+                               </page>
+                           </notebook>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="registro_tree" model="ir.ui.view">
+            <field name="name">Registro</field>
+            <field name="model">registro</field>
+            <field name="arch" type="xml">
+                <tree string="Registro">
+                    <field name="viagem"/>
+                    <field name="navio_motor_id"/>
+                    <field name="motivo_escala_id"/>
+                    <field name="armador_id"/>
+                    <field name="fretador_id"/>
+                    <field name="data_entrada"/>
+                    <field name="porto_agencia_id"/>
+                    <field name="procedencia_id"/>
+                </tree>
+            </field>
+        </record>
+       <record id="registro_act_window" model="ir.actions.act_window">
+           <field name="name">Registro de Entrada e saida de Navios</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">registro</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Registro Navio.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Registro Navio) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="registro_menu" name="Registro" parent="entrada_navios_menu" action="registro_act_window" sequence="80"/>
+    </data>
+</odoo>

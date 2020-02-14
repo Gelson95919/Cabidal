@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <record id="emprest_antig_form" model="ir.ui.view">
+            <field name="name">Emprestimo por Antiguidade</field>
+            <field name="model">emprest.antiguidade</field>
+            <field name="arch" type="xml">
+                <form string="Emprestimo por Antiguidade">
+                    <header>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"
+                                icon="fa-print"/>
+                        <button string="Cancel" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <label for="title" string="Data" style="width:30px"/>
+                            <field name="date" style="width:200px"/>
+                        </div>
+                        <div>
+                            <field name="todos"/>
+                            <label for="title" string="Todos" style="width:150px"/>
+                        </div>
+                        <div>
+                            <field name="so_val_atraso"/>
+                            <label for="title" string="Só com valor atraso" style="width:150px"/>
+                        </div>
+                        <div>
+                            <field name="agrup_por_agente"/>
+                            <label for="title" string="Agrupar por Agente" style="width:150px"/>
+                        </div>
+                        <div>
+                            <label for="title" string="Agente" style="width:38px"/>
+                            <field name="agente_id" style="width:200px"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="emprest_antigued_act_window" model="ir.actions.act_window">
+            <field name="name">Emprestimo por Antiguidade</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">emprest.antiguidade</field>
+            <field name="view_id" ref="emprest_antig_form"/>
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="emprest_antigued_menu" name="Emprestimo por Antiguidade" parent="gestao_relatorio.menu_rep"
+                  action="emprest_antigued_act_window" sequence="80"/>
+    </data>
+</odoo>

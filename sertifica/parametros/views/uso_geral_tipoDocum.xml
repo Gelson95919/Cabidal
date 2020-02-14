@@ -1,0 +1,205 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tipo_docum_form">
+            <field name="name">Documentos</field>
+            <field name="model">documento.documento</field>
+            <field name="arch" type="xml">
+                <form string="Tipo Documento">
+                    <sheet>
+                        <div>
+                            <field name="codigo" readonly="1" style="width:50px"/>
+                        </div>
+                        <div name="div_docum">
+                            <label for="title" string="Descrição"/>
+                            <field name="name" style="width:500px"/>
+                            <label for="title" string="" style="width:20px"/>
+                            <label for="title" string="Abreviatura"/>
+                            <field name="abrevia" style="width:100px"/>
+                        </div>
+                        <notebook name="studio_notebook_S8ebf">
+                            <page name="studio_page_9esJy" string="Dados">
+                                <group name="studio_group_F8TTh">
+                                    <group name="studio_group_F8TTh_left" string="Utilizar em:">
+                                        <div class="oe_title">
+                                            <field name="fat_para" widget="radio" class="oe_edit_only"
+                                                   options="{'vertical': true}"/>
+                                        </div>
+                                    </group>
+                                    <group name="studio_group_F8TTh_right">
+                                        <div>
+                                            <field name="visualizar_no_menu"/>
+                                            <label for="title" string="Visualizar no Menu" style="font-weight: bold"/>
+                                        </div>
+                                        <div>
+                                            <field name="mudar_numeracao_anual"/>
+                                            <label for="title" string="Mudar numeração" style="font-weight: bold"/>
+                                        </div>
+                                        <div>
+                                            <field name="nao_aredondar"/>
+                                            <label for="title" string="Não Aredondar" style="font-weight: bold"/>
+                                        </div>
+                                        <div>
+                                            <field name="permite_desconto"/>
+                                            <label for="title" string="Permite Desconto" style="font-weight: bold"/>
+                                        </div>
+                                        <div>
+                                            <label for="title" string="Tipo Movimento" style="font-weight: bold"/>
+                                            <field name="tipo_movimento" style="width:100px"/>
+                                        </div>
+                                        <div>
+                                            <label for="title" string="Imagem" style="font-weight: bold"/>
+                                            <field name="imagem"/>
+                                        </div>
+
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="studio_page_OE3jS" string="Configuração">
+                                <label for="title" string="" style="width:200px"/>
+                                <div>
+                                    <label for="title"
+                                           string="__Tesouraria___________________________________________________________________________________________________________________________________________"
+                                           style="color:Blue;"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="_________" style="color:White;"/>
+                                </div>
+                                <div>
+                                    <field name="visualizar_no_tesorer"/>
+                                    <label for="title" string="Vesualizar no Tesouraria"/>
+                                    <label for="title" string="_______________________________________________"
+                                           style="color:White;"/>
+                                    <field name="liq_cta_cte"/>
+                                    <label for="title" string="Liquidar na Conta Corente"/>
+                                </div>
+                                <div>
+                                    <field name="permitir_um_unico_recebimento"
+                                           attrs="{'readonly': [('visualizar_no_tesorer', '=', False)]}"/>
+                                    <label for="title" string="Permitir um Unico Recebimento"/>
+                                    <label for="title" string="_________________________________________"
+                                           style="color:White;"/>
+                                    <field name="considera_na_cta_cte"/>
+                                    <label for="title" string="Concidera na Conta Corente"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Fluxo Caixa"/>
+                                    <field name="fluxo_caixa"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:260px;color:White;"/>
+                                </div>
+                                <div>
+                                    <label for="title"
+                                           string="__Contabilidade___________________________________________________________________________________________________________________________________________"
+                                           style="color:Blue;"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="" style="width:120px;color:White;"/>
+                                </div>
+                                <div>
+                                    <field name="criar_registro_para_contabilidade"/>
+                                    <label for="title" string="Criar Registro para Contabilidade"/>
+                                    <label for="title" string="" style="color:White;width:290px"/>
+                                    <field name="contabilizar_Pelo_detalhe_do_documento"/>
+                                    <label for="title" string="Contabilizar Pelo Detalhes de Documento"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Diario"/>
+                                    <field name="diario"
+                                           attrs="{'readonly': [('criar_registro_para_contabilidade', '=', False)]}"
+                                           style="width:260px"/>
+                                    <label for="title" string="" style="width:215px"/>
+                                    <label for="title" string="Conta"/>
+                                    <field name="conta"
+                                           attrs="{'readonly': [('criar_registro_para_contabilidade', '=', False)]}"
+                                           style="width:260px"/>
+                                </div>
+                                <div>
+                                    <label for="title" string="Conta"/>
+                                    <field name="centro"
+                                           attrs="{'readonly': [('criar_registro_para_contabilidade', '=', False)]}"
+                                           style="width:260px"/>
+                                </div>
+                            </page>
+                            <page name="studio_page_SFFPF" string="Outros">
+                                <group name="studio_group_SFFPF">
+                                    <group name="studio_group_SFFPF_left">
+                                        <div>
+                                            <field name="descricao" style="width:800px"/>
+                                        </div>
+                                    </group>
+                                    <group>
+                                        <div class="oe_inline">
+                                            <field name="outros">
+                                                <tree editable="bottom" string="Taxes">
+                                                    <field name="artigo"/>
+                                                    <field name="descrica"/>
+                                                    <field name="valor"/>
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </group>
+                                    <group name="studio_group_SFFPF_right"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="seq_tipo_doc_codigo" model="ir.sequence">
+            <field name="name">Tipo Documento</field>
+            <field name="code">tipo.docum.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="form_all_doc_tree_view" model="ir.ui.view">
+            <field name="name">documento.tree.view</field>
+            <field name="model">documento.documento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="abrevia"/>
+                    <field name="date_release"/>
+                    <!--<field name="fat_para" />-->
+                    <field name="visualizar_no_menu"/>
+                    <field name="mudar_numeracao_anual"/>
+                    <field name="tipo_movimento"/>
+                    <field name="imagem"/>
+                    <field name="permite_desconto"/>
+                    <field name="nao_aredondar"/>
+                    <field name="considera_na_cta_cte"/>
+                    <field name="fluxo_caixa"/>
+                    <field name="criar_registro_para_contabilidade"/>
+                    <field name="contabilizar_Pelo_detalhe_do_documento"/>
+                    <field name="diario"/>
+                    <field name="conta"/>
+                    <field name="centro"/>
+                    <field name="descricao"/>
+                    <field name="artigo"/>
+                    <field name="descrica"/>
+                    <field name="valor"/>
+                    <!--<field name="pago"/>-->
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_">
+            <field name="name">Tipo Documento</field>
+            <field name="res_model">documento.documento</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Tipo Documento .
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Documento ) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- actions -->
+        <menuitem name=" Tipo Documentos " id="parametros.menu_docum_list" parent="parametros.menu_Uso_Geral"
+                  action="parametros.action_window_"/>
+    </data>
+</odoo>

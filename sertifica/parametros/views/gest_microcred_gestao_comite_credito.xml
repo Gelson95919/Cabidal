@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="comit_cred_form" model="ir.ui.view">
+            <field name="name">Comite Credito</field>
+            <field name="model">comite.credito</field>
+            <field name="arch" type="xml">
+                <form string="Comite Credito">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="codigo"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="cargo"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="comite_credito_tree" model="ir.ui.view">
+            <field name="name">Comite Credito</field>
+            <field name="model">comite.credito</field>
+            <field name="arch" type="xml">
+                <tree string="Comite Credito">
+                    <field name="codigo"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sequ_comite_codigo" model="ir.sequence">
+            <field name="name">Comite Credito</field>
+            <field name="code">comite.credito</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="comite_credito_act_window" model="ir.actions.act_window">
+            <field name="name">Comite Credito</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">comite.credito</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Criar um novo Comite Credito.
+                </p>
+                <p>
+                    Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Comite Credito) para
+                    projetos internos, pessoais ou de clientes.
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="comite_credito_menu" name="Comite Credito" parent="fastgest_gest_microcred_Gestao"
+                  action="comite_credito_act_window" sequence="80"/>
+    </data>
+</odoo>

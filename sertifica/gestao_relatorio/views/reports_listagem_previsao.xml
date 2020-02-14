@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_list_previsao_reembolso_report">
+            <field name="name">paperformat.Previsao Reembolso.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="previsao_reembolso_report"
+                model="previsao.reembolso"
+                string="Listagem de Previsão Reembolso"
+                name="gestao_relatorio.listagem_previsao_reembolso_report_view"
+                file="gestao_relatorio.previsao_reembolso_form"
+                paperformat="paperformat_list_previsao_reembolso_report"
+                report_type="qweb-pdf"
+                menu="False"/>
+
+        <template id="listagem_previsao_reembolso_report_view">
+            <t t-call="web.html_container">
+
+                    <t t-call="web.external_layout">
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 43px; margin-top:3px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal;  -moz-box-pack: center;">
+                            <strong>
+                                <h5>SOLMI-Associação de Apoio as Iniciativas de Autopromoção</h5>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <strong>
+                                <p>
+                                    <h3>
+                                        LISTAGEM DE PREVISÃO REEMBOLSO
+                                    </h3>
+                                </p>
+                            </strong>
+                        </div>
+                        <div style="border:0px solid black; text-center; margin-left: -1px; height: 36px; margin-top:10px;  width:100%; display: -webkit-box;
+                                                                         -webkit-box-orient: horizontal; -webkit-box-pack: center;
+                                                                          display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center;">
+                            <p>
+                                <strong>Data Inicial:
+                                    <t t-esc="date_start"/>
+                                    Data Final:
+                                    <t t-esc="date_end"/>
+                                </strong>
+                            </p>
+                        </div>
+                        <div style="width: 100%; margin-top:20px; ">
+                            <table class="table table-condensed table-bordered" style="width: 100%">
+                                <thead>
+                                    <th class="text-center" style="border:1px solid black; width: 5%">Nº Credito</th>
+                                    <th class="text-center" style="border:1px solid black; width: 5%">Nº Prestação</th>
+                                    <th class="text-center" style="border:1px solid black; width: 5%">Nº Cliente</th>
+                                    <th class="text-center" style="border:1px solid black; width: 15%">Nome</th>
+                                    <th class="text-center" style="border:1px solid black; width: 10%">Data Vencimento</th>
+                                    <th class="text-center" style="border:1px solid black; width: 10%">Valor Prestação</th>
+                                    <th class="text-center" style="border:1px solid black; width: 10%">Capital</th>
+                                    <th class="text-center" style="border:1px solid black; width: 10%">Juro</th>
+                                    <th class="text-center" style="border:1px solid black; width: 30%">Obuservação</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-esc="o['numero_credito']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['numer_prest']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['codigo_terc']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['nome_terceiro']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['data_documento']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['total']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['capital']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="o['juro_jerado']"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <!--<span t-esc="o['obs']"/>-->
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+
+            </t>
+        </template>
+    </data>
+</odoo>

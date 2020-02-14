@@ -1,0 +1,198 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_all_prodart">
+          <field name="name">artigo artigo</field>
+          <field name="model">artigo.artigo</field>
+          <field name="arch" type="xml">
+            <form string="Manutenção Produtos/Artigos ">
+                 <sheet>
+                     <div><label for="title" string="" style="width:6px"/></div>
+                     <div>
+                        <label for="title" string="Descrição"/>
+                        <field name="name" style="width:320px"/>
+                        <field name="codigo" style="width:320px"/>
+                     </div>
+                     <div><label for="title" string="" style="width:6px"/></div>
+                     <div>
+                         <label for="title" string="Família" style="width:120px"/>
+                         <field name="familia_id" style="width:260px"/>
+                         <label for="title" string=""  style="color:White;width:270px"/>
+                         <label for="title" string="Sub Família" style="width:95px"/>
+                         <field name="sub_familia_id" style="width:260px"/>
+                     </div>
+                     <div>
+                         <label for="title" string="Descrição Sintetica" style="width:120px"/>
+                         <field name="descricao_sintetica" style="width:260px"/>
+                         <label for="title" string=""  style="color:White;width:270px"/>
+                         <label for="title" string="Código de Bara"/>
+                         <field name="codigo_de_bara" style="width:260px"/>
+                     </div>
+                     <div>
+                        <label for="title" string="Unidade Movimento"/>
+                        <field name="unidade_movimento_id" style="width:260px"/>
+                        <label for="title" string=""  style="color:White;width:270px"/>
+                        <label for="title" string="IVA" style="width:95px"/>
+                        <field name="ivasel" style="width:260px"/>
+                     </div>
+                     <notebook name="studio_notebook_S8ebf">
+                        <page name="studio_page_9esJy" string="Preços">
+                          <group name="studio_group_F8TTh">
+                            <group name="studio_group_F8TTh_left">
+                              <div class="oe_inline">
+                                 <field name="preco">
+                                     <tree editable="bottom" string="Taxes">
+                                         <field name="n_preco"/>
+                                         <field name="valor"/>
+                                         <field name="iva_incluido"/>
+                                     </tree>
+                                 </field>
+                              </div>
+                            </group>
+                            <group name="studio_group_F8TTh_right">
+                            </group>
+                          </group>
+                        </page>
+                        <page name="studio_page_9esJy" string="Stock">
+                            <div>
+                              <field name="image" nolabel="1" widget="image" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                            </div>
+                            <div>
+                                <label for="title" string="Control Stock"/>
+                                <field name="controlo_stock"/>
+                            </div>
+                            <div>
+                               <field name="stock">
+                                   <tree editable="bottom" string="Taxes">
+                                       <field name="armazem"/>
+                                       <field name="existencia"/>
+                                       <field name="preco_custo"/>
+                                   </tree>
+                               </field>
+                            </div>
+                        </page>
+                        <page name="studio_page_OE3jS" string="Contalbilidade">
+                            <div><label for="title" string="" style="width:6px"/></div>
+                            <div>
+                                <field name="adiantamento_de_clientes"/>
+                                <label for="title" string="Adiantamento de Clientes" style="width:650px"/>
+                                <field name="recebimento_por_contra_de_outrem"/>
+                                <label for="title" string="Recebimento por Conta de Outrem"/>
+                            </div>
+                            <div><label for="title" string=""  style="color:White;width:260px"/></div>
+                            <div>
+                                <label for="title" string="Conta Artigo" style="width:100px"/>
+                                <field name="conta_artigo_id"  domain="[('grupo','=',True)]" style="width:260px"/>
+                                <label for="title" string="" style="width:300px"/>
+                                <label for="title" string="Centro Custo" style="width:85px"/>
+                                <field name="centro_custo_id" style="width:260px"/>
+                            </div>
+                            <div>
+                                <label for="title" string="Conta Iva" style="width:100px"/>
+                                <field name="conta_iva_id" style="width:260px"/>
+                                <label for="title" string="" style="width:300px"/>
+                                <label for="title" string="Código Iva" style="width:85px"/>
+                                <field name="codigo_iva_id" style="width:260px"/>
+                            </div>
+                            <div>
+                                <label for="title" string="Fluxo de Caixa" style="width:100px"/>
+                                <field name="fluxo_de_caixa_id" style="width:260px"/>
+                            </div>
+                        </page>
+                        <page name="studio_page_SFFPF" string="Obs">
+                          <group name="studio_group_SFFPF">
+                            <group name="studio_group_SFFPF_left">
+                               <div>
+                                   <field name="descricao" style="width:800px"/>
+                               </div>
+                            </group>
+                            <group>
+                            </group>
+                            <group name="studio_group_SFFPF_right"/>
+                          </group>
+                        </page>
+                     </notebook>
+                 </sheet>
+            </form>
+          </field>
+        </record>
+        <record id="artig_template_kanban_view" model="ir.ui.view">
+            <field name="name">artigo.artigo.template.kanban</field>
+            <field name="model">artigo.artigo</field>
+            <field name="arch" type="xml">
+                <kanban>
+                     <field name="id"/>
+                     <field name="image"/>
+                     <field name="armazem"/>
+                     <field name="preco_custo"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('artigo.artigo', 'image', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                        <small t-if="record.centro_custo_id">[<field name="centro_custo_id"/>]</small>
+                                    </strong>
+                                    <div >
+                                        <strong>
+                                            <t t-esc="record.conta_iva_id"/>
+                                        </strong>
+                                    </div>
+                                    <div name="tags"/>
+                                    <ul>
+                                        <li>Price: <field name="preco_custo" ></field></li>
+                                    </ul>
+                                    <div name="tags"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="sequ_art" model="ir.sequence">
+            <field name="name">Produto</field>
+            <field name="code">art.codigo</field>
+            <field name="prefix"></field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="form_all_artigo_tree_view" model="ir.ui.view">
+           <field name="name">artigo.tree.view </field>
+           <field name="model">artigo.artigo</field>
+           <field name="arch" type="xml">
+               <tree>
+                   <field name="name"/>
+                   <field name="familia_id"/>
+                   <field name="sub_familia_id"/>
+                   <field name="descricao_sintetica"/>
+                   <field name="codigo_de_bara"/>
+                   <field name="unidade_movimento_id"/>
+                   <field name="iva_id"/>
+                   <field name="adiantamento_de_clientes"/>
+                   <field name="recebimento_por_contra_de_outrem"/>
+                   <field name="conta_artigo_id"/>
+                   <field name="centro_custo_id"/>
+                   <field name="conta_iva_id"/>
+                   <field name="fluxo_de_caixa_id"/>
+                   <field name="codigo_iva_id"/>
+               </tree>
+           </field>
+        </record>
+        <record model="ir.actions.act_window" id="parametros.action_window_prod">
+          <field name="name">Artigo </field>
+          <field name="res_model">artigo.artigo</field>
+          <field name="view_mode">kanban,tree,form</field>
+          <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                 Criar um novo Produtos/Artigo.
+             </p><p>
+               Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Produtos/Artigo) para projetos internos, pessoais ou de clientes.
+             </p>
+          </field>
+        </record>
+        <menuitem name="Artigos " id="parametros.menu_produtoart_list" parent="fastgest_vend" action="parametros.action_window_prod"/>
+    </data>
+</odoo>

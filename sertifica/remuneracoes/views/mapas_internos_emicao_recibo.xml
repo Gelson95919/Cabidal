@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="emicao_recibo_form" model="ir.ui.view">
+           <field name="name">Emissão Recibo</field>
+           <field name="model">emicao.recibo</field>
+           <field name="arch" type="xml">
+               <form string="Emissão Recibo">
+                   <sheet>
+                       <div><label for="title" string="EMISSÃO RECIBO" style="font-weight: bold;color:blue;"/></div>
+                       <div><label for="title" style="width:10px" string=""/> </div>
+                       <div>
+                           <label for="title" string="Data"/>
+                           <field name="data" style="width:260px"/>
+                           <label for="title" style="width:260px" string="" />
+                           <field name="por"/>
+                           <label for="title" string="Por Area Departamento"/>
+                           <field name="area_departamento" style="width:260px" nolabel="1" attrs="{'invisible':[('por','!=', True)]}"/>
+                       </div>
+                       <div><label for="title" string="" style="width:20px"/> </div>
+                       <div>
+                           <label for="title" string="Funcionário" style="color:Blue; font-weight: bold;"/>
+                       </div>
+                       <div>
+                           <label for="title" string="De"/>
+                           <field name="de_funcionario_id" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Ate"/>
+                           <field name="ate_funcionario_id" style="width:260px"/>
+                       </div>
+                       <div><label for="title" style="width:10px" string=""/></div>
+                       <header>
+                           <button name="gerar" type="object" string="Gerar" icon="fa-gears" style="font-size:20px;color:blue;"/>
+                        </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="emicao_recibo_act_window" model="ir.actions.act_window">
+           <field name="name">Emissão Recibo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">emicao.recibo</field>
+           <field name="view_id" ref="emicao_recibo_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="emicao_recibo_menu" name="Emissão Recibo" parent="menu_mapas_internos" action="emicao_recibo_act_window" sequence="80"/>
+    </data>
+</odoo>

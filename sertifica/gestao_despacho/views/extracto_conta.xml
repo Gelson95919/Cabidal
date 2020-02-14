@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="extracto_conta_form" model="ir.ui.view">
+           <field name="name">Extracto de Conta</field>
+           <field name="model">extracto.conta</field>
+           <field name="arch" type="xml">
+               <form string="Extracto Conta">
+                   <sheet>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                           <label for="title" string="Numero"/>
+                           <field name="numero" style="width:100px"/>
+                           <label for="title" string="" style="width:200px"/>
+                           <field name="doc_tesoura"/>
+                           <label for="title" string="Doc Tesouraria"/>
+                           <label for="title" string="" style="width:20px"/>
+                           <field name="doc_cta_cte"/>
+                           <label for="title" string="Doc Cta.Cte"/>
+                           <label for="title" string="" style="width:20px"/>
+                           <field name="doc_autorizado"/>
+                           <label for="title" string="Doc Autorizado"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Terceiro"/>
+                           <field name="terceiro_id" style="width:600px"/>
+                           <label for="title" string="" style="width:20px"/>
+                            <label for="title" string="Data"/>
+                           <field name="data" style="width:100px"/>
+                       </div>
+                       <div>
+                           <field name="factura_definitiva_ids" style="width:1070px">
+                              <tree editable="bottom" string=""  delete="false" create="false" default_order = "write_date asc">
+                                 <field name="doc_tesoura"/>
+                                  <field name="doc_tesoura"/>
+                                  <field name="doc_tesoura"/>
+                                  <field name="doc_tesoura"/>
+                                  <field name="doc_tesoura"/>
+                                  <field name="doc_tesoura"/>
+                              </tree>
+                           </field>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+
+       <record id="" model="ir.ui.view">
+           <field name="name"></field>
+           <field name="model"></field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+
+       <record id="" model="ir.actions.act_window">
+           <field name="name"></field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model"></field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="UNIQUE_ID_categ" name="" parent="" action="" sequence=""/>
+
+    </data>
+</odoo>

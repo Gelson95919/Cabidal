@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="tipo_socios_form" model="ir.ui.view">
+           <field name="name">Tipo Sócios</field>
+           <field name="model">tipo.socios</field>
+           <field name="arch" type="xml">
+               <form string="Tipo Sócios">
+                   <sheet>
+                       <group>
+                            <field name="name" style="width:840px"/>
+                       </group>
+                       <div>
+                           <label for="title" string="Valor Joia"/>
+                           <label for="title" string="____________"  style="color:White;"/>
+                           <field name="valor_joia" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Quota Mensal"/>
+                           <field name="quota_menasl" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Cod.Faturação"/>
+                           <label for="title" string="________"  style="color:White;"/>
+                           <field name="cod_faturacao" style="width:260px"/>
+                           <label for="title" string="_______________________________"  style="color:White;"/>
+                           <label for="title" string="Conta"/>
+                           <label for="title" string="______"  style="color:White;"/>
+                           <field name="conta" style="width:260px"/>
+                       </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="tipo_socios_tree" model="ir.ui.view">
+           <field name="name">Tipo Sócios</field>
+           <field name="model">tipo.socios</field>
+           <field name="arch" type="xml">
+               <tree string="Tipo Sócios">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="tipo_socios_act_window" model="ir.actions.act_window">
+           <field name="name">Tipo Sócios</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">tipo.socios</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Criar um novo Tipo Sócios.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Tipo Sócios) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="tipo_socios_menu" name="Tipo Sócios" parent="fastgest_gest_socios" action="tipo_socios_act_window" sequence="80"/>
+    </data>
+</odoo>

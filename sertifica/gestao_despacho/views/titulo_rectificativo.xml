@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="titulo_rectificativo_form" model="ir.ui.view">
+           <field name="name">TCE-Titulo Rectificativo</field>
+           <field name="model">titulo.rectificativo</field>
+           <field name="arch" type="xml">
+               <form string="TCE-Titulo Rectificativo">
+                   <sheet>
+                       <div><label for="title" string="DIRECÇÃO-GERAL DO COMÉRCIO"/></div>
+                       <div><label for="title" string=""/> </div>
+                       <div>
+                          <label for="title" string="" style="width:450px"/>
+                          <label for="title" string="TCE - TÍTULO RECTIFICATIVO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="REQUERENTE" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nome" style="width:60px"/>
+                          <field name="nome" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Endereço"/>
+                          <field name="endereco" style="width:600px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Ramo de actividade"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="ramo_de_actividade" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Alvará Nº" style="width:60px"/>
+                          <field name="alvara" style="width:260px"/>
+                          <label for="title" string="" style="width:65px"/>
+                          <label for="title" string="NIF"/>
+                          <field name="nif" style="width:250px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Telefone" style="width:60px"/>
+                          <field name="telefone" style="width:260px"/>
+                          <label for="title" string="" style="width:65px"/>
+                          <label for="title" string="Fax"/>
+                          <field name="fax" style="width:250px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="E-mail" style="width:60px"/>
+                          <field name="e_mail" style="width:605px"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="DESIGNAÇÃO DA OPERAÇÃO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div><label for="title" string="" style="width:200px"/><field name="designacao_operacao" style="width:670px"/></div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="RECTIFICAÇÃO AO TCE" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº"/>
+                          <field name="numero" style="width:260px"/>
+                          <label for="title" string="" style="width:100px"/>
+                          <label for="title" string="Emitido em"/>
+                          <field name="emitido_em" style="width:215px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="registro_previo"/>
+                          <label for="title" string="Registro Prévio"/>
+                          <label for="title" string="" style="width:255px"/>
+                          <field name="autorizacao_previa" />
+                          <label for="title" string="Autorização Prévia"/>
+                      </div>
+                      <div><label for="title" string=""/> </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="NATUREZA DE RECTIFICAÇÃO" style="font-weight: bold; color:blue"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:230px"/>
+                          <field name="prorrogacao"/>
+                          <label for="title" string="Prorrogração"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:250px"/>
+                          <field name="dias_30"/>
+                          <label for="title" string="30 dias" style="width:305px"/>
+                          <field name="rectificacao"/>
+                          <label for="title" string="Rectificação" style="width:200px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:250px"/>
+                          <field name="dias_40"/>
+                          <label for="title" string="45 dias" style="width:305px"/>
+                          <field name="para_pagamento"/>
+                          <label for="title" string="Para Pagamento"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:250px"/>
+                          <field name="dias_6o"/>
+                          <label for="title" string="60 dias" style="width:305px"/>
+                          <field name="para_despacho"/>
+                          <label for="title" string="Para Despacho"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:250px"/>
+                          <field name="dias_90"/>
+                          <label for="title" string="90 dias" style="width:305px"/>
+                          <field name="substituicao"/>
+                          <label for="title" string="Subtituiação"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Outra(especificar)"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="outra_especificar" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Onde se lê"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="onde_se_le" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Devi-se ler"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="devese_ler" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Observações(motivo de pedido de rectificação)"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <field name="observacoes" style="width:670px"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Declaro que assumo a responsabilidade das declarações prestadas"/>
+                      </div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Data"/>
+                          <field name="dadta" style="width:100px"/>
+                      </div>
+                       <div><label for="title" string="" style="width:100px"/></div>
+                      <div>
+                          <label for="title" string="" style="width:200px"/>
+                          <label for="title" string="Nº Copia"/>
+                          <field name="num_copia" style="width:80px"/>
+                          <label for="title" string="" style="width:450px"/>
+                          <button name="imprimir" string="Imprimir" type="object" icon="fa-print" class="btn-primary"/>
+                      </div>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="titulo_rectificativo_act_window" model="ir.actions.act_window">
+           <field name="name">TCE-Titulo Rectificativo</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">titulo.rectificativo</field>
+           <field name="view_id" ref="titulo_rectificativo_form"/>
+           <field name="target">inline</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="titulo_rectificativo_menu" name="TCE-Titulo Rectificativo" parent="impressos_menu" action="titulo_rectificativo_act_window" sequence="80"/>
+    </data>
+</odoo>

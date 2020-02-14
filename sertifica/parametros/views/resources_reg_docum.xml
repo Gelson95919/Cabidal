@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Adds all assets in Odoo -->
+        <template id="assets_backend" name="parametros assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!-- All links to CSS and JS files should be added in here. -->
+
+                <script type="text/javascript" src="/parametros/static/src/js/refresh.js"></script>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

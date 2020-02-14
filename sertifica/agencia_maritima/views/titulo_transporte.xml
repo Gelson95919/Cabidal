@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="titulo_trasnport_form" model="ir.ui.view">
+           <field name="name">Titulo Transporte</field>
+           <field name="model">transporte</field>
+           <field name="arch" type="xml">
+               <form string="Titulo Transporte">
+                   <sheet>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Agencia/Transitario Destino"/>
+                           <field name="transitari_destino" style="width:600px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Documento_________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Tipo TT" style="width:70px"/>
+                           <field name="tipo_tt_id" style="width:260px"/>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="Referência TT"/>
+                           <field name="referencia_tt" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Fluxo TT" style="width:70px"/>
+                           <field name="fluxo_tt_id" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Resumo Carga____________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Embalagem"/>
+                           <field name="embalagem" style="width:260px"/>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="Nº s" style="width:70px"/>
+                           <field name="numero_s" style="width:260px"/>
+                       </div>
+                       <div>
+                           <label for="title" string="Pesso(Pk)" style="width:70px"/>
+                           <field name="pesso" style="width:260px"/>
+                           <label for="title" string="" style="width:350px"/>
+                           <label for="title" string="Volume(M³)"/>
+                           <field name="volume" style="width:260px"/>
+                       </div>
+                       <div><label for="title" string="Marca"/></div>
+                       <div>
+                           <field name="marca" style="width:1035px"/>
+                       </div>
+                       <div><label for="title" string="Descrição"/></div>
+                       <div>
+                           <field name="descricao" style="width:1035px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Informações Adicionais____________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div>
+                           <field name="informacoes" style="width:1035px"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Interessados________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <field name="interessados_ids" style="width:1070px">
+                               <tree string="Interessado" editable="bottom" >
+                                   <field name="tipo"/>
+                                   <field name="codigo"/>
+                                   <field name="nome"/>
+                               </tree>
+                           </field>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                          <label for="title" style="font-weight: bold; color:blue;" string="Contentores_________________________________________________________________________________________________________________________________________"/>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <field name="contentor_ids" style="width:1070px">
+                               <tree string="Contentores" editable="bottom" >
+                                   <field name="numero_sequencia"/>
+                                   <field name="referencia"/>
+                                   <field name="tipo"/>
+                                   <field name="indicador"/>
+                               </tree>
+                           </field>
+                       </div>
+                       <div><label for="title" string=""/></div>
+                       <div>
+                           <label for="title" string="Valor Frete"/>
+                           <field name="valor_frete" style="width:260px"/>
+                           <label for="title" string="" style="width:300px"/>
+                           <label for="title" string="Moeda"/>
+                           <field name="moeda_id" style="width:260px"/>
+                       </div>
+                       <header>
+                         <button name="ajuda" string="Ajuda" type="object" class="btn-primary" icon="fa-question-circle-o"/>
+                       </header>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="titulo_trasnport_tree" model="ir.ui.view">
+           <field name="name">Titulo Transporte</field>
+           <field name="model">transporte</field>
+           <field name="arch" type="xml">
+               <tree string="Titulo Transporte">
+                   <field name="transitari_destino"/>
+                   <field name="tipo_tt_id"/>
+                   <field name="referencia_tt"/>
+                   <field name="fluxo_tt_id"/>
+                   <field name="embalagem"/>
+                   <field name="numero_s"/>
+                   <field name="pesso"/>
+                   <field name="volume"/>
+                   <field name="marca"/>
+                   <field name="descricao"/>
+                   <field name="informacoes"/>
+               </tree>
+           </field>
+       </record>
+       <record id="titu_trasnport_act_window" model="ir.actions.act_window">
+           <field name="name">Titulo Transporte</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">transporte</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               riar um novo Titulo Transporte.
+             </p><p>
+                Organize suas atividades (planeje tarefas, acompanhe problemas, planilhas de Titulo Transporte) para projetos internos, pessoais ou de clientes.
+             </p>
+           </field>
+       </record>
+       <!-- This Menu Item must have a parent and an action -->
+
+       <menuitem id="titu_trasnport_act_menu" name="Transporte" parent="manifest_sub_menu" action="titu_trasnport_act_window" sequence=""/>
+    </data>
+</odoo>
