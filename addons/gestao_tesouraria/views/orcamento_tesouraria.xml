@@ -175,7 +175,7 @@
             </field>
         </record>
         <menuitem name=" Orçamento Tesouraria " id="menu_orcam_list" parent="gestao_tesouraria.menu_1"
-                  action="action_window_orcamento"/>
+                  action="action_window_orcamento" sequence="8"/>
 
     </data>
 </odoo>

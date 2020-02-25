@@ -73,6 +73,6 @@
            </field>
        </record>
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="menu_consulta_extracto" name="Consulta Extracto" parent="contabilidade.menu_1" action="cons_extracto_act_window" sequence="80"/>
+       <menuitem id="menu_consulta_extracto" name="Consulta Extracto" parent="contabilidade.menu_1" action="cons_extracto_act_window" sequence="4"/>
     </data>
 </odoo>

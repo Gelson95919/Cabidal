@@ -212,6 +212,6 @@
         </record>
         <!-- actions -->
         <menuitem name=" Encontro de Contas " id="menu_encota_list" parent="gestao_tesouraria.menu_1"
-                  action="action_window_encontro"/>
+                  action="action_window_encontro" sequence="6"/>
     </data>
 </odoo>

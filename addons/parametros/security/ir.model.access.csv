@@ -144,6 +144,7 @@ access_cta_cte_assos,cta_cte_assos,model_cta_cte_assos,parametros.group_tabela_u
 access_parametros_parametros,parametros.parametros,model_parametros_parametros,parametros.group_tabela_uso_geral,1,1,1,1
 
 
+access_conta_pae,conta.pae,model_conta_pae,parametros.group_tabela_uso_geral,1,1,1,1
 
 
 

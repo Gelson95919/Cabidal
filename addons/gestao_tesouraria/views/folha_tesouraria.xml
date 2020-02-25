@@ -31,6 +31,6 @@
             </field>
       </record>
        <!-- actions -->
-      <menuitem name="Diarios de Tesouraria " id="menu_folha_tes" parent="gestao_tesouraria.menu_1" action="folha_action_window"/>
+      <menuitem name="Diarios de Tesouraria " id="menu_folha_tes" parent="gestao_tesouraria.menu_1" action="folha_action_window" sequence="5"/>
     </data>
 </odoo>

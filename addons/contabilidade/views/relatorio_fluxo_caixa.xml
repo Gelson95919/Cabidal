@@ -58,6 +58,6 @@
            </field>
        </record>
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="menu_relatorio_fluxo _caixa" name="Relatorio Fluxo Caixa" parent="contabilidade.menu_1" action="relatorio_fluxo_caixa_formact_window" sequence="80"/>
+       <menuitem id="menu_relatorio_fluxo _caixa" name="Relatorio Fluxo Caixa" parent="contabilidade.menu_1" action="relatorio_fluxo_caixa_formact_window" sequence="5"/>
     </data>
 </odoo>

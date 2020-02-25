@@ -20,6 +20,7 @@ class lancamentoDiario(models.Model):
     credito = fields.Float(string="Credito")
     conta_d = fields.Many2one('planconta.planconta', readonly=True, store=True, domain=[('grupo', '=', False)])#, related="centro_custo.nome"
     nome_conta = fields.Char('Descrição', related="conta_d.nome")
+    codigo_conta = fields.Char('Conta', related="conta_d.cod_plan_cont")
     cen_cust_d = fields.Char(string='Centrd Custo', readonly=True, store=True)#, related="centro_custo.nome"
     entidade_d = fields.Char(string='Entidade', readonly=True, store=True, related="terceiro_id_doc_conta_corente_receb.name")#
     cod_terce = fields.Char(string='Terce', readonly=True, store=True, related="terceiro_id_doc_conta_corente_receb.codigo")#
@@ -351,13 +352,12 @@ class detLanc(models.Model):
     _description = 'Detalhes Lançamento'
     #name = fields.Char()
 
-    codigo_conta = fields.Many2one('planconta.planconta', string='Código Conta')
+    codigo_conta = fields.Many2one('planconta.planconta', string='Código Conta', domain=[('grupo', '=', False)])
     deb_cred = fields.Char(string='Deb/Cred')
     descritivo = fields.Char(string='Descritivo')
     descricao_conta = fields.Char(string='Descrição conta', related="codigo_conta.nome")
-    centro_custo = fields.Many2one('planconta.planconta', string='Centro Custo')
+    centro_custo = fields.Many2one('planteso.planteso', string='Centro Custo')
     codigo_entidade = fields.Char(string='Codigo Entidade',)
-    leva_terce = fields.Boolean(string="Leva Terceiro", related='codigo_conta.leva_terce')
 
     fluxo_caixa = fields.Many2one('planteso.planteso', string='Fluxo Caixa')
     valor_credito = fields.Integer(string='Valor')#Valor de debito e de credito
@@ -374,6 +374,11 @@ class detLanc(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('open', 'Open'), ('paid', 'Paid'), ('cancel', 'Cancelled'), ],
                              string='Status', index=True, readonly=True, default='draft', track_visibility='onchange',
                              copy=False)
+    leva_terce = fields.Boolean(string="Leva Terceiro", related='codigo_conta.leva_terce')
+    leva_moeda_estrangeira = fields.Boolean(string='Leva Moeda Estrangeira', related='codigo_conta.leva_moeda_estrangeira')
+    leva_centro_custo = fields.Boolean(string='Leva Centro Custo', related='codigo_conta.leva_centro_custo')
+    lev_fluxo_caixa = fields.Boolean(string='Fluxo Caixa', related='codigo_conta.fluxo_caixa')
+    control_IVA = fields.Boolean(string='Control IVA', related='codigo_conta.control_IVA')
 
     @api.model
     def create(self, vals):

@@ -37,12 +37,3 @@ access_relatorio_fluxo_caixa,relatorio.fluxo.caixa,model_relatorio_fluxo_caixa,b
 access_relatorio_fluxo_caixa,relatorio.fluxo.caixa,model_relatorio_fluxo_caixa,contabilidade.group_gest_fiscal,1,1,1,1
 
 
-access_reg_razao,relatorio.ob_2,model_ob_2,contabilidade.group_gest_fiscal,1,1,1,1
-
-
-access_reg_razao,reg.razao,model_reg_razao,contabilidade.group_gest_fiscal,1,1,1,1
-access_mae_razao,mae.razao,model_mae_razao,contabilidade.group_gest_fiscal,1,1,1,1
-
-access_razao_atualizado,razao.atualizado,model_razao_atualizado,contabilidade.group_gest_fiscal,1,1,1,1
-
-

@@ -153,7 +153,6 @@
                         <div>
                             <field name="type_docum" style="width:155px" invisible="1"/>
                         </div>
-
                         <div>
                             <field name="contabilizado" attrs="{'readonly': [('origem','=', True)]}"/>
                             <label for="title" string="Contabilizado"/>
@@ -165,7 +164,6 @@
                             <field name="numero" style="width:155px"  attrs="{'readonly': [('origem','=', True)]}"/>
                             <label for="title" string="" style="width:50px"/>
                             <button name="ver_contabilidade" string="()" type="object" class="btn-primary" attrs="{'invisible': [('origem','=', True)]}"/>
-
                         </div>
                     </sheet>
                 </form>
@@ -180,12 +178,12 @@
                     <field name="CMOVINT"/>
                     <field name="id"/>-->
                     <field name="CNUMFEC"/>
-                    <field name="cheque" invisible="context.get ('type_docum')!= 'movimento'"/>
-                    <field name="cod_terceiro" invisible="context.get ('type_docum') != 'pagamento'"/>
-                    <field name="CNOMTER" invisible="context.get ('type_docum')!= 'pagamento'"/>
-                    <!--<field name="nome_terceiro" invisible="context.get ('type_docum')!= 'pagamento'"/>-->
-                    <field name="montante_pago" invisible="context.get ('type_docum')!= 'pagamento'"/>
-                    <field name="valor_total_pag"/>
+                    <field name="cheque"/>
+                    <field name="cod_terceiro"/>
+                    <field name="CNOMTER"/>
+                    <!--<field name="nome_terceiro" invisible="context.get ('type_docum')!= 'pagamento'"/>
+                    <field name="valor_total_pag"/>-->
+                    <field name="montante_pago"/>
                     <field name="date"/>
                     <field name="detalhes"/>
                     <field name="conta"/>
@@ -239,7 +237,7 @@
 
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="pagamento_menu" name="Pagamentos" parent="gestao_tesouraria.menu_1"
-                  action="pagame_act_window2" sequence="80"/>
+                  action="pagame_act_window2" sequence="1"/>
 
         <record id="det_teso_pag_form" model="ir.ui.view">
             <field name="name">Det paga</field>

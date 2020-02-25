@@ -176,7 +176,7 @@
             </field>
         </record>
         <menuitem id="movimento_int_menu" name="Movimento Interno" parent="gestao_tesouraria.menu_1"
-                  action="movim_inter_act_window" sequence="80"/>
+                  action="movim_inter_act_window" sequence="3"/>
 
     </data>
 </odoo>

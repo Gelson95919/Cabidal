@@ -138,7 +138,7 @@
             <field name="codigo">000</field>
             <field name="nif_pessoa">999999999</field>
             <field name="fixo_pessoa">9591972</field>
-            <field name="controlo">false</field>
+            <field name="controlo">True</field>
             <field name="telefone_pessoa">9591972</field>
         </record>
         <record id="form_all_terce_tree_view" model="ir.ui.view">
@@ -235,7 +235,7 @@
             <field name="name">Terceiro</field>
             <field name="res_model">terceiro.terceiro</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="domain">[('controlo','=',False)]</field>
+            <field name="domain">[('controlo','=',false)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Criar um novo Terceiro.

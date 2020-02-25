@@ -123,6 +123,6 @@
            </field>
        </record>
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="menu_configura_processo" name="Configurar Processo" parent="contabilidade.menu_1" action="act_window_configura_processo" sequence="80"/>
+       <menuitem id="menu_configura_processo" name="Configurar Processo" parent="contabilidade.menu_1" action="act_window_configura_processo" sequence="6"/>
     </data>
 </odoo>

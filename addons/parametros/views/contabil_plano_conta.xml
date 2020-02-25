@@ -6,8 +6,8 @@
             <field name="arch" type="xml">
                 <form string="Plano Conta ">
                     <!--<header>
-                        <button name="my_action" string="Fechar Ata"
-                                type="object" icconfirm="Tem certeza de que deseja continuar?" on="fa-lock"
+                        <button name="def_len_conta" string="Teste Val"
+                                type="object"
                                 class="btn-primary"/>
                     </header>-->
                     <sheet>
@@ -22,14 +22,16 @@
                             <field name="estrutura" force_save = "1" invisible="1"/>
                             <field name="eliment_estr" force_save = "1" invisible="1"/>
                             <field name="esnumerico" force_save = "1" invisible="1"/>
-                            <field name="exist_mae" force_save = "1" invisible="1"/>
+                            <field name="no_exist_mae" force_save = "1" invisible="1"/>
                             <field name="pronto" force_save = "1" invisible="1"/>
                             <field name="filho_de" force_save = "1" invisible="1"/>
                         </div>
                         <div>
                             <label for="title" string="Descrição"/>
                             <field name="nome" style="width:500px"/>
-
+                            <field name="novo_plan" style="width:50px" invisible="1"/>
+                            <field name="mae" style="width:50px" invisible="1"/>
+                            <field name="conta_mae" style="width:50px" invisible="1"/>
                         </div>
                         <notebook>
                             <page string="Parâmetros">
@@ -37,7 +39,7 @@
                                     <label for="title" string="" style="width:6px"/>
                                 </div>
                                 <div>
-                                    <field name="grupo" attrs="{'readonly': [('pronto', '=', True)]}"/>
+                                    <field name="grupo" readonly="1" attrs="{'readonly': [('pronto', '=', True)]}"/>
                                     <label for="title" string="Grupo" style="width:680px"/>
                                     <field name="leva_terce"  attrs="{'readonly': [('pronto', '=', True)]}"/>
                                     <label for="title" string="Leva Terceiro" style="width:150px"/>
@@ -96,8 +98,9 @@
                 <tree string="Plano Conta">
                     <field name="cod_plan_cont"/>
                     <field name="nome"/>
-                    <field name="id"/>
-                    <field name="mud_id"/>
+                    <field name="estruturas_Contas"/>
+                    <field name="grupo"/>
+                    <!--<field name="mae"/>-->
                 </tree>
             </field>
         </record>

@@ -60,6 +60,6 @@
             </field>
         </record>
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="menu_gerar_contabilidade" name="Gerar Contabilidade"  parent="contabilidade.menu_1" action="act_windowgerar_contabil" sequence="80"/>
+        <menuitem id="menu_gerar_contabilidade" name="Gerar Contabilidade"  parent="contabilidade.menu_1" action="act_windowgerar_contabil" sequence="7"/>
     </data>
 </odoo>

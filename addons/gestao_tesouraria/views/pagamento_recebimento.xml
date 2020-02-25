@@ -327,7 +327,7 @@
                             <label for="title" string="Diario"/>
                             <field name="diario" style="width:155px"/>
                             <label for="title" string="" style="width:50px"/>
-                            <label for="title" string="Numero"/>
+                            <label for="title" string="Numero" />
                             <field name="numero" style="width:155px"/>
                             <label for="title" string="" style="width:50px"/>
                             <button name="action_quotation_send" string="()" type="object" class="btn-primary"/>

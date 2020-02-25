@@ -11,10 +11,10 @@ class planconta(models.Model):
      _name = 'planconta.planconta'
      _description = 'Plano Conta'
      _rec_name = 'cod_plan_cont'
-     _order = "filho_de asc"
+     _order = "id"
      nome = fields.Char('Descrição')
      cod_plan_cont = fields.Char(string="Conta", size=11)#, required=True
-     grupo = fields.Boolean(string='Grupo')
+     grupo = fields.Boolean(string='Grupo', readonly=True)
      leva_terce = fields.Boolean(string='Leva Terceiro')
      leva_moeda_estrangeira = fields.Boolean(string='Leva Moeda Estrangeira')
      gestao_credito = fields.Boolean(string='Gestão Credito')
@@ -22,10 +22,10 @@ class planconta(models.Model):
      fluxo_caixa = fields.Boolean(string='Fluxo Caixa')
      control_IVA = fields.Boolean(string='Control IVA')
      IVA_id = fields.Many2one('iva.iva', string='IVA')
-     estruturas_Contas = fields.Char(string='Estruturas de Contas', size=11)#, required=True
+     estruturas_Contas = fields.Char(string='Estruturas de Contas')#, required=True
      control_imputa_centro_custo = fields.Boolean(string='Control Imputações - Centro de Custo')
-     natureza_conta = fields.Selection([('0', 'Neutro'), ('1', 'Devedor'), ('2', 'Criador')], 'Natureza de Conta')#, required=True
-     natureza_saldo = fields.Selection([('0', 'Neutro'), ('2', 'Creador'), ('1', 'Devedor')], 'Natureza de Saldo')#, required=True
+     natureza_conta = fields.Selection([('0', 'Neutro'), ('1', 'Devedor'), ('2', 'Criador')], 'Natureza de Conta', default='0')#, required=True
+     natureza_saldo = fields.Selection([('0', 'Neutro'), ('2', 'Creador'), ('1', 'Devedor')], 'Natureza de Saldo', default='0')#, required=True
      contabilidade_analitica = fields.Boolean(string="Contabilidadeanalitica")
 
      conta = fields.Char(string="Conta Unic", store=True)#este campo serve para verificar se esiste outra conta
@@ -33,6 +33,10 @@ class planconta(models.Model):
      _sql_constraints = [('conta_unique', 'unique(conta)', 'Conta ja existe!')]
      utilizador_id = fields.Many2one('res.users', string="Utilizador", default=lambda self: self.env.user)
      mud_id = fields.Boolean(string="Mudar ID", default=True)
+     pronto = fields.Boolean(string='Pronto', store=True)                                #, compute='con_exist'
+     no_exist_mae = fields.Boolean(string='Existe mae', store=True)
+
+
 
      #============Campos de controlo========================================================================
      control_cod_comp = fields.Char(string="Control Código",)                            #, compute='control_cod',  required=True
@@ -40,277 +44,246 @@ class planconta(models.Model):
      sub_filho = fields.Char(string='Sub Filho',  store=True)                            #compute='ver_conta',
      tama_estru = fields.Integer(string='Tamanho estrutura', store=True)                 #, compute='chekStrutur'
      esnumerico = fields.Boolean(string='Estrutura', store=True)                         #, compute='ver_conta'
-     exist_mae = fields.Boolean(string='Existe mae', store=True)                         #, compute='ver_conta'
      eliment_estr = fields.Boolean(string='Eliment Estrutura', store=True)               #, compute='ver_eliment_strutuConta'
-     pronto = fields.Boolean(string='Pronto', store=True)                                #, compute='con_exist'
+     novo_plan = fields.Boolean(string="Plano Novo")                                     #se é o novo plano de conta torna-se True
+     mae = fields.Boolean(string="Mae")                                                        #este campo muda constantemente
+     conta_mae = fields.Char(compute="valida_estrot_cont")
      #=======================================================================================================#
 
-     """
-      @api.model
+
+     @api.model
      def create(self, vals):
          res = super(planconta, self).create(vals)
-         res.con_exist()
+         res.torn_grup()
          return res
-
 
      @api.multi
      def write(self, vals):
-
+         self.torn_grup()
+         cont_dif = self.cod_plan_cont
+         cod_con = str(cont_dif)
+         c = cod_con[0]
+         val = {}
+         self.env['ir.rule'].clear_cache()
+         raza = self.env['lancamento_diario.lancamento_diario'].search([('codigo_conta', '=', self.cod_plan_cont)])
+         if raza:
+             raise ValidationError('Esta conta ja foi movimentado.')
+         else:
+             if 'estruturas_Contas' in vals: val['estruturas_Contas'] = vals['estruturas_Contas']
+             campo = self.env['conta.pae'].search([('cod_plan_cont', '=', c)])
+             campo.write(val)
          obg = super(planconta, self).write(vals)
-
          return obg
 
-     @api.constrains('estrutura', 'eliment_estr', 'esnumerico', 'exist_mae')#verificação final
+     @api.constrains('cod_plan_cont')
      def cont_exist(self):
-         if self.exist_mae == True:
-             pass
-         else:
-             raise ValidationError("Esta conta ainda não pode ser criada!")
+          exsist_cont = self.search([['id', '!=', self.id]]).mapped('cod_plan_cont')
+          if self.cod_plan_cont and self.cod_plan_cont in exsist_cont:
+              raise ValidationError('Já Existe...')
+          if self.no_exist_mae == True:
+             raise ValidationError('Esta conta ainda não pode ser criado.')
 
-         if self.estrutura == True and self.eliment_estr == True:
-             pass
-         else:
-             raise ValidationError("Conta tem deferente estrutura da conta mãe!")
+     @api.onchange('estruturas_Contas')
+     def up_estrut(self):
+         if self.estruturas_Contas:
+             val_up = str(self.estruturas_Contas)
+             self.estruturas_Contas = val_up.upper()
+             estr = self.estruturas_Contas
+             est = str(estr)
+             for c in est:
+                 if c == '..':
+                     raise ValidationError('A estrutura está mal definido! ".."')
+             estrutur = estr.split('.')
+             pon = max(enumerate(estr))
+             p = pon[1]
+             pont = str(p)
+             if pont != '.':
+                raise ValidationError('Adiciona um ponto no final da estrutura! "."')
 
-         if self.esnumerico == True:
-             pass
-         else:
-             raise ValidationError("Esta conta não é um numero!")
 
 
-
-     @api.onchange("cod_plan_cont")
-     def control_cod(self):
-         self.control_cod_comp = self.cod_plan_cont
-         #self.chekStrutur()
-
-     @api.onchange("cod_plan_cont")
-     def chekStrutur(self):#identifica se a estrutura se e mae ou filho
-
-         cod_def = self.cod_plan_cont
-         cod_def_str = str(cod_def)
-         list_mae = []
-
-         count = 0
-         for item in cod_def_str:
-             list_mae.append(item)
-             count += 1
-         if count == 1: #estrutura mae     "Se o campo cod_plan_cont tem um digito"
-             self.filho_de = self.cod_plan_cont
-
-         if count > 1:#estrutura Filho      "Se o campo cod_plan_cont tem mais de que um digito"
-             self.filho_de = cod_def_str[0]
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.filho_de)])
-             if plano:
-                self.estruturas_Contas = plano.estruturas_Contas #preenche o campo estrutura
-             else:
-                 self.estruturas_Contas = ''
      @api.onchange('cod_plan_cont')
-     def ver_estru(self):#ver se a estrutura filha e igual a estrutura mae
-         conta = str(self.cod_plan_cont)
-         list_fatias = []
-         cont_item = 0
-         for w in conta:
-             list_fatias.append(w)
-             cont_item += 1
-         if cont_item > 1:
-             if (conta.isnumeric()) == True:
-                 plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.filho_de)])
-                 if plano:
-                     for rec in plano:
-                         if self.tama_estru < rec.tama_estru:
-                             warning = {
-                                 'title': _('ERRO!'),
-                                 'message': _('Conta tem deferente estrutura da conta mãe'),
-                             }
-                             return {'warning': warning}
-                             #raise ValidationError("Conta tem deferente estrutura da conta mae")
-                         else:
-                             #pass
-                             #estrutura verdadeiro
-                             if (conta.isnumeric()) == True:
-                                self.estrutura = True
-                 #else:
-                 #       warning = {
-                 #                'title': _('ERRO!'),
-                 #                'message': _('Esta conta ainda não tem Conta mãe! (Mal estruturada)'),
-                 #            }
-                 #       return {'warning': warning}
-                        #raise ValidationError("Esta conta ainda não pode ser criada! (Mal estruturada)")
-         else:
-             if (conta.isnumeric()) == True:
-                self.estrutura = True
+     def valida_estrot_cont(self):
+
+         if self.cod_plan_cont:
+             cod = self.cod_plan_cont
+             codig = str(cod)
+             lista = [] #esta lista serve para ver plano de conta Novo ou velho
+             for c in codig:
+                 lista.append(c)
+             if len(lista) > 1:
+                if lista[1] == '0' and len(lista) == 2:
+                    self.novo_plan = True #No plano de conta novo comessa com o 10 mas des não e uma conta inicial quando e asim não valida ese conta
+             if self.novo_plan == False:
+
+                 cont_dif = self.cod_plan_cont
+                 try:
+                     val = int(cont_dif)
+                     self.esnumerico = True  # Se a conta é numerico
+                 except ValueError:
+                     if cont_dif:
+                         warning = {
+                             'title': _('ERRO!'),
+                             'message': _('Esta conta não é um numero!' ' ' + str(cont_dif)),
+                         }
+                         return {'warning': warning}
+                     else:
+                         pass
+
+                 len_cod_ccont = []
+                 len_estrot = []
+                 sep_cod_con = []
+                 cod_separ = []
+                 estrut_sep = []
+                 sep_estrut = []
+                 lista_dados = list()
+                 dados = list()
+                 cont_dif = self.cod_plan_cont
+                 cod_con = str(cont_dif)
+                 item = 0
+                 c = cod_con[0]
+                 for i in cod_con:
+                     len_cod_ccont.append(i)
+                     item += 1
+                 if item == 1:
+                     self.exist_mae = True  # e a conta mae
+                     self.mae = True
+                     self.conta_mae = self.cod_plan_cont
+                 nun = max(enumerate(len_cod_ccont))
+                 n = nun[0]
+                 nume = int(n)
+                 if item > 1:
+
+                    #pl = self.env['planconta.planconta'].search([('mae', '=', True)])
+                    p = self.env['conta.pae'].search([('cod_plan_cont', '=', c)])
+                    pestr = p.estruturas_Contas
+                    c_cod_c = p.cod_plan_cont
+                    c_cod_cont = str(c_cod_c)
+                    estrot = str(pestr)
+                    p_estrutur = estrot.split('.')
+                    p_estrutur.pop()
+                    for k, v in enumerate(p_estrutur):
+                        len_estrot.append(v)
+                    cont = 0 #conta o digitos de campo estrutura
+                    for ke, ve in enumerate(p_estrutur):
+                        for e, l in enumerate(p_estrutur[ke]):
+                             if cont <= nume:
+                                sep_estrut.append(l)
+                                co = len_cod_ccont[cont]
+                                sep_cod_con.append(co)
+                                dados.append(co)
+                                cont += 1
+                        lista_dados.clear()
+                        estrut_sep.append((sep_estrut[:]))
+                        cod_separ.append((sep_cod_con[:]))
+                        lista_dados.append((dados[:]))
+                        sep_cod_con.clear()
+                        sep_estrut.clear()
+                        if len(cod_separ) != len(estrut_sep):
+                            raise ValidationError('Esta conta esta mal estruturada.')
+                        #dados.clear()
+                        cd = ''.join(lista_dados[0])
+                        cod_cont = str(cd)
+                        self.control_cod_comp = cod_cont
+                        if len(len_cod_ccont) > cont:
+                           pl = self.env['planconta.planconta'].search(
+                               [('cod_plan_cont', '=', self.control_cod_comp)])
+                           if not pl:
+                               warning = {
+                                   'title': _('Atenção!'),
+                                   'message': _(
+                                       'Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(
+                                           cod_cont) + ' não existe na tabela de acordo com a estrutura.')}
+                               self.estruturas_Contas = ''
+                               self.no_exist_mae = True
+                               return {'warning': warning}
+
+                           else:
+                               if pl.mae == False:
+                                  if len(len_estrot) < len(len_cod_ccont):
+                                      raise ValidationError('Esta conta ainda não pode ser criada, não existe na tabela de acordo com a estrutura.')
+                        if cod_con[0] == c_cod_cont[0]:
+                            self.estruturas_Contas = p.estruturas_Contas
+                        if nume == 1:
+                            self.estruturas_Contas = p.estruturas_Contas
+                            break
 
 
-     @api.onchange('estruturas_Contas', 'natureza_saldo')#Torna a estrutura maiúscula
-     def upStrutuConta(self):
-         val_up = str(self.estruturas_Contas)
-         self.estruturas_Contas = val_up.upper()
-
-
-     @api.onchange('natureza_conta')#Verifica a estrutura se tem elemento deferente de x.
-     def ver_eliment_strutuConta(self):
-         estrutura = ['X', '.', 'X', '.', 'X', '.', 'X', '.', 'X', '.', 'XX', '.', 'XX', '.', 'XX', '.']
-         iten_list = []
-         conta = str(self.cod_plan_cont)
-         estrot_dif = self.estruturas_Contas
-         val = str(estrot_dif)
-         estrot_dif = val.split('.')
-         count = 0
-         for iten in estrot_dif:
-             iten_list.append(iten)
-             for eliment in iten_list:
-                 if eliment not in 'X.XX':
-                     warning = {
-                         'title': _('ERRO!'),
-                         'message': _('Erro na estrutura de conta!, elimento ivalido na estrutura'),
-                     }
-                     return {'warning': warning}
-                 else:
-                     if (conta.isnumeric()) == True:
-                        self.eliment_estr = True #se elimento e x.
-                     #pass
-             count += 1
-         self.tama_estru = count  #O tamanho da estrutura
-
-     #@api.one
-     @api.onchange('nome')  # Verifica a conta
-     def ver_conta(self):
-         #self.ensure_one
-         list_fatias = []
+     def torn_grup(self):
+         self.ensure_one()
+         len_cod_ccont = []
+         sep_cod_con = []
+         cod_separ = []
+         estrut_sep = []
+         sep_estrut = []
+         lista_dados = list()
+         dados = list()
          cont_dif = self.cod_plan_cont
-         try:
-             val = int(cont_dif)
-             self.esnumerico = True  # Se a conta é numerico
-         except ValueError:
-             if cont_dif:
-                 warning = {
-                     'title': _('ERRO!'),
-                     'message': _('Esta conta não é um numero!' ' ' + str(cont_dif)),
-                 }
-                 return {'warning': warning}
-             else:
-                 pass
-                 #self.esnumerico = True #Se a conta é numerico
-             #raise ValidationError('Esta conta não é um numero!')
-         element = str(cont_dif)
-         cont_item = 0
-         for w in element:
-             #print(*w)
-             list_fatias.append(w)
-             cont_item += 1
-         #print(list_fatias)
-
-
-         if cont_item == 1:
-             self.exist_mae = True  # se existe conta mae
-
-         elif cont_item == 2:
-             n = 1
-             del list_fatias[n:]
-             sub = ''.join(map(str, list_fatias))
-             self.sub_filho = sub
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.sub_filho)])
-             if not plano:
-                 if (sub.isnumeric()) == True:
-                     warning = {
-                         'title': _('Aviso!'),
-                         'message': _('Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(sub) + ' não existe na tabela de acordo com a estrutura.'),
-                     }
-                     return {'warning': warning}
-
-                 else:
-                    pass
-             else:
-                 self.exist_mae = True  # se existe conta mae
-
-         elif cont_item == 3:
-             n = 2
-             del list_fatias[n:]
-             sub = ''.join(map(str, list_fatias))
-             self.sub_filho = sub
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.sub_filho)])
-             if not plano:
-                 if (sub.isnumeric()) == True:
-                     warning = {
-                         'title': _('Aviso!'),
-                         'message': _('Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(
-                             sub) + ' não existe na tabela de acordo com a estrutura.'),
-                     }
-                     return {'warning': warning}
-                 else:
-                     pass
-
-             else:
-                 self.exist_mae = True  # se existe conta mae
-
-         elif cont_item == 4:
-             n = 3
-             del list_fatias[n:]
-             sub = ''.join(map(str, list_fatias))
-             self.sub_filho = sub
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.sub_filho)])
-             if not plano:
-                 if (sub.isnumeric()) == True:
-                     warning = {
-                         'title': _('Aviso!'),
-                         'message': _('Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(
-                             sub) + ' não existe na tabela de acordo com a estrutura.'),
-                     }
-                     return {'warning': warning}
-                 else:
-                     pass
-
-             else:
-                 self.exist_mae = True  # se existe conta mae
-
-         elif cont_item == 5:
-             n = 4
-             del list_fatias[n:]
-             sub = ''.join(map(str, list_fatias))
-             self.sub_filho = sub
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.sub_filho)])
-             if not plano:
-                 if (sub.isnumeric()) == True:
-                     warning = {
-                         'title': _('Aviso!'),
-                         'message': _('Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(
-                             sub) + ' não existe na tabela de acordo com a estrutura.'),
-                     }
-                     return {'warning': warning}
-                 else:
-                     pass
-
-             else:
-                 self.exist_mae = True  # se existe conta mae
-
-
-         elif cont_item >= 6:
-             n = 5
-             del list_fatias[n:]
-             sub = ''.join(map(str, list_fatias))
-             self.sub_filho = sub
-             plano = self.env['planconta.planconta'].search([('cod_plan_cont', '=', self.sub_filho)])
-             if not plano:
-                 if (sub.isnumeric()) == True:
-                     warning = {
-                         'title': _('Aviso!'),
-                         'message': _('Esta conta ainda não pode ser criada!\n' + 'Conta ' + str(
-                             sub) + ' não existe na tabela de acordo com a estrutura.'),
-                     }
-                     return {'warning': warning}
-                 else:
-                     pass
-
-             else:
-                 self.exist_mae = True  # se existe conta mae
-
-
-     def con_exist(self):
-         self.conta = self.cod_plan_cont
-         self.pronto = True"""
+         cod_con = str(cont_dif)
+         c = cod_con[0]
+         item = 0
+         for i in cod_con:
+             len_cod_ccont.append(i)
+             item += 1
+         nun = max(enumerate(len_cod_ccont))
+         n = nun[0]
+         nume = int(n)
+         p = self.env['conta.pae'].search([('cod_plan_cont', '=', c)])
+         pestr = p.estruturas_Contas
+         estrot = str(pestr)
+         pestrutur = estrot.split('.')
+         pestrutur.pop()
+         cod = p.cod_plan_cont
+         if item == 1:
+             if not p:
+                conta_pae = self.env['conta.pae']
+                pae = conta_pae.create(
+                    {'name': self.nome, 'cod_plan_cont': self.cod_plan_cont,
+                     'estruturas_Contas': self.estruturas_Contas, 'plano_conta_id': self.id})
+         if item > 1:
+             if p:
+                   if cod[0] == cod_con[0] and self.estruturas_Contas != p.estruturas_Contas:
+                      pla = self.env['planconta.planconta'].search([('id', '=', p.plano_conta_id)])
+                      pla.mae = False
+                      self.mae = True
+                      pla.grupo = True
+                      name = pla.nome
+                      nome = name.upper()
+                      pla.nome = nome
+             cont = 0  # conta o digitos de campo estrutura
+             for ke, ve in enumerate(pestrutur):
+                    for e, l in enumerate(pestrutur[ke]):
+                        if cont <= nume:
+                           sep_estrut.append(l)
+                           co = len_cod_ccont[cont]
+                           sep_cod_con.append(co)
+                           dados.append(co)
+                           cont += 1
+                    lista_dados.clear()
+                    estrut_sep.append((sep_estrut[:]))
+                    cod_separ.append((sep_cod_con[:]))
+                    lista_dados.append((dados[:]))
+                    sep_cod_con.clear()
+                    sep_estrut.clear()
+                    #dados.clear()
+                    cd = ''.join(lista_dados[0])
+                    cod_cont = str(cd)
+                    if len(len_cod_ccont) > cont:
+                        pl = self.env['planconta.planconta'].search([('cod_plan_cont', '=', cod_cont)])
+                        if pl.grupo == False:
+                           pl.grupo = True
+                           name = pl.nome
+                           nom = name.upper()
+                           pl.nome = nom
 
 
 
-
+class contaPae(models.Model):
+    _name = 'conta.pae'
+    _description = 'Conta pae'
+    name = fields.Char()
+    cod_plan_cont = fields.Char()
+    estruturas_Contas = fields.Char()
+    plano_conta_id = fields.Integer(string="Id plano")
+    _sql_constraints = [('cod_plan_cont_unique', 'unique(cod_plan_cont)', 'Conta ja existe!')]
 

@@ -284,7 +284,7 @@
 
         <menuitem action="gest_tesoura_recebimento_act_window" name="Recebimentos" id="menu_recebimento"
                   parent="gestao_tesouraria.menu_1"
-                  sequence="80"/>
+                  sequence="2"/>
 
         <record id="det_teso_rec_form" model="ir.ui.view">
             <field name="name">Det REC</field>

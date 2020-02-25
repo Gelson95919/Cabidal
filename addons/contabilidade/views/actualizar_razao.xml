@@ -63,7 +63,7 @@
            </field>
        </record>-
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="menu_actualizar_razao" name="Actualizar Razão" parent="contabilidade.menu_1" action="act_window_actualizar_razao" sequence="80"/>
+       <menuitem id="menu_actualizar_razao" name="Actualizar Razão" parent="contabilidade.menu_1" action="act_window_actualizar_razao" sequence="2"/>
 
 
         <!--REPOSICAO DE MOVIMENTO-->
@@ -96,7 +96,7 @@
                            <field name="tipo_doc" nolabel ='1' attrs="{'invisible': [('tipo', '!=', 'documento')]}" style="width:100px"/><!---->
                        </div>
                        <header>
-                           <button name="aceitar" icon="fa-check-square" type="object" string="Aceitar"  class="btn-primary"/>
+                           <button name="aceitar_repor" icon="fa-check-square" type="object" string="Aceitar"  class="btn-primary"/>
                            <button name="action_quotation_send" string="Ajuda" type="object" icon="fa-question-circle" class="btn-primary"/>
                        </header>
                    </sheet>
@@ -118,6 +118,6 @@
                  </p>
                </field>
         </record>
-        <menuitem id="menu_repo_mov" name="Reposição Movimento"  action="action_repose_movimento"  parent="contabilidade.menu_1" sequence="1"/>
+        <menuitem id="menu_repo_mov" name="Reposição Movimento"  action="action_repose_movimento"  parent="contabilidade.menu_1" sequence="3"/>
     </data>
 </odoo>

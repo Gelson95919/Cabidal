@@ -131,6 +131,6 @@
         </record>
         <!-- actions -->
         <menuitem name=" Conta Corrente " id="menu_contcor_list" parent="gestao_tesouraria.menu_1"
-                  action="action_window_cotcorent"/>
+                  action="action_window_cotcorent" sequence="7"/>
     </data>
 </odoo>

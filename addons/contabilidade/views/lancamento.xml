@@ -16,8 +16,11 @@
                         </div>
                         <div>
                             <label for="title" string="Data" style="width:100px"/>
-                            <field name="data" style="width:150px"  attrs="{'invisible': [('dados_antigo','=', True)], 'readonly': [('ver_contab','=', True)]}"/>
-                            <field name="dfecpag" style="width:150px"  attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+                            <field name="data" style="width:150px"
+                                   attrs="{'invisible': [('dados_antigo','=', True)], 'readonly': [('ver_contab','=', True)]}"/>
+                            <field name="dfecpag" style="width:150px"
+                                   attrs="{'invisible': [('dados_antigo','=', False)]}"/>
+
                         </div>
                         <div>
                             <label for="title" string="Ordem" style="width:100px"/>
@@ -41,15 +44,21 @@
                         <div>
                             <field name="lancamento_id" style="width:1095px">
                                 <tree editable="bottomn" string="Lancamento">
+                                    <field name="leva_moeda_estrangeira" invisible="1"/>
+                                    <field name="leva_centro_custo" invisible="1"/>
+                                    <field name="lev_fluxo_caixa" invisible="1"/>
+                                    <field name="control_IVA" invisible="1"/>
+                                    <field name="leva_terce" invisible="1"/>
                                     <field name="codigo_conta"/>
                                     <field name="deb_cred" sum="Debito"/>
                                     <field name="descritivo"/>
-                                    <field name="centro_custo"/>
-                                    <field name="codigo_entidade"/>
-                                    <field name="fluxo_caixa"/>
+                                    <field name="centro_custo" attrs="{'required': [('leva_centro_custo','=', True)]}"/>
+                                    <field name="codigo_entidade" attrs="{'required': [('leva_terce','=', True)]}"/>
+                                    <field name="fluxo_caixa" attrs="{'required': [('lev_fluxo_caixa','=', True)]}"/>
                                     <field name="valor_credito" sum="Credito"/>
-                                    <field name="codigo_iva"/>
-                                    <field name="valor_moeda_estra"/>
+                                    <field name="codigo_iva" attrs="{'required': [('control_IVA','=', True)]}"/>
+                                    <field name="valor_moeda_estra"
+                                           attrs="{'required': [('leva_moeda_estrangeira','=', True)]}"/>
                                     <!--<field name="moeda_estra"/>-->
                                 </tree>
                             </field>
@@ -114,7 +123,7 @@
                     <field name="data"/>
                     <field name="valor"/>
                     <field name="obs"/>
-                     <field name="atualizado"/>
+                    <field name="atualizado"/>
                 </tree>
             </field>
         </record>
@@ -143,6 +152,6 @@
         </record>
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="teste_menu" name="Actualização de Diário" parent="contabilidade.menu_1" action="teste_act_window"
-                  sequence="80"/>
+                  sequence="1"/>
     </data>
 </odoo>

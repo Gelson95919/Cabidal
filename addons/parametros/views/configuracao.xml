@@ -39,22 +39,22 @@
             <field name="variavel">codPrestacao</field>
             <field name="valor">0000000001</field>
         </record>
-        <record id="first_terc_item" model="parametros.parametros">
+        <record id="first_terc_item2" model="parametros.parametros">
             <field name="modulo">MicroCredito</field>
             <field name="variavel">codjuros</field>
             <field name="valor">0000000002</field>
         </record>
-        <record id="first_terc_item" model="parametros.parametros">
+        <record id="first_terc_item3" model="parametros.parametros">
             <field name="modulo">MicroCredito</field>
             <field name="variavel">codDesembolso</field>
             <field name="valor">00001</field>
         </record>
-        <record id="first_terc_item" model="parametros.parametros">
+        <record id="first_terc_item4" model="parametros.parametros">
             <field name="modulo">MicroCredito</field>
             <field name="variavel">codPoupanca</field>
             <field name="valor">00003</field>
         </record>
-        <record id="first_terc_item" model="parametros.parametros">
+        <record id="first_terc_item5" model="parametros.parametros">
             <field name="modulo">MicroCredito</field>
             <field name="variavel">codComicao</field>
             <field name="valor">00002</field>
